@@ -1,0 +1,84 @@
+\chapter{Introduzione}
+Un compilatore \'e un programma che legge un \textbf{linguaggio source} e lo traduce in un \texttt{equilvalente} \textbf{linguaggio di programmazione
+target}. 
+Solitamente il compilatore compila in \texttt{assembly} e poi un \textbf{assembler} produce codice macchina.
+Se il target language e un programma eseguibile pu\'o processare input e produrre output.
+
+Un \textbf{interprete} \'e un altro tipo di language processor, invece di tradurre il linguaggio lo esegue direttamente
+quindi piglia sia il source program che gli input e processa l'output
+
+Infine il \textbf{preprocessore} risolve le macro nel sorgente codificandole in linguaggio nativo (espandendole) prima di compilare.
+
+\begin{quote}
+Solitamente il compilato va pi\'u veloce mentre l`interprete ti da diagnosi piu accurate dato che esegue il codice.
+Nel caso di Java compilo il sorgente in linguaggio intermedio \texttt{bytecode} che poi interpreto sulla JVM.
+\end{quote}
+
+Il \textbf{linker} \lq\lq linka\rq\rq\ assieme moduli e librerie dove ho riferimenti ad altri file (risolve gli indirizzi).
+Il \textbf{loader} invece fa il merge in memoria per l'esecuzione.
+
+%img4
+
+\section{Front-End of the Compiler}
+La \textbf{parte analitica} del processo di compilazione spacca la sorgente in parti costituenti e impone su di esse una struttura 
+grammaticale (stile dtd); sfrutta questa struttura per creare una rappresentazione intermedia.
+Se non passa la validazione grammaticale mi tira errori. Il sorgente viene storicizzato in
+una struttura dati chiamata \textbf{symbol table}. 
+
+\section{Back-End of the Compiler}
+La \textbf{parte di sintesi} invece traduce il sorgente guardando la rappresentazione intermedia e la symbol table;
+le parti di analisi e sintesi sono chiamate anche \textbf{front-end of the copiler} mentre le restanti \textbf{back-end}.
+
+\section{Lexical analysis}
+Fa uno scan e raggruppa le parole in \textbf{lexems}, per ogni lexem genera un \textbf{token} della forma
+
+\begin{center}
+    \texttt{(token name, attribute value)} 
+\end{center}
+
+Il \texttt{token name} \'e un simbolo astratto usato nella syntax analysis
+mentre il \texttt{value} \'e un puntatore alla symbol table entry.\\[5pt]
+
+\textbf{ie)}
+\begin{quote}
+    \texttt{position = initial + rate * 60} diventa \texttt{(id, 1) (=) (id, 2) (+) (id, 3) (*) (60)}\\
+    gli operatori matematici sono simboli astratti che non hanno attribute value (?non sono referenziati nella symbol table?).
+\end{quote}
+
+%img7
+
+\section{Session syntax analyzer} 
+\'E un parsing, con i token crea una \textbf{rappresentazione ad albero (syntax tree)} nel quale 
+il nodo \'e un operatore e i figli gli operandi. 
+
+gli operatori devono avere priorit\'a per costruire l'albero, la struttura grammaticale serve anche a 
+definire le priorit\'a degli operatori.
+
+\section{Semantic analyzer} 
+Piglia il \texttt{syntax tree} e guarda se \'e semanticamente consistente con la definizione del linguaggio.
+(ie \texttt{type checking}). Il linguaggio puo ammettere cast impliciti chiamati \textbf{coercizioni} o tirare cogne.
+
+\lq\lq \textit{intofloat}\rq\rq \'e una coercizione dell'intero 60 in float dato che gli altri operandi sono float. 
+
+\section{Intermediate code generation}
+Nel processo di compilazione posso avere varie rappresentazioni intermedie come alberi etc..
+Dopo semantic analysis solitmente creo una codice basso livello, machine-like, \textit{\lq\lq easy to 
+produce and esay to translate int target machine code\rq\rq}. Nella figura ho un tree address code
+ricavato dal syntax tree. 
+
+In un tree address code a destra ho al massimo un operatore (assembly like), e le operazioni sono in ordine.
+
+Devo avere variabiline intermedie
+\section{Code generation}
+Segue la fase opzionale di \textbf{code optimization}, prende la rappresentazione inermedia e la mappa in un target language.
+Le istruzioni intermedie vengono tradote in istruzioni macchina (presumibilmente). Devo capire come mappare variabili su registri
+
+Nella symbol table devo storicizzare tutti gli attributi di un variable name.
+ 
+Solitamente posso agglomerare le fasi di analisi in front end pass e le altre in back end pass.
+
+
+
+
+
+

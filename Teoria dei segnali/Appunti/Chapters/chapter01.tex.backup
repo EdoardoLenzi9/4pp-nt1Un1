@@ -1,0 +1,32 @@
+\chapter{Classificazione dei Segnali}
+Piglio un segnale analogico posso convertirlo in un segnale numerico (digitale) con un \textbf{trasduttore} (convertitore A/D).
+
+Un segnale periodico si ripete ogni T secondi.
+  
+\begin{center}
+  La \textbf{sinusoide} ha:
+  \begin{tabular}{ll}
+    \textbf{Ampiezza} & A \\
+    \textbf{Pulsazione} & $\frac{2\pi}{T}$ \\
+    \textbf{Fase} & $\phi$\\
+    \textbf{Frequenza} & $f_0 = \frac{1}{T} $\\
+  \end{tabular}
+
+  $Acos(\frac{2\pi }{T} + \phi )$
+\end{center}
+
+Espressione generale segnale periodico: $x(t) = \sum ^\infty _{k = -\infty} w(t-kT)$
+\begin{center}
+  \includegraphics[scale=0.5]{Chapters/Img/c01_01.png}
+\end{center}
+
+Un segnale \'e \textbf{deterministico} se il valore \'e univocamente determinato fissate le sue variabili di dominio (tempo o spazio).
+La sinusoide \'e deterministica dato che \'e determinabile per ogni valore della variabile di dominio.
+
+Non esiste un orologio elettronico che abbia jitter (a priori non posso sapere il periodo)
+
+Per il semplice fatto che un conduttore esiste sopra gli 0K, implica la presenza di correnti termiche di livello quantistico (rumore termico).
+
+Per rappresentare una funzione complessa uso modulo e fase (due eq. reali).
+
+Formula di Eulero: $e^{j\theta}$

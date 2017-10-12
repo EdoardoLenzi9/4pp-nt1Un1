@@ -1,0 +1,222 @@
+\chapter{2}
+Syntax descrive la forma appropriata di un programma 
+Semantic descrive il significato...
+
+Per specificare la sintassi uso BNF (Backus Naur Form) context-free grammar 
+
+%img41
+
+\textbf{Analisi} consiste nel (guardando la \textbf{sintassi}) spaccare il sorgente in parti costituenti (lexems) e generare tokens che li 
+rappresentano (ho un linguaggio intermedio). La \textbf{Sintesi} invece parte dal linguaggio intermedio e sintetizza il target program.
+
+Per specificare la \textbf{sintassi} uso la notazione della \textbf{context-free grammar} o BNF (Backus Naur Form).
+
+%img
+ 
+\section{Syntac Analysis}
+Vedo una sequenza di caratteri come entit\'a chiamate tokens
+
+%img
+
+Creo un \textbf{abstract syntax tree} con entit\'a sulle folie e operatori sugli altri nodi (intermedi).
+
+\Tree [.assign a [.+ b c ] ]
+\textbf{three address instruction} per via del fatto che ho tre variabili (istruzione assembly).
+
+\begin{lstlisting}
+    if(expression) statement else statement
+    
+    stmt -> if(expr) stmt else stmt
+    // -> la traduco in "can have the form"
+\end{lstlisting}
+
+La regola sopra pu\'o essere chiamata \textbf{produzione}.
+
+In una \textbf{produzione} elementi lessicali ccomme if e parentesi (keywords) cono chiamati \textbf{terminali} mentre le variabili 
+sono \textbf{non terminali} (ulteriormente espandibili con produzioni).
+
+Una \textbf{context-free grammar} ha:
+\begin{itemize}
+    \item un \textbf{set di terminali} (tokens), set di simboli elementari del linguaggoi definiti dalla grammatica\\
+    \item un \textbf{set di non terminali} o syntactic variables\\
+    \item un \textbf{set di produzioni} ($Head \rightarrow Boby$)\\
+        head \'e il costrutto, body la forma scritta del costrutto\\
+    \item un non terminale chiamato \textbf{start symbol}\\
+\end{itemize}
+
+In un compilatore il lexical analyzer legge i caratteri del sorgente, li raggruppa in lexems e produce tokens 
+(della forma \textbf{(TokenName, AttributeValue)}).
+
+Specifico, nella pratica, una grammatica come lista di produzioni (con quelle conteneti lo start symbol per prime). 
+Simboli come $<,\>,\=$ e le keyword del linguaggio sono terminali.
+
+Per convenzione scrivo in \textit{italic i non terminali} ed in \textbf{boldface per i terminali}.
+Uso l'operatore OR $|$ (pipeline) per separare gli elementi nel body. Definisco $\epsilon$ come empty string.
+
+\subsection{ie)}
+ho $5+9-3+5-6-7+1$
+\begin{lstlisting}
+    list -> list + digit | list - digit | digit
+    digit -> 0|1|2|...|9
+\end{lstlisting} 
+I terminali sono $\{+-0123...9\}$, i non terminali $\{list,\ digit\}$, start symbol \'e $list$
+
+\section{Derivations}
+Una grammatica deriva stringhe partendo dallo start symbol e ricorsivamente applicando le produzioni sui non terminali.
+Il linguaggio definito da una grammatica \'e il $\{$stringhe ottenute$\}$.
+
+\subsection{ie)}
+\begin{lstlisting}
+    //argomenti di una funzione
+    call -> id(optparams)
+    optparams -> params | Epsilon
+    params -> params, param | param
+\end{lstlisting}
+
+\section{Parsing}
+Il \textbf{parsing} \'e il problema secondo cui data una stringa di terminali devo capire come \'e stata costruita partendo da uno start 
+symbol (tirare eccezione altrimenti).
+
+Uso \textbf{parse trees} $A \rightarrow XYZ \implies$ \Tree [.A Y X Z ].
+
+Regole di costruzione:
+\begin{itemize}
+    \item la root \'e lo start symbol\\
+    \item le gole sono terminali o $\epsilon$\\
+    \item i nodi interni sono non-terminali\\
+    \item se A non-terminali ha figli $x_1,...,x_n \implies A \rightarrow x_1...x_n$ \\
+\end{itemize}
+
+9-5+2 \Tree [.list [.list [.l [.d 9 ] ] - [.d 5 ] ] + [.digit 2 ] ]
+
+Una stringa pu\'o avere pi\'u parse tree ma ci\'o implica che la \textbf{grammatica \'e ambigua}; la presenza di pi\'u alberi implica 
+l'esistenza di pi\'u significati diversi.
+
+Mergiando le nozioni di list e digit ottengo 
+$string \righarrow sting + string | string - string| 1 | 2 | ...| 9$
+9-5+1 ha 
+\Tree [.string [.string [.string 9 ] - [.string 5 ] ] + [.string 2 ] ]
+\Tree [.string [.string 9 ] - [.string [.string 5 ] + [.string 2 ] ] ]
+
+\subsection{Associativit\'a a sinistra}
+L'operatore + assicia a sinistra perch\'e se ho un pezzo di espressione $+ 5 +$ il + a sinistra viene applicato al 5 mentre ad esempio per 
+l'elevamento a potenza o l'assengnazione di una variabile (=) l'associativit\'a \'e a destra (right associative).
+
+\begin{lstlisting}
+    a = b = c -> a = (b = c)
+    2^3^4 -> (2^3)^4
+    1 + 2 + 3 -> (1 + 2) + 3
+\end{lstlisting}
+
+Stringhe right associative (l'abero crese a destra) sono generate dalla grammatica:
+\begin{lstlisting}
+    right -> letter = right | letter
+    letter -> [ab...z]
+\end{lstlisting}
+
+%img 72
+
+\section{Precedenze degli operatori}
+L'associativit\'a vale per operandi uguali ma non risolve $a + b * c$.
+In questo caso ho due livelli di precedenza uno per $+-$ ed uno per $*/$.
+Creo \textit{expr e term} per i due livelli e \textit{factor} per i base units.
+
+\begin{lstlisting}
+    factor -> digit | (expr)
+    term -> term * factor
+            | term / factor
+            | factor
+    expr -> expr + term
+            | expr - term
+            | term 
+\end{lstlisting}
+La grammatica sar\'a quindi 
+\begin{lstlisting}
+    expr -> expr + term | expr - term | term 
+    term -> term * factor | term / factor | factor
+    factor -> digit | (expr)
+    // non posso avere un operatore vicino ad un fattore
+\end{lstlisting}
+
+\begin{tcolorbox}\begin{center}
+    Posso generalizzare il concetto per n livelli di precedenza (per n livelli mi servono n+1 non terminali)
+\end{center}\end{tcolorbox}
+
+expr = list $\{$terms separati da $*/ \}$
+
+\section{Java statements}
+\begin{lstlisting}
+    stmt -> id = expr
+            | if (expr) stmt
+            | if (expr) stmt else stmt
+            | while (expr) stmt
+            | do stmt while (expr)
+            | {stmts}
+    stmts -> stmts stmt
+            | Epsilon
+\end{lstlisting}
+
+\subsection{ie) notazione postfissa}
+\begin{lstlisting}
+    //prefissa con     SS -> +SS|*SS|a
+    SS -> SS+|SS*|a
+    genera aa+a*
+    S->SS*-> Sa*->SS+a*->aa+a*
+\end{lstlisting}
+
+\Tree [.S [.S [.S a ] [.S a ] + ] [.S a ] * ]
+
+\subsection{ie) }
+\begin{lstlisting}
+    S -> 0S1 | 01
+    000000111111
+    0^n 1^n
+
+    S -> S(S)S | E
+    S -> S(S)S -> S(S)S(S)S -> S(S(S(S(S)S)S)S)S(S)S(S)S(S)S
+    E(E(E(E(E)E)E)E)E(E)E(E)E(E)E
+    avro' sempre una E(E all'inizio ed una E)E alla fine
+
+    S -> aSbS | bSaS | E
+    avro' sempre un numero uguale di a e b, lunghezza totale pari
+\end{lstlisting}
+
+%Esercizi pagina 74
+
+\section{Syntax Directed Translation}
+Fatte attaccando regole o frammenti di programma a produzioni.
+
+\textbf{Attributi} sono propriet\'a di espressioni del linguaggio (length).
+
+\textbf{Syntax Directed Translation Schemes} 
+
+\subsection{Postfix notation} 
+(ab+), 9-5+2 diventa 95-2+, 9-(5+2) diventa 952+-. La notazione postfissa non necessita di parentesizzazioni, non pu\'o avere ambiguit\'a.
+Per leggere l'espressione faccio uno scan da destra fino al primo operatore e lo applico (vado avanti ricorsivamente).
+
+\textbf{Syntax Directed Definition} associa 
+\begin{itemize}
+    \item ad ogni simbolo un set di \textbf{attributes}\\
+    \item ad ogni produzione un set di \textbf{semantic rules} per computare i valori degli attributi associati ai simboli che 
+        compaiono nella produzione\\
+\end{itemize}
+
+Per una stringa x faccio un \textbf{parse tree} poi applico le regole semantiche per valutare gli attibutes ad ogni nodo dell'albero.
+x.a \'e l'attributo a di x $\rightarrow$ \textbf{annoted parse tree}
+
+%img 77
+
+Un attributo \'e detto \textbf{sintetizzato} se il suo valore in un nodo \'e determinato dai valori dei suoi digli e dal nodo stesso.
+Un attributo \'e detto \textbf{inherited} se il suo valore in un nodo \'e determinato dai valori del padre, dei fratelli e di se stesso.
+
+%img78
+
+Uso l'operatore $||$ per concatenare le stringhe. Le regole semantiche sono applicate agli attributi.
+
+\begin{lstlisting}
+    expr -> term    =>  expr.t = term.t 
+    expr -> expr1 + term    => expr.t = expr1.t || term.t || '+'
+    // l'attributo nella head = attributi nel body concatenati con strighe extra ('+')
+\end{lstlisting}
+
+\section{Tree traversals}
