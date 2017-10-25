@@ -1,0 +1,75 @@
+\documentclass[a4paper,10pt,oneside,openany]{book}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{cancel}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{xcolor}
+\usepackage{mathrsfs}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{centernot}
+\usepackage{graphicx}
+\usepackage{setspace}
+\usepackage{geometry}
+\usepackage{tcolorbox}
+\usepackage{hyperref}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{multicol}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{listings}
+\usepackage{color}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+  language=C++,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+ %numbers=left,
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3,
+  %xleftmargin=0.5cm
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{graphicx}
+\graphicspath{ {images/} }
+
+\definecolor{grigio}{RGB}{179,179,179}
+%\theoremstyle{plain}
+\newtheorem{thm}{Teorema}[section]
+\newtheorem{deff}{Definizione}[section]
+\newtheorem{dimm}{Dimostrazione}[section]
+
+\geometry{a4paper,top=1.5cm,bottom=1.5cm,left=2.5cm,right=2.5cm,%
+heightrounded,bindingoffset=5mm}
+
+\newcommand{\tb}[1]{\textbf{#1}}
+\newcommand{\e}[1]{\textit{#1}}
+\newcommand{\DEF}[1]{\textcolor{blue}{DEF:}}
+\newcommand{\om}[0]{$\Omega$}
+\newcommand{\al}[0]{$\mathcal{A}$}
+\newcommand{\zero}[0]{$\emptyset$}
+\newcommand{\ap}[0]{$\in$}
+\newcommand{\im}[0]{$\implies$}
+
+\setcounter{tocdepth}{1} %il grado di profondita indice, 1 solo chapter, 2 section ...
+\title{Funzionalit\'a}
+\begin{document}
+%\maketitle
+%\tableofcontents
+\input{Chapters/chapter01.tex}
+\end{document}
