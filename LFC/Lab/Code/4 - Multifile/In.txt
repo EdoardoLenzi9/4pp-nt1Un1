@@ -1,0 +1,7 @@
+Ciao Bel
+Come La va
+
+while 
+1
+Ciao
+for

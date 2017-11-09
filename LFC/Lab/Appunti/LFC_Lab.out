@@ -1,0 +1,12 @@
+\BOOKMARK [0][-]{chapter.1}{Introduzione}{}% 1
+\BOOKMARK [1][-]{section.1.1}{Get started}{chapter.1}% 2
+\BOOKMARK [0][-]{chapter.2}{FLEX \(Fast Lex\)}{}% 3
+\BOOKMARK [1][-]{section.2.1}{Lex matching character}{chapter.2}% 4
+\BOOKMARK [1][-]{section.2.2}{Template Lex}{chapter.2}% 5
+\BOOKMARK [1][-]{section.2.3}{Compilare}{chapter.2}% 6
+\BOOKMARK [1][-]{section.2.4}{Variabili generate da Lex}{chapter.2}% 7
+\BOOKMARK [1][-]{section.2.5}{Context Sensitivity \(CS\)}{chapter.2}% 8
+\BOOKMARK [1][-]{section.2.6}{Associare regole a stati}{chapter.2}% 9
+\BOOKMARK [1][-]{section.2.7}{Ambiguous Specifications}{chapter.2}% 10
+\BOOKMARK [0][-]{chapter.3}{Exercises}{}% 11
+\BOOKMARK [1][-]{section.3.1}{Lex}{chapter.3}% 12

@@ -6,6 +6,5 @@
 \contentsline {section}{\numberline {1.5}Semantic analyzer}{3}{section.1.5}
 \contentsline {section}{\numberline {1.6}Intermediate code generation}{3}{section.1.6}
 \contentsline {section}{\numberline {1.7}Code generation}{3}{section.1.7}
-\contentsline {chapter}{\numberline {2}2}{4}{chapter.2}
-\contentsline {chapter}{\numberline {3}Lezione 1}{5}{chapter.3}
-\contentsline {section}{\numberline {3.1}Uso del Pumping Lemma per determinare linguaggi liberi}{8}{section.3.1}
+\contentsline {chapter}{\numberline {2}Lezione 1}{4}{chapter.2}
+\contentsline {section}{\numberline {2.1}Uso del Pumping Lemma per determinare linguaggi liberi}{7}{section.2.1}
