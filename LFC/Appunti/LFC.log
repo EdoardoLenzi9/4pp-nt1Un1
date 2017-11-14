@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2017.11.9)  9 NOV 2017 10:24
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2017.11.9)  11 NOV 2017 18:31
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -756,32 +756,42 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 )
 \Hy@SectionHShift=\skip50
 )
+(/usr/share/texlive/texmf-dist/tex/latex/stackengine/stackengine.sty
+Package: stackengine 2014/01/06 v3.24\ Stacking text and objects in convenient 
+ways
+\c@@stackindex=\count132
+\@boxshift=\skip51
+\stack@tmplength=\skip52
+\temp@stkl=\skip53
+\@stackedboxwidth=\skip54
+\@addedbox=\box43
+\@anchorbox=\box44
+\stackedbox=\box45
+\@centerbox=\box46
+\c@ROWcellindex@=\count133
+)
 (/usr/share/texlive/texmf-dist/tex/latex/tools/multicol.sty
 Package: multicol 2011/06/27 v1.7a multicolumn formatting (FMi)
-\c@tracingmulticols=\count132
-\mult@box=\box43
+\c@tracingmulticols=\count134
+\mult@box=\box47
 \multicol@leftmargin=\dimen169
-\c@unbalance=\count133
-\c@collectmore=\count134
-\doublecol@number=\count135
-\multicoltolerance=\count136
-\multicolpretolerance=\count137
+\c@unbalance=\count135
+\c@collectmore=\count136
+\doublecol@number=\count137
+\multicoltolerance=\count138
+\multicolpretolerance=\count139
 \full@width=\dimen170
 \page@free=\dimen171
 \premulticols=\dimen172
 \postmulticols=\dimen173
-\multicolsep=\skip51
-\multicolbaselineskip=\skip52
-\partial@page=\box44
-\last@line=\box45
-\mult@rightbox=\box46
-\mult@grightbox=\box47
-\mult@gfirstbox=\box48
-\mult@firstbox=\box49
-\@tempa=\box50
-\@tempa=\box51
-\@tempa=\box52
-\@tempa=\box53
+\multicolsep=\skip55
+\multicolbaselineskip=\skip56
+\partial@page=\box48
+\last@line=\box49
+\mult@rightbox=\box50
+\mult@grightbox=\box51
+\mult@gfirstbox=\box52
+\mult@firstbox=\box53
 \@tempa=\box54
 \@tempa=\box55
 \@tempa=\box56
@@ -795,34 +805,38 @@ Package: multicol 2011/06/27 v1.7a multicolumn formatting (FMi)
 \@tempa=\box64
 \@tempa=\box65
 \@tempa=\box66
-\c@columnbadness=\count138
-\c@finalcolumnbadness=\count139
+\@tempa=\box67
+\@tempa=\box68
+\@tempa=\box69
+\@tempa=\box70
+\c@columnbadness=\count140
+\c@finalcolumnbadness=\count141
 \last@try=\dimen174
 \multicolovershoot=\dimen175
 \multicolundershoot=\dimen176
-\mult@nat@firstbox=\box67
-\colbreak@box=\box68
-\multicol@sort@counter=\count140
+\mult@nat@firstbox=\box71
+\colbreak@box=\box72
+\multicol@sort@counter=\count142
 )
 (/usr/share/texlive/texmf-dist/tex/latex/listings/listings.sty
-\lst@mode=\count141
-\lst@gtempboxa=\box69
+\lst@mode=\count143
+\lst@gtempboxa=\box73
 \lst@token=\toks32
-\lst@length=\count142
+\lst@length=\count144
 \lst@currlwidth=\dimen177
-\lst@column=\count143
-\lst@pos=\count144
+\lst@column=\count145
+\lst@pos=\count146
 \lst@lostspace=\dimen178
 \lst@width=\dimen179
-\lst@newlines=\count145
-\lst@lineno=\count146
+\lst@newlines=\count147
+\lst@lineno=\count148
 \lst@maxwidth=\dimen180
 
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2013/08/26 1.5b (Carsten Heinz)
-\c@lstnumber=\count147
-\lst@skipnumbers=\count148
-\lst@framebox=\box70
+\c@lstnumber=\count149
+\lst@skipnumbers=\count150
+\lst@framebox=\box74
 )
 (/usr/share/texlive/texmf-dist/tex/latex/listings/listings.cfg
 File: listings.cfg 2013/08/26 1.5b listings configuration
@@ -848,110 +862,110 @@ File: p2e-pdftex.def 2011/04/05 v0.1t Driver-dependant file (RN,HjG,JT)
 \@arcrad=\dimen182
 \@tempdimd=\dimen183
 )
-\c@treecount=\count149
-\c@branchcount=\count150
-\parentbox=\box71
-\treebox=\box72
-\treeboxone=\box73
-\treeboxtwo=\box74
-\treeboxthree=\box75
-\treeboxfour=\box76
-\treeboxfive=\box77
-\treeboxsix=\box78
-\treeboxseven=\box79
-\treeboxeight=\box80
-\treeboxnine=\box81
-\treeboxten=\box82
-\treeboxeleven=\box83
-\treeboxtwelve=\box84
-\treeboxthirteen=\box85
-\treeboxfourteen=\box86
-\treeboxfifteen=\box87
-\treeboxsixteen=\box88
-\treeboxseventeen=\box89
-\treeboxeighteen=\box90
-\treeboxnineteen=\box91
-\treeboxtwenty=\box92
-\treeoffsetone=\skip53
-\treeoffsettwo=\skip54
-\treeoffsetthree=\skip55
-\treeoffsetfour=\skip56
-\treeoffsetfive=\skip57
-\treeoffsetsix=\skip58
-\treeoffsetseven=\skip59
-\treeoffseteight=\skip60
-\treeoffsetnine=\skip61
-\treeoffsetten=\skip62
-\treeoffseteleven=\skip63
-\treeoffsettwelve=\skip64
-\treeoffsetthirteen=\skip65
-\treeoffsetfourteen=\skip66
-\treeoffsetfifteen=\skip67
-\treeoffsetsixteen=\skip68
-\treeoffsetseventeen=\skip69
-\treeoffseteighteen=\skip70
-\treeoffsetnineteen=\skip71
-\treeoffsettwenty=\skip72
-\treeshiftone=\skip73
-\treeshifttwo=\skip74
-\treeshiftthree=\skip75
-\treeshiftfour=\skip76
-\treeshiftfive=\skip77
-\treeshiftsix=\skip78
-\treeshiftseven=\skip79
-\treeshifteight=\skip80
-\treeshiftnine=\skip81
-\treeshiftten=\skip82
-\treeshifteleven=\skip83
-\treeshifttwelve=\skip84
-\treeshiftthirteen=\skip85
-\treeshiftfourteen=\skip86
-\treeshiftfifteen=\skip87
-\treeshiftsixteen=\skip88
-\treeshiftseventeen=\skip89
-\treeshifteighteen=\skip90
-\treeshiftnineteen=\skip91
-\treeshifttwenty=\skip92
-\treewidthone=\skip93
-\treewidthtwo=\skip94
-\treewidththree=\skip95
-\treewidthfour=\skip96
-\treewidthfive=\skip97
-\treewidthsix=\skip98
-\treewidthseven=\skip99
-\treewidtheight=\skip100
-\treewidthnine=\skip101
-\treewidthten=\skip102
-\treewidtheleven=\skip103
-\treewidthtwelve=\skip104
-\treewidththirteen=\skip105
-\treewidthfourteen=\skip106
-\treewidthfifteen=\skip107
-\treewidthsixteen=\skip108
-\treewidthseventeen=\skip109
-\treewidtheighteen=\skip110
-\treewidthnineteen=\skip111
-\treewidthtwenty=\skip112
-\daughteroffsetone=\skip113
-\daughteroffsettwo=\skip114
-\daughteroffsetthree=\skip115
-\daughteroffsetfour=\skip116
-\branchwidthone=\skip117
-\branchwidthtwo=\skip118
-\branchwidththree=\skip119
-\branchwidthfour=\skip120
-\parentoffset=\skip121
-\treeoffset=\skip122
-\daughteroffset=\skip123
-\branchwidth=\skip124
-\parentwidth=\skip125
-\treewidth=\skip126
+\c@treecount=\count151
+\c@branchcount=\count152
+\parentbox=\box75
+\treebox=\box76
+\treeboxone=\box77
+\treeboxtwo=\box78
+\treeboxthree=\box79
+\treeboxfour=\box80
+\treeboxfive=\box81
+\treeboxsix=\box82
+\treeboxseven=\box83
+\treeboxeight=\box84
+\treeboxnine=\box85
+\treeboxten=\box86
+\treeboxeleven=\box87
+\treeboxtwelve=\box88
+\treeboxthirteen=\box89
+\treeboxfourteen=\box90
+\treeboxfifteen=\box91
+\treeboxsixteen=\box92
+\treeboxseventeen=\box93
+\treeboxeighteen=\box94
+\treeboxnineteen=\box95
+\treeboxtwenty=\box96
+\treeoffsetone=\skip57
+\treeoffsettwo=\skip58
+\treeoffsetthree=\skip59
+\treeoffsetfour=\skip60
+\treeoffsetfive=\skip61
+\treeoffsetsix=\skip62
+\treeoffsetseven=\skip63
+\treeoffseteight=\skip64
+\treeoffsetnine=\skip65
+\treeoffsetten=\skip66
+\treeoffseteleven=\skip67
+\treeoffsettwelve=\skip68
+\treeoffsetthirteen=\skip69
+\treeoffsetfourteen=\skip70
+\treeoffsetfifteen=\skip71
+\treeoffsetsixteen=\skip72
+\treeoffsetseventeen=\skip73
+\treeoffseteighteen=\skip74
+\treeoffsetnineteen=\skip75
+\treeoffsettwenty=\skip76
+\treeshiftone=\skip77
+\treeshifttwo=\skip78
+\treeshiftthree=\skip79
+\treeshiftfour=\skip80
+\treeshiftfive=\skip81
+\treeshiftsix=\skip82
+\treeshiftseven=\skip83
+\treeshifteight=\skip84
+\treeshiftnine=\skip85
+\treeshiftten=\skip86
+\treeshifteleven=\skip87
+\treeshifttwelve=\skip88
+\treeshiftthirteen=\skip89
+\treeshiftfourteen=\skip90
+\treeshiftfifteen=\skip91
+\treeshiftsixteen=\skip92
+\treeshiftseventeen=\skip93
+\treeshifteighteen=\skip94
+\treeshiftnineteen=\skip95
+\treeshifttwenty=\skip96
+\treewidthone=\skip97
+\treewidthtwo=\skip98
+\treewidththree=\skip99
+\treewidthfour=\skip100
+\treewidthfive=\skip101
+\treewidthsix=\skip102
+\treewidthseven=\skip103
+\treewidtheight=\skip104
+\treewidthnine=\skip105
+\treewidthten=\skip106
+\treewidtheleven=\skip107
+\treewidthtwelve=\skip108
+\treewidththirteen=\skip109
+\treewidthfourteen=\skip110
+\treewidthfifteen=\skip111
+\treewidthsixteen=\skip112
+\treewidthseventeen=\skip113
+\treewidtheighteen=\skip114
+\treewidthnineteen=\skip115
+\treewidthtwenty=\skip116
+\daughteroffsetone=\skip117
+\daughteroffsettwo=\skip118
+\daughteroffsetthree=\skip119
+\daughteroffsetfour=\skip120
+\branchwidthone=\skip121
+\branchwidthtwo=\skip122
+\branchwidththree=\skip123
+\branchwidthfour=\skip124
+\parentoffset=\skip125
+\treeoffset=\skip126
+\daughteroffset=\skip127
+\branchwidth=\skip128
+\parentwidth=\skip129
+\treewidth=\skip130
 \qta=\toks34
 \qtb=\toks35
-\nbranches=\count151
-\qroofx=\count152
-\qroofy=\count153
-\@qrscratchbox=\box93
+\nbranches=\count153
+\qroofx=\count154
+\qroofy=\count155
+\@qrscratchbox=\box97
 )
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2013/08/26 1.5b listings language file
@@ -962,39 +976,39 @@ File: lstlang1.sty 2013/08/26 1.5b listings language file
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2013/08/26 1.5b (Carsten Heinz)
 )
-\c@thm=\count154
-\c@deff=\count155
-\c@dimm=\count156
+\c@thm=\count156
+\c@deff=\count157
+\c@dimm=\count158
  (./LFC.aux)
 \openout1 = `LFC.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 74.
-LaTeX Font Info:    ... okay on input line 74.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 74.
-LaTeX Font Info:    ... okay on input line 74.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 74.
-LaTeX Font Info:    ... okay on input line 74.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 74.
-LaTeX Font Info:    ... okay on input line 74.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 74.
-LaTeX Font Info:    ... okay on input line 74.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 74.
-LaTeX Font Info:    ... okay on input line 74.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 74.
-LaTeX Font Info:    ... okay on input line 74.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 75.
+LaTeX Font Info:    ... okay on input line 75.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 75.
+LaTeX Font Info:    ... okay on input line 75.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 75.
+LaTeX Font Info:    ... okay on input line 75.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 75.
+LaTeX Font Info:    ... okay on input line 75.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 75.
+LaTeX Font Info:    ... okay on input line 75.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 75.
+LaTeX Font Info:    ... okay on input line 75.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 75.
+LaTeX Font Info:    ... okay on input line 75.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count157
+\scratchcounter=\count159
 \scratchdimen=\dimen184
-\scratchbox=\box94
-\nofMPsegments=\count158
-\nofMParguments=\count159
+\scratchbox=\box98
+\nofMPsegments=\count160
+\nofMParguments=\count161
 \everyMPshowfont=\toks36
-\MPscratchCnt=\count160
+\MPscratchCnt=\count162
 \MPscratchDim=\dimen185
-\MPnumerator=\count161
-\makeMPintoPDFobject=\count162
+\MPnumerator=\count163
+\makeMPintoPDFobject=\count164
 \everyMPtoPDFconversion=\toks37
 ) (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
@@ -1047,8 +1061,8 @@ e
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 ABD: EveryShipout initializing macros
-\AtBeginShipoutBox=\box95
-Package hyperref Info: Link coloring OFF on input line 74.
+\AtBeginShipoutBox=\box99
+Package hyperref Info: Link coloring OFF on input line 75.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
@@ -1056,212 +1070,65 @@ Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
-\c@section@level=\count163
+\c@section@level=\count165
 )
-LaTeX Info: Redefining \ref on input line 74.
-LaTeX Info: Redefining \pageref on input line 74.
-LaTeX Info: Redefining \nameref on input line 74.
+LaTeX Info: Redefining \ref on input line 75.
+LaTeX Info: Redefining \pageref on input line 75.
+LaTeX Info: Redefining \nameref on input line 75.
 
 (./LFC.out) (./LFC.out)
 \@outlinefile=\write5
 \openout5 = `LFC.out'.
 
-\c@lstlisting=\count164
-LaTeX Font Info:    Try loading font information for U+msa on input line 76.
+\c@lstlisting=\count166
+LaTeX Font Info:    Try loading font information for U+msa on input line 77.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 76.
+LaTeX Font Info:    Try loading font information for U+msb on input line 77.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Try loading font information for U+rsfs on input line 76.
+LaTeX Font Info:    Try loading font information for U+rsfs on input line 77.
 
 (/usr/share/texlive/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 ) [1
 
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./LFC.toc)
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
+
+Package hyperref Warning: old toc file detected, not used; run LaTeX again.
+
 \tf@toc=\write6
 \openout6 = `LFC.toc'.
 
- (./Chapters/book01.texpdfTeX warning (ext4): destination with the same identif
-ier (name{page.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.1 \chapter
-            {Introduzione} [1
+(./Chapters/chapter02.tex
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 12.
 
-]
-Chapter 1.
-
-Underfull \hbox (badness 10000) in paragraph at lines 39--41
-
- []
-
-
-Overfull \hbox (12.86806pt too wide) in paragraph at lines 44--46
-[]\OT1/cmtt/m/n/10 position = initial + rate * 60 \OT1/cmr/m/n/10 di-venta \OT1
-/cmtt/m/n/10 (id, 1) (=) (id, 2) (+) (id, 3) (*) (60) 
- []
-
-[2
-
-]) (./Chapters/chapter01.tex [3]
-Chapter 2.
-
-Underfull \hbox (badness 10000) in paragraph at lines 23--30
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 31--32
-
- []
-
-
-Overfull \hbox (18.14117pt too wide) in paragraph at lines 33--43
-[]\OT1/cmr/m/n/10 Una \OT1/cmr/bx/n/10 gram-mat-ica \OT1/cmr/m/n/10 ^^Se una tu
--pla G(V, T, S, P) con: [] 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 33--43
-
- []
-
-[4
-
-]
-Overfull \hbox (29.93832pt too wide) in paragraph at lines 142--145
-[]\OT1/cmr/m/n/10 G=(V,T,S,P) $\OML/cmm/m/it/10  \OMS/cmsy/m/n/10 ! \OML/cmm/m
-/it/10 ^^L;  ;  ^^L \OMS/cmsy/m/n/10 2 \OML/cmm/m/it/10 B[]$ \OT1/cmr/m/n/10 c
-on al meno un ter-mi-nale In una gram-mat-ica lib-era $\OML/cmm/m/it/10 A \OT1/
-cmr/m/n/10 (\OML/cmm/m/it/10 nonterminale\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 !
- []
-
-[5]
-Overfull \hbox (0.78998pt too wide) in paragraph at lines 148--152
-[]\OT1/cmr/m/n/10 ie) lin-guag-gio $\OMS/cmsy/m/n/10 f\OML/cmm/m/it/10 a[]b[] =
- n > \OT1/cmr/m/n/10 0\OMS/cmsy/m/n/10 g$ \OT1/cmr/m/n/10 libero perch^^Se $\OM
-S/cmsy/m/n/10 9$ \OT1/cmr/m/n/10 una gram-mat-ica lib-era che lo gen-era ($\OML
-/cmm/m/it/10 G[]$\OT1/cmr/m/n/10 ). $\OML/cmm/m/it/10 G[] S \OMS/cmsy/m/n/10 !
- []
-
-
-Overfull \hbox (163.08966pt too wide) in paragraph at lines 156--166
-\OML/cmm/m/it/10 uvwxy \OMS/cmsy/m/n/10 ^ j\OML/cmm/m/it/10 vwx\OMS/cmsy/m/n/10
- j ^^T \OML/cmm/m/it/10 p \OMS/cmsy/m/n/10 ^ j\OML/cmm/m/it/10 vx\OMS/cmsy/m/n/
-10 j \OML/cmm/m/it/10 > \OT1/cmr/m/n/10 0 \OMS/cmsy/m/n/10 ^  8 \OML/cmm/m/it/1
-0 i \OMS/cmsy/m/n/10 2 \U/msb/m/n/10 N\OML/cmm/m/it/10 uv[]wx[]y \OMS/cmsy/m/n/
-10 2 \OML/cmm/m/it/10 L$\OT1/cmr/m/n/10 . [] 
- []
-
-
-Overfull \hbox (20.84415pt too wide) in paragraph at lines 198--201
-[]\OT1/cmr/m/n/10 con l'un-pumping la parola sta sem-pre nel lin-guag-gio (tagl
-io un pezzo di al-bero) ie)  [] 
- []
-
-<Chapters/Img/c01_01.png, id=96, 486.81876pt x 222.8325pt>
-File: Chapters/Img/c01_01.png Graphic file (type png)
-
-<use Chapters/Img/c01_01.png>
-Package pdftex.def Info: Chapters/Img/c01_01.png used on input line 203.
-(pdftex.def)             Requested size: 194.72404pt x 89.13141pt.
-
-<Chapters/Img/c01_02.png, id=98, 486.81876pt x 222.8325pt>
-File: Chapters/Img/c01_02.png Graphic file (type png)
-
-<use Chapters/Img/c01_02.png>
-Package pdftex.def Info: Chapters/Img/c01_02.png used on input line 204.
-(pdftex.def)             Requested size: 194.72404pt x 89.13141pt.
-
-<Chapters/Img/c01_03.png, id=99, 396.48125pt x 230.8625pt>
-File: Chapters/Img/c01_03.png Graphic file (type png)
-
-<use Chapters/Img/c01_03.png>
-Package pdftex.def Info: Chapters/Img/c01_03.png used on input line 212.
-(pdftex.def)             Requested size: 158.58968pt x 92.34335pt.
- [6 <./Chapters/Img/c01_01.png> <./Chapters/Img/c01_02.png>] <Chapters/Img/c01_
-04.png, id=109, 191.71625pt x 207.77625pt>
-File: Chapters/Img/c01_04.png Graphic file (type png)
-
-<use Chapters/Img/c01_04.png>
-Package pdftex.def Info: Chapters/Img/c01_04.png used on input line 217.
-(pdftex.def)             Requested size: 76.68513pt x 83.10901pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 229--230
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 230--231
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 231--232
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 232--233
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 233--234
-
- []
-
+(/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
+File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 79.
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 12.
 
-Overfull \hbox (49.91498pt too wide) in paragraph at lines 242--79
-[]\OT1/cmr/m/n/10 Nei casi 2, 4, 6 in-vece avr^^So an-cora $\OML/cmm/m/it/10 z[
-] \OT1/cmr/m/n/10 = \OML/cmm/m/it/10 uv[]wx[]y$ \OT1/cmr/m/n/10 (i=0); Nel caso
- 2 $\OML/cmm/m/it/10 z[] \OT1/cmr/m/n/10 = \OML/cmm/m/it/10 a[]b[]a[]b[];  o a[
-]b[]a[]b[];  o a[]b[]a[]b[];  j; k <
+Underfull \hbox (badness 10000) in paragraph at lines 12--13
+
  []
 
-[7 <./Chapters/Img/c01_03.png> <./Chapters/Img/c01_04.png>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 79.
- (./LFC.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 79.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 79.
-Package rerunfilecheck Info: File `LFC.out' has not changed.
-(rerunfilecheck)             Checksum: 21A203822BD93578BB72C491497C2965;662.
- ) 
-Here is how much of TeX's memory you used:
- 16722 strings out of 495028
- 276796 string characters out of 6181497
- 402891 words of memory out of 5000000
- 19564 multiletter control sequences out of 15000+600000
- 14264 words of font info for 57 fonts, out of 8000000 for 9000
- 14 hyphenation exceptions out of 8191
- 55i,13n,63p,827b,391s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
-r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
-e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texl
-ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist
-/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/
-type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
-ublic/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
-sfonts/cm/cmsl10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
-/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
-sy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pf
-b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></us
-r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr
-/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on LFC.pdf (8 pages, 215398 bytes).
-PDF statistics:
- 172 PDF objects out of 1000 (max. 8388607)
- 137 compressed objects within 2 object streams
- 19 named destinations out of 1000 (max. 500000)
- 113 words of extra memory for PDF output out of 10000 (max. 10000000)
 
+Underfull \hbox (badness 10000) in paragraph at lines 13--14
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 14--15
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 15--16
+
+ []

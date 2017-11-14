@@ -1,26 +1,29 @@
-\chapter{Lezione 1}
+\chapter{Link}
 \href{https://sites.google.com/site/compilerclassunitn/}{Vecchio sito}
 
-Riguardo linguaggi di analisi lessicale, si usano \textbf{simboli e caratteri}. Ho una tavola dei simboli creata in base al programma
-(e al compilatore). Restituisce un \textbf{token} (puntatore) ad un record nella tavola dei simboli.
-La maggior parte delle implementazioni usano un numero come \textbf{identificatore}.
-Analisi sintattica si basa sulla grammatica del linguaggio.
-Grammatica generativa vedere se \'e possibile generare una frase con la grammatica (syntax error).
-abstract syntax tree; nelle grammatiche formali metto in evidenza l'assegnamento. 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Lezione 1}
 
-$a = b + c \cdot 60$
+I linguaggi di \textbf{analisi lessicale} lavorano con simboli e caratteri; devo costruire una \textbf{tavola dei simboli} (specifica per un dato programma e compilatore). L'analisi restituisce dei \textbf{tokens} (puntatori) a record nella tavola dei simboli.
+La maggior parte delle implementazioni usano un numero come \textbf{identificatore}.
+
+\textbf{L'analisi sintattica} invece studia la \textbf{grammatica del linguaggio}. Viene costruito un \textbf{abstract syntax tree}:
+
+\begin{center}
+	$a = b + c \cdot 60$
+\end{center}
 
 \Tree [.= $a$ [.+ $b$ [.* $c$ $60$ ] ] ]
 \Tree [.assegnamento $id_1$ [.+ $id_2$ [.* $id_3$ $id_4$ ] ] ]
 
-L'analisi semantica si occupa di vedere se c'\'e una corretta semantica (variabili dichiarate precedentemente). Se * necessita di un 
-float allora 60 dev'essere convertito a float 
+\textbf{L'analisi semantica} si occupa di vedere se c'\'e una corretta semantica (variabili dichiarate precedentemente). 
+Se * necessita di un float allora 60 dev'essere convertito a float. 
 
 \begin{center}
-\Tree [.* {\ldots} [.{intToReal(num)} 60.0 ] ]\\[5pt]
+	\Tree [.* {\ldots} [.{intToReal(num)} 60.0 ] ]\\[5pt]
 \end{center}
 
-Generazione di codice intermedio: 
+Generazione di \textbf{codice intermedio}: 
 \begin{tabular}{ll|l}
 $temp_1$ =& intToReal(60) & \\
 $temp_2$ =& $id_3 * temp1$ & VISITA DELL'ALBERO\\
@@ -29,6 +32,9 @@ $id_1$ =& $temp_3$ & \\
 \end{tabular}\\[5pt]
 
 \Tree [.D [.\fbox{Codice intermedio} $M1$ $M2$ $M3$ ] ]\\[5pt]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Grammatiche}
 
 Una \textbf{grammatica} \'e una tupla G(V, T, S, P) con:
 \begin{tabular}{ll}
@@ -41,120 +47,214 @@ $\epsilon$ & parola vuota, non pu\'o essere un terminale!\\
 %[Sono tutti insiemi!] & \\
 \end{tabular}\\[5pt]
 
+Le produzioni sono della forma $\alpha \rightarrow \beta$ con $\alpha$ 
+\textbf{stringa non vuota di simboli V con almeno un non terminale},
+$\beta $ stringa su V o $\epsilon $.
+
+
 \begin{tcolorbox}\begin{center}
 Per convenzione i caratteri in maiuscolo denotano simboli non terminali mentre in minuscolo terminali. Quindi i simboli in T sono 
 tutti lettere minuscole.
 \end{center}\end{tcolorbox}
 
-Considero X, Y variabili, generico simbolo in V e $\alpha\ \beta\ \delta\ \text{stringe su } V^*$ (ripetere 0+ volte i simboli)  
-$S \rightarrow aSb,\ S\rightarrow \epsilon,\ S \rightarrow A$, T=a, b non terminali ($V\backslash T$) = S, A 
+Considero X, Y variabili, generico simbolo in V e $\alpha\ \beta\ \delta\ \text{stringe su } V^*$ \\
+\begin{tabular}{l}
+$S \rightarrow aSb$ \\
+$S\rightarrow \epsilon$\\
+$S \rightarrow A$\\
+\end{tabular}
+$T=\{a, b\}$ (non terminali), ($V\backslash T) = \{S, A\} $\\
 
-Lo start symbol \'e usato nella prima produzione solo se produzioni libere dal contesto.
-Produzione legittima $aS\rightarrow b$ S a destra di una P non libera dal contesto.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Derivazioni}
+Date 
+$\mu = \mu_1 \alpha \mu2,\ \alpha \rightarrow \beta$, produzioni della grammatica G, $\gamma = \mu_1 \beta \mu_2$ \'e una 
+derivazione in uno o pi\'u passi partendo da $\mu$.\\
 
-Una grammatica generata \'e libera dal contesto (context free) se $\forall$ sua produzione ha la forma: $A\rightarrow \beta$ con A 
-simbolo non terminale. ($\alpha \rightarrow \beta$, $\alpha$ deve contenere simboli non terminali).
+Scrivendo $\mu \rightarrow ^+ \gamma $ intendo che posso derivare $\gamma$ da $\mu$ in uno o pi\'u passi di derivazione.
 
-$S \rightarrow ASb|\epsilon,\quad S\rightarrow \epsilon$ (privo di derivazione)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Linguaggio generato da una grammatica}
+\begin{center}
+	$L(G) = \{w\ / \ w \in T^*, S \rightarrow ^{+}_{G} w \} $
+\end{center}
+Dato il linguaggio L possono esistere pi\'u grammatiche diverse tra loro che generano L.
+Pertanto dal linguaggio non posso risalire con certezza al linguaggio.
 
-$S \rightarrow aSb \rightarrow ab$
-$S \rightarrow aSb \rightarrow aaSbb \rightarrow aabb \implies \{a^nb^n\ / \ n \geq 0 \} $ Struttura di bilanciamento per parentesi (blocchi begin end).
+\begin{tcolorbox}\begin{center}
+	In generale dato un linguaggio generale L ed una grammatica G $\not\exists$ un algoritmo per dimostrare che L = L(G).
+\end{center}\end{tcolorbox}
 
-$\mu = \mu_1 \alpha \mu2,\ \alpha \rightarrow \beta$ \'e produzione di grammatica G e $\gamma$ \'e uguale a $\mu_1 \beta \mu_2$
-derivazione in pi\'u passi $\mu$ deriva in uno o pi\'u passi data la grammatica G se ho una sequenza L(G) linguaggio generato da grammatica = insieme di stringhe
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Grammatica libera dal contesto (context free)}
+Una grammatica generata \'e libera dal contesto (context free) se ogni sua produzione ha la forma: $A \rightarrow \beta$,
+con A non terminale. ($\alpha \rightarrow \beta$, $\alpha$ deve essere un solo simbolo non terminale, altrimenti \'e condizionata).
 
-$S \rightarrow aSb,\ S \rightarrow aAb,\ S \rightarrow ab,\ A \rightarrow aaAb,\ A \rightarrow \epsilon$
-$\{w \ / \ w \in T^* \land s \implies^+ W\}$
-$\{ a^n b^n| n > 0,\ S = 0,\ S = 1 \}$
-L = $\{a^n b^n \ / \ n > 0\}$
+Grammatiche libere si prestano in modo naturale a descrivere derivazioni in viste ad albero.
 
-Dato il linguaggio L possono esistere pi\'u grammatiche diverse tra loro che generano L \'e indecidibile il linguaggio generato dalla 
-grammatica G, $\not\exists alga dato G e dato a L che dice che L = L(G)$.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Esempi}
+\begin{tabular}{l}
+	$S \rightarrow aAb$\\
+	$aA \rightarrow aaAb$\\
+	$A \rightarrow \epsilon$\\
+\end{tabular}
+Non \'e context free, genera $L(G) = \{ a^nb^n\ / \ n>0 \}$.\\[5pt]
+%%
+\begin{tabular}{l}
+	$S \rightarrow aSb | \epsilon$\\
+	$S \rightarrow aSb \rightarrow aaSbb \rightarrow aabb \implies \{a^nb^n\ / \ n \geq 0 \} $ \\
+\end{tabular}
+Context free, genera lo stesso L di quella sopra.\\
+Serve per parentesizzare correttamente codice (genera $a^n b^n$).\\[5pt]
+%%
+\begin{tabular}{l}
+$S \rightarrow AB$\\
+$A \rightarrow Aa|a$\\
+$B \rightarrow Bb|b$\\
+\end{tabular}
+Tutto ci\'o che deriva da A \'e indipendente da ci\'o che deriva da B. ${a^{n}b^{m},\ n, m \geq 0}$\\[5pt]
+%%
+Se ho produzioni impossibili che non finiscono in terminali la grammatica genera un linguaggio vuoto (
+$(\{ S, B, a \},\ \{ A \} ,\ S,\ \{ S\rightarrow aB \})$).\\[5pt]
+%%
+$(\{ S\} ,\ \{ \},\ S,\ \{ S \rightarrow \epsilon \} )$ invece genera un linguaggio $\{ \epsilon \} \not = \emptyset $\\[5pt]
+%%
+\begin{tabular}{l}
+$S \rightarrow 0B | 1A$\\
+$A \rightarrow 0|0S|1AA$\\
+$B \rightarrow 1|1S|0BB$\\
+\end{tabular}
+L(G) = \{w \ / \ count(0,w)=count(1,w) \}\\[5pt]
+%%
+Definire una grammatica per $L = (a^kb^n \ / \ k, n > 0)$\\
+\begin{tabular}{l}
+	$S \rightarrow aS|aB$\\
+	$B \rightarrow bB|b$\\
+\end{tabular}
+\begin{tabular}{l}
+	$S\rightarrow AB$\\
+	$A \rightarrow aA|a$\\
+	$B \rightarrow bB|b$\\
+\end{tabular}
+\begin{tabular}{l}
+	$S \rightarrow ab|aS|Sb$\\
+\end{tabular}\\[5pt]
+%%
+Definire G tale che $L(G) = \{ a^kb^nc^{2n} \ / \ k,n >0 \}$
+\begin{tabular}{l}
+	$ S \rightarrow AB$\\
+	$ A \rightarrow aA|a$\\
+	$ B \rightarrow bBcc|bcc$\\
+\end{tabular}\\[5pt]
+%%
+Definire G tale che $L(G) = \{ a^kb^nd^{2k} \ / \ k, n >0 \}$
+\begin{tabular}{l}
+	$S \rightarrow aSdd | B$\\
+	$B \rightarrow bB|b$\\
+\end{tabular}\\[5pt]
+\begin{tabular}{l}
+	$S \rightarrow aSdd|aBdd$\\
+	$B \rightarrow bB|b$\\
+\end{tabular}\\[5pt]
 
-$S \rightarrow aSBc|abc$
-$cB \rightarrow Bc$
-$bB \rightarrow bb$
-
-
-$S \rightarrow AB$
-$A \rightarrow A$
-$A \rightarrow a$
-$B \rightarrow Bb$
-$B\rightarrow b$
-tutto ci\'o che deriva da A \'e indipendente da ci\'o che deriva da B.
-aaa Ab b
-aaa aaAb bb
-$a^5$ aaAb $b^3$
-${a^{2n+1}b^{n+1},\ n \geq 0}$
-
-$S \rightarrow aB$, $S\rightarrow  \epsilon$, $L(G) = \not 0$, $L(G) = \{ \epsilon \}$,
- $S \rightarrow 0B|1A $, $A \rightarrow 0|0S|1AA$, $B\rightarrow 1|1S|0BB$
-
-Definisco $G_1 \ / \ $ il linguagigo L generato da $G_1 = $ insieme delle parole $L(G) = \{ a^k b^N, k > 0 \}$
-$S \rightarrow ab|aS|Sb$ $S \rightarrow aS|aB$ $B \rightarrow bB|b$, $S\rightarrow^+ a^iS$
-
-$S\rightarrow AB,\ A \rightarrow Aa|a,\ B \rightarrow bB|b$
-
-$L(G) = \{a^ib^mc^{2n}\}$
-
-$S\rightarrow AB,\ A \rightarrow Aa|a,\ B \rightarrow bBcc|bcc$
-
-$a^kb^nd^2k,\ S\rightarrow Sdd|aBdd,\ B\rightarrow bB|b,\ S\rightarrow aSdd|abdd$
-
-non terminale $\alpha \rightarrow \beta$ stringa 
-    grammatiche dipendenti dal contesto per vedere la differenza fra context dependent e quelle libere. Grammatiche libere si prestano in modo 
-naturale a descrivere derivazioni in viste ad albero.
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Abstract syntax Tree}
+\begin{center}
 $S \rightarrow aSb|ab$
-abstract syntax tree da albero di derivazione\Tree [.S a [.S a b ] b ] aabb, derivazione canonica $\mu \rightarrow \gamma$
-Ambiguit\'a di G 
-Nel caso di grammatiche libere si definiscono derivazioni canoniche destre e sinistre (rightmost/leftmost derivating)
-nel caso di rightmost si richiede che ad ogni passo di derivazione ($\mu \rightarrow \gamma$) venga rimpiazzato il terminale 
-t a destra in $\mu$ (rispettivamente leftmost $\rho$ a sinistra).
+\end{center}
+\Tree [.S a [.S a b ] b ] 
 
-G \'e ambigua se $\exists\ L(G) \ / $ esistono per w due derivazioni canoniche distinte entrambe destre o entrambe sinistre.
-$E \rightarrow E+E|E*E|+$ (il + associa a sinistra)
-\Tree [.E [.E [.E + ] + [.E + ] ] + [.E + ] ]
-\Tree [.E [.E + ] + [.E [.E + ] + [.E + ] ] ]   
-[Analogo con il *]
+aabb, derivazione canonica $\mu \rightarrow \gamma$
 
-$S \rightarrow if\ b\ then\ S\ |\ if\ b\ then\ S\ else\ S\ |\ altro$
-$if\ b\ then\ if\ b\ then\ altro\ else\ altro$
-$if\ b\ then\ S\ else\ S$
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Grammatiche ambigue}
+Nel caso di grammatiche libere si definiscono le \textbf{derivazioni canoniche destre e sinistre}, nel caso \textbf{rightmost} si richiede che ad ogni passo di derivazione $\mu \rightarrow \gamma $ venga rimpiazzato il terminale pi\'u a destra di $\mu $; nel caso 
+\textbf{leftmost} quello pi\'u a sinistra.\\
+\begin{tcolorbox}\begin{center}
+	G \'e \textbf{ambigua} se esiste una parola del linguaggio generato da G, generabile con due derivazioni canoniche distinte entrambe destre o entrambe sinistre.
+\end{center}\end{tcolorbox}
 
-G(V, T, S, P) 
-Un linguaggio L \'e libero (da contesto) se esiste una grammatica libera G tale che L = L(G).
-In generale dato un linguaggio generale L ed una grammatica G $\not\exists$ un algoritmo per dimostrare che L = L(G)
+$E \rightarrow E+E|E*E|4$ (il + associa a sinistra)
+\begin{center}
+	\Tree[.E [.E [.E 4 ] + [.E 4 ] ] + [.E 4 ] ]
+	\Tree[.E [.E 4 ] + [.E [.E 4 ] + [.E 4 ] ] ]
+\end{center}
+\begin{center}
+	\Tree[.+ [.+ 4 4 ] 4 ]
+	\Tree[.+ 4 [.+ 4 4 ] ]
+\end{center}
+[Analogo con il *] Essendo derivazioni entrambe leftmost \textbf{G \'e ambigua}.\\
 
-Grammatiche libere
-chiusura (se faccio operazioni su stringhe restano grammatiche libere)
+\begin{tcolorbox}\begin{center}
+	Occhio a non confondere la struttura dell'albero di derivazione con la sua sequenza di derivazioni.\\
+	La derivazione leftmost sostituisce prima i non terminali a sinistra e poi procede con i successivi.\\
+	Quello a sx prima spacca la E in E+E che poi viene spaccato in E+E dove poi vanno sostituiti alle E i non terminali 4.\\
+	Quello a dx invece spacca E in E+E, sostituisce alla prima E il 4 e poi passa alla sostituzione della seconda E con E+E.\\
+	In entrambi i casi la sostituzione dei non terminali avviene sempre prendendo il primo non terminale della stringa, cio\'e quello pi\'u a sinistra.\\[5pt]
 
-Lemma: La classe dei linguaggi liberi \'e chiusa rispetto all'unione. 
-Il linguaggio che contiene tutte e sole le parole $W \in L_1\cup L_2$ \'e esso stesso un linguaggio libero.
+	Finch\'e considero sostituzioni con un solo carattere a destra della produzione leftmost e rightmost sono del tutto equivalenti; 
+	la differenza arriva quando considero produzioni con sostituzioni su pi\'u di un carattere perch\'e mangi caratteri a possibili derivazioni future.
+\end{center}\end{tcolorbox}
 
-$L_1$ \'e libero $\implies \exists\ G_1 = (V_1,T_1,  S_1, P_1) \ / \ L_1=L(G_1) $ [analogo per $L_2$]
+\begin{tabular}{l}
+$S \rightarrow if\ b\ then\ S\ |\ if\ b\ then\ S\ else\ S\ |\ altro$\\
+$if\ b\ then\ if\ b\ then\ altro\ else\ altro$\\
+$if\ b\ then\ S\ else\ S$\\
+\end{tabular}\\
 
-avendo ridenominati i non-terminali di $G_1$ e $G_2$ in modo da non avere anonimia
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Linguaggi liberi}
+\begin{tcolorbox}\begin{center}
+	Un linguaggio \'e libero se esiste una grammatica libera che lo genera. 
+\end{center}\end{tcolorbox}
 
-Lemma: La classe dei linguaggi liberi \'e chiusa rispetto alla concatenazione (se $L_1,\ L_2$ sono liberi allora 
-$\{ v_1v_2 \ / \ v_1 \in L_1 \land v_2 \in L_2 \}$ \'e un linguaggio libero).
+\textbf{Lemma 1}: La classe dei linguaggi liberi \'e \textbf{chiusa all'unione} 
+(se $L_1$ e $L_2$ sono liberi allora $L1 \cup L2$ \'e ancora libero)
+\begin{equation}\begin{split}
+	L_1\ libero\ & \implies \exists G_1=(V_1,T_1,S_1,P_1)\ / \ L_1 = L(G_1)\\
+	L_2\ libero\ & \implies \exists G_2=(V_2,T_2,S_2,P_2)\ / \ L_2 = L(G_2)\\
+	(\{ V_1 \cup V_2 \cup \{ S \},T_1 \cup T_2, & S,P_1 \cup P_2 \cup (S \rightarrow S_1|S_2) \})\\
+\end{split}\end{equation} 
 
-G=(V,T,S,P) $\alpha \rightarrow \beta,\ \alpha ,\ \beta \in B^+ $ con al meno un terminale
-In una grammatica libera $A\ (non terminale)\rightarrow \beta$ Le grammatiche libere sono quelle in cui tutte le produzioni in P hanno tutte 
-forma $A \rightarrow \beta$.
+Devo rinominare i non terminali di G1 e G2 in modo da non avere omonimie (clash). 
+Notare la produzione che agginge un nuovo start symbol per agganciarsi ai vecchi.\\[5pt]
 
-Un linguaggio \'e libero se $\exists$ una grammaica libera che lo generale
+\textbf{Lemma 2}: La classe dei linguaggi liberi \'e \textbf{chiusa rispetto alla concatenazione}
+(se L1 e L2 sono liberi allora 
+$\{w_1w_2 \ / \ w_1 \in L_1,\ w_2 \in L_2 \}$ \'e esso stesso un linguaggio libero).
+\begin{center}
+	$G = (V_1 \cup V'_2 \cup \{ S \},\ T_1 \cup T_2,\ S,\ P_1 \cup P'_2 \cup \{ S \rightarrow S_1S'_2\} )$
+\end{center}
 
-ie) linguaggio $\{ a^nb^n\ / \ n > 0 \}$ libero perch\'e $\exists$ una grammatica libera che lo genera ($G_1$).
-$G_1\qquad S\rightarrow aSb/ab$ $G_1$ libera
-$G_2\qquad s\rightarrow aAb,\ A\rightarrow aaAb,\ A\rightarrow \epsilon$ $G_2$ non libera
-$\Box$   
+$P_1 \cup P_2 \cup \{ S \rightarrow S_1 S_2 \}$ anche in questo caso bisogna stare attenti ad eliminare possibili clash dei simboli non terminali di $G_2$. Metto un apice per indicare una rinominazione dei non terminali ($V'_2,\ S'_2,\ P'_2$). In pratica concateno gli start symbols.
 
-$L=\{ vw\ / \ w \in \{ a,b\}^* \}$ 
-Con il \textbf{pumping lemma} posso dimostrare se un linguaggio \'e libero o meno.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Esempio}
+Il linguaggio $\{ a^nb^n\ / \ n > 0 \}$ \'e libero perch\'e $\exists$ una grammatica libera che lo genera ($G_1$):\\
+\begin{center}
+	$G_1\qquad S\rightarrow aSb/ab$ $G_1$ libera\\
+	$G_2\qquad s\rightarrow aAb,\ A\rightarrow aaAb,\ A\rightarrow \epsilon$ $G_2$ non libera $\Box$\\
+\end{center}   
 
-Pumping lemma: Sia L un linguaggio libero allora $\exists\ p\in \mathbb{N}^+ \ / \ \forall\ z\in L:\ |z|>p\ \exists\ uvwxy \ / \ z = uvwxy 
-\land |vwx| \leq p \land |vx|>0 \land\ \forall\ i \in \mathbb{N} uv^iwx^iy \in L$.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Pumping Lemma}
+\begin{tcolorbox}\begin{center}
+	Serve per dimostrare che un linguaggio non \'e libero. Ossia non esiste alcuna grammatica libera che lo genera.
+\end{center}\end{tcolorbox}
+
+\textbf{Pumping lemma}: 
+
+Sia L un linguaggio libero allora $\exists p \in \mathbb{N}^+ \ / \ \forall z \in L \ / \ |z| > p,\exists u v w x y:$
+\begin{itemize}
+	\item[i)] 	$z = uvwxy\ \land$ \\
+	\item[ii)] 	$|vwx| \geq p\ \land$ \\
+	\item[iii)] $|vx| > 0 \ \land$ \\
+	\item[ ] 	$\forall i \in \mathbb{N} \ / \ uv^iwx^iy \in L$\\
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Commento definizione}
 \begin{tabular}{ll}
 $\exists\ p\in \mathbb{N}^+$ & esiste una costante $p>0$\\
 $\forall\ z\in L:\ |z|>p$ & ogni parola con pi\'u elementi di p\\
@@ -164,48 +264,49 @@ $|vx|>0$ & la seconda e la quarta non sono mai entrambe nulle\\
 $\forall\ i \in \mathbb{N} uv^iwx^iy \in L$ & se ripeto i volte (i pu\'o essere 0) la 2 e la 4 sono ancora in L\\
 \end{tabular}
 
-G $\qquad S\rightarrow aSb|ab$
-G $\qquad S\rightarrow A,\ A\rightarrow aAb|ab$
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Dimostrazione Pumping Lemma}
+\textbf{Osservazione 1}:
+Data una grammatica G posso sempre creare una altra grammatica G' modificata dalla prima che genera lo stesso linguaggio.\\[5pt]
 
-Chomsky normal form (no doppioni)
+\textbf{Osservazione 2}:
+Una grammatica si pu\'o portare in forma normale (di Chomsky) togliendo eventuali ridondanze o produzioni che terminano per forza con 
+$\epsilon $ (a meno che non debba fare parte del linguaggio, ma a quel punto si scrive come $S \rightarrow \epsilon$).\\[5pt]
 
-ie) 
-$G_1 \qquad S \rightarrow aSb|ab|B,\ B\rightarrow aBb|ab \leftarrow$ doppioni
-$G \qquad S\rightarrow A,\ A \rightarrow aAb|ab $
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{CNF}
+Chomsky Normal Form esige che una grammatica non abbia produzioni ridondanti:\\
+ie) $\qquad G_1 \qquad S \rightarrow aSb|ab|B,\ B\rightarrow aBb|ab \leftarrow$ doppioni\\
 
-Dim L \'e linguaggio libero $\implies \exists$ una grammatica G in Chomsky Normal Form tale che L = L(G).
-Definisco P come la lunghezza della parola pi\'u lunga che pu\'o essere derivata usando un albero di derivazione i cui cammini 
-dalla radice sono lunghi al pi\'u come il numero di simboli non teminali della grammatica $(|V\backslash T|$).
-\Tree [S [.$A_1$ [.$A_2$ [.\ldots [.a] ] ] ] ] 
-$S \rightarrow aSb|ab$
-Albero di derivazione: piglio un non terminale e lo espando con figli quanto vale $\beta$
-\Tree [.S a [.S a b ] b ]
-\Tree [.S a [.S a [.S a b ] b ] b ] \ldots
+\textbf{Dimostrazione}:
+L \'e un linguaggio libero $\implies \exists\ G $ in Chomsky Normal Form tale che L = L(G).\\
 
+Definisco p come la lunghezza della parola pi\'u lunga che pu\'o essere derivata usando un albero di derivazione i cui cammini dalla radice sono lunghi al pi\'u come il numero di simboli non terminali della grammatica ($|V\backslash T|$).
 
-P \'e la lunghezza della parola pi\'u lunga che posso linitare.
-$S\rightarrow A_1 \rightarrow A_2 \rightarrow ...\rightarrow A_k \rightarrow a$ [tutti simboli non terminali tranne a]
+$S \rightarrow aSb | ab$, ha due non terminali, p = 2 
+\begin{center}
+	\Tree[.S a b ]
+	\Tree[.S a [.S a b ] b ]
+	\Tree[.S a [.S a [.S a b ] b ] b ]
+\end{center}
 
+Guardo il cammino S $\rightarrow S_1 \rightarrow S_2 \rightarrow ... \rightarrow S_K$ di lunghezza K
+Se $z \in L\ \land \ |z| > p \implies $ nell'albero di derivazione di z esiste almeno un cammino la cui lunghezza \'e maggiore di 
+$|V\backslash T|\implies $ allora esiste almeno un non-terminale che occorre almeno due volte lungo quel cammino (S, nell’esempio sotto).
 
-ie) p = 2, se prendo una qualunque perola pi\'u lunga di 3 generata da G, aaaabbbb la posso dividere in 5 con due pumpable
+\begin{center}
+	\includegraphics[scale=0.4]{Chapters/Img/c01_05.png}\\
+\end{center}
+
+ie) p = 2, se prendo una qualunque parola pi\'u lunga di 3 generata da G: aaaabbbb, la posso dividere in 5 con due pumpable:
 u=aa, v=a, w=abb, x=b, y=b 
 
 Se prendo $z\in L \land |z| > p \implies $ ho dovuto usare un albero di derivazione $\ / \ \exists $ al meno un cammino pi\'u lungo 
 di $|V\backslash T|$ per definizione di z.
 $\implies $ ho un non terminale ripetuto al meno due volte 
-$\implies \exists$ al meno un non terminale che occorre al nomo 2 volte lungo quel cammino
+$\implies \exists$ al meno un non terminale che occorre al meno 2 volte lungo quel cammino
 
-con l'un-pumping la parola sta sempre nel linguaggio (taglio un pezzo di albero) 
-ie)
-\Tree[.S a [.S a [.S a b ] b ] b ]
-
-\begin{center}
-\includegraphics[scale=0.4]{Chapters/Img/c01_01.png}
-\includegraphics[scale=0.4]{Chapters/Img/c01_02.png}\\
-\end{center}
-
-$\Box$
-
+con \textbf{l'un-pumping} la parola sta sempre nel linguaggio (\textbf{taglio un pezzo di albero}) 
 Dato che w e x non possono essere entrambi nulli al massimo avr\'o  $A \rightarrow aA,\ o\ A \rightarrow Aa$
 
 \begin{center}
@@ -217,52 +318,68 @@ ie) linguaggio libero $\{a,b\},\ S \rightarrow ab$
 \includegraphics[scale=0.4]{Chapters/Img/c01_04.png}
 \end{center}
 
-\section{Uso del Pumping Lemma per determinare linguaggi liberi}
-Tesi: Sia L un linguaggio libero allora 
-$\exists p \in \mathbb{N}^+\ / \ \forall\ z \in L:|z|>p\ \exists\ uvwxy \ / \ (z = uvwxy \land |vwx| \leq p \land |vx| > 0 \land \forall\ i \in \mathbb{N} uv^iwx^iy \in L)$
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Considero $L_1=ww\ / \ w \in \{a,b\}^*$ non \'e libero
-
-Dim: Suppongo $L_1$ libero, sia p un numero naturale positivo qualunque (se scelgo un p arbitrario la dim non serve a nulla).
-Sia $z=a^pb^pa^pb^p$ allora $z \in L_1,\ |x| > p$. Siano $uvwxy\ / \ z = uvwxy \land |vwx| \leq p \land |vx| > 0$, distinguiamo varie possibilit\'a:
+\section{Pumping Lemma per assurdo}
+(tesi) = L libero $ \implies \exists p \in \mathbb{N}^+ \ / \ \forall z \in L \ / \ |z| > p,\exists u v w x y:$
 \begin{itemize}
-\item[1)] vwx \'e composto da \lq a \rq\ che occorrono a sinistra ($w_1$)\\
-\item[2)] vwx \'e a cavallo e contiene sia \lq a \rq\ che \lq b \rq\ in $w_1$\\
-\item[3)] vwx contiene solo \lq b \rq\ in $w_1$\\
-\item[4)] \lq b \rq\ in $w_1$ e \lq a \rq $\in w_2$\\
+	\item[i)] 	$z = uvwxy\ \land$ \\
+	\item[ii)] 	$|vwx| \geq p\ \land$ \\
+	\item[iii)] $|vx| > 0 \ \land$ \\
+	\item[ ] 	$\forall i \in \mathbb{N} \ / \ uv^iwx^iy \in L$\\
+\end{itemize}
+$\neg (tesi) = \forall p \in \mathbb{N}^+ \ / \ \exists z \in L \ / \ |z| > p\ \forall\ uvwxy \ / \ $
+$[(z = uvwxy \land |vwx| \leq p \land |vx| > 0)$\\
+$\implies \exists i \in N \ / \ uv^iwx^iy \not\in L]$\\[5pt]
+%%
+Suppongo $L_1 = { w_1 w_2 \ / \ w_1 = w_2,\ w_1, w_2 \in \{a, b\}^*}$ \textbf{libero};\\
+Sia p un naturale qualunque sempre positivo;\\
+Sia $z = a^p b^p a^p b^p$ ($|z| = 4p$);\\
+Allora $z \in L_1,\ |z| > p$\\
+Siano $uvwxy \ / \ z=uvwxy,\ |vwx| \leq p \land |vx| > 0$ distinguiamo vari casi:
+
+\begin{itemize}
+\item[1)] vwx \'e composto da \lq a\rq\ che occorrono a sinistra ($w_1$)\\
+\item[2)] vwx \'e a cavallo e contiene sia \lq a\rq\ che \lq b\rq\ in $w_1$\\
+\item[3)] vwx contiene solo \lq b\rq\ in $w_1$\\
+\item[4)] \lq b\rq\ in $w_1$ e \lq a\rq $\in w_2$\\
 \item[5,6,7)] ...speculare su $w_2$\\
 \end{itemize} 
+\begin{itemize}
+	\item Nei casi 1, 3, 5, 7 considero le parole $z^1=uv^0wx^0y$ (i=0);\\
+	\item[-] nel caso 1 sono certo di togliere alcune occorrenze di a quindi avr\'o $z^1 = a^k b^p a^p b^p,\ k < p \implies z^1 \not\in L$. \\
+	\item[-] Nel caso 3 $z^1 = a^p b^k a^p b^p,\ k < p \implies z^1 \not\in L$.\\
+	\item[-] Nel caso 5 $z^1 = a^p b^p a^k b^p,\ k < p \implies z^1 \not\in L$.\\
+	\item[-] Nel caso 7 $z^1 = a^p b^p a^p b^k,\ k < p \implies z^1 \not\in L$.\\
+	\item Nei casi 2, 4, 6 invece avr\'o ancora $ z^1=uv^0wx^0y $ (i=0);\\
+	\item[-] Nel caso 2 $z^1 = a^k b^p a^p b^p,\ o\ a^p b^k a^p b^p,\ o\ a^j b^k a^p b^p,\ j,k < p \implies z^1 \not\in L$ .\\
+	\item[-] ...\\
+\end{itemize}
 
-Nei casi 1, 3, 5, 7 considero le parole $z^1=uv^0wx^0y$ (i=0);
-nel caso 1 sono certo di togliere alcune occorrenze di a quindi avr\'o $z^1 = a^k b^p a^p b^p,\ k < p \implies z^1 \not\in L$. 
-Nel caso 3 $z^1 = a^p b^k a^p b^p,\ k < p \implies z^1 \not\in L$.
-Nel caso 5 $z^1 = a^p b^p a^k b^p,\ k < p \implies z^1 \not\in L$.
-Nel caso 7 $z^1 = a^p b^p a^p b^k,\ k < p \implies z^1 \not\in L$.
-
-Nei casi 2, 4, 6 invece avr\'o ancora $ z^1=uv^0wx^0y $ (i=0);
-Nel caso 2 $z^1 = a^k b^p a^p b^p,\ o\ a^p b^k a^p b^p,\ o\ a^j b^k a^p b^p,\ j,k < p \implies z^1 \not\in L$ .
-...
-\begin{comment}
-How not to: se avessi preso $\{ww \ / \ w\in\{a,b\}^*\}$ sia $z = (ab)^p (ab)^p$, prendo p=4, $v\in\epsilon, x=a, i = 0$ cos\'i non 
+\subsection{How not to use Pumping Lemma}
+Se avessi preso $\{ww \ / \ w\in\{a,b\}^*\}$ sia $z = (ab)^p (ab)^p$, prendo p=4, $v\in\epsilon, x=a, i = 0$ cos\'i non 
 dimostro niente perch\'e se voglio dimostrare con il pumping lemma la negazione della tesi devo dimostrare un asserto che vale $\forall p \in \mathbb{N}^+$.
 Pertanto non posso prendere un arbitrario p=4.
 
-ie) $\{a^nb^nc^j/n,j\geq 0\}=L_{17}$
-$S \rightarrow aSb|B$
-$B \rightarrow cB|\epsilon $
-$acb \in L_{17}$
-\Tree[.S a b [.S a b [.S $\epsilon$ ] ] ]
-\Tree[.S a [.S [.B c [.B $\epsilon$ ] ] ] b ]
+ie) $\{a^nb^nc^j/n,j\geq 0\}=L_{17}$\\
+$S \rightarrow aSb|B$\\
+$B \rightarrow cB|\epsilon $\\
+$acb \in L_{17}$\\
+\begin{center}
+	\Tree[.S a b [.S a b [.S $\epsilon$ ] ] ]
+	\Tree[.S a [.S [.B c [.B $\epsilon$ ] ] ] b ]
+\end{center}
 
+$S \rightarrow abA|B$\\
+$B \rightarrow cB|\epsilon$\\s
+\begin{center}
+	\Tree[.S [.A ... ... ] [B ... ... ] ]\\
+\end{center}
 
-$S \rightarrow abA|B$
-$B \rightarrow cB|\epsilon$
-\Tree[.S [.A \ldots \ldots ] [B \ldots \ldots ] ]
-
-
-$S \rightarrow AB$
-$A \rightarrow aAB|ab|\epsilon$
-$B \rightarrow Ab|c|\epsilon$
-\Tree[.S [.A a [.A \epsilon] b ] [.B \epsilon ] ]
-\Tree[.S [.A a b ] [.B \epsilon ] ]
-\end{comment}
+$S \rightarrow AB$\\
+$A \rightarrow aAB|ab|\epsilon$\\
+$B \rightarrow Ab|c|\epsilon$\\
+\begin{center}
+	\Tree[.S [.A a [.A $\epsilon$ ] b ] [.B $\epsilon$ ] ]
+	\Tree[.S [.A a b ] [.B $\epsilon$ ] ]
+\end{center}
