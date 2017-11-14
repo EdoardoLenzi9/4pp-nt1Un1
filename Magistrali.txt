@@ -1,0 +1,17 @@
+Ammissione
+	media 24
+	B2
+
+Corso data-science interdisciplinare con le merdine di economia/giuri/sociologia...
+
+Percorsi EIT Digital (Blu - bel)
+	Data science
+	Systems e Networks (Sistemi Distribuiti)
+	Service Design Engineering (Agent Oriented SW)
+
+Percorsi EIT/ICT Innovation (Verdi - cacca)
+	Embedded System (Basso livello)
+	HCI
+	Security Privacy
+	Autonomous Vehicular Technology
+	-- doppia laurea (C inglese)

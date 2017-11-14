@@ -109,7 +109,7 @@ Strutture dati:
 \end{lstlisting}
 
 \begin{center}
-	\includegraphics[scale=0.4]{Chapters/Img/c02_02.png}\\
+	\includegraphics[scale=0.5]{Chapters/Img/c02_02.png}\\
 \end{center} 
 
 \begin{lstlisting}
@@ -175,6 +175,7 @@ Dato il DFA D, L(D) \'e il linguaggio riconosciuto da D. \\
 $L(D) = \{ w=a_1,...,a_k \ / \ \exists \text{ cammino in D dallo stato iniziale al finale}\}$.
 $\epsilon \in L(D) \iff s_0 \in F$.
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Simulazione di un DFA con $move_d$ totale}
 \begin{center}
     \begin{tabular}{ll}
@@ -198,6 +199,7 @@ $\epsilon \in L(D) \iff s_0 \in F$.
 Simulazione NFA costa $O(|w|(n+m))$
 Simulazione DFA costa $O(|w|)$
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Subset Construction}
 \begin{center}
     \begin{tabular}{ll}
@@ -207,5 +209,169 @@ Simulazione DFA costa $O(|w|)$
 \end{center}
 
 \begin{lstlisting}
-    
+	S_0^d = epsilon-closure({S_0^n});	
+    //raggruppo stati della epsilon closure in un unico stato S_0^d del DFA
+	states = {S_0^d};
+	tag S_0^d come non marcato;
+
+	while(exist T in states non marcato){
+		marco T;
+		foreach(a in A){ //guardo ogni arco
+			T_1 = epsilon-closure(U_{t in T} di move_n(t,a));
+            //tutti gli stati raggiungibili con una a-transition da uno stato in T 
+            //poi la loro epsilon closure
+			if(T_1 != emptySet){
+				move_d(T, a) = T_1;
+		 		if(T_1 !in states){
+					aggiungi T_1 a states come non marcato;
+				}
+			}
+		}
+	}
+
+	foreach(T in states){
+		if( (T intersecato F^n) != 0){
+			metti T_1 in F^d;
+		}
+	}
 \end{lstlisting}
+Lo stato iniziale del DFA sar\'a la $\epsilon - closure$ dallo stato iniziale del NFA (quindi un set di stati).
+Considero lo stato iniziale del NFA e lo marco in grassetto poi espando $T_0$ con la $\epsilon - closure$ dello stato iniziale. 
+
+Dallo stato $T_0$ guardo per ogni arco gli stati in cui arrivo e li marco in grassetto ($T_1$, $T_2$, ...); 
+poi espando quelli in grassetto guardando le rispettive $\epsilon - closure$.
+
+Alla fine guardo i set degli stati se due set coincidono mergio gli stati.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Esercizio}
+\begin{center}
+	\includegraphics[scale=0.5]{Chapters/Img/c02_05.png}\\
+\end{center} 
+
+\begin{tabular}{lll}
+    \textbf{States}                                 &   \textbf{a}        &     \textbf{b} \\
+    T0 = $\{$ \textbf{A} B C E $\}$                 &   T1                &     T2  = T0\\
+    T1 = $\{$ A B C \textbf{D E} $\}$               &   T1                &     T0 \\
+    T2 = $\{$ \textbf{A} B C \textbf{E} $\}$ = T0 (quindi T0 va in T0 tramite b) & come T0 & come T0 \\
+\end{tabular}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Esercizio}
+\begin{center}
+	\includegraphics[scale=0.5]{Chapters/Img/c02_03.png}\\
+\end{center} 
+
+\begin{tabular}{lll}
+    \textbf{States}                                 &   \textbf{a}        &     \textbf{b} \\
+    $S_0^d = \{$ \textbf{0} 1 2 4 7 $\}$            &   T1                &     T2 \\
+    T1 = $\{$ 1 2 \textbf{3} 4 6 7 \textbf{8} $\}$  &   T1                &     T3 \\
+    T2 = $\{$ 1 2 4 \textbf{5} 6 7 $\}$             &   T1                &     T2 \\
+    T3 = $\{$ 1 2 4 \textbf{5} 6 7 9 $\}$           &   T1                &     T4 \\
+    T4 = $\{$ 1 2 4 \textbf{5} 6 7 \textbf{10} $\}$ &   T1                &     T2 \\
+\end{tabular}
+
+\begin{center}
+	\includegraphics[scale=0.5]{Chapters/Img/c02_04.png}\\
+\end{center} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Partition Refinement}
+\begin{tcolorbox}\begin{center}
+    Guado gli archi, se tutta partizione punta ad un nodo dell'altra transizione con lo stesso non terminale allora va bene; 
+    altrimenti spacco la partizione.
+\end{center}\end{tcolorbox}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Algoritmo di Partition Refinement}
+\begin{center}
+    \begin{tabular}{ll}
+        Input   &   DFA D = $\{ A,A,move_d, s_0, F\}$\\
+        Output  &   partizione di S in blocchi equidistanti\\ 
+    \end{tabular}
+\end{center}
+
+\begin{lstlisting}
+    B_1 = F;
+    B_2 = S \ F;
+    P = {B_1, B_2};
+    while(exists B_i, B_j in P, exists a in A, B_i e'' partizionabile rispetto a (B_j, a)){
+        sostituire B_i in P con split(B_i, (B_j, a));
+    }
+\end{lstlisting}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Esempio}
+
+\begin{center}
+	\includegraphics[scale=0.5]{Chapters/Img/c02_04.png}\\
+\end{center} 
+
+\begin{tabular}{ll}
+    $\{$ A B C D $\}$ $\{$ E $\}$                       & Considero le partizioni dei terminali e non terminali \\  
+    $\{$ A B C D $\}$ $\{$ E $\}$                       & Con a-transizione non esco dal primo set\\  
+    $\{$ A B C $\}$ $\{$ D $\}$ $\{$ E $\}$             & Con b-transizione vado da D in E (e A B C non vanno in E con b-transizioni)\\  
+    $\{$ A B C $\}$ $\{$ D $\}$ $\{$ E $\}$             & Con a-transizione non esco\\    
+    $\{$ A C $\}$ $\{$ B $\}$ $\{$ D $\}$ $\{$ E $\}$   & Con b-transizione vado da B in D e gli altri no quindi splitto \\
+    $\{$ A C $\}$ $\{$ B $\}$ $\{$ D $\}$ $\{$ E $\}$   & vanno bene \\
+\end{tabular}\\[5pt]
+
+Rinomino  $\{$ A C $\}$ $\{$ B $\}$ $\{$ D $\}$ $\{$ E $\}$ in $t_1,\ t_2,\ t_3,\ t_4 $
+
+\begin{center}
+	\includegraphics[scale=0.5]{Chapters/Img/c02_06.png}\\
+\end{center} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Algoritmo di minimizzazione di DFA}
+\begin{center}
+    \begin{tabular}{ll}
+        Input   &   DFA \textbf{D} = $\{ A,A,move_d, s_0, F\}$ con $move_d$ totale\\
+        Output  &   minimo DFA (\textbf{min(D)}) che riconosce lo stesso linguaggio del primo\\ 
+    \end{tabular}
+\end{center}
+
+\begin{lstlisting}
+    P = PartitionRefinement(DFA D);
+    // P = (B_1, ..., B_k);
+    foreach(B_i in P){
+        var t_i;            //do un nome alla partizione
+        if(s_o in B_i){
+            t_i e'' iniziale per min(D);    //setto lo stato iniziale di min(D)
+        }
+    }
+
+    foreach(B_i in P, B_i in F){
+        t_i e'' lo stato finale di min(D);  //setto lo stato finale di mind(D)
+    }
+
+    foreach( (B_i, a, B_j) tale che esiste s_i in B_i tali che move_d(s_i, a) = s_j){
+        //per ogni tupla (stato, arco, stato) faccio la rispettiva transizione in min(D)
+        setto una transizione temporanea in min(D) da t_i a t_j secondo il simbolo a;
+    }
+
+    foreach(dead state t_i){
+        rimuovere t_i e tutte le transizioni da/verso t_i;
+    }
+    tutti i temporanei residui (sia stati che transizioni) sono gli stati e le transizioni di min(D);
+\end{lstlisting}
+Complessit\'a $O(nlgn)$.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5
+\subsection{Esempio}
+
+\begin{center}
+	\includegraphics[scale=0.5]{Chapters/Img/c02_06.png}\\
+\end{center} 
+Arrivato qua: rinominati $\{$ A C $\}$ $\{$ B $\}$ $\{$ D $\}$ $\{$ E $\}$ in $t_1,\ t_2,\ t_3,\ t_4 $,
+applico la minimizzazione del DFA.
+
+\begin{center}
+	\includegraphics[scale=0.5]{Chapters/Img/c02_07.png}\\
+\end{center} 
+
+Ho le partizioni $\{A,\ B\}$, $\{C,\ sink\}$, applico partition refinement ma sono gi\'a partizionati correttamente.
+
+\begin{center}
+	\includegraphics[scale=0.5]{Chapters/Img/c02_08.png}\\
+\end{center} 
