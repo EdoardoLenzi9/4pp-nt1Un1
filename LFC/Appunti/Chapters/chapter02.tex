@@ -326,7 +326,7 @@ Rinomino  $\{$ A C $\}$ $\{$ B $\}$ $\{$ D $\}$ $\{$ E $\}$ in $t_1,\ t_2,\ t_3,
 \section{Algoritmo di minimizzazione di DFA}
 \begin{center}
     \begin{tabular}{ll}
-        Input   &   DFA \textbf{D} = $\{ A,A,move_d, s_0, F\}$ con $move_d$ totale\\
+        Input   &   DFA \textbf{D} = $\{ S,A,move_d, s_0, F\}$ con $move_d$ totale\\
         Output  &   minimo DFA (\textbf{min(D)}) che riconosce lo stesso linguaggio del primo\\ 
     \end{tabular}
 \end{center}
@@ -342,7 +342,7 @@ Rinomino  $\{$ A C $\}$ $\{$ B $\}$ $\{$ D $\}$ $\{$ E $\}$ in $t_1,\ t_2,\ t_3,
     }
 
     foreach(B_i in P, B_i in F){
-        t_i e'' lo stato finale di min(D);  //setto lo stato finale di mind(D)
+        t_i e'' lo stato finale di min(D);  //setto lo stato finale di min(D)
     }
 
     foreach( (B_i, a, B_j) tale che esiste s_i in B_i tali che move_d(s_i, a) = s_j){
@@ -375,3 +375,169 @@ Ho le partizioni $\{A,\ B\}$, $\{C,\ sink\}$, applico partition refinement ma so
 \begin{center}
 	\includegraphics[scale=0.5]{Chapters/Img/c02_08.png}\\
 \end{center} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5
+\subsection{Esempio}
+Sia $r=(a|b)*a(a|b)(a|b)$, per determinare il minimo DFA di riconoscimento di L(r) posso usare Thompson e spararmi in faccia o andare
+a naso.
+
+\begin{center}
+	\includegraphics[scale=0.5]{Chapters/Img/c02_09.png}\\
+\end{center} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5
+\subsection{Lemma}
+Lemma: $\forall n \in \mathbb{N}^+,\ \exists\ $ un NFA con (n+1) stati il cui minimo DFA equivalente ha almeno $2^n$ stati.\\
+
+Dim: 
+\begin{center}
+	\includegraphics[scale=0.5]{Chapters/Img/c02_10.png}\\
+\end{center} 
+
+Per assurdo suppongo esista un DFA minimo con meno di $2^n$ stati.\\
+Osservo che esistono $2^n$ possibili parole di lunghezza n con simboli $\{ a, b\}$.
+$\implies \exists\ w_1 \not = w_2 \ / \ |w_1| = |w_2| = n $ e il loro riconoscimento conduce allo stesso stato del DFA.
+$\implies$ esiste almeno una posizione per cui $w_1 \ e\ w_2$ differiscono (considero quella pi\'u a destra).\\
+
+$w_1 = w_1'ax$, $w_2 = w_2'bx$ iniziano diversi ma finiscono con x entrambe.
+Considero $w_1'' = w_1'ab^{n-1}$ $w_2'' = w_2'bb^{n-1}$ raggiungo uno stato finale t; la seconda parola per\'o non appartiene al 
+linguaggio, nonostante possa comunque raggiungere lo stato t. Pertanto contraddiciamo che t sia finale.
+%TODO
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5
+\section{Ricapitolando}
+\begin{center}
+	\includegraphics[scale=0.5]{Chapters/Img/c02_11.png}\\
+\end{center} 
+
+\begin{tabular}{|l|l|l|}
+\hline
+Algoritmo   &   Complessit\'a nello spazio  &   Complessit\'a nel tempo\\
+\hline
+Thompson Construction   &   $O(|r|)$    &   $O(|r|)\ ||\ O(n_n+m_n)$\\
+Simulazione NFA         &   -           &   $O(|w|(n_n+m_n))$       \\
+Subset Construction     &   -           &   $O(n_d |A| (n_n + m_n))$\\
+Minimazzazione DFA      &   -           &   $O(n_d lg(n_d))$        \\
+Simulazione DFA         &   -           &   $O(|w|)$                \\
+\hline
+\end{tabular}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5
+\section{Da DFA a Grammatica Regolare}
+Dato un DFA D voglio trovare una grammatica regolare G tale che L(G) = L(D). 
+Se ho una transizione $A \rightarrow B$ con una a-transizione diventer\'a $A \rightarrow aB$. Segno il nome del nodo che sto considerando
+prima della freccia e, dopo la freccia, il non terminale ed il nodo destinazione. Se ho un nodo foglia C avr\'o  $C \rightarrow \epsilon$.
+
+Se invece ho una grammatica regolare (della forma ...) e voglio trovare un DFA D $/\ L(G) = L(D)$, faccio il procedimenti inverso di prima;
+se ottengo un NFA basta fare Subset Construction.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5
+\subsection{Esempio}
+$L=\{ w \ / \ w \in \{ a, b \} ^* \&\& |a|\ pari,\ |b|\ dispari \}$, L \'e regolare?
+\begin{center}
+	\includegraphics[scale=0.5]{Chapters/Img/c02_12.png}\\
+\end{center} 
+S\'i \'e regolare.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5
+\subsection{Esempio}
+$L=\{ w \ / \ w \in \{ a, b \} ^* \&\& |a|=|b|\}$, L \'e regolare?
+\begin{center}
+	\includegraphics[scale=0.5]{Chapters/Img/c02_13.png}\\
+\end{center} 
+Non potr\'a mai essere regolare, per il pumping lemma per i linguaggi regolari.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Pumping Lemma per Linguaggi Regolari}
+
+Sia L un linguaggio regolara
+$\implies \exists\ p \in \mathbb{N}^+ \ / \ \forall\ z \in L \ / \ |z| > p$,
+$\exists\ u,v,w \ / \ $:
+\begin{itemize}
+    \item[i)] $z = uvw \land$\\
+    \item[i)] $|uv| \leq p \land$\\
+    \item[i)] $|v| > 0,\ \forall i \in \mathbb{N},\ u v^i w \in L$\\
+\end{itemize}
+
+Dim:
+
+L \'e regolare quindi pu\'o essere riconosciuto da un automa a stati finiti.
+Sia D il min DFA $\ / \ L(D) = L,\ p = |S|$, allora i cammini pi\'u lunghi che non passano pi\'u di una volta nel medesimo 
+stato hanno al pi\'u lunghezza (p-1).
+Allora se $z \in L$ con $|z|>p$, z \'e riconosciuta tramite un cammino che attraversa almeno due volte uno stato. 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5
+\subsection{Negazione testi Pumping Lemma per linguaggi regolari}
+$\forall p \in \mathbb{N}^+ \ / \ \exists\ z \in L \ / \ |z| > p.\ \forall\ uvw $
+$z = uvw \land |uv| \leq p \land |v| > 0) \implies \exists\ i \in \mathbb{N} \ / \ u v^i w \not\in L) $
+
+Lemma: $L=\{a^nb^n \ / \ n \geq 0\}$ non \'e regolare\\
+Dim: Assumo per assurdo che L sia regolare, dato p un qualunque numero positivo e $z= a^p b^p $ allora
+$\forall\ uvw \ / \ z = uvw \land |uv| \leq p \land |v| > 0$ (la stringa v contiene solo (e almeno una) \lq a\rq ).
+
+allora $uv^2w$ ha la forma $a^{p+k}b^p,\ k > 0$
+allora $uv^2w \not\in L$ il che contraddice il Pumping Lemma per linguaggi regolari.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5
+\subsection{Esercizio}
+$L_1 = \{ w \ / \ w \in \{ a, b \}^* \text{e contiene almeno una occorrenza di \lq\lq aa \rq\rq}\}$\\
+
+$L_1$:
+$A \rightarrow aA | bA | aB$\\
+$B \rightarrow aC$\\
+$C \rightarrow aC | bC | \epsilon $\\
+
+$L_2 = \{ ww \ / \ \ \in \{ a,b \}^* \}$\\
+non \'e libero per il pumping lemma (gi\'a dimostrato), quindi non \'e regolare.
+
+$L_3 = \{ww^r \ / \ w \in \{ a,b \}^* \}$\\
+Non \'e regolare ma libero.
+$z = a^p b^p b^p a^p \in L_3$
+visto che $uv < p$, uv \'e composta solo da a 
+$u v^i w = a^pb^{2p}a^p \not\in L_3$ quindi non pu\'o essere regolare.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5
+\subsection{Esercizi di esame}
+Sia $N_1$ lo NFA con stato iniziale A e finale E con la seguente funzione di transizione:
+
+\begin{center}
+    \begin{tabular}{|c|c|c|c|}
+        \hline
+            &   $\epsilon$      &   a           &   b           \\
+        \hline
+            A    &   $\{B, E\}$ &   $\o$        &  $\o$         \\
+        \hline
+            B    &   $\{ C \}$  &   $\o$        &  $\{ E \}$    \\
+        \hline
+            C    &   $\o$       &   $\{ D \}$   &  $\o$         \\
+        \hline
+            D    &   $\{ E \}$  &   $\o$        &  $\{ B \}$    \\
+        \hline
+            E    &   $\o$       &    $\{ E \}$  &  $\{ A \}$    \\
+        \hline
+    \end{tabular}
+\end{center} 
+
+\begin{itemize}
+    \item[1)] $aa \in L(N_1)$?\\
+    \item[2)] D \'e il DFA ottenuto da $N_1$, per subset construction, Q stato iniziale di D, $Q_{ab\_}$ lo stato di D che si 
+    raggiunge da Q tramite il cammino ab. Dire a quale sottoinsieme degli stati di $N_1$ corrisponde $Q_{ab\_}$.\\    
+\end{itemize}
+
+1) S\'i facendo $A \rightarrow B \rightarrow C \rightarrow D \rightarrow E \rightarrow E $
+2) Facendo la subset construction:
+
+\begin{center}
+    \begin{tabular}{|l|l|l|}
+        \hline
+                                &   a   &  b    \\
+        \hline
+            $Q0 = \{A,B,C,D\}$  &   Q1  &  Q0   \\
+        \hline
+            $Q1 = \{D,E\}$      &   Q2  &  Q0   \\
+        \hline
+           $Q2 = \{E\}$         &   Q2  &  Q0   \\
+        \hline
+    \end{tabular}
+\end{center} 
+
