@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2017.8.26)  15 NOV 2017 00:14
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2017.8.26)  16 NOV 2017 12:44
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1102,66 +1102,8 @@ File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 \tf@toc=\write6
 \openout6 = `LFC.toc'.
 
- (./Chapters/chapter02.tex
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 12.
-
-(/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
-File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
-)
-LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 12.
-
-Underfull \hbox (badness 10000) in paragraph at lines 12--13
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 13--14
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 14--15
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 15--16
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 16--17
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 20--21
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 21--22
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 22--23
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 23--24
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--25
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 26--28
+ (./Chapters/Lezione16.11.tex
+Underfull \hbox (badness 10000) in paragraph at lines 36--42
 
  []
 
@@ -1169,188 +1111,63 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.32 
-      [1
+l.51 \begin{lstlisting}
+                        [1
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 33--36
+Underfull \hbox (badness 10000) in paragraph at lines 55--60
 
  []
 
-[2]
-Chapter 1.
+<Chapters/Img/l02_01.png, id=31, 302.12875pt x 403.5075pt>
+File: Chapters/Img/l02_01.png Graphic file (type png)
 
-Underfull \hbox (badness 10000) in paragraph at lines 60--61
+<use Chapters/Img/l02_01.png>
+Package pdftex.def Info: Chapters/Img/l02_01.png used on input line 64.
+(pdftex.def)             Requested size: 151.064pt x 201.75325pt.
 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 61--62
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 62--63
-
- []
-
-<Chapters/Img/c02_01.png, id=84, 996.72375pt x 524.96124pt>
-File: Chapters/Img/c02_01.png Graphic file (type png)
-
-<use Chapters/Img/c02_01.png>
-Package pdftex.def Info: Chapters/Img/c02_01.png used on input line 69.
-(pdftex.def)             Requested size: 398.68243pt x 209.98077pt.
- [3
-
- <./Chapters/Img/c02_01.png (PNG copy)>]
-Underfull \hbox (badness 10000) in paragraph at lines 92--93
+Underfull \hbox (badness 10000) in paragraph at lines 70--74
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 93--94
+Underfull \hbox (badness 10000) in paragraph at lines 77--82
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 94--95
-
- []
-
-<Chapters/Img/c02_02.png, id=89, 189.70876pt x 259.97125pt>
-File: Chapters/Img/c02_02.png Graphic file (type png)
-
-<use Chapters/Img/c02_02.png>
-Package pdftex.def Info: Chapters/Img/c02_02.png used on input line 112.
-(pdftex.def)             Requested size: 94.85414pt x 129.9853pt.
- [4 <./Chapters/Img/c02_02.png (PNG copy)>]
-Underfull \hbox (badness 10000) in paragraph at lines 163--164
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 164--166
-
- []
-
-[5] <Chapters/Img/c02_05.png, id=157, 565.11125pt x 241.90375pt>
-File: Chapters/Img/c02_05.png Graphic file (type png)
-
-<use Chapters/Img/c02_05.png>
-Package pdftex.def Info: Chapters/Img/c02_05.png used on input line 249.
-(pdftex.def)             Requested size: 282.55493pt x 120.95157pt.
-
-<Chapters/Img/c02_03.png, id=158, 691.58376pt x 294.09875pt>
-File: Chapters/Img/c02_03.png Graphic file (type png)
-
-<use Chapters/Img/c02_03.png>
-Package pdftex.def Info: Chapters/Img/c02_03.png used on input line 262.
-(pdftex.def)             Requested size: 345.79103pt x 147.04901pt.
- [6 <./Chapters/Img/c02_05.png (PNG copy)> <./Chapters/Img/c02_03.png (PNG copy
-)>]
-<Chapters/Img/c02_04.png, id=187, 398.48875pt x 193.72375pt>
-File: Chapters/Img/c02_04.png Graphic file (type png)
-
-<use Chapters/Img/c02_04.png>
-Package pdftex.def Info: Chapters/Img/c02_04.png used on input line 275.
-(pdftex.def)             Requested size: 199.24388pt x 96.86163pt.
-File: Chapters/Img/c02_04.png Graphic file (type png)
- <use Chapters/Img/c02_04.png>
-Package pdftex.def Info: Chapters/Img/c02_04.png used on input line 307.
-(pdftex.def)             Requested size: 199.24388pt x 96.86163pt.
-
-Overfull \hbox (55.78859pt too wide) in paragraph at lines 310--318
-[][] 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 310--318
-
- []
-
-<Chapters/Img/c02_06.png, id=188, 319.1925pt x 162.6075pt>
-File: Chapters/Img/c02_06.png Graphic file (type png)
-
-<use Chapters/Img/c02_06.png>
-Package pdftex.def Info: Chapters/Img/c02_06.png used on input line 322.
-(pdftex.def)             Requested size: 159.59586pt x 81.30354pt.
- [7 <./Chapters/Img/c02_04.png (PNG copy)> <./Chapters/Img/c02_06.png (PNG copy
-)>]
-File: Chapters/Img/c02_06.png Graphic file (type png)
- <use Chapters/Img/c02_06.png>
-Package pdftex.def Info: Chapters/Img/c02_06.png used on input line 362.
-(pdftex.def)             Requested size: 159.59586pt x 81.30354pt.
-
-<Chapters/Img/c02_07.png, id=202, 449.68pt x 371.3875pt>
-File: Chapters/Img/c02_07.png Graphic file (type png)
-
-<use Chapters/Img/c02_07.png>
-Package pdftex.def Info: Chapters/Img/c02_07.png used on input line 368.
-(pdftex.def)             Requested size: 224.83945pt x 185.69328pt.
-
-<Chapters/Img/c02_08.png, id=203, 503.8825pt x 230.8625pt>
-File: Chapters/Img/c02_08.png Graphic file (type png)
-
-<use Chapters/Img/c02_08.png>
-Package pdftex.def Info: Chapters/Img/c02_08.png used on input line 371.
-(pdftex.def)             Requested size: 251.94063pt x 115.43095pt.
- [8 <./Chapters/Img/c02_07.png (PNG copy)>])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 82.
-
-[9 <./Chapters/Img/c02_08.png (PNG copy)>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 82.
+)
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 83.
+ [2 <./Chapters/Img/l02_01.png (PNG copy)>] [3]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 83.
  (./LFC.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 82.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 82.
-
-
-Package rerunfilecheck Warning: File `LFC.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `LFC.out':
-(rerunfilecheck)             Before: 2528BC2401D954884B93A44F995132A4;591
-(rerunfilecheck)             After:  C0B4147EC5B10C89E7E484CEA6A8564E;444.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 83.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 83.
+Package rerunfilecheck Info: File `LFC.out' has not changed.
+(rerunfilecheck)             Checksum: FCA315D4725E4D1D8AF058C7441A96DF;58.
  ) 
 Here is how much of TeX's memory you used:
- 17573 strings out of 495028
- 286050 string characters out of 6181497
- 421269 words of memory out of 5000000
- 20294 multiletter control sequences out of 15000+600000
- 14523 words of font info for 58 fonts, out of 8000000 for 9000
+ 17177 strings out of 495028
+ 281044 string characters out of 6181497
+ 404271 words of memory out of 5000000
+ 20028 multiletter control sequences out of 15000+600000
+ 13917 words of font info for 56 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 55i,7n,63p,827b,1842s stack positions out of 5000i,500n,10000p,200000b,80000s
-pdfTeX warning (dest): name{section.2.3} has been referenced but does not exi
-st, replaced by a fixed one
-
-pdfTeX warning (dest): name{section.2.2} has been referenced but does not exist
-, replaced by a fixed one
-
-pdfTeX warning (dest): name{section.2.1} has been referenced but does not exist
-, replaced by a fixed one
-
-pdfTeX warning (dest): name{chapter.2} has been referenced but does not exist, 
-replaced by a fixed one
-
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/
-share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/
-texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texliv
-e/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/
-fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/t
-ype1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
-blic/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
-sfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
-cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl1
-0.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/s
-hare/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb></usr/share/te
-xlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/tex
-live/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on LFC.pdf (10 pages, 376204 bytes).
+ 55i,9n,63p,827b,1186s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
+e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texl
+ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmsl10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
+/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+tt9.pfb>
+Output written on LFC.pdf (4 pages, 150127 bytes).
 PDF statistics:
- 316 PDF objects out of 1000 (max. 8388607)
- 277 compressed objects within 3 object streams
- 132 named destinations out of 1000 (max. 500000)
- 133 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 87 PDF objects out of 1000 (max. 8388607)
+ 68 compressed objects within 1 object stream
+ 12 named destinations out of 1000 (max. 500000)
+ 26 words of extra memory for PDF output out of 10000 (max. 10000000)
 
