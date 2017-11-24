@@ -1,0 +1,39 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapteer{Yacc (Yet Another Compiler Compiler)}
+
+Lexer automa che accetta un linguaggio e in base all'input mi da la possibilit\'a di fare azioni semantiche.
+
+Parser \'e un automa (LALR(1) per questo corso) push-down: per decidere se un in appartiene a L usa Alg Shift Reduce Parsing.\\
+	
+Il lexer legge, passa al parser ed il parser esegue l'algoritmo shift reduce.\\
+
+Compilatore di compilatore che da in output compilatori.\\
+
+Data una grammatica G mi dice se \'e LALR(1).
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Compilare}
+flex input.l
+bison -d input.y -o y.tab.c
+	-d retrocompatibile 
+	-o rename
+
+G $\rightarrow$ Yacc Crea
+	y.tab.c con la parsing table per il linguaggio
+	y.tab.h con le definizioni della grammatica
+
+R $\rightarrow$ Flex produce lex.yy.c
+Quando compilo Flex devo includere:
+
+\begin{lstlisting}
+	#include y.tab.h
+\end{lstlisting}
+
+gcc lex.yy.c y.tab.c -o parser.exe
+
+Yacc legge solo caratteri, $S \rightarrow ab$ si traduce in S : \lq a \rq\ \lq b \rq
+
+union associa molti identificatoria alla stessa area di memoria
+con struct A{ int B; char C; double D} alloco 4 + 1 + 8 byte
+con union A{ int B; char C; double D} alloco 8 byte
+
