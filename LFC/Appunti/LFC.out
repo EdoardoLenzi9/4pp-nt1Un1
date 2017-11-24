@@ -1,5 +1,34 @@
-\BOOKMARK [0][-]{chapter.1}{Analisi Sintattica}{}% 1
-\BOOKMARK [1][-]{section.1.1}{Parsing Top-down}{chapter.1}% 2
-\BOOKMARK [1][-]{section.1.2}{Parsing Top-down predittivo \(o non ricorsivo\)}{chapter.1}% 3
-\BOOKMARK [1][-]{section.1.3}{Algoritmi di Parsing}{chapter.1}% 4
-\BOOKMARK [1][-]{section.1.4}{Calcolo First}{chapter.1}% 5
+\BOOKMARK [0][-]{chapter.1}{Link}{}% 1
+\BOOKMARK [0][-]{chapter.2}{Introduzione}{}% 2
+\BOOKMARK [1][-]{section.2.1}{Grammatiche}{chapter.2}% 3
+\BOOKMARK [0][-]{chapter.3}{Linguaggi liberi}{}% 4
+\BOOKMARK [1][-]{section.3.1}{Grammatica libera dal contesto \(context free\)}{chapter.3}% 5
+\BOOKMARK [1][-]{section.3.2}{Abstract syntax Tree}{chapter.3}% 6
+\BOOKMARK [1][-]{section.3.3}{Grammatiche ambigue}{chapter.3}% 7
+\BOOKMARK [1][-]{section.3.4}{Linguaggi liberi}{chapter.3}% 8
+\BOOKMARK [1][-]{section.3.5}{Pumping Lemma per Linguaggi Liberi}{chapter.3}% 9
+\BOOKMARK [1][-]{section.3.6}{Pumping Lemma per assurdo}{chapter.3}% 10
+\BOOKMARK [0][-]{chapter.4}{Automi a stati finiti}{}% 11
+\BOOKMARK [1][-]{section.4.1}{Thompson construction}{chapter.4}% 12
+\BOOKMARK [1][-]{section.4.2}{Simulare un NFA}{chapter.4}% 13
+\BOOKMARK [1][-]{section.4.3}{DFA}{chapter.4}% 14
+\BOOKMARK [1][-]{section.4.4}{Subset Construction}{chapter.4}% 15
+\BOOKMARK [1][-]{section.4.5}{Partition Refinement}{chapter.4}% 16
+\BOOKMARK [1][-]{section.4.6}{Algoritmo di minimizzazione di DFA}{chapter.4}% 17
+\BOOKMARK [1][-]{section.4.7}{Ricapitolando}{chapter.4}% 18
+\BOOKMARK [0][-]{chapter.5}{Linguaggi Regolari o Lineari}{}% 19
+\BOOKMARK [1][-]{section.5.1}{Da DFA a Grammatica Regolare}{chapter.5}% 20
+\BOOKMARK [1][-]{section.5.2}{Pumping Lemma per Linguaggi Regolari}{chapter.5}% 21
+\BOOKMARK [0][-]{chapter.6}{Analisi Sintattica}{}% 22
+\BOOKMARK [1][-]{section.6.1}{Parsing Top-down}{chapter.6}% 23
+\BOOKMARK [1][-]{section.6.2}{Parsing Top-down predittivo \(o non ricorsivo\)}{chapter.6}% 24
+\BOOKMARK [1][-]{section.6.3}{Algoritmi di Parsing}{chapter.6}% 25
+\BOOKMARK [1][-]{section.6.4}{Calcolo First}{chapter.6}% 26
+\BOOKMARK [1][-]{section.6.5}{Follow}{chapter.6}% 27
+\BOOKMARK [1][-]{section.6.6}{Costruzione delle tabelle di parsing predittivo top-down}{chapter.6}% 28
+\BOOKMARK [1][-]{section.6.7}{Eliminazione Left Recursion immediata}{chapter.6}% 29
+\BOOKMARK [1][-]{section.6.8}{Left Factoring}{chapter.6}% 30
+\BOOKMARK [1][-]{section.6.9}{Algoritmo di fatturazione a sinistra}{chapter.6}% 31
+\BOOKMARK [1][-]{section.6.10}{Bottom Up}{chapter.6}% 32
+\BOOKMARK [1][-]{section.6.11}{Algoritmo di shift/reduce}{chapter.6}% 33
+\BOOKMARK [1][-]{section.6.12}{Items}{chapter.6}% 34
