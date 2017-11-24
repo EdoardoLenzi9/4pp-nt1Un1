@@ -1,0 +1,16 @@
+<<<<<<< HEAD
+=======
+\contentsline {chapter}{\numberline {1}Analisi Sintattica}{2}{chapter.1}
+\contentsline {section}{\numberline {1.1}Parsing Top-down}{2}{section.1.1}
+\contentsline {section}{\numberline {1.2}Parsing Top-down predittivo (o non ricorsivo)}{2}{section.1.2}
+\contentsline {subsection}{\numberline {1.2.1}Grammatica LL(1)}{2}{subsection.1.2.1}
+\contentsline {section}{\numberline {1.3}Algoritmi di Parsing}{2}{section.1.3}
+\contentsline {subsection}{\numberline {1.3.1}Algoritmo di parsing non-ricorsivo}{2}{subsection.1.3.1}
+\contentsline {subsection}{\numberline {1.3.2}Esempio}{3}{subsection.1.3.2}
+\contentsline {subsection}{\numberline {1.3.3}Esercizio}{3}{subsection.1.3.3}
+\contentsline {section}{\numberline {1.4}Calcolo First}{4}{section.1.4}
+\contentsline {subsection}{\numberline {1.4.1}Esercizio}{4}{subsection.1.4.1}
+\contentsline {subsection}{\numberline {1.4.2}Esercizio}{4}{subsection.1.4.2}
+\contentsline {subsection}{\numberline {1.4.3}Esercizio}{4}{subsection.1.4.3}
+\contentsline {subsection}{\numberline {1.4.4}Esercizio}{4}{subsection.1.4.4}
+>>>>>>> dev
