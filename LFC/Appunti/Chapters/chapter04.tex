@@ -1,18 +1,14 @@
-
-
 \chapter{Analisi Sintattica}
-$S \rightarrow cAd$
-$A \rightarrow ab | a$
+$S \rightarrow cAd$\\
+$A \rightarrow ab | a$\\
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Parsing Top-down}
 Parto dal starting symbol ed espando le derivazioni dando priorit\'a alle derivazioni pi\'u a sinistra.
-Cerco quindi di ricostruire una derivazione leftmost della stringa w data in input.
-
+Cerco quindi di ricostruire una derivazione leftmost della stringa w data in input.\\[5pt]
 $w\$, \$ \not\in V$\\
-$w=cabd$
-
-Per ricostruire la parola w parto dalla prima derivazioine $S \rightarrow cAd$ derivo la A pi\'u a sinistra (leftmost) e posso scegliere 
+$w=cabd$\\[5pt]
+Per ricostruire la parola w parto dalla prima derivazione $S \rightarrow cAd$ derivo la A pi\'u a sinistra (leftmost) e posso scegliere 
 fra $a$ ed $ab$; scelgo $a$ e mi accorgo che ho sbagliato, torno in dietro e scelgo $ab$.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

@@ -74,7 +74,7 @@
 \contentsline {subsection}{\numberline {6.7.3}Esempio}{30}{subsection.6.7.3}
 \contentsline {section}{\numberline {6.8}Left Factoring}{30}{section.6.8}
 \contentsline {section}{\numberline {6.9}Algoritmo di fatturazione a sinistra}{30}{section.6.9}
-\contentsline {section}{\numberline {6.10}Bottom Up}{30}{section.6.10}
+\contentsline {section}{\numberline {6.10}Bottom Up}{31}{section.6.10}
 \contentsline {subsection}{\numberline {6.10.1}Esempio}{31}{subsection.6.10.1}
 \contentsline {section}{\numberline {6.11}Algoritmo di shift/reduce}{32}{section.6.11}
 \contentsline {section}{\numberline {6.12}Items}{33}{section.6.12}

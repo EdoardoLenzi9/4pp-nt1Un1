@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2017.8.26)  24 NOV 2017 23:41
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2017.8.26)  25 NOV 2017 13:21
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1655,130 +1655,135 @@ Underfull \hbox (badness 10000) in paragraph at lines 126--128
 
 ) (./Chapters/chapter04.tex [23]
 Chapter 6.
+
+Underfull \hbox (badness 10000) in paragraph at lines 2--4
+
+ []
+
 [24
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 75--80
+Underfull \hbox (badness 10000) in paragraph at lines 71--76
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 125--128
+Underfull \hbox (badness 10000) in paragraph at lines 121--124
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 129--130
+Underfull \hbox (badness 10000) in paragraph at lines 125--126
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 131--132
+Underfull \hbox (badness 10000) in paragraph at lines 127--128
 
  []
 
 [25]
-Underfull \hbox (badness 10000) in paragraph at lines 179--180
+Underfull \hbox (badness 10000) in paragraph at lines 175--176
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 180--181
+Underfull \hbox (badness 10000) in paragraph at lines 176--177
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 181--182
+Underfull \hbox (badness 10000) in paragraph at lines 177--178
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 182--183
+Underfull \hbox (badness 10000) in paragraph at lines 178--179
 
  []
 
 [26]
-Underfull \hbox (badness 10000) in paragraph at lines 219--224
+Underfull \hbox (badness 10000) in paragraph at lines 215--220
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 225--231
+Underfull \hbox (badness 10000) in paragraph at lines 221--227
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 232--233
+Underfull \hbox (badness 10000) in paragraph at lines 228--229
 
  []
 
 
-Overfull \hbox (27.9pt too wide) in paragraph at lines 234--250
+Overfull \hbox (27.9pt too wide) in paragraph at lines 230--246
 []\OT1/cmr/m/n/10 Mancano le par-entesi fra i ter-mi-nali nella tabella... [] 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 275--280
-
- []
-
 [27]
-Underfull \hbox (badness 10000) in paragraph at lines 293--297
+Underfull \hbox (badness 10000) in paragraph at lines 271--276
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 309--314
+Underfull \hbox (badness 10000) in paragraph at lines 289--293
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 305--310
 
  []
 
 [28]
-Underfull \hbox (badness 10000) in paragraph at lines 359--362
+Underfull \hbox (badness 10000) in paragraph at lines 355--358
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 399--402
+Underfull \hbox (badness 10000) in paragraph at lines 395--398
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 413--417
+Underfull \hbox (badness 10000) in paragraph at lines 409--413
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 418--424
+Underfull \hbox (badness 10000) in paragraph at lines 414--420
 
  []
 
 [29]
-Underfull \hbox (badness 10000) in paragraph at lines 449--451
+Underfull \hbox (badness 10000) in paragraph at lines 445--447
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 452--455
+Underfull \hbox (badness 10000) in paragraph at lines 448--451
 
  []
 
 
-Overfull \hbox (26.3715pt too wide) in paragraph at lines 456--462
+Overfull \hbox (26.3715pt too wide) in paragraph at lines 452--458
 []\OT1/cmr/m/n/10 (Parte della tabella tanto non serve tutta) [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 487--489
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 520--523
+Underfull \hbox (badness 10000) in paragraph at lines 483--485
 
  []
 
 [30]
-Underfull \hbox (badness 10000) in paragraph at lines 524--526
+Underfull \hbox (badness 10000) in paragraph at lines 516--519
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 520--522
 
  []
 
@@ -1786,72 +1791,72 @@ Underfull \hbox (badness 10000) in paragraph at lines 524--526
 File: Chapters/Img/c02_14.png Graphic file (type png)
 
 <use Chapters/Img/c02_14.png>
-Package pdftex.def Info: Chapters/Img/c02_14.png used on input line 528.
+Package pdftex.def Info: Chapters/Img/c02_14.png used on input line 524.
 (pdftex.def)             Requested size: 220.82108pt x 103.98665pt.
 
 <Chapters/Img/c02_15.png, id=586, 470.75874pt x 279.0425pt>
 File: Chapters/Img/c02_15.png Graphic file (type png)
 
 <use Chapters/Img/c02_15.png>
-Package pdftex.def Info: Chapters/Img/c02_15.png used on input line 559.
+Package pdftex.def Info: Chapters/Img/c02_15.png used on input line 555.
 (pdftex.def)             Requested size: 188.30016pt x 111.615pt.
  [31 <./Chapters/Img/c02_14.png (PNG copy)> <./Chapters/Img/c02_15.png (PNG cop
 y)>]
-Overfull \hbox (159.81677pt too wide) in paragraph at lines 581--590
+Overfull \hbox (159.81677pt too wide) in paragraph at lines 577--586
 []\OT1/cmr/m/n/10 Questa ^^Se una tabella: [] 
  []
 
 
-Overfull \hbox (19.32681pt too wide) in paragraph at lines 594--598
+Overfull \hbox (19.32681pt too wide) in paragraph at lines 590--594
 [][] 
  []
 
 File: Chapters/Img/c02_15.png Graphic file (type png)
 <use Chapters/Img/c02_15.png>
-Package pdftex.def Info: Chapters/Img/c02_15.png used on input line 626.
+Package pdftex.def Info: Chapters/Img/c02_15.png used on input line 622.
 (pdftex.def)             Requested size: 188.30016pt x 111.615pt.
 
 <Chapters/Img/c02_16.png, id=592, 1048.91875pt x 422.57875pt>
 File: Chapters/Img/c02_16.png Graphic file (type png)
 
 <use Chapters/Img/c02_16.png>
-Package pdftex.def Info: Chapters/Img/c02_16.png used on input line 633.
+Package pdftex.def Info: Chapters/Img/c02_16.png used on input line 629.
 (pdftex.def)             Requested size: 419.56006pt x 169.0285pt.
  [32]
-Underfull \hbox (badness 10000) in paragraph at lines 637--638
+Underfull \hbox (badness 10000) in paragraph at lines 633--634
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 638--639
+Underfull \hbox (badness 10000) in paragraph at lines 634--635
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 653--656
+Underfull \hbox (badness 10000) in paragraph at lines 649--652
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 657--661
+Underfull \hbox (badness 10000) in paragraph at lines 653--657
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 662--667
+Underfull \hbox (badness 10000) in paragraph at lines 658--663
 
  []
 
 )
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 86.
 
-Overfull \hbox (20.45784pt too wide) in paragraph at lines 683--86
+Overfull \hbox (20.45784pt too wide) in paragraph at lines 679--86
 \OT1/cmr/m/n/10 L'item $\OML/cmm/m/it/10 A \OMS/cmsy/m/n/10 ! \OML/cmm/m/it/10 
 :^^L$ \OT1/cmr/m/n/10 ^^Se detto: []
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 683--86
+Underfull \hbox (badness 10000) in paragraph at lines 679--86
 
  []
 
@@ -1870,7 +1875,7 @@ Here is how much of TeX's memory you used:
  20505 multiletter control sequences out of 15000+600000
  14523 words of font info for 58 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 55i,15n,63p,827b,1840s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 55i,15n,63p,827b,1846s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texl
@@ -1886,7 +1891,7 @@ b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr
 /share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb></usr/share/
 texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/t
 exlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on LFC.pdf (35 pages, 705544 bytes).
+Output written on LFC.pdf (35 pages, 705827 bytes).
 PDF statistics:
  749 PDF objects out of 1000 (max. 8388607)
  667 compressed objects within 7 object streams

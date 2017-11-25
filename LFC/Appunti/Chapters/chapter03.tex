@@ -58,7 +58,7 @@ $\exists\ u,v,w \ / \ $:
 
 \begin{itemize}
     \item[i)] $z = uvw\ \land$\\
-    \item[i)] $|uv| \leq p\ \land$\\
+    \item[i)] $|uw| \leq p\ \land$\\
     \item[i)] $|v| > 0,\ \forall i \in \mathbb{N},\ u v^i w \in L$\\
 \end{itemize}
 
@@ -72,11 +72,11 @@ Allora se $z \in L$ con $|z|>p$, z \'e riconosciuta tramite un cammino che attra
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5
 \subsection{Negazione testi Pumping Lemma per linguaggi regolari}
 $\forall p \in \mathbb{N}^+ \ / \ \exists\ z \in L \ / \ |z| > p.\ \forall\ uvw $
-$z = uvw \land |uv| \leq p \land |v| > 0) \implies \exists\ i \in \mathbb{N} \ / \ u v^i w \not\in L) $
+$z = uvw \land |uw| \leq p \land |v| > 0) \implies \exists\ i \in \mathbb{N} \ / \ u v^i w \not\in L) $
 
 Lemma: $L=\{a^nb^n \ / \ n \geq 0\}$ non \'e regolare\\
 Dim: Assumo per assurdo che L sia regolare, dato p un qualunque numero positivo e $z= a^p b^p $ allora
-$\forall\ uvw \ / \ z = uvw \land |uv| \leq p \land |v| > 0$ (la stringa v contiene solo (e almeno una) \lq a\rq ).
+$\forall\ uvw \ / \ z = uvw \land |uw| \leq p \land |v| > 0$ (la stringa v contiene solo (e almeno una) \lq a\rq ).
 
 allora $uv^2w$ ha la forma $a^{p+k}b^p,\ k > 0$
 allora $uv^2w \not\in L$ il che contraddice il Pumping Lemma per linguaggi regolari.
