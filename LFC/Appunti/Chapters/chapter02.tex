@@ -1,51 +1,10 @@
-\subsection{Esempi Linguaggi Liberi}
-Essendo un linguaggio libero chiuso rispetto alla concatenazione, dati:\\
-$L_1 = \{a^nb^nc^j \ / \ n, j \geq 0\} $ Libero\\
-$L_2 = \{a^nb^nc^n \ / \ n,j \geq 0\}$ Libero perch\'e concatenazione di $\{a^nb^n\ / \ n \geq 0 \}$ e $\{ c^j \ / \ j \geq 0 \}$, entrambi liberi\\
-$L_3 = \{a^nb^nc^n \ / \ n \geq 0\}$ Non \'e libero:
-
-Suppongo $L_3$ libero, sia $p \in \mathbb{N}^+$, $z = a^pb^pc^p$
-Allora $z \in  L_3,\ |z|=3p>p$\\
-Spacco z in $A=a...a,\ B = b...b, C=c...c$\\
-Siano $z = uvwxy\ \land\ |vwx| \leq p \ \land\ |vx| > 0 $:
-\begin{itemize}
-    \item vwx \'e composto da sole a in A\\
-    \item vwx \'e composto da a in A e b in B\\
-    \item vwx \'e composto da sole b in B\\
-    \item vwx \'e composto da b in B e c in C\\
-    \item vwx \'e composto da sole c in C\\
-\end{itemize} 
-Considero la parola $z' = uv^0wx^0y$ 
-\begin{itemize}
-    \item[1.] $z' = a^kb^pc^p,\ k<p,\ z' \not\in L_3 $\\
-    \item[3.] $z' = a^pb^kc^p,\ k<p,\ z' \not\in L_3 $\\
-    \item[5.] $z' = a^pb^pc^k,\ k<p,\ z' \not\in L_3 $\\
-    \item[2.] $z' = a^kb^jc^p,\ k<p\ \lor\ j < p ,\ z' \not\in L_3 $\\
-    \item[4.] $z' = a^pb^kc^j,\ k<p\ \lor\ j < p ,\ z' \not\in L_3 $\\
-\end{itemize}
-Quindi visto che la parola non appartiene mai ad $L_3$ il linguaggio non \'e libero.
-$\Box$\\[5pt]
-
-\begin{tcolorbox}\begin{center}
-    Quindi la classe di linguaggi liberi \textbf{non \'e chiusa rispetto all'intersezione}
-\end{center}\end{tcolorbox}
-
-$L_4 = \{a^nb^mc^{n+m} \ / \ n,m>0\}$ Libero\\
-$S \rightarrow aSc | aBc$\\
-$B \rightarrow bBc|bc$\\
-
-$L_5 = \{ a^nb^mc^nd^m | n,m > 0\}$ Non libero \\
-$L_6= \{ wcw^R \ / \ w \in \{a,b\}^+\}$ Libero \\
-$S \rightarrow aSa | bSb | aca|bcb$
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Automi a stati finiti}
 
 Un NFA accetta/riconosce un certo linguaggio.
 
 Sia N un NFA, allora il linguaggio riconosciuto/accettato da N \'e il set delle parole per le quali esiste almeno un cammino dallo stato iniziale di N ad uno stato finale di N.
 
-notare che $\forall\ a \in A,\ a\epsilon = \epsilon a = a$.
+notare che $\forall\ a \in A,\ a\varepsilon = \varepsilon a = a$.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Thompson construction}
@@ -75,18 +34,25 @@ Algoritmo a complessit\'a $O(|r|)$
 Il backtracking consiste nel seguire un percorso e se non va bene tornare in dietro e provarne un altro finch\'e alla fine 
 li provo tutti mal che vada.
 
-$N=(S,A,move_n,S_0,F)$, S insieme stati, A degli archi, $S_0$ stato iniziale, F set stati finali, $move_n$ funzione di transizione\\
+$N=(S,A,move_n,S_0,F)$, S insieme stati, A i non terminali (label degli archi), $S_0$ stato iniziale, F set stati finali, 
+$move_n$ funzione di transizione ($S \otimes A \rightarrow S$)\\
 $t \in S, T \subset S$\\
-$\epsilon - closure(\{ t \})$ il set degli stati S raggiungibili tramite \underline{zero o pi\'u} 
-$\epsilon -transizioni$ da t (in pratica il nodo stesso e tutti i nodi raggiungibili con una $\epsilon-transition$).
 
-Nota che $\forall t \in S,\ t\in \epsilon-closure(t)$\\
-$\epsilon-closure(T) = \cup _{t \in T} \epsilon-closure(t)$
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{$\varepsilon -closure$}
+
+\begin{tcolorbox}\begin{center}
+    $\varepsilon - closure(\{ t \})$ il set degli stati S raggiungibili tramite \underline{zero o pi\'u} 
+    $\varepsilon -transizioni$ da t (in pratica il nodo stesso e tutti i nodi raggiungibili con una $\varepsilon-transition$
+    [\textbf{applicato ricorsivamente}]).
+\end{center}\end{tcolorbox}
+
+Nota che $\forall t \in S,\ t\in \varepsilon-closure(t) \qquad$ $\varepsilon-closure(T) = \cup _{t \in T} \varepsilon-closure(t)$\\
 
 Questo algoritmo \'e pi\'u performante del backtracking.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Algoritmo per la computazione}
+\subsection{Algoritmo per la computazione $\varepsilon -closure$}
 Strutture dati:
 \begin{itemize}
     \item pila\\
@@ -139,7 +105,8 @@ Strutture dati:
     symbol = nextchar()
     while(symbol != $){
         states = epsilon-closure(Unione_{t in states} di move_n(t, symbol));
-        symbol = newxtchar();
+        //l'insieme di tutti gli stati raggiungibili con la sottostringa letta fin ora
+        symbol = nextchar();
     }
     if(states intersecato F != emptyset){
         return yes;
@@ -160,12 +127,13 @@ Automa a stati finiti, deterministico; una sottoclasse degli NFA che rispettano:
     $move_d \overset{\Delta}{=} (S \otimes A) \rightarrow S$\\
 \end{center}
 \begin{itemize}
-    \item non hanno $\epsilon-transizioni$\\
-    \item $\forall a \in A, s \in S,\ move_n(s,a)$ \'e un unico stato se \textbf{funzione di transizione totale} 
-    (al pi\'u uno stato se \textbf{funzione di transizione parziale})\\
+    \item non hanno $\varepsilon-transizioni$\\
+    \item $\forall a \in A, s \in S,\ move_n(s,a)$ \'e un unico stato se ho una \textbf{funzione di transizione totale} 
+    (al pi\'u uno stato se ho una \textbf{funzione di transizione parziale})\\
 \end{itemize}
 \begin{tcolorbox}\begin{center}
-    Sink è il nodo pozzo dove confluiscono tutte le transizioni non segnate;
+    \textbf{Sink} è il nodo pozzo dove \textbf{confluiscono tutte le transizioni non segnate} 
+    (per ogni stato se mi manca una transizione per un determinato terminale ne faccio una su sink);
     viene aggiunto per rendere la funzione di transizione una funzione di transizione totale
 \end{center}\end{tcolorbox}
 
@@ -173,7 +141,7 @@ Automa a stati finiti, deterministico; una sottoclasse degli NFA che rispettano:
 \subsection{Linguaggio riconosciuto dal DFA}
 Dato il DFA D, L(D) \'e il linguaggio riconosciuto da D. \\
 $L(D) = \{ w=a_1,...,a_k \ / \ \exists \text{ cammino in D dallo stato iniziale al finale}\}$.
-$\epsilon \in L(D) \iff s_0 \in F$.
+$\varepsilon \in L(D) \iff s_0 \in F$.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Simulazione di un DFA con $move_d$ totale}
@@ -188,6 +156,7 @@ $\epsilon \in L(D) \iff s_0 \in F$.
     state = s_0;
     while(symbol != $ && state != bottom){
         //move_d(s, a) = bottom <=> move_d non e' definita su (s,a)
+        //se sono in bottom sono in sink
         state = move_d(state, symbol);
         symbol = newxtchar();
     }
@@ -231,15 +200,15 @@ Simulazione DFA costa $O(|w|)$
 
 	foreach(T in states){
 		if( (T intersecato F^n) != 0){
-			metti T_1 in F^d;
+			metti T in F^d;
 		}
 	}
 \end{lstlisting}
-Lo stato iniziale del DFA sar\'a la $\epsilon - closure$ dallo stato iniziale del NFA (quindi un set di stati).
-Considero lo stato iniziale del NFA e lo marco in grassetto poi espando $T_0$ con la $\epsilon - closure$ dello stato iniziale. 
+Lo stato iniziale del DFA sar\'a la $\varepsilon - closure$ dallo stato iniziale del NFA (quindi un set di stati).
+Considero lo stato iniziale del NFA e lo marco in grassetto poi espando $T_0$ con la $\varepsilon - closure$ dello stato iniziale. 
 
 Dallo stato $T_0$ guardo per ogni arco gli stati in cui arrivo e li marco in grassetto ($T_1$, $T_2$, ...); 
-poi espando quelli in grassetto guardando le rispettive $\epsilon - closure$.
+poi espando quelli in grassetto guardando le rispettive $\varepsilon - closure$.
 
 Alla fine guardo i set degli stati se due set coincidono mergio gli stati.
 
@@ -278,7 +247,7 @@ Alla fine guardo i set degli stati se due set coincidono mergio gli stati.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Partition Refinement}
 \begin{tcolorbox}\begin{center}
-    Guado gli archi, se tutta partizione punta ad un nodo dell'altra transizione con lo stesso non terminale allora va bene; 
+    Guado gli archi, se tutta la partizione punta ad un nodo dell'altra transizione con lo stesso non terminale allora va bene; 
     altrimenti spacco la partizione.
 \end{center}\end{tcolorbox}
 
@@ -395,8 +364,8 @@ Dim:
 \end{center} 
 
 Per assurdo suppongo esista un DFA minimo con meno di $2^n$ stati.\\
-Osservo che esistono $2^n$ possibili parole di lunghezza n con simboli $\{ a, b\}$.
-$\implies \exists\ w_1 \not = w_2 \ / \ |w_1| = |w_2| = n $ e il loro riconoscimento conduce allo stesso stato del DFA.
+Osservo che esistono $2^n$ possibili parole di lunghezza n con simboli $\{ a, b\}$.\\
+$\implies \exists\ w_1 \not = w_2 \ / \ |w_1| = |w_2| = n $ e il loro riconoscimento conduce allo stesso stato del DFA.\\
 $\implies$ esiste almeno una posizione per cui $w_1 \ e\ w_2$ differiscono (considero quella pi\'u a destra).\\
 
 $w_1 = w_1'ax$, $w_2 = w_2'bx$ iniziano diversi ma finiscono con x entrambe.
@@ -421,123 +390,3 @@ Minimazzazione DFA      &   -           &   $O(n_d lg(n_d))$        \\
 Simulazione DFA         &   -           &   $O(|w|)$                \\
 \hline
 \end{tabular}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5
-\section{Da DFA a Grammatica Regolare}
-Dato un DFA D voglio trovare una grammatica regolare G tale che L(G) = L(D). 
-Se ho una transizione $A \rightarrow B$ con una a-transizione diventer\'a $A \rightarrow aB$. Segno il nome del nodo che sto considerando
-prima della freccia e, dopo la freccia, il non terminale ed il nodo destinazione. Se ho un nodo foglia C avr\'o  $C \rightarrow \epsilon$.
-
-Se invece ho una grammatica regolare (della forma ...) e voglio trovare un DFA D $/\ L(G) = L(D)$, faccio il procedimenti inverso di prima;
-se ottengo un NFA basta fare Subset Construction.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5
-\subsection{Esempio}
-$L=\{ w \ / \ w \in \{ a, b \} ^* \&\& |a|\ pari,\ |b|\ dispari \}$, L \'e regolare?
-\begin{center}
-	\includegraphics[scale=0.5]{Chapters/Img/c02_12.png}\\
-\end{center} 
-S\'i \'e regolare.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5
-\subsection{Esempio}
-$L=\{ w \ / \ w \in \{ a, b \} ^* \&\& |a|=|b|\}$, L \'e regolare?
-\begin{center}
-	\includegraphics[scale=0.5]{Chapters/Img/c02_13.png}\\
-\end{center} 
-Non potr\'a mai essere regolare, per il pumping lemma per i linguaggi regolari.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Pumping Lemma per Linguaggi Regolari}
-
-Sia L un linguaggio regolara
-$\implies \exists\ p \in \mathbb{N}^+ \ / \ \forall\ z \in L \ / \ |z| > p$,
-$\exists\ u,v,w \ / \ $:
-\begin{itemize}
-    \item[i)] $z = uvw \land$\\
-    \item[i)] $|uv| \leq p \land$\\
-    \item[i)] $|v| > 0,\ \forall i \in \mathbb{N},\ u v^i w \in L$\\
-\end{itemize}
-
-Dim:
-
-L \'e regolare quindi pu\'o essere riconosciuto da un automa a stati finiti.
-Sia D il min DFA $\ / \ L(D) = L,\ p = |S|$, allora i cammini pi\'u lunghi che non passano pi\'u di una volta nel medesimo 
-stato hanno al pi\'u lunghezza (p-1).
-Allora se $z \in L$ con $|z|>p$, z \'e riconosciuta tramite un cammino che attraversa almeno due volte uno stato. 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5
-\subsection{Negazione testi Pumping Lemma per linguaggi regolari}
-$\forall p \in \mathbb{N}^+ \ / \ \exists\ z \in L \ / \ |z| > p.\ \forall\ uvw $
-$z = uvw \land |uv| \leq p \land |v| > 0) \implies \exists\ i \in \mathbb{N} \ / \ u v^i w \not\in L) $
-
-Lemma: $L=\{a^nb^n \ / \ n \geq 0\}$ non \'e regolare\\
-Dim: Assumo per assurdo che L sia regolare, dato p un qualunque numero positivo e $z= a^p b^p $ allora
-$\forall\ uvw \ / \ z = uvw \land |uv| \leq p \land |v| > 0$ (la stringa v contiene solo (e almeno una) \lq a\rq ).
-
-allora $uv^2w$ ha la forma $a^{p+k}b^p,\ k > 0$
-allora $uv^2w \not\in L$ il che contraddice il Pumping Lemma per linguaggi regolari.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5
-\subsection{Esercizio}
-$L_1 = \{ w \ / \ w \in \{ a, b \}^* \text{e contiene almeno una occorrenza di \lq\lq aa \rq\rq}\}$\\
-
-$L_1$:
-$A \rightarrow aA | bA | aB$\\
-$B \rightarrow aC$\\
-$C \rightarrow aC | bC | \epsilon $\\
-
-$L_2 = \{ ww \ / \ \ \in \{ a,b \}^* \}$\\
-non \'e libero per il pumping lemma (gi\'a dimostrato), quindi non \'e regolare.
-
-$L_3 = \{ww^r \ / \ w \in \{ a,b \}^* \}$\\
-Non \'e regolare ma libero.
-$z = a^p b^p b^p a^p \in L_3$
-visto che $uv < p$, uv \'e composta solo da a 
-$u v^i w = a^pb^{2p}a^p \not\in L_3$ quindi non pu\'o essere regolare.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5
-\subsection{Esercizi di esame}
-Sia $N_1$ lo NFA con stato iniziale A e finale E con la seguente funzione di transizione:
-
-\begin{center}
-    \begin{tabular}{|c|c|c|c|}
-        \hline
-            &   $\epsilon$      &   a           &   b           \\
-        \hline
-            A    &   $\{B, E\}$ &   $\o$        &  $\o$         \\
-        \hline
-            B    &   $\{ C \}$  &   $\o$        &  $\{ E \}$    \\
-        \hline
-            C    &   $\o$       &   $\{ D \}$   &  $\o$         \\
-        \hline
-            D    &   $\{ E \}$  &   $\o$        &  $\{ B \}$    \\
-        \hline
-            E    &   $\o$       &    $\{ E \}$  &  $\{ A \}$    \\
-        \hline
-    \end{tabular}
-\end{center} 
-
-\begin{itemize}
-    \item[1)] $aa \in L(N_1)$?\\
-    \item[2)] D \'e il DFA ottenuto da $N_1$, per subset construction, Q stato iniziale di D, $Q_{ab\_}$ lo stato di D che si 
-    raggiunge da Q tramite il cammino ab. Dire a quale sottoinsieme degli stati di $N_1$ corrisponde $Q_{ab\_}$.\\    
-\end{itemize}
-
-1) S\'i facendo $A \rightarrow B \rightarrow C \rightarrow D \rightarrow E \rightarrow E $
-2) Facendo la subset construction:
-
-\begin{center}
-    \begin{tabular}{|l|l|l|}
-        \hline
-                                &   a   &  b    \\
-        \hline
-            $Q0 = \{A,B,C,D\}$  &   Q1  &  Q0   \\
-        \hline
-            $Q1 = \{D,E\}$      &   Q2  &  Q0   \\
-        \hline
-           $Q2 = \{E\}$         &   Q2  &  Q0   \\
-        \hline
-    \end{tabular}
-\end{center} 
-

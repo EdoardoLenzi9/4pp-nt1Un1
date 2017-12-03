@@ -1,8 +1,9 @@
 \chapter{Link}
-\href{https://sites.google.com/site/compilerclassunitn/}{Vecchio sito}
+\href{https://sites.google.com/site/compilerclassunitn/}{Vecchio sito}\\
+\href{https://docs.google.com/document/d/12NLo0B3TjlFMs4CbMqYd3q64-wBdG0KhpjzqsvZ5wrI/edit}{Note Drive}\\
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\chapter{Lezione 1}
+\chapter{Introduzione}
 
 I linguaggi di \textbf{analisi lessicale} lavorano con simboli e caratteri; devo costruire una \textbf{tavola dei simboli} (specifica per un dato programma e compilatore). L'analisi restituisce dei \textbf{tokens} (puntatori) a record nella tavola dei simboli.
 La maggior parte delle implementazioni usano un numero come \textbf{identificatore}.
@@ -43,13 +44,13 @@ T & set simboli terminali\\
 S & start symbol\\
 P & set delle produzioni\\
 V$\backslash$T & simboli\\
-$\epsilon$ & parola vuota, non pu\'o essere un terminale!\\
+$\varepsilon$ & parola vuota, non pu\'o essere un terminale!\\
 %[Sono tutti insiemi!] & \\
 \end{tabular}\\[5pt]
 
 Le produzioni sono della forma $\alpha \rightarrow \beta$ con $\alpha$ 
 \textbf{stringa non vuota di simboli V con almeno un non terminale},
-$\beta $ stringa su V o $\epsilon $.
+$\beta $ stringa su V o $\varepsilon $.
 
 
 \begin{tcolorbox}\begin{center}
@@ -57,13 +58,13 @@ Per convenzione i caratteri in maiuscolo denotano simboli non terminali mentre i
 tutti lettere minuscole.
 \end{center}\end{tcolorbox}
 
-Considero X, Y variabili, generico simbolo in V e $\alpha\ \beta\ \delta\ \text{stringe su } V^*$ \\
+Considero X, Y variabili, generico simbolo in V e $\alpha\ \beta\ \delta\ \text{stringhe su } V^*$ \\
 \begin{tabular}{l}
 $S \rightarrow aSb$ \\
-$S\rightarrow \epsilon$\\
+$S\rightarrow \varepsilon$\\
 $S \rightarrow A$\\
 \end{tabular}
-$T=\{a, b\}$ (non terminali), ($V\backslash T) = \{S, A\} $\\
+$T=\{a, b\}$ (terminali), ($V\backslash T) = \{S, A\} $ (non terminali)\\
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Derivazioni}
@@ -79,17 +80,22 @@ Scrivendo $\mu \rightarrow ^+ \gamma $ intendo che posso derivare $\gamma$ da $\
 	$L(G) = \{w\ / \ w \in T^*, S \rightarrow ^{+}_{G} w \} $
 \end{center}
 Dato il linguaggio L possono esistere pi\'u grammatiche diverse tra loro che generano L.
-Pertanto dal linguaggio non posso risalire con certezza al linguaggio.
+Pertanto dal linguaggio non posso risalire con certezza alla grammatica.
 
 \begin{tcolorbox}\begin{center}
 	In generale dato un linguaggio generale L ed una grammatica G $\not\exists$ un algoritmo per dimostrare che L = L(G).
 \end{center}\end{tcolorbox}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Grammatica libera dal contesto (context free)}
-Una grammatica generata \'e libera dal contesto (context free) se ogni sua produzione ha la forma: $A \rightarrow \beta$,
-con A non terminale. ($\alpha \rightarrow \beta$, $\alpha$ deve essere un solo simbolo non terminale, altrimenti \'e condizionata).
+\chapter{Linguaggi liberi}
+\section{Grammatica libera dal contesto (context free)}
+Una grammatica generata \'e libera dal contesto (context free) se ogni sua produzione ha la forma: 
 
+\begin{center}
+	$A \rightarrow \beta$
+\end{center}
+Con A non terminale. ($\alpha \rightarrow \beta$, $\alpha$ deve essere un solo simbolo non terminale, altrimenti \'e condizionata).\\
+Con $\beta$ qualsiasi (terminali, non terminali o $\varepsilon$).\\[5pt]
 Grammatiche libere si prestano in modo naturale a descrivere derivazioni in viste ad albero.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -97,12 +103,12 @@ Grammatiche libere si prestano in modo naturale a descrivere derivazioni in vist
 \begin{tabular}{l}
 	$S \rightarrow aAb$\\
 	$aA \rightarrow aaAb$\\
-	$A \rightarrow \epsilon$\\
+	$A \rightarrow \varepsilon$\\
 \end{tabular}
 Non \'e context free, genera $L(G) = \{ a^nb^n\ / \ n>0 \}$.\\[5pt]
 %%
 \begin{tabular}{l}
-	$S \rightarrow aSb | \epsilon$\\
+	$S \rightarrow aSb | \varepsilon$\\
 	$S \rightarrow aSb \rightarrow aaSbb \rightarrow aabb \implies \{a^nb^n\ / \ n \geq 0 \} $ \\
 \end{tabular}
 Context free, genera lo stesso L di quella sopra.\\
@@ -118,7 +124,7 @@ Tutto ci\'o che deriva da A \'e indipendente da ci\'o che deriva da B. ${a^{n}b^
 Se ho produzioni impossibili che non finiscono in terminali la grammatica genera un linguaggio vuoto (
 $(\{ S, B, a \},\ \{ A \} ,\ S,\ \{ S\rightarrow aB \})$).\\[5pt]
 %%
-$(\{ S\} ,\ \{ \},\ S,\ \{ S \rightarrow \epsilon \} )$ invece genera un linguaggio $\{ \epsilon \} \not = \emptyset $\\[5pt]
+$(\{ S\} ,\ \{ \},\ S,\ \{ S \rightarrow \varepsilon \} )$ invece genera un linguaggio $\{ \varepsilon \} \not = \emptyset $\\[5pt]
 %%
 \begin{tabular}{l}
 $S \rightarrow 0B | 1A$\\
@@ -234,11 +240,11 @@ $P_1 \cup P_2 \cup \{ S \rightarrow S_1 S_2 \}$ anche in questo caso bisogna sta
 Il linguaggio $\{ a^nb^n\ / \ n > 0 \}$ \'e libero perch\'e $\exists$ una grammatica libera che lo genera ($G_1$):\\
 \begin{center}
 	$G_1\qquad S\rightarrow aSb/ab$ $G_1$ libera\\
-	$G_2\qquad s\rightarrow aAb,\ A\rightarrow aaAb,\ A\rightarrow \epsilon$ $G_2$ non libera $\Box$\\
+	$G_2\qquad s\rightarrow aAb,\ A\rightarrow aaAb,\ A\rightarrow \varepsilon$ $G_2$ non libera $\Box$\\
 \end{center}   
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Pumping Lemma}
+\section{Pumping Lemma per Linguaggi Liberi}
 \begin{tcolorbox}\begin{center}
 	Serve per dimostrare che un linguaggio non \'e libero. Ossia non esiste alcuna grammatica libera che lo genera.
 \end{center}\end{tcolorbox}
@@ -271,7 +277,7 @@ Data una grammatica G posso sempre creare una altra grammatica G' modificata dal
 
 \textbf{Osservazione 2}:
 Una grammatica si pu\'o portare in forma normale (di Chomsky) togliendo eventuali ridondanze o produzioni che terminano per forza con 
-$\epsilon $ (a meno che non debba fare parte del linguaggio, ma a quel punto si scrive come $S \rightarrow \epsilon$).\\[5pt]
+$\varepsilon $ (a meno che non debba fare parte del linguaggio, ma a quel punto si scrive come $S \rightarrow \varepsilon$).\\[5pt]
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{CNF}
@@ -281,9 +287,10 @@ ie) $\qquad G_1 \qquad S \rightarrow aSb|ab|B,\ B\rightarrow aBb|ab \leftarrow$ 
 \textbf{Dimostrazione}:
 L \'e un linguaggio libero $\implies \exists\ G $ in Chomsky Normal Form tale che L = L(G).\\
 
-Definisco p come la lunghezza della parola pi\'u lunga che pu\'o essere derivata usando un albero di derivazione i cui cammini dalla radice sono lunghi al pi\'u come il numero di simboli non terminali della grammatica ($|V\backslash T|$).
+Definisco p come la lunghezza della parola pi\'u lunga che pu\'o essere derivata usando un albero di derivazione i cui cammini dalla radice sono lunghi 
+al pi\'u come il numero di simboli terminali della grammatica ($|V\backslash T|$).
 
-$S \rightarrow aSb | ab$, ha due non terminali, p = 2 
+$S \rightarrow aSb | ab$, ha due terminali, p = 2 
 \begin{center}
 	\Tree[.S a b ]
 	\Tree[.S a [.S a b ] b ]
@@ -332,6 +339,10 @@ $\neg (tesi) = \forall p \in \mathbb{N}^+ \ / \ \exists z \in L \ / \ |z| > p\ \
 $[(z = uvwxy \land |vwx| \leq p \land |vx| > 0)$\\
 $\implies \exists i \in N \ / \ uv^iwx^iy \not\in L]$\\[5pt]
 %%
+\begin{tcolorbox}\begin{center}
+	Se si verifica la tesi negata il linguaggio non \'e libero.\\
+\end{center}\end{tcolorbox}
+%%
 Suppongo $L_1 = { w_1 w_2 \ / \ w_1 = w_2,\ w_1, w_2 \in \{a, b\}^*}$ \textbf{libero};\\
 Sia p un naturale qualunque sempre positivo;\\
 Sia $z = a^p b^p a^p b^p$ ($|z| = 4p$);\\
@@ -355,31 +366,81 @@ Siano $uvwxy \ / \ z=uvwxy,\ |vwx| \leq p \land |vx| > 0$ distinguiamo vari casi
 	\item[-] Nel caso 2 $z^1 = a^k b^p a^p b^p,\ o\ a^p b^k a^p b^p,\ o\ a^j b^k a^p b^p,\ j,k < p \implies z^1 \not\in L$ .\\
 	\item[-] ...\\
 \end{itemize}
+In pratica facendo l'unpumping in tutti i casi $z_1 \not\in L$ quindi L non \'e libero.
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{How not to use Pumping Lemma}
-Se avessi preso $\{ww \ / \ w\in\{a,b\}^*\}$ sia $z = (ab)^p (ab)^p$, prendo p=4, $v\in\epsilon, x=a, i = 0$ cos\'i non 
+Se avessi preso $\{ww \ / \ w\in\{a,b\}^*\}$ sia $z = (ab)^p (ab)^p$, prendo p=4, $v\in\varepsilon, x=a, i = 0$ cos\'i non 
 dimostro niente perch\'e se voglio dimostrare con il pumping lemma la negazione della tesi devo dimostrare un asserto che vale $\forall p \in \mathbb{N}^+$.
 Pertanto non posso prendere un arbitrario p=4.
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Esempi}
 ie) $\{a^nb^nc^j/n,j\geq 0\}=L_{17}$\\
 $S \rightarrow aSb|B$\\
-$B \rightarrow cB|\epsilon $\\
+$B \rightarrow cB|\varepsilon $\\
 $acb \in L_{17}$\\
 \begin{center}
-	\Tree[.S a b [.S a b [.S $\epsilon$ ] ] ]
-	\Tree[.S a [.S [.B c [.B $\epsilon$ ] ] ] b ]
+	\Tree[.S a b [.S a b [.S $\varepsilon$ ] ] ]
+	\Tree[.S a [.S [.B c [.B $\varepsilon$ ] ] ] b ]
 \end{center}
 
 $S \rightarrow abA|B$\\
-$B \rightarrow cB|\epsilon$\\s
+$B \rightarrow cB|\varepsilon$\\s
 \begin{center}
 	\Tree[.S [.A ... ... ] [B ... ... ] ]\\
 \end{center}
 
 $S \rightarrow AB$\\
-$A \rightarrow aAB|ab|\epsilon$\\
-$B \rightarrow Ab|c|\epsilon$\\
+$A \rightarrow aAb|ab|\varepsilon$\\
+$B \rightarrow Ab|c|\varepsilon$\\
 \begin{center}
-	\Tree[.S [.A a [.A $\epsilon$ ] b ] [.B $\epsilon$ ] ]
-	\Tree[.S [.A a b ] [.B $\epsilon$ ] ]
+	\Tree[.S [.A a [.A $\varepsilon$ ] b ] [.B $\varepsilon$ ] ]
+	\Tree[.S [.A a b ] [.B $\varepsilon$ ] ]
 \end{center}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Esempi Linguaggi Liberi}
+Essendo un linguaggio libero chiuso rispetto alla concatenazione, dati:\\
+
+$L_1 = \{a^nb^nc^j \ / \ n, j \geq 0\} $ Libero perch\'e concatenazione di $\{a^nb^n\ / \ n \geq 0 \}$ e $\{ c^j \ / \ j \geq 0 \}$, entrambi liberi\\
+$L_2 = \{a^jb^nc^n \ / \ n,j \geq 0\}$ Libero, inverso di $L_1$\\
+$L_3 = \{a^nb^nc^n \ / \ n \geq 0\}$ Non \'e libero:
+
+Suppongo $L_3$ libero, sia $p \in \mathbb{N}^+$, $z = a^pb^pc^p$
+Allora $z \in  L_3,\ |z|=3p>p$\\
+Spacco z in $A=a...a,\ B = b...b, C=c...c$\\
+Siano $z = uvwxy\ \land\ |vwx| \leq p \ \land\ |vx| > 0 $:
+\begin{itemize}
+    \item vwx \'e composto da sole a in A\\
+    \item vwx \'e composto da a in A e b in B\\
+    \item vwx \'e composto da sole b in B\\
+    \item vwx \'e composto da b in B e c in C\\
+    \item vwx \'e composto da sole c in C\\
+\end{itemize} 
+Considero la parola $z' = uv^0wx^0y$ 
+\begin{itemize}
+    \item[1.] $z' = a^kb^pc^p,\ k<p,\ z' \not\in L_3 $\\
+    \item[3.] $z' = a^pb^kc^p,\ k<p,\ z' \not\in L_3 $\\
+    \item[5.] $z' = a^pb^pc^k,\ k<p,\ z' \not\in L_3 $\\
+    \item[2.] $z' = a^kb^jc^p,\ k<p\ \lor\ j < p ,\ z' \not\in L_3 $\\
+    \item[4.] $z' = a^pb^kc^j,\ k<p\ \lor\ j < p ,\ z' \not\in L_3 $\\
+\end{itemize}
+Quindi visto che la parola non appartiene mai ad $L_3$ il linguaggio non \'e libero.
+$\Box$\\[5pt]
+Nota che $L1$ ed $L2$ risultano liberi anche facendo pumping lemma per assurdo perch\'e nel caso in cui vwx cada nel terminale ripetuto 
+j volte con l'unpumping la stringa appartiene comunque al linguaggio (quindi ho almeno un caso in cui appartiene al linguaggio e non posso
+applicare il pumping lemma per assurdo).
+
+\begin{tcolorbox}\begin{center}
+    Quindi la classe di linguaggi liberi \textbf{non \'e chiusa rispetto all'intersezione}
+\end{center}\end{tcolorbox}
+
+$L_4 = \{a^nb^mc^{n+m} \ / \ n,m>0\}$ Libero\\
+$S \rightarrow aSc | aBc$\\
+$B \rightarrow bBc|bc$\\
+
+$L_5 = \{ a^nb^mc^nd^m | n,m > 0\}$ Non libero \\
+$L_6= \{ wcw^R \ / \ w \in \{a,b\}^+\}$ Libero \\
+$S \rightarrow aSa | bSb | aca|bcb$
