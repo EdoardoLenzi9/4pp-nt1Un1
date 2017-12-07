@@ -1,0 +1,118 @@
+teleconsole
+
+docker server e client
+
+docker images | grep nginx 	
+lista immagini salvare
+
+immagine iso
+container istanza dell'immagine
+
+posso far partire in contemporanea due versioni della mia app senza farle entrare in conflitto
+
+docker run -d --name nginx-1-12-2 nginx:1.12.2 
+per far partire un immagine (in un container) 
+-d per mandare in bg il container
+--name il nome 
+poi l'immagine:versione
+mi dal l'hash che id il container 
+
+docker ps 
+docker ps -a
+vedo la lista container viva sulla macchina 
+
+docker exec -ti <id container> bash
+per lanciare comandi dentro il container da terminale
+exit per uscire
+
+docker start <hash/nome>
+docker stop <id/hash>
+
+docker rm -f nginx-1.12.2
+se in esecuzione rimuove e stoppa
+
+il container espone una porta 80, del container non dell'host
+posso fare binding fra le porte dell'host e del guest 
+
+docker run ... -p 8080:80 mi binda la mia 8080 con la 80 del docker
+
+docker exec -it nginx-1-12-7 bash
+posso usare apt-get install 
+
+\section{Passare file dal sistema al container}
+Monto un volume dentro il container.
+I container una volta istanziati sono immodificabili.
+
+ogni container ha un suo ip, unico ed univoco
+docker run ... -v "path_locale:path_docker"
+
+se uccido il container il volume resta
+
+docker run --name php -d php:fpm 
+
+\section{network}
+Mettere in comunicazione i container con una rete
+
+docker network create webinar
+docker network ls
+
+docker run --name php -v 'pwd'/code
+docker ls code 
+
+docker run --name php -v 'pwd'/code:/code --newtwork=webinar -d php:fpm
+docker ps
+docker exec -it <hash> bash
+
+posso metterne n di -v options
+
+\section{docker file}
+file di istruzioni per creare un immagine
+Dockerfile
+
+FROM nginx:1.13.7
+
+RUN apt-get update && apt-get install -y vim
+RUN ...
+WORKDIR <path>
+COMMAND istruzione che viene eseguita appena parte il container, faccio partire il db
+ENTRYPOINT creo il db
+#commenti
+COPY src /dest
+
+docker build -t webinar_nginx:0.1 .
+. per la path corrente
+
+così casha i comandi run, li esegue una sola volta
+
+\section{Docker compose}
+Docker compose per velocizzare setup
+
+docker network remove webinar
+
+docker-compose.yml
+version: '2'
+
+services:
+	php: 
+		image: php:fpm
+		volumes: 
+			- /relative/path:dest/path
+			- /path2:/path2
+	nginx:
+		image: nginx:1.13.7
+		volumes:
+			- ...
+		ports:
+			-"8080:80"
+
+traduco i comandi in un manifesto	
+docker-compose up -d
+docker-compose down
+docker-compose ps
+docker-compose -f <nome dockercompose.yml> up -d
+
+slega dal so
+reverse proxy
+
+con l'opzione no-cache di docker build 
+

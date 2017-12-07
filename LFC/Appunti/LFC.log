@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2017.11.9)  25 NOV 2017 15:11
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2017.8.26)  3 DEC 2017 17:39
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -979,8 +979,7 @@ File: lstmisc.sty 2013/08/26 1.5b (Carsten Heinz)
 \c@thm=\count156
 \c@deff=\count157
 \c@dimm=\count158
-
-No file LFC.aux.
+ (./LFC.aux)
 \openout1 = `LFC.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 75.
@@ -997,6 +996,7 @@ LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 75.
 LaTeX Font Info:    ... okay on input line 75.
 LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 75.
 LaTeX Font Info:    ... okay on input line 75.
+
 (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count159
@@ -1075,6 +1075,8 @@ Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 75.
 LaTeX Info: Redefining \pageref on input line 75.
 LaTeX Info: Redefining \nameref on input line 75.
+
+(./LFC.out) (./LFC.out)
 \@outlinefile=\write5
 \openout5 = `LFC.out'.
 
@@ -1096,7 +1098,7 @@ File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 ) [1
 
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./LFC.toc)
 \tf@toc=\write6
 \openout6 = `LFC.toc'.
 
@@ -1232,21 +1234,21 @@ Underfull \hbox (badness 10000) in paragraph at lines 287--289
 
  []
 
-<Chapters/Img/c01_05.png, id=72, 792.9625pt x 609.27625pt>
+<Chapters/Img/c01_05.png, id=239, 792.9625pt x 609.27625pt>
 File: Chapters/Img/c01_05.png Graphic file (type png)
 
 <use Chapters/Img/c01_05.png>
 Package pdftex.def Info: Chapters/Img/c01_05.png used on input line 305.
 (pdftex.def)             Requested size: 317.17938pt x 243.70618pt.
 
-<Chapters/Img/c01_03.png, id=74, 396.48125pt x 230.8625pt>
+<Chapters/Img/c01_03.png, id=241, 396.48125pt x 230.8625pt>
 File: Chapters/Img/c01_03.png Graphic file (type png)
 
 <use Chapters/Img/c01_03.png>
 Package pdftex.def Info: Chapters/Img/c01_03.png used on input line 320.
 (pdftex.def)             Requested size: 158.58968pt x 92.34335pt.
 
-<Chapters/Img/c01_04.png, id=75, 191.71625pt x 207.77625pt>
+<Chapters/Img/c01_04.png, id=242, 191.71625pt x 207.77625pt>
 File: Chapters/Img/c01_04.png Graphic file (type png)
 
 <use Chapters/Img/c01_04.png>
@@ -1429,7 +1431,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 21--22
 
  []
 
-<Chapters/Img/c02_01.png, id=100, 996.72375pt x 524.96124pt>
+<Chapters/Img/c02_01.png, id=266, 996.72375pt x 524.96124pt>
 File: Chapters/Img/c02_01.png Graphic file (type png)
 
 <use Chapters/Img/c02_01.png>
@@ -1462,7 +1464,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 60--61
 
  []
 
-<Chapters/Img/c02_02.png, id=109, 189.70876pt x 259.97125pt>
+<Chapters/Img/c02_02.png, id=272, 189.70876pt x 259.97125pt>
 File: Chapters/Img/c02_02.png Graphic file (type png)
 
 <use Chapters/Img/c02_02.png>
@@ -1478,21 +1480,21 @@ Underfull \hbox (badness 10000) in paragraph at lines 131--133
 
  []
 
-[14] <Chapters/Img/c02_05.png, id=176, 565.11125pt x 241.90375pt>
+[14] <Chapters/Img/c02_05.png, id=338, 565.11125pt x 241.90375pt>
 File: Chapters/Img/c02_05.png Graphic file (type png)
 
 <use Chapters/Img/c02_05.png>
 Package pdftex.def Info: Chapters/Img/c02_05.png used on input line 218.
 (pdftex.def)             Requested size: 282.55493pt x 120.95157pt.
 
-<Chapters/Img/c02_03.png, id=177, 691.58376pt x 294.09875pt>
+<Chapters/Img/c02_03.png, id=339, 691.58376pt x 294.09875pt>
 File: Chapters/Img/c02_03.png Graphic file (type png)
 
 <use Chapters/Img/c02_03.png>
 Package pdftex.def Info: Chapters/Img/c02_03.png used on input line 231.
 (pdftex.def)             Requested size: 345.79103pt x 147.04901pt.
  [15 <./Chapters/Img/c02_05.png (PNG copy)>]
-<Chapters/Img/c02_04.png, id=210, 398.48875pt x 193.72375pt>
+<Chapters/Img/c02_04.png, id=371, 398.48875pt x 193.72375pt>
 File: Chapters/Img/c02_04.png Graphic file (type png)
 
 <use Chapters/Img/c02_04.png>
@@ -1513,7 +1515,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 279--287
  []
 
 [16 <./Chapters/Img/c02_03.png (PNG copy)> <./Chapters/Img/c02_04.png (PNG copy
-)>] <Chapters/Img/c02_06.png, id=226, 319.1925pt x 162.6075pt>
+)>] <Chapters/Img/c02_06.png, id=386, 319.1925pt x 162.6075pt>
 File: Chapters/Img/c02_06.png Graphic file (type png)
 
 <use Chapters/Img/c02_06.png>
@@ -1524,21 +1526,21 @@ File: Chapters/Img/c02_06.png Graphic file (type png)
 Package pdftex.def Info: Chapters/Img/c02_06.png used on input line 333.
 (pdftex.def)             Requested size: 159.59586pt x 81.30354pt.
 
-<Chapters/Img/c02_07.png, id=227, 449.68pt x 371.3875pt>
+<Chapters/Img/c02_07.png, id=387, 449.68pt x 371.3875pt>
 File: Chapters/Img/c02_07.png Graphic file (type png)
 
 <use Chapters/Img/c02_07.png>
 Package pdftex.def Info: Chapters/Img/c02_07.png used on input line 339.
 (pdftex.def)             Requested size: 224.83945pt x 185.69328pt.
  [17 <./Chapters/Img/c02_06.png (PNG copy)>]
-<Chapters/Img/c02_08.png, id=258, 503.8825pt x 230.8625pt>
+<Chapters/Img/c02_08.png, id=417, 503.8825pt x 230.8625pt>
 File: Chapters/Img/c02_08.png Graphic file (type png)
 
 <use Chapters/Img/c02_08.png>
 Package pdftex.def Info: Chapters/Img/c02_08.png used on input line 345.
 (pdftex.def)             Requested size: 251.94063pt x 115.43095pt.
 
-<Chapters/Img/c02_09.png, id=259, 846.16125pt x 832.10875pt>
+<Chapters/Img/c02_09.png, id=418, 846.16125pt x 832.10875pt>
 File: Chapters/Img/c02_09.png Graphic file (type png)
 
 <use Chapters/Img/c02_09.png>
@@ -1550,7 +1552,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 359--360
 
  []
 
-<Chapters/Img/c02_10.png, id=266, 404.51125pt x 178.6675pt>
+<Chapters/Img/c02_10.png, id=425, 404.51125pt x 178.6675pt>
 File: Chapters/Img/c02_10.png Graphic file (type png)
 
 <use Chapters/Img/c02_10.png>
@@ -1561,7 +1563,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 366--370
 
  []
 
-<Chapters/Img/c02_11.png, id=267, 639.38875pt x 371.3875pt>
+<Chapters/Img/c02_11.png, id=426, 639.38875pt x 371.3875pt>
 File: Chapters/Img/c02_11.png Graphic file (type png)
 
 <use Chapters/Img/c02_11.png>
@@ -1575,14 +1577,14 @@ Underfull \hbox (badness 10000) in paragraph at lines 6--8
 
  []
 
-<Chapters/Img/c02_12.png, id=278, 246.9225pt x 239.89626pt>
+<Chapters/Img/c02_12.png, id=436, 246.9225pt x 239.89626pt>
 File: Chapters/Img/c02_12.png Graphic file (type png)
 
 <use Chapters/Img/c02_12.png>
 Package pdftex.def Info: Chapters/Img/c02_12.png used on input line 27.
 (pdftex.def)             Requested size: 123.46094pt x 119.94783pt.
 
-<Chapters/Img/c02_13.png, id=279, 201.75375pt x 208.78pt>
+<Chapters/Img/c02_13.png, id=437, 201.75375pt x 208.78pt>
 File: Chapters/Img/c02_13.png Graphic file (type png)
 
 <use Chapters/Img/c02_13.png>
@@ -1658,229 +1660,233 @@ Underfull \hbox (badness 10000) in paragraph at lines 2--4
 
  []
 
+
+Underfull \hbox (badness 10000) in paragraph at lines 16--21
+
+ []
+
 [24
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 71--76
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 121--124
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 125--126
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 127--128
+Underfull \hbox (badness 10000) in paragraph at lines 81--86
 
  []
 
 [25]
-Underfull \hbox (badness 10000) in paragraph at lines 175--176
+Underfull \hbox (badness 10000) in paragraph at lines 132--135
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 176--177
+Underfull \hbox (badness 10000) in paragraph at lines 136--137
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 177--178
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 178--179
+Underfull \hbox (badness 10000) in paragraph at lines 138--139
 
  []
 
 [26]
-Underfull \hbox (badness 10000) in paragraph at lines 215--220
+Underfull \hbox (badness 10000) in paragraph at lines 193--194
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 221--227
+Underfull \hbox (badness 10000) in paragraph at lines 194--195
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 228--229
+Underfull \hbox (badness 10000) in paragraph at lines 195--196
 
  []
 
 
-Overfull \hbox (27.9pt too wide) in paragraph at lines 230--246
+Underfull \hbox (badness 10000) in paragraph at lines 196--197
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 216--221
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 222--228
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 229--230
+
+ []
+
+
+Overfull \hbox (27.9pt too wide) in paragraph at lines 231--247
 []\OT1/cmr/m/n/10 Mancano le par-entesi fra i ter-mi-nali nella tabella... [] 
  []
 
-[27]
-Underfull \hbox (badness 10000) in paragraph at lines 271--276
+[27] <Chapters/Img/c04_01.png, id=523, 260.975pt x 222.8325pt>
+File: Chapters/Img/c04_01.png Graphic file (type png)
+
+<use Chapters/Img/c04_01.png>
+Package pdftex.def Info: Chapters/Img/c04_01.png used on input line 269.
+(pdftex.def)             Requested size: 130.48718pt x 111.41597pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 274--279
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 289--293
+Underfull \hbox (badness 10000) in paragraph at lines 292--296
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 305--310
+Underfull \hbox (badness 10000) in paragraph at lines 308--313
 
  []
 
-[28]
-Underfull \hbox (badness 10000) in paragraph at lines 355--358
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 395--398
+[28 <./Chapters/Img/c04_01.png (PNG copy)>]
+Underfull \hbox (badness 10000) in paragraph at lines 358--361
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 409--413
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 414--420
+Underfull \hbox (badness 10000) in paragraph at lines 398--401
 
  []
 
 [29]
-Underfull \hbox (badness 10000) in paragraph at lines 445--447
+Underfull \hbox (badness 10000) in paragraph at lines 412--416
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 448--451
+Underfull \hbox (badness 10000) in paragraph at lines 417--423
 
  []
 
 
-Overfull \hbox (26.3715pt too wide) in paragraph at lines 452--458
+Underfull \hbox (badness 10000) in paragraph at lines 448--450
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 451--454
+
+ []
+
+
+Overfull \hbox (26.3715pt too wide) in paragraph at lines 455--461
 []\OT1/cmr/m/n/10 (Parte della tabella tanto non serve tutta) [] 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 483--485
-
- []
-
 [30]
-Underfull \hbox (badness 10000) in paragraph at lines 516--519
+Underfull \hbox (badness 10000) in paragraph at lines 486--488
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 520--522
+Underfull \hbox (badness 10000) in paragraph at lines 519--522
 
  []
 
-<Chapters/Img/c02_14.png, id=445, 552.0625pt x 259.97125pt>
+
+Underfull \hbox (badness 10000) in paragraph at lines 523--525
+
+ []
+
+<Chapters/Img/c02_14.png, id=572, 552.0625pt x 259.97125pt>
 File: Chapters/Img/c02_14.png Graphic file (type png)
 
 <use Chapters/Img/c02_14.png>
-Package pdftex.def Info: Chapters/Img/c02_14.png used on input line 524.
+Package pdftex.def Info: Chapters/Img/c02_14.png used on input line 527.
 (pdftex.def)             Requested size: 220.82108pt x 103.98665pt.
-
-<Chapters/Img/c02_15.png, id=446, 470.75874pt x 279.0425pt>
+ [31 <./Chapters/Img/c02_14.png (PNG copy)>]
+<Chapters/Img/c02_15.png, id=587, 470.75874pt x 279.0425pt>
 File: Chapters/Img/c02_15.png Graphic file (type png)
 
 <use Chapters/Img/c02_15.png>
-Package pdftex.def Info: Chapters/Img/c02_15.png used on input line 555.
+Package pdftex.def Info: Chapters/Img/c02_15.png used on input line 558.
 (pdftex.def)             Requested size: 188.30016pt x 111.615pt.
- [31 <./Chapters/Img/c02_14.png (PNG copy)> <./Chapters/Img/c02_15.png (PNG cop
-y)>]
-Overfull \hbox (159.81677pt too wide) in paragraph at lines 577--586
+
+Overfull \hbox (159.81677pt too wide) in paragraph at lines 580--589
 []\OT1/cmr/m/n/10 Questa ^^Se una tabella: [] 
  []
 
 
-Overfull \hbox (19.32681pt too wide) in paragraph at lines 590--594
+Overfull \hbox (19.32681pt too wide) in paragraph at lines 593--597
 [][] 
  []
 
+[32 <./Chapters/Img/c02_15.png (PNG copy)>]
 File: Chapters/Img/c02_15.png Graphic file (type png)
-<use Chapters/Img/c02_15.png>
-Package pdftex.def Info: Chapters/Img/c02_15.png used on input line 622.
+ <use Chapters/Img/c02_15.png>
+Package pdftex.def Info: Chapters/Img/c02_15.png used on input line 625.
 (pdftex.def)             Requested size: 188.30016pt x 111.615pt.
 
-<Chapters/Img/c02_16.png, id=453, 1048.91875pt x 422.57875pt>
+<Chapters/Img/c02_16.png, id=609, 1048.91875pt x 422.57875pt>
 File: Chapters/Img/c02_16.png Graphic file (type png)
 
 <use Chapters/Img/c02_16.png>
-Package pdftex.def Info: Chapters/Img/c02_16.png used on input line 629.
+Package pdftex.def Info: Chapters/Img/c02_16.png used on input line 632.
 (pdftex.def)             Requested size: 419.56006pt x 169.0285pt.
- [32]
-Underfull \hbox (badness 10000) in paragraph at lines 633--634
+
+Underfull \hbox (badness 10000) in paragraph at lines 636--637
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 634--635
+Underfull \hbox (badness 10000) in paragraph at lines 637--638
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 649--652
+Underfull \hbox (badness 10000) in paragraph at lines 652--655
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 653--657
+Underfull \hbox (badness 10000) in paragraph at lines 656--660
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 658--663
+Underfull \hbox (badness 10000) in paragraph at lines 661--666
 
  []
 
-)
+[33 <./Chapters/Img/c02_16.png (PNG copy)>])
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 86.
 
-Overfull \hbox (20.45784pt too wide) in paragraph at lines 679--86
+Overfull \hbox (20.45784pt too wide) in paragraph at lines 682--86
 \OT1/cmr/m/n/10 L'item $\OML/cmm/m/it/10 A \OMS/cmsy/m/n/10 ! \OML/cmm/m/it/10 
 :^^L$ \OT1/cmr/m/n/10 ^^Se detto: []
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 679--86
+Underfull \hbox (badness 10000) in paragraph at lines 682--86
 
  []
 
-[33 <./Chapters/Img/c02_16.png (PNG copy)>] [34]
+[34]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 86.
  (./LFC.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 86.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 86.
-
-
-Package rerunfilecheck Warning: File `LFC.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `LFC.out':
-(rerunfilecheck)             Before: <no file>
-(rerunfilecheck)             After:  7A650EAD64D4F2E0CB3D250CD95F43DA;2270.
+Package rerunfilecheck Info: File `LFC.out' has not changed.
+(rerunfilecheck)             Checksum: 322DC3489354197EF0F4ED4D589AFB25;2328.
  ) 
 Here is how much of TeX's memory you used:
- 17957 strings out of 495028
- 291466 string characters out of 6181497
- 426271 words of memory out of 5000000
- 20470 multiletter control sequences out of 15000+600000
+ 17997 strings out of 495028
+ 291956 string characters out of 6181497
+ 439271 words of memory out of 5000000
+ 20510 multiletter control sequences out of 15000+600000
  14523 words of font info for 58 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 55i,15n,63p,827b,1846s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 55i,15n,63p,827b,1842s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texl
@@ -1896,10 +1902,10 @@ b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr
 /share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb></usr/share/
 texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/t
 exlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on LFC.pdf (35 pages, 700690 bytes).
+Output written on LFC.pdf (35 pages, 711327 bytes).
 PDF statistics:
- 611 PDF objects out of 1000 (max. 8388607)
- 530 compressed objects within 6 object streams
- 328 named destinations out of 1000 (max. 500000)
- 108 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 743 PDF objects out of 1000 (max. 8388607)
+ 660 compressed objects within 7 object streams
+ 319 named destinations out of 1000 (max. 500000)
+ 393 words of extra memory for PDF output out of 10000 (max. 10000000)
 

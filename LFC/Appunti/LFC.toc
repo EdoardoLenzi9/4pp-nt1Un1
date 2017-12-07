@@ -51,30 +51,32 @@
 \contentsline {chapter}{\numberline {6}Analisi Sintattica}{24}{chapter.6}
 \contentsline {section}{\numberline {6.1}Parsing Top-down}{24}{section.6.1}
 \contentsline {section}{\numberline {6.2}Parsing Top-down predittivo (o non ricorsivo)}{24}{section.6.2}
-\contentsline {subsection}{\numberline {6.2.1}Grammatica LL(1)}{24}{subsection.6.2.1}
-\contentsline {section}{\numberline {6.3}Algoritmi di Parsing}{24}{section.6.3}
-\contentsline {subsection}{\numberline {6.3.1}Algoritmo di parsing non-ricorsivo}{24}{subsection.6.3.1}
-\contentsline {subsection}{\numberline {6.3.2}Esempio}{25}{subsection.6.3.2}
-\contentsline {subsection}{\numberline {6.3.3}Esercizio}{25}{subsection.6.3.3}
-\contentsline {section}{\numberline {6.4}Calcolo First}{26}{section.6.4}
-\contentsline {subsection}{\numberline {6.4.1}Esercizio}{26}{subsection.6.4.1}
-\contentsline {subsection}{\numberline {6.4.2}Esercizio}{26}{subsection.6.4.2}
-\contentsline {subsection}{\numberline {6.4.3}Esercizio}{26}{subsection.6.4.3}
+\contentsline {section}{\numberline {6.3}Grammatica LL(1)}{24}{section.6.3}
+\contentsline {section}{\numberline {6.4}Algoritmi di Parsing}{24}{section.6.4}
+\contentsline {subsection}{\numberline {6.4.1}Costruzione della tabella di parsing}{24}{subsection.6.4.1}
+\contentsline {subsection}{\numberline {6.4.2}Algoritmo di parsing non-ricorsivo}{24}{subsection.6.4.2}
+\contentsline {subsection}{\numberline {6.4.3}Esempio}{25}{subsection.6.4.3}
 \contentsline {subsection}{\numberline {6.4.4}Esercizio}{26}{subsection.6.4.4}
-\contentsline {subsection}{\numberline {6.4.5}Esercizio}{27}{subsection.6.4.5}
-\contentsline {section}{\numberline {6.5}Follow}{27}{section.6.5}
-\contentsline {subsection}{\numberline {6.5.1}Esempio}{28}{subsection.6.5.1}
-\contentsline {subsection}{\numberline {6.5.2}Esempio}{28}{subsection.6.5.2}
-\contentsline {subsection}{\numberline {6.5.3}Esempio}{28}{subsection.6.5.3}
-\contentsline {section}{\numberline {6.6}Costruzione delle tabelle di parsing predittivo top-down}{28}{section.6.6}
-\contentsline {subsection}{\numberline {6.6.1}Esempio}{29}{subsection.6.6.1}
-\contentsline {section}{\numberline {6.7}Eliminazione Left Recursion immediata}{29}{section.6.7}
+\contentsline {section}{\numberline {6.5}First}{26}{section.6.5}
+\contentsline {subsection}{\numberline {6.5.1}Esercizio}{26}{subsection.6.5.1}
+\contentsline {subsection}{\numberline {6.5.2}Esercizio}{26}{subsection.6.5.2}
+\contentsline {subsection}{\numberline {6.5.3}Esercizio}{26}{subsection.6.5.3}
+\contentsline {subsection}{\numberline {6.5.4}Esercizio}{26}{subsection.6.5.4}
+\contentsline {subsection}{\numberline {6.5.5}Algoritmo calcolo dei first}{27}{subsection.6.5.5}
+\contentsline {subsection}{\numberline {6.5.6}Esercizio}{27}{subsection.6.5.6}
+\contentsline {section}{\numberline {6.6}Follow}{27}{section.6.6}
+\contentsline {subsection}{\numberline {6.6.1}Esempio}{28}{subsection.6.6.1}
+\contentsline {subsection}{\numberline {6.6.2}Esempio}{28}{subsection.6.6.2}
+\contentsline {subsection}{\numberline {6.6.3}Esempio}{28}{subsection.6.6.3}
+\contentsline {section}{\numberline {6.7}Costruzione delle tabelle di parsing predittivo top-down}{29}{section.6.7}
 \contentsline {subsection}{\numberline {6.7.1}Esempio}{29}{subsection.6.7.1}
-\contentsline {subsection}{\numberline {6.7.2}Esempio}{29}{subsection.6.7.2}
-\contentsline {subsection}{\numberline {6.7.3}Esempio}{30}{subsection.6.7.3}
-\contentsline {section}{\numberline {6.8}Left Factoring}{30}{section.6.8}
-\contentsline {section}{\numberline {6.9}Algoritmo di fatturazione a sinistra}{30}{section.6.9}
-\contentsline {section}{\numberline {6.10}Bottom Up}{31}{section.6.10}
-\contentsline {subsection}{\numberline {6.10.1}Esempio}{31}{subsection.6.10.1}
-\contentsline {section}{\numberline {6.11}Algoritmo di shift/reduce}{32}{section.6.11}
-\contentsline {section}{\numberline {6.12}Items}{33}{section.6.12}
+\contentsline {section}{\numberline {6.8}Eliminazione Left Recursion immediata}{30}{section.6.8}
+\contentsline {subsection}{\numberline {6.8.1}Esempio}{30}{subsection.6.8.1}
+\contentsline {subsection}{\numberline {6.8.2}Esempio}{30}{subsection.6.8.2}
+\contentsline {subsection}{\numberline {6.8.3}Esempio}{30}{subsection.6.8.3}
+\contentsline {section}{\numberline {6.9}Left Factoring}{30}{section.6.9}
+\contentsline {section}{\numberline {6.10}Algoritmo di fatturazione a sinistra}{31}{section.6.10}
+\contentsline {section}{\numberline {6.11}Bottom Up}{31}{section.6.11}
+\contentsline {subsection}{\numberline {6.11.1}Esempio}{31}{subsection.6.11.1}
+\contentsline {section}{\numberline {6.12}Algoritmo di shift/reduce}{32}{section.6.12}
+\contentsline {section}{\numberline {6.13}Items}{34}{section.6.13}
