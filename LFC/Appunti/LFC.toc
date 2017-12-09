@@ -67,16 +67,18 @@
 \contentsline {section}{\numberline {6.6}Follow}{27}{section.6.6}
 \contentsline {subsection}{\numberline {6.6.1}Esempio}{28}{subsection.6.6.1}
 \contentsline {subsection}{\numberline {6.6.2}Esempio}{28}{subsection.6.6.2}
-\contentsline {subsection}{\numberline {6.6.3}Esempio}{28}{subsection.6.6.3}
+\contentsline {subsection}{\numberline {6.6.3}Esempio}{29}{subsection.6.6.3}
 \contentsline {section}{\numberline {6.7}Costruzione delle tabelle di parsing predittivo top-down}{29}{section.6.7}
 \contentsline {subsection}{\numberline {6.7.1}Esempio}{29}{subsection.6.7.1}
-\contentsline {section}{\numberline {6.8}Eliminazione Left Recursion immediata}{30}{section.6.8}
-\contentsline {subsection}{\numberline {6.8.1}Esempio}{30}{subsection.6.8.1}
-\contentsline {subsection}{\numberline {6.8.2}Esempio}{30}{subsection.6.8.2}
-\contentsline {subsection}{\numberline {6.8.3}Esempio}{30}{subsection.6.8.3}
-\contentsline {section}{\numberline {6.9}Left Factoring}{30}{section.6.9}
-\contentsline {section}{\numberline {6.10}Algoritmo di fatturazione a sinistra}{31}{section.6.10}
-\contentsline {section}{\numberline {6.11}Bottom Up}{31}{section.6.11}
-\contentsline {subsection}{\numberline {6.11.1}Esempio}{31}{subsection.6.11.1}
-\contentsline {section}{\numberline {6.12}Algoritmo di shift/reduce}{32}{section.6.12}
-\contentsline {section}{\numberline {6.13}Items}{34}{section.6.13}
+\contentsline {section}{\numberline {6.8}Grammatica Ricorsiva Sinistra}{30}{section.6.8}
+\contentsline {section}{\numberline {6.9}Eliminazione Left Recursion immediata}{30}{section.6.9}
+\contentsline {subsection}{\numberline {6.9.1}Esempio}{30}{subsection.6.9.1}
+\contentsline {subsection}{\numberline {6.9.2}Esempio}{30}{subsection.6.9.2}
+\contentsline {subsubsection}{Tabella di parsing}{30}{section*.3}
+\contentsline {subsection}{\numberline {6.9.3}Esempio}{30}{subsection.6.9.3}
+\contentsline {section}{\numberline {6.10}Left Factoring}{31}{section.6.10}
+\contentsline {section}{\numberline {6.11}Algoritmo di fatturazione a sinistra}{31}{section.6.11}
+\contentsline {section}{\numberline {6.12}Bottom Up}{31}{section.6.12}
+\contentsline {subsection}{\numberline {6.12.1}Esempio}{31}{subsection.6.12.1}
+\contentsline {section}{\numberline {6.13}Algoritmo di shift/reduce}{32}{section.6.13}
+\contentsline {section}{\numberline {6.14}Items}{34}{section.6.14}
