@@ -1,12 +1,8 @@
 #!/usr/bin/env python2
 # -*- coding: utf-8 -*-
 #
-# iris.py
-#
-# Primi esperimenti di machine learning
-#
-# Richiede la presenza del file "iris.data" (dal repository UCI) nella
-# stessa directory.
+# sudo apt-get install python-pandas
+# sudo apt-get install python-sklearn
 #
 # Esecuzione:
 #    python2 iris.py
@@ -14,10 +10,6 @@
 #    chmod 755 iris.py   <--- una tantum
 #    ./iris.py
 #
-# Attenzione: il codice serve esclusivamente a scopi didattici
-# e non è adatto a un utilizzo "serio": mancano molti accorgimenti e ottimizzazioni
-# che lo renderebbero molto più complesso e difficile da capire.
-
 ############################################
 #
 # Moduli
@@ -53,6 +45,7 @@ iris = pandas.read_csv(
 # Spezziamo il dataframe iris in due parti: le variabili di input
 # contenute nelle prime quattro colonne e la variabile di output
 # contenuta nella quinta colonna.
+
 X = iris.iloc[:,0:4]
 y = iris.iloc[:,4]
 
@@ -67,8 +60,9 @@ y = iris.iloc[:,4]
 f = svm.SVC()
 
 # Addestramento del modello con i dati letti dal file:
-# la funzione fit() richieede di passare separatamente i valori di ingresso e di uscita
+# la funzione fit() richiede di passare separatamente i valori di ingresso e di uscita
 # degli esempi
+
 f.fit(X,y)
 
 # Utilizzo del modello su due esemplari diversi da quelli contenuti negli esempi
