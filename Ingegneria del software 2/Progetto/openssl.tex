@@ -1,0 +1,22 @@
+generate key
+openssl genrsa 1024 > name.key
+
+selfsigned certificate
+
+ssl req -new -key ./name.key > nome.csr
+Common Name for localhost www.scihfo.com
+
+openssl x509 -in cert.csr -out schifo.crt -req signkey nome.key days 365
+
+https://192.../certsrv/
+certificate authority
+
+https://developer.salesforce.com/blogs/developer-relations/2011/05/generating-valid-self-signed-certificates.html
+
+openssl rsa -in key.pem -out newkey.pem && mv newkey.pem key.pem
+
+http://blog.mgechev.com/2014/02/19/create-https-tls-ssl-application-with-express-nodejs/
+
+https://www.youtube.com/watch?v=XrZxJsKUQR8
+
+https://devcenter.heroku.com/articles/ssl-endpoint

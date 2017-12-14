@@ -1,0 +1,36 @@
+%%%%%%%%%%%%%
+Da Riguardare
+%%%%%%%%%%%%%
+
+lambda
+metodi statici
+property get set
+property private
+property readonly
+constant
+localizations
+testare customspots
+
+Dependency Injection Test falliscono su Travis
+Container meglio usare quello di track me
+Token
+
+
+%%%%%%%%%%%
+Da Chiedere
+%%%%%%%%%%%
+
+Ciao Ugo
+
+Ho integrato custom spot e custom model.
+
+Ho modificato il client ponendo il metodo Post di default ma l'utente può scegliere anche gli altri metodi, il Client è istanziato nel costruttore, il metodo SendAsync() è threadsafe (https://msdn.microsoft.com/en-us/library/system.net.http.httpclient(v=vs.110).aspx#Anchor_5), il content viene passato nel body (ancora da testare su testi grandi).
+
+"Ronaldo & Ronaldinho" funzionano quindi anche il percent encoding va bene.
+
+Per ora ho impostato un controllo di validità delle URL che devono essere ben formate Absolute, vuoi che lasci passare anche Relative URL?
+
+Adesso lancio eccezione se lo status code della call https non è 200 OK, va bene?
+
+In https://dandelion.eu/docs/api/datatxt/sim/v1/ leggo: "Did you know? You can use the Entity Extraction API's parameters as well, prefixing them with nex. (e.g: nex.min_confidence)"
+Mi confermi quindi che tutti i parametri opzionali di Entity Extraction possono essere usati anche per Text Similarity?

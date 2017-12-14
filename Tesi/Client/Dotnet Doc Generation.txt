@@ -1,0 +1,115 @@
+    /// <summary><c>DoWork</c> is a method in the <c>TestClass</c> class.
+    /// </summary>
+
+    <c> per far riferimenti al codice
+    <code> uguale a c ma per multiline
+
+    cref per riferimenti
+    <see cref="GetZero"/> tipo hashtag va direttamente al metodo (posso mettere la firma estesa per disambiguare)
+
+    <seealso cref="member"/> per chiamare qualcosa disponibile nello scope ma di cui non ho il codice sotto mano  
+
+    <example></example> comodo per spezzoni di codice
+    <remarks></remarks> osservazioni
+    <summary></summary> riepilogo
+
+    <param name="name">description</param> parameters
+
+    /// <summary>DoWork is a method in the TestClass class.  
+    /// The <paramref name="Int1"/> parameter takes a number.
+    /// </summary>  
+
+    Uso paramref per fare un riferimento ad un parametro dentro un altro tag di descrizione tipo summary/remark
+
+    /// <returns>Returns zero.</returns> per una descrizione di cosa ritorni
+
+typeparam e typeparamref (se dentro un altro tag di descrizione)
+
+    /// <summary>
+    /// Creates a new array of arbitrary type <typeparamref name="T"/>
+    /// </summary>
+    /// <typeparam name="T">The element type of the array</typeparam>
+    public static T[] mkArray<T>(int n)
+    {
+        return new T[n];
+    }
+
+
+
+
+https://github.com/EWSoftware/SHFB
+
+// Save this file as CRefTest.cs
+// Compile with: csc CRefTest.cs /doc:Results.xml 
+
+namespace TestNamespace
+{
+    /// <summary>
+    /// TestClass contains several cref examples.
+    /// </summary>
+    public class TestClass
+    {
+        /// <summary>
+        /// This sample shows how to specify the <see cref="TestClass"/> constructor as a cref attribute.
+        /// </summary>
+        public TestClass()
+        { }
+
+        /// <summary>
+        /// This sample shows how to specify the <see cref="TestClass(int)"/> constructor as a cref attribute.
+        /// </summary>
+        public TestClass(int value)
+        { }
+
+        /// <summary>
+        /// The GetZero method.
+        /// </summary>
+        /// <example> 
+        /// This sample shows how to call the <see cref="GetZero"/> method.
+        /// <code>
+        /// class TestClass 
+        /// {
+        ///     static int Main() 
+        ///     {
+        ///         return GetZero();
+        ///     }
+        /// }
+        /// </code>
+        /// </example>
+        public static int GetZero()
+        {
+            return 0;
+        }
+
+        /// <summary>
+        /// The GetGenericValue method.
+        /// </summary>
+        /// <remarks> 
+        /// This sample shows how to specify the <see cref="GetGenericValue"/> method as a cref attribute.
+        /// </remarks>
+
+        public static T GetGenericValue<T>(T para)
+        {
+            return para;
+        }
+    }
+
+    /// <summary>
+    /// GenericClass.
+    /// </summary>
+    /// <remarks> 
+    /// This example shows how to specify the <see cref="GenericClass{T}"/> type as a cref attribute.
+    /// </remarks>
+    class GenericClass<T>
+    {
+        // Fields and members.
+    }
+
+    class Program
+    {
+        static int Main()
+        {
+            return TestClass.GetZero();
+        }
+    }
+}

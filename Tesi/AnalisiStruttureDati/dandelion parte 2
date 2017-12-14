@@ -1,0 +1,152 @@
+quanto sono correlate due entità 
+liste adiacenza
+dimensione matrice numero entità 
+per ogni coppia posso avere un valore potenzialmente
+
+valori ad di sotto di una certa soglia
+
+matrice sparsa 4 10^6 di valori float
+
+Implementazione
+	List<List> Matrice
+		In una posizione ho valori 
+		Correlazione (a, b)
+
+		Releted nest a,b o b,a sono uguali
+			Per memorizzare un valore una volta sola viene 
+			memorizzato sul nodo con l'id maggiore
+
+	Supporta un accesso completamente random (dev'essere da ottimizzare)
+
+	Nuova implementazione della matrice per accesso random
+
+
+	Matrice byte (array di array)
+	Ho una struttura dati usiliaria che mappa gli id con le posizioni nella matrice 
+
+	Ogni entità ha un id (gli id non sono consecutivi)
+
+	In ogni posizione trovo questa lista di adiacenza che è un 
+	array di byte (Posting list) a blocchi di 4 byte
+		I primi tre byte identificano l'arco uscente
+
+	entità id 5000 mappata sulla matrice sulla posizione 0 
+	2000 100 (e ho un array ho una correlazione)
+
+
+	Map mappa id reali con consecutivi (senza buchi)
+
+	Matrice[Map[EntityId]]
+
+	2^24 
+
+	binary search sulla PostingList 
+		trovo con la chiave e prendo il valore dal quarto blocchetto
+
+		Per questa computazione 
+		Operazione costante (HashMap), pago un po bin search (lg(n))
+
+		posting list dimensione molto variabile
+
+		Stessa velocità, minore memoria
+		(viene caricata tutta in memoria)
+
+		Indice Loucine (indice a liste invertite, sta su disco)
+			Memory mapped IO (lucine) Meccanismo fornito dal SO 
+				nmap system call (unix)
+			LRU
+
+			Occupazione di memoria nulla tutto su disco e uso l'indice 
+			Elastic search
+
+			Loucine : Indici full text
+				No sql db
+
+				Ho il 10 il 10 ha dentro la lista
+				Releated ness 
+
+				cerco doc con id 1234, con dentro l'array byte 
+				faccio una binary search
+
+
+			Molto più lento (accesso randomico)
+
+DataTxt in memoria o tutto su disco (cache)
+Studiare una struttura dati ad hoch 
+	permetta di avere un parametro occupazione di memoria massima minima
+		combinare le due soluzioni
+
+	Una via di mezzo
+
+Trovare una struttura con stessa velocità meno memoria
+
+Dump della matrice (per inglese e italiano)
+	In ram 15GB
+	Cresce al quadrato rispetto al numero di nodi 
+
+
+Dimensione della posting list, lista adiacenza, parte importante 
+per calcolare la releatedness 
+	Trovare un modo di mappare in modo tale che la varianza della lunghezza delle posting list sia minore 
+
+La releatedness va calcolata con il primo è minore il secondo il maggiore (assunzione). Dato che wikipedia (mappare al contrario gli id, i più grandi su id minori => più nuove => meno nodi
+
+
+
+Euristica 
+
+Meccanismo per ottimizzare la lunghezza della posting list (log(n)) pesa meno 
+
+
+awk ''
+
+dump sono dumpato in base 64
+
+Dimensione complessiva in termini di memoria non cambia ma forse migliora prestazioni 
+
+ALberi/compressioni posting list
+
+ottimizzare lunghezza posting list
+scalare trade off occupazione memoria/velocità
+
+matrice italiano
+dump matrici italiano inglese 
+	implementi algoritmo
+
+massimo id
+numero nodi
+0.01 releatedness minima 
+
+id mappat sulla riga 5 non ha releatedness in uscita (null)
+potrebbe averne dal nodo 3 
+Map(id)
+
+mmap
+
+///////////////
+struttura dati sulle stringhe (lista stringhe)
+Ternary search tree
+
+
+mem mapped io 
+grafo
+
+dati due nodi dammi releatedness della coppia
+mem hash map
+
+
+scrivere codice per fare il test 
+
+Size of(per un nodo)
+java.sizaOf 
+
+ripeto 10 volte a macchina scarica, escludo la peggiore/miglire e prendo la media
+
+test case 
+	a coppie random
+	a coppie di cui sai che esiste
+
+fai una batteria di test:
+	
+
+

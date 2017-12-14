@@ -1,0 +1,12 @@
+<summary></summary>
+<c></c>
+<code></code>
+<see cref="GetZero"/>
+<example></example>
+<remarks></remarks> 
+<param name="name">description</param> parameters
+<paramref name="Int1"/> //dentro descrizione
+<returns>Returns zero.</returns>
+<typeparam name="T">The element type of the array</typeparam>
+<typeparamref></> //per generics
+

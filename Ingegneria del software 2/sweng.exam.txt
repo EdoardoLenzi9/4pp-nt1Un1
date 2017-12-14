@@ -1,0 +1,19 @@
+data una funzione quanti test branch coverage
+master only strategy git flow
+differenza fra commit e save
+storie scrum
+
+scrivere api 
+scrivere server node
+scrivere casi test 
+scrivere front-end
+
+buttare su heroku
+
+API studente manda in post un assignment
+passo:
+	studentId
+	assignmentId
+	assigmentContent
+
+API ary
