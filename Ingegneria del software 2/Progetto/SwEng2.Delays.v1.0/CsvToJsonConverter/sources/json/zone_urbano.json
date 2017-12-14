@@ -1,0 +1,152 @@
+[
+  {
+    "zone_id": "10101",
+    "zone_name": "Rovereto",
+    "zone_lat": "0",
+    "zone_lon": "0"
+  },
+  {
+    "zone_id": "10110",
+    "zone_name": "Trento Urbano",
+    "zone_lat": "46.07248",
+    "zone_lon": "11.12003"
+  },
+  {
+    "zone_id": "10121",
+    "zone_name": "Rovereto + Rv A",
+    "zone_lat": "45.89096",
+    "zone_lon": "11.04176"
+  },
+  {
+    "zone_id": "11015",
+    "zone_name": "Park Trento",
+    "zone_lat": "46.05715",
+    "zone_lon": "11.11443"
+  },
+  {
+    "zone_id": "11096",
+    "zone_name": "Rovereto Linea A",
+    "zone_lat": "45.8815",
+    "zone_lon": "11.03435"
+  },
+  {
+    "zone_id": "13041",
+    "zone_name": "Isera",
+    "zone_lat": "45.88508",
+    "zone_lon": "11.00962"
+  },
+  {
+    "zone_id": "14051",
+    "zone_name": "Mori",
+    "zone_lat": "45.85309",
+    "zone_lon": "10.97045"
+  },
+  {
+    "zone_id": "15091",
+    "zone_name": "Nogaredo",
+    "zone_lat": "45.91195",
+    "zone_lon": "11.02256"
+  },
+  {
+    "zone_id": "15650",
+    "zone_name": "Park Villazzano",
+    "zone_lat": "46.04438",
+    "zone_lon": "11.13964"
+  },
+  {
+    "zone_id": "16011",
+    "zone_name": "Nomi",
+    "zone_lat": "45.92874",
+    "zone_lon": "11.07258"
+  },
+  {
+    "zone_id": "16501",
+    "zone_name": "Calliano",
+    "zone_lat": "45.93191",
+    "zone_lon": "11.09169"
+  },
+  {
+    "zone_id": "17031",
+    "zone_name": "Pomarolo",
+    "zone_lat": "45.92634",
+    "zone_lon": "11.04294"
+  },
+  {
+    "zone_id": "18041",
+    "zone_name": "Villa Lagarina",
+    "zone_lat": "45.91751",
+    "zone_lon": "11.03367"
+  },
+  {
+    "zone_id": "18511",
+    "zone_name": "Castellano",
+    "zone_lat": "45.92313",
+    "zone_lon": "11.00862"
+  },
+  {
+    "zone_id": "19011",
+    "zone_name": "Volano",
+    "zone_lat": "45.91733",
+    "zone_lon": "11.06968"
+  },
+  {
+    "zone_id": "19025",
+    "zone_name": "Lavis",
+    "zone_lat": "46.14281",
+    "zone_lon": "11.10798"
+  },
+  {
+    "zone_id": "19500",
+    "zone_name": "Riva Del Garda",
+    "zone_lat": "45.89227",
+    "zone_lon": "10.84488"
+  },
+  {
+    "zone_id": "19600",
+    "zone_name": "Vigne/Varignano",
+    "zone_lat": "45.91845",
+    "zone_lon": "10.86161"
+  },
+  {
+    "zone_id": "19650",
+    "zone_name": "Varone",
+    "zone_lat": "45.90752",
+    "zone_lon": "10.83993"
+  },
+  {
+    "zone_id": "19700",
+    "zone_name": "Nago",
+    "zone_lat": "45.87846",
+    "zone_lon": "10.89066"
+  },
+  {
+    "zone_id": "19750",
+    "zone_name": "Torbole",
+    "zone_lat": "45.87116",
+    "zone_lon": "10.87556"
+  },
+  {
+    "zone_id": "19800",
+    "zone_name": "Arco",
+    "zone_lat": "45.91639",
+    "zone_lon": "10.88261"
+  },
+  {
+    "zone_id": "19900",
+    "zone_name": "Bolognano",
+    "zone_lat": "45.91198",
+    "zone_lon": "10.90196"
+  },
+  {
+    "zone_id": "19950",
+    "zone_name": "S.Tomaso",
+    "zone_lat": "45.90262",
+    "zone_lon": "10.86102"
+  },
+  {
+    "zone_id": "20110",
+    "zone_name": "Piazza Dante",
+    "zone_lat": "46.07263",
+    "zone_lon": "11.1198"
+  }
+]

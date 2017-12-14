@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Pick Time</title>
+  <link rel="icon" href="/src/assets/icons/favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/src/timetable-picker/timetablePicker.css">
+</head>
+
+<body>
+  <div class="container-fluid container1">
+    <div class="container2">
+      <div class="row">
+
+        <div class="col-12">
+          <div id="title" onclick="reset()">
+              <div v-cloak><h1> {{ message }} </h1></div>
+          </div>
+        </div>
+
+        <div id="timetables" class="topmargin fullwidth">
+          <input type="text" class="typeaheadInput" id="timetablesInput" onkeyup="filter('timetablesInput', 'timetableRepeater')" placeholder="Scegli un orario ..."
+            title="Inserisci un orario">
+          <ul id="timetableRepeater" class="typeahead">
+            <li v-for="item in timetables">
+              <a v-on:click="nextScreen(item.trip_id, item.arrival_time)"><div v-cloak> {{item.arrival_time}}</div></a>
+            </li>
+          </ul>
+        </div>
+
+        <div id="loader" class="loader"></div>
+
+      </div>
+    </div>
+  </div>
+</body>
+<script>
+  var routeId = "<%= routeId %>";
+  var routeName = "<%= routeName %>";
+  var direction = "<%= direction %>";
+  var stopId = "<%= stopId %>";
+  var stopName = "<%= stopName %>";
+</script>
+<script src="/node_modules/jquery/dist/jquery.min.js"></script>
+<script src="/node_modules/popper.js/dist/umd/popper.min.js"></script>
+<script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="/node_modules/vue/dist/vue.min.js"></script>
+<script src="/node_modules/axios/dist/axios.min.js"></script>
+<script src="/src/utils.js "></script>
+<script src="/src/timetable-picker/timetablePicker.js"></script>
+
+</html>

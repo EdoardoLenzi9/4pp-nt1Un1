@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Delay</title>
+
+  <link rel="icon" href="/src/icons/favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/src/delays-view/delays-view.css">
+</head>
+
+<body style="background-color:white;">
+  <div class="container-fluid vertical-center">
+    <div class="row">
+      <p></p>
+    </div>
+    <div class="row">
+      <div class="col-1"></div>
+      <div class="col-10" id="last_seen">
+        <p v-cloak> {{ title }}</p>
+        <center v-cloak> {{ message }} </center>
+      </div>
+      <div class="col-1"></div>
+    </div>
+    <div class="row">
+      <p></p>
+    </div>
+
+    <div class="row" vcenter>
+      <div class="col-2"></div>
+      <ul class="flexwrapper canvas col-8">
+        <ul class="flexcontainer">
+          <li class="flexitem">E' gia' passato il: </li>
+          <li class="flexcenteritem" id="to_be" v-cloak>{{ routeName }} delle {{ arrivalTime }} per {{ stopName }}?</li>
+          <li class="flexcenteritem btn-group">
+            <button type="button" class="btn btn-sm btn-outline-primary" id='yes' onclick="button_pressed(2, 'y')">Sì</button>
+            <button type="button" class="btn btn-sm btn-outline-secondary" id='maybe' onclick="button_pressed(1, 'm')">Non so</button>
+            <button type="button" class="btn btn-sm btn-outline-danger" id='no' onclick="button_pressed(0, 'n')">No</button>
+          </li>
+        </ul>
+      </ul>
+      <div class="col-1"></div>
+    </div>
+    <div class="col-1"></div>
+  </div>
+
+  </div>
+</body>
+
+<script>var routeName = "<%= routeName %>"; </script>
+<script>var routeId = "<%= routeId %>"; </script>
+<script>var direction= "<%= direction %>"; </script>
+<script>var stopName= "<%= stopName %>"; </script>
+<script>var stopId= "<%= stopId %>"; </script>
+<script>var tripId= "<%= tripId %>"; </script>
+<script>var arrivalTime= "<%= arrivalTime %>"; </script>
+
+<script src="/node_modules/jquery/dist/jquery.min.js"></script>
+<script src="/node_modules/popper.js/dist/umd/popper.min.js"></script>
+<script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="/node_modules/vue/dist/vue.min.js"></script>
+<script src="/node_modules/axios/dist/axios.min.js"></script>
+<script src="/src/utils.js "></script>
+<script src="/src/delays-view/delays-view.js"></script>
+</html>

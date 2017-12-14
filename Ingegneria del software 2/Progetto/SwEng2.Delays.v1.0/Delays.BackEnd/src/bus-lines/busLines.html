@@ -1,0 +1,54 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bus lines</title>
+  <meta name="description" bus-number="The HTML5 Herald">
+  <meta name="author" bus-number="SitePoint">
+
+  <link rel="icon" href="/src/assets/favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/src/bus-lines/busLines.css">
+</head>
+
+<body>
+  <div class="container-fluid bus-lines" id="busLines">
+    <h4>Lines</h4>
+    <div>
+      <ul>
+        <template v-for="(item, index) in routes">
+          <li v-on:click="choseRoute(item)" v-bind:style="{ 'background-color': '#'+item.route_color }">
+            <div class="bus-number" v-bind:style="{ 'color': '#'+item.route_text_color }">
+              {{item.route_short_name}}
+            </div>
+          </li>
+        </template>
+      </ul>
+    </div>
+  </div>
+  <div class="container-fluid favourites" id="favouriteLines">
+    <h4>Favourites</h4>
+    <ul>
+      <template v-for="(item, index) in favourites">
+        <li v-on:click="choseFavouriteRoute(item)" v-bind:style="{ 'background-color': '#'+item.route_color }">
+          <div class="bus-number" v-bind:style="{ 'color': '#'+item.route_text_color }">
+            {{item.route_short_name}}
+          </div>
+        </li>
+      </template>
+    </ul>
+  </div>
+</body>
+
+</html>
+
+<script src="/node_modules/jquery/dist/jquery.min.js "></script>
+<script src="/node_modules/popper.js/dist/umd/popper.min.js "></script>
+<script src="/node_modules/bootstrap/dist/js/bootstrap.min.js "></script>
+<script src="/node_modules/vue/dist/vue.min.js "></script>
+<script src="/node_modules/axios/dist/axios.min.js "></script>
+<script src="/src/utils.js "></script>
+<script src="/src/bus-lines/busLines.js "></script>

@@ -1,0 +1,56 @@
+version: "2"
+
+networks:
+  mongo_net:
+    driver: bridge
+  database_net:
+    driver: bridge
+
+services:
+  delays_database:
+    build:
+      context: ./Delays.Database/
+    environment:
+      PORT: 8080
+    ports:
+      - "8080:8080"
+    networks:
+      - mongo_net
+      - database_net
+    depends_on:
+      - mongo
+
+  delays_backend:
+    build:
+      context: ./Delays.BackEnd/
+    environment:
+      PORT: 3000
+    networks:
+      - database_net
+    ports:
+      - "3000:3000"
+    depends_on:
+      - delays_database
+    links:
+      - delays_database
+
+  mongo:
+    image: mongo
+    volumes:
+      - ./data:/data/db
+    networks:
+      - mongo_net
+
+  # mongo-ui:
+  #   image: mongo-express
+  #   networks:
+  #     - internal
+  #   ports:
+  #     - "8081:8081"
+  #   links:
+  #     - mongo
+  #   environment:
+  #     - ME_CONFIG_BASICAUTH_USERNAME=sweng2
+  #     - ME_CONFIG_BASICAUTH_PASSWORD=sweng2
+  #   depends_on:
+  #     - mongo

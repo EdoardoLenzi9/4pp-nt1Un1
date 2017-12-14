@@ -1,0 +1,165 @@
+body {
+    width: 100%;
+    height: 100%;
+}
+
+line {
+    fill: red;
+    stroke: red;
+    stroke-width: 4;
+    z-index: 1;
+}
+
+svg {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    height: 100%;
+}
+
+circle {
+    stroke: black;
+    stroke-width: 4;
+    fill: white;
+    z-index: 0;
+}
+
+.canvas {
+    height: 250px;
+}
+
+.container2 {
+    margin-top: 5%;
+    margin-bottom: 5%;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.container1 {
+    width: 100%;
+    height: 100%;
+}
+
+.fullwidth {
+    width: 100%;
+}
+
+.h {
+    height: 100%;
+}
+
+.dropdown-menu {
+    left: 50%;
+    right: auto;
+    text-align: center;
+    transform: translate(-50%, 0);
+}
+
+.direction {
+    background-color: #FFFFFF;
+    border-style: solid;
+    border-width: 4;
+    border-color: #FFFFFF;
+}
+
+.direction:hover {
+    background-color: #F8ECC1;
+    border-style: solid;
+    border-width: 4;
+    border-color: #F5CB42;
+}
+
+.selezione:onclick {
+    background-color: #F8ECC1;
+    border-style: solid;
+    border-width: 4;
+    border-color: #F5CB42;
+}
+
+.topmargin {
+    margin-top: 10px;
+}
+
+p {
+    text-align: center;
+}
+
+.vertical {
+    /*riting-mode: tb-rl; */
+    width: 1px;
+    word-wrap: break-word;
+    font-family: monospace;
+    /* this is just for good looks */
+    text-align: center;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.typeaheadInput {
+    background-image: url('/css/searchicon.png');
+    background-position: 10px 12px;
+    background-repeat: no-repeat;
+    width: 100%;
+    font-size: 16px;
+    padding: 12px 20px 12px 40px;
+    border: 1px solid #ddd;
+    margin-bottom: 12px;
+}
+
+.typeahead {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.typeahead li a {
+    border: 1px solid #ddd;
+    margin-top: -1px;
+    /* Prevent double borders */
+    background-color: #f6f6f6;
+    padding: 12px;
+    text-decoration: none;
+    font-size: 18px;
+    color: black;
+    display: block
+}
+
+.typeahead li a:hover:not(.header) {
+    background-color: #eee;
+}
+
+.loader {
+    border: 10px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 10px solid #000000;
+    width: 100px;
+    height: 100px;
+    margin-left: 30%;
+    -webkit-animation: spin 2s linear infinite;
+    /* Safari */
+    animation: spin 2s linear infinite;
+}
+
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+[v-cloak] {
+    display: none;
+}

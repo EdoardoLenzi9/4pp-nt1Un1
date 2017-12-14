@@ -1,0 +1,371 @@
+[
+  {
+    "route_id": "396",
+    "agency_id": "12",
+    "route_short_name": "3",
+    "route_long_name": "Cortesano Gardolo P.Dante Villazzano 3",
+    "route_type": "3",
+    "route_color": "C52720",
+    "route_text_color": "FFFFFF"
+  },
+  {
+    "route_id": "400",
+    "agency_id": "12",
+    "route_short_name": "5",
+    "route_long_name": "Piazza Dante P.Fiera Povo Oltrecastello",
+    "route_type": "3",
+    "route_color": "F5C500",
+    "route_text_color": "000000"
+  },
+  {
+    "route_id": "402",
+    "agency_id": "12",
+    "route_short_name": "7",
+    "route_long_name": "Canova Melta Piazza Dante Gocciadoro",
+    "route_type": "3",
+    "route_color": "0A9B86",
+    "route_text_color": "FFFFFF"
+  },
+  {
+    "route_id": "404",
+    "agency_id": "12",
+    "route_short_name": "8",
+    "route_long_name": "Centochiavi Piazza Dante Mattarello",
+    "route_type": "3",
+    "route_color": "52332A",
+    "route_text_color": "FFFFFF"
+  },
+  {
+    "route_id": "406",
+    "agency_id": "12",
+    "route_short_name": "9",
+    "route_long_name": "P.Dante S.Donà Cognola Villamontagna",
+    "route_type": "3",
+    "route_color": "8B4E2B",
+    "route_text_color": "FFFFFF"
+  },
+  {
+    "route_id": "408",
+    "agency_id": "12",
+    "route_short_name": "10",
+    "route_long_name": "P.Dante Martignano Cognola / Montevaccino",
+    "route_type": "3",
+    "route_color": "0A5543",
+    "route_text_color": "FFFFFF"
+  },
+  {
+    "route_id": "411",
+    "agency_id": "12",
+    "route_short_name": "12",
+    "route_long_name": "P.Dante Via Ghiaie Ravina Romagnano",
+    "route_type": "3",
+    "route_color": "95293B",
+    "route_text_color": "FFFFFF"
+  },
+  {
+    "route_id": "415",
+    "agency_id": "12",
+    "route_short_name": "14",
+    "route_long_name": "P.Dante Via Sanseverino Belvedere Ravina",
+    "route_type": "3",
+    "route_color": "E490B0",
+    "route_text_color": "000000"
+  },
+  {
+    "route_id": "423",
+    "agency_id": "12",
+    "route_short_name": "B",
+    "route_long_name": "Piazza Dante Laste Piazza Dante",
+    "route_type": "3",
+    "route_color": "6E777B",
+    "route_text_color": "FFFFFF"
+  },
+  {
+    "route_id": "424",
+    "agency_id": "12",
+    "route_short_name": "11",
+    "route_long_name": "Spini Di Gardolo Via Brennero P.Dante",
+    "route_type": "3",
+    "route_color": "582E79",
+    "route_text_color": "FFFFFF"
+  },
+  {
+    "route_id": "460",
+    "agency_id": "12",
+    "route_short_name": "NP",
+    "route_long_name": "Navetta Parcheggi: Zuffo M.Te Baldo Zuffo",
+    "route_type": "3",
+    "route_color": "000000",
+    "route_text_color": "FFFFFF"
+  },
+  {
+    "route_id": "466",
+    "agency_id": "12",
+    "route_short_name": "13",
+    "route_long_name": "P.Dante Rosmini S.Rocco Povo Polo Soc.",
+    "route_type": "3",
+    "route_color": "BF6092",
+    "route_text_color": "000000"
+  },
+  {
+    "route_id": "478",
+    "agency_id": "12",
+    "route_short_name": "15",
+    "route_long_name": "Piazza Dante Interporto Spini Di Gardolo",
+    "route_type": "3",
+    "route_color": "72E006",
+    "route_text_color": "FFFFFF"
+  },
+  {
+    "route_id": "484",
+    "agency_id": "12",
+    "route_short_name": "16",
+    "route_long_name": "Centochiavi Martignano Cognola Povo",
+    "route_type": "3",
+    "route_color": "3564B1",
+    "route_text_color": "FFFFFF"
+  },
+  {
+    "route_id": "488",
+    "agency_id": "12",
+    "route_short_name": "1",
+    "route_long_name": "01 Corso Bettini Ospedale Lizzana Marco",
+    "route_type": "3",
+    "route_color": "",
+    "route_text_color": ""
+  },
+  {
+    "route_id": "490",
+    "agency_id": "12",
+    "route_short_name": "2",
+    "route_long_name": "Costa Corso Rosmini S.Giorgio",
+    "route_type": "3",
+    "route_color": "",
+    "route_text_color": ""
+  },
+  {
+    "route_id": "496",
+    "agency_id": "12",
+    "route_short_name": "6",
+    "route_long_name": "06 Nomi Pomarolo/Volano Rosmini Mori",
+    "route_type": "3",
+    "route_color": "",
+    "route_text_color": ""
+  },
+  {
+    "route_id": "497",
+    "agency_id": "12",
+    "route_short_name": "5",
+    "route_long_name": "Mori Villa Lagarina Pomarolo Nomi",
+    "route_type": "3",
+    "route_color": "",
+    "route_text_color": ""
+  },
+  {
+    "route_id": "504",
+    "agency_id": "12",
+    "route_short_name": "N2",
+    "route_long_name": "Costa Corso Rosmini",
+    "route_type": "3",
+    "route_color": "",
+    "route_text_color": ""
+  },
+  {
+    "route_id": "506",
+    "agency_id": "12",
+    "route_short_name": "N1",
+    "route_long_name": "Mori Marco C.So Rosmini",
+    "route_type": "3",
+    "route_color": "",
+    "route_text_color": ""
+  },
+  {
+    "route_id": "507",
+    "agency_id": "12",
+    "route_short_name": "N3",
+    "route_long_name": "P.Le Orsi Volano Castellano",
+    "route_type": "3",
+    "route_color": "",
+    "route_text_color": ""
+  },
+  {
+    "route_id": "510",
+    "agency_id": "12",
+    "route_short_name": "N5",
+    "route_long_name": "C.So Bettini Isera Nomi",
+    "route_type": "3",
+    "route_color": "",
+    "route_text_color": ""
+  },
+  {
+    "route_id": "511",
+    "agency_id": "12",
+    "route_short_name": "N6",
+    "route_long_name": "Nomi Besenello Stazione Fs",
+    "route_type": "3",
+    "route_color": "",
+    "route_text_color": ""
+  },
+  {
+    "route_id": "512",
+    "agency_id": "12",
+    "route_short_name": "7",
+    "route_long_name": "Noriglio Rosmini Campana Dei Caduti",
+    "route_type": "3",
+    "route_color": "",
+    "route_text_color": ""
+  },
+  {
+    "route_id": "531",
+    "agency_id": "12",
+    "route_short_name": "Fu",
+    "route_long_name": "Funivia Trento Sardagna",
+    "route_type": "5",
+    "route_color": "",
+    "route_text_color": ""
+  },
+  {
+    "route_id": "533",
+    "agency_id": "12",
+    "route_short_name": "C",
+    "route_long_name": "Rsa \"S.Bartolomeo\" Rsa \"Angeli Custodi",
+    "route_type": "3",
+    "route_color": "000000",
+    "route_text_color": "FFFFFF"
+  },
+  {
+    "route_id": "535",
+    "agency_id": "12",
+    "route_short_name": "5/",
+    "route_long_name": "P.Dante P.Fiera Università Mesiano Povo",
+    "route_type": "3",
+    "route_color": "",
+    "route_text_color": ""
+  },
+  {
+    "route_id": "536",
+    "agency_id": "12",
+    "route_short_name": "1",
+    "route_long_name": "Ospedale P.Dante Sopramonte",
+    "route_type": "3",
+    "route_color": "1D3F72",
+    "route_text_color": "FFFFFF"
+  },
+  {
+    "route_id": "538",
+    "agency_id": "12",
+    "route_short_name": "2",
+    "route_long_name": "Piedic. Stazione Osp.S.Chiara Regione Piedic.",
+    "route_type": "3",
+    "route_color": "DB5826",
+    "route_text_color": "FFFFFF"
+  },
+  {
+    "route_id": "539",
+    "agency_id": "12",
+    "route_short_name": "4",
+    "route_long_name": "Gardolo Roncafort Stazione V.Deg. Mad.Bianca",
+    "route_type": "3",
+    "route_color": "007BC3",
+    "route_text_color": "FFFFFF"
+  },
+  {
+    "route_id": "541",
+    "agency_id": "12",
+    "route_short_name": "6",
+    "route_long_name": "Vela P.Dante Villazzano Grotta",
+    "route_type": "3",
+    "route_color": "70B442",
+    "route_text_color": "FFFFFF"
+  },
+  {
+    "route_id": "543",
+    "agency_id": "12",
+    "route_short_name": "17",
+    "route_long_name": "Piazza Dante Via Bolzano Lamar Lavis",
+    "route_type": "3",
+    "route_color": "1F9ACF",
+    "route_text_color": "FFFFFF"
+  },
+  {
+    "route_id": "545",
+    "agency_id": "12",
+    "route_short_name": "A",
+    "route_long_name": "P.Dante Osp. S.Chiara Clarina P.Dante",
+    "route_type": "3",
+    "route_color": "BABAB7",
+    "route_text_color": "000000"
+  },
+  {
+    "route_id": "562",
+    "agency_id": "12",
+    "route_short_name": "A",
+    "route_long_name": "Brione Cesari Ospedale Podesta' Brione",
+    "route_type": "3",
+    "route_color": "",
+    "route_text_color": ""
+  },
+  {
+    "route_id": "563",
+    "agency_id": "12",
+    "route_short_name": "B",
+    "route_long_name": "Ossario Osp. S.Giorgio Osp. Ossario",
+    "route_type": "3",
+    "route_color": "",
+    "route_text_color": ""
+  },
+  {
+    "route_id": "566",
+    "agency_id": "12",
+    "route_short_name": "AB",
+    "route_long_name": "Via Magazol S.Giorgio Cornacalda",
+    "route_type": "3",
+    "route_color": "",
+    "route_text_color": ""
+  },
+  {
+    "route_id": "568",
+    "agency_id": "12",
+    "route_short_name": "G",
+    "route_long_name": "Gardolo Gardolo Di Mezzo E Spini",
+    "route_type": "3",
+    "route_color": "",
+    "route_text_color": ""
+  },
+  {
+    "route_id": "570",
+    "agency_id": "12",
+    "route_short_name": "CM",
+    "route_long_name": "Povo Borino Celva Passo Cimirlo",
+    "route_type": "3",
+    "route_color": "",
+    "route_text_color": ""
+  },
+  {
+    "route_id": "572",
+    "agency_id": "12",
+    "route_short_name": "8",
+    "route_long_name": "Ospedale Stazione Fs Isera Villa Lag.",
+    "route_type": "3",
+    "route_color": "",
+    "route_text_color": ""
+  },
+  {
+    "route_id": "574",
+    "agency_id": "12",
+    "route_short_name": "4",
+    "route_long_name": "04 Villa Lagarina Brione Stazione Fs Isera",
+    "route_type": "3",
+    "route_color": "",
+    "route_text_color": ""
+  },
+  {
+    "route_id": "575",
+    "agency_id": "12",
+    "route_short_name": "3",
+    "route_long_name": "03 Pedersano Brione Stazione Fs Lenzima",
+    "route_type": "3",
+    "route_color": "",
+    "route_text_color": ""
+  }
+]

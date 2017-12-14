@@ -1,0 +1,2 @@
+﻿feed_publisher_name,feed_publisher_url,feed_lang,feed_start_date,feed_end_date,feed_version
+Trentino trasporti esercizio S.p.A.,http://www.ttesercizio.it/,it,20170610,20180607,1.2017090401

@@ -1,0 +1,67 @@
+/* Page settings */
+
+html {
+    height: 100%;
+}
+
+body {
+    height: inherit;
+}
+
+div.bus-lines {
+    height: 100%;
+    background: white;
+    padding-bottom: 150px;
+    overflow: scroll;
+    position: relative;
+}
+
+div.favourites {
+    position: fixed;
+    display: block;
+    width: 100%;
+    background: white;
+    bottom: 0px;
+    height: 150px;
+}
+
+h4 {
+    font-size: 8vw;
+}
+
+
+/* Table properties */
+
+ul {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    position: relative;
+    padding: 0 0;
+}
+
+li {
+    flex-basis: 25%;
+    list-style: none;
+    height: auto;
+    position: relative;
+    border-left: 1px solid white;
+    border-right: 1px solid white;
+    border-bottom: 1px solid white;
+    background-color: #bdc3c7;
+}
+
+li:before {
+    content: '';
+    float: left;
+    padding-top: 100%;
+}
+
+div.bus-number {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 6vw;
+    color: #ecf0f1;
+}

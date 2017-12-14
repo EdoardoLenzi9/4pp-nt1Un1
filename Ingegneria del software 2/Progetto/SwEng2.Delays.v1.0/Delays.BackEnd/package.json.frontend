@@ -1,0 +1,12 @@
+{
+  "dependencies": {
+    "axios": "^0.17.1",
+    "bootstrap": "^4.0.0-alpha.6",
+    "jquery": "^3.2.1",
+    "popper.js": "^1.12.9",
+    "vue": "^2.5.8"
+  },
+  "devDependencies": {
+    "bootstrap": "^4.0.0-alpha.6"
+  }
+}

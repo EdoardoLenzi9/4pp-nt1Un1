@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pick direction</title>
+  <meta name="description" bus-number="The HTML5 Herald">
+  <meta name="author" bus-number="SitePoint">
+  <link rel="icon" href="/src/icons/favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/src/direction-picker/directionpicker.css">
+</head>
+
+<body>
+  <div class="container-fluid full-height">
+    <!-- Bus line title row -->
+    <div class="fixed-height" id="app">
+        <div v-cloak>
+      <h1>{{ busline }}</h1>
+      </div>
+    </div>
+
+    <!-- Direction picker section -->
+    <div class="direction-picker">
+      <div class="bordered direction" onclick="selectdirection(0);">
+        <div class="top-stop" id="forwardStartingStops"> <div v-cloak>{{ forwardStartingStops }}</div></div>
+        <div class="image">
+          <img src="/src/assets/line.svg">
+        </div>
+        <div class="bottom-stop" id="forwardEndingStops"> <div v-cloak>{{ forwardEndingStops }}</div></div>
+      </div>
+      <div class="spacing"></div>
+      <div class="bordered direction" onclick="selectdirection(1);">
+        <div class="top-stop" id="returnStartingStops"> <div v-cloak>{{ returnStartingStops }} </div></div>
+        <div class="image">
+          <img src="/src/assets/line.svg">
+        </div>
+        <div class="bottom-stop" id="returnEndingStops"> <div v-cloak>{{ returnEndingStops }} </div></div>
+      </div>
+    </div>
+    <div class="fixed-height"></div>
+  </div>
+</body>
+
+</html>
+<script>
+  var routeId = "<%= routeId %>";
+  var routeName = "<%= routeName %>";
+</script>
+<script src="/node_modules/jquery/dist/jquery.min.js "></script>
+<script src="/node_modules/popper.js/dist/umd/popper.min.js "></script>
+<script src="/node_modules/bootstrap/dist/js/bootstrap.min.js "></script>
+<script src="/node_modules/vue/dist/vue.min.js "></script>
+<script src="/node_modules/axios/dist/axios.min.js "></script>
+<script src="/src/utils.js "></script>
+<script src="/src/direction-picker/directionpicker.js "></script>

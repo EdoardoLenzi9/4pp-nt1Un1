@@ -1,0 +1,30 @@
+{
+  "name": "5wen6due",
+  "version": "1.0.0",
+  "description": "Until now the rest apis can provide the following data by accessing at <http://address:8080/api/v1/trento>:",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.16.2",
+    "gtfs": "git+https://github.com/BlinkTagInc/node-gtfs.git"
+  },
+  "peerDependencies": {
+    "mongoose": "4.x"
+  },
+  "devDependencies": {
+    "jest": "^21.2.1",
+    "node-fetch": "^1.7.3"
+  },
+  "scripts": {
+    "test": "jest --runInBand"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MaxFrax/5wEN6DuE.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MaxFrax/5wEN6DuE/issues"
+  },
+  "homepage": "https://github.com/MaxFrax/5wEN6DuE#readme"
+}

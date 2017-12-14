@@ -1,0 +1,134 @@
+/* General page settings */
+
+html,
+body {
+    height: 100%;
+}
+
+
+/* Generic classes */
+
+.bordered {
+    border: 1px ridge lightskyblue;
+    border-radius: 10px;
+}
+
+.full-height {
+    height: 100%;
+}
+
+div.fixed-height {
+    height: 16vh;
+}
+
+h1 {
+    font-size: 5rem;
+}
+
+
+/* Direction picker style */
+
+div.direction-picker {
+    position: absolute;
+    top: 16vh;
+    bottom: 8vh;
+    left: 15px;
+    right: 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: stretch;
+}
+
+div.direction {
+    flex-grow: 10;
+    position: relative;
+}
+
+div.spacing {
+    flex-grow: 1;
+}
+
+
+/* Direction picker cell items */
+
+div.top-stop {
+    position: absolute;
+    top: 0;
+    height: 50px;
+    left: 0;
+    right: 0;
+    text-align: center;
+}
+
+div.bottom-stop {
+    position: absolute;
+    bottom: 0;
+    height: 50px;
+    left: 0;
+    right: 0;
+    text-align: center;
+}
+
+div.image {
+    position: absolute;
+    top: 50px;
+    bottom: 50px;
+    left: 0;
+    right: 0;
+    text-align: center;
+}
+
+img {
+    height: 100%;
+}
+
+
+.loader-container {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.loader {
+    border: 5vw solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 5vw solid black;
+    width: 50vw;
+    height: 50vw;
+    display: inline-block;
+    -webkit-animation: spin 2s linear infinite;
+    /* Safari */
+    animation: spin 2s linear infinite;
+}
+
+.centered-item {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform-origin: 0% 0% 0;
+}
+
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg) translate(-50%, -50%);
+    }
+    100% {
+        -webkit-transform: rotate(360deg) translate(-50%, -50%);
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg) translate(-50%, -50%);
+    }
+    100% {
+        transform: rotate(360deg) translate(-50%, -50%);
+    }
+}
+
+[v-cloak] {
+    display: none;
+}

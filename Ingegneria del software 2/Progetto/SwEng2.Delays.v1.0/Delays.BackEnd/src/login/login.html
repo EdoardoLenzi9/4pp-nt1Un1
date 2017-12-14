@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>      
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Login</title>
+    <link rel="icon" href="/src/assets/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">  
+    <link rel="stylesheet" href="/src/login/login.css">
+    <meta name="google-signin-scope" content="profile email">
+    <meta name="google-signin-client_id" content="391220805068-u8f5jcucstcfimeltmgg6856voht3qjt.apps.googleusercontent.com">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+  </head>
+  <body>
+
+    <div class="container-fluid container1">
+      <div class="container2">
+        <div class="row">
+          <div class="col-12 direction">
+              <h1 class="title">Delays</h1>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 direction">
+            <div class="centered">
+              <img src="/src/assets/delays_icon.png" alt="Delays" > 
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 direction">
+            <div class="centered">
+              <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+  </body>
+</html>
+<script src="/node_modules/jquery/dist/jquery.min.js "></script>
+<script src="/node_modules/popper.js/dist/umd/popper.min.js "></script>
+<script src="/node_modules/bootstrap/dist/js/bootstrap.min.js "></script>
+<script src="/node_modules/vue/dist/vue.min.js "></script>
+<script src="/node_modules/axios/dist/axios.min.js "></script>
+<script src="/src/utils.js"></script>
+<script src="/src/login/login.js"></script>
