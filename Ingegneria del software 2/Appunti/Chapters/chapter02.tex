@@ -1,0 +1,353 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Application Design}
+\section{The Design Process}
+\subsection{Empathize Mode}
+L'empatia \'e lo sforzo nel capire l'utente, le sue abitudini ed i suoi problemi per disegnare un app utile.
+
+\subsection{Define Mode}
+Creo un design in base a cosa ho appreso dal contesto umano.
+
+\subsection{Ideate Mode}
+La parte del processo in cui mi concentro nella creazione delle nuove idee. 
+Vado nel profondo, cerco di definire tutto quello che mi serve per realizzare un mockup.
+
+\subsection{Prototype Mode}
+Per vedere qualcosa e risolvere problemi fondamentali di design. \lq\lq Fail early and cheaply!\rq\rq .
+
+\subsection{Test Mode}
+Una seconda occasione di confronto con l'utente.
+
+\section{EDD Empathy Driven Design}
+Empathy: the feeling that you understand and share another person's experience and emotions. 
+The ability to share someone else's feeling.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Agile Development}
+
+\begin{tcolorbox}
+	\begin{center}
+		Kanban e Scrum
+	\end{center}
+\end{tcolorbox}
+
+\begin{itemize}
+	\item development process\\
+	\item principali tipi di processo\\
+	\item	processi agile (caratteristiche e pro)\\
+	\item Scrum e Kanban (similitudini e differenze)\\
+	\item	come definire, caratterizzare ed eseguire:\\
+		\item[-] user stories\\
+		\item[-] backlogs\\
+		\item[-] sprints\\
+	\item linkare backlogs a github issues\\
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+https://www.atlassian.com/agile
+\section{What is agile}
+\'E un approccio iterativo al project management e sw development;
+molti piccoli incrementi (consegno il lavoro un pezzo alla volta). 
+Tutti i piani, requisiti e risultati vengono rivisti spesso cos\'i da rendere 
+il team resistente a cambiamenti in corso d'opera.
+
+Il team si prende il controllo di come fare il lavoro, si autoorganizza per 
+portare a termine task granulari.
+
+\'E un set di tecniche di sviluppo accomunate dal continuo processo di 
+miglioramento. Il manifesto Agile non da regole precise ma solo valori e 
+linee guida che pongono le persone al primo posto.
+
+\section{Il manifesto Agile}
+http://agilemanifesto.org/iso/it/manifesto.html
+siamo arrivati a considerare importanti:
+\begin{itemize}
+	\item \textbf{Gli individui e le interazioni} più che i processi e gli strumenti\\
+	\item \textbf{Il software funzionante} più che la documentazione esaustiva\\
+	\item \textbf{La collaborazione col cliente} più che la negoziazione dei contratti\\
+	\item \textbf{Rispondere al cambiamento} più che seguire un piano\\
+\end{itemize}
+
+\subsection{I principi}
+Seguiamo questi principi:
+
+La nostra massima priorità è soddisfare il cliente
+rilasciando software di valore, fin da subito
+e in maniera continua.
+
+Accogliamo i cambiamenti nei requisiti,
+anche a stadi avanzati dello sviluppo.
+I processi agili sfruttano il cambiamento
+a favore del vantaggio competitivo del cliente.
+
+Consegnamo frequentemente software funzionante,
+con cadenza variabile da un paio di settimane a un paio di mesi,
+preferendo i periodi brevi.
+
+Committenti e sviluppatori devono lavorare insieme
+quotidianamente per tutta la durata del progetto.
+
+Fondiamo i progetti su individui motivati.
+Diamo loro l'ambiente e il supporto di cui hanno bisogno
+e confidiamo nella loro capacità di portare il lavoro a termine.
+
+Una conversazione faccia a faccia
+è il modo più efficiente e più efficace per comunicare
+con il team ed all'interno del team.
+
+Il software funzionante è il principale metro di misura di progresso.
+
+I processi agili promuovono uno sviluppo sostenibile.
+Gli sponsor, gli sviluppatori e gli utenti dovrebbero essere in grado
+di mantenere indefinitamente un ritmo costante.
+
+La continua attenzione all'eccellenza tecnica
+e alla buona progettazione esaltano l'agilità.
+
+La semplicità - l'arte di massimizzare la quantità
+di lavoro non svolto - è essenziale.
+
+Le architetture, i requisiti e la progettazione
+migliori emergono da team che si auto-organizzano.
+
+A intervalli regolari il team riflette su come
+diventare più efficace, dopodiché regola e adatta
+il proprio comportamento di conseguenza. 
+
+\section{Aglie Frameworks}
+Dal 2001 quando nasce il manifesto sono nati vari frameworks come Scrum, 
+Kanban ed Extreme Programming (XP). Accomunati da iterazioni frequenti,
+continuo imparare/aggiornarsi. 
+
+\section{Project Management}
+Un approccio iterativo per managing sw development projects, focalizzato 
+su release continue e feedback continui. Il project management pu\'o essere 
+categorizzato attraverso due frameworks: kanban e scrum.
+
+\subsection{Scrum [Mischia]}
+Fixed length iterations chiamati sprint.
+
+ha 2 backlogs: 
+	product backlog (lavoro che dev'essere fatto), ordinato per priorit\'a 
+	sprint backlog, prendo gli issue dal prod backlog finchè la capacit\'a dello 
+	sprint \'e saturata.
+
+Nel team ci sono ruoli predefiniti:
+	Scrum Master del team 
+	Product Owner
+	Scrum Team 
+
+\subsection{Le quattro cerimonie}
+Sprint Planning, meeting per capire quello che manca per finire lo sprint corrente
+Sprint Demo, spiega cosa hanno realizzato nello sprint 
+Daily StandUp, meeting di 15 minuti per sincronizzare il team 
+Retrospective una review di cosa \'e andato bene e cosa migliorare
+
+\subsection{Scrum Board}
+To do, in progress, code review, done
+
+\section{Kanban}
+Focalizzato a fare le cose nel minor tempo possibile, mi permette di reagire 
+a cambiamenti anche prima di Scrum. Non usa backlogs ma si focalizza solo 
+sulla ToDo column questo permette di focalizzarsi su release continue che 
+vengono fatte in qualunque momento.
+
+Appena finisco qualcosa lo metto in done, il carico di lavoro sul team 
+deve restare sotto il limite del WIP limit (un limite predefinito calcolato 
+sulla capacit\'a del team) non posso superare con il lavoro in progress il 
+WIP.
+
+\subsection{Kanban four components}
+stories (list of work) issues o task da fare
+columns of lanes usate nella kanban board per distinguere diversi workstreams, users, projects, etc
+Work In Progress limit limite calcolato sulla capacit\'a del team
+Continuous Releases, il team lavora sulle stories sotto il limite WIP e pu\'o fare una release in qualsiasi momento.
+
+\section{Estimated, Report and Plan}
+Qualsiasi agile framework venga usato, devo visualizzare l'andamento del lavoro 
+nel mio team per pianificare i futuri sprint.
+
+In Kanban gli estimate sono molto importanti infatti il WIP si calcola sulle 
+precedenti esperienze e team size. In Scrum mi serve per capire quanto lavoro 
+posso fare nel prossimo sprint. 
+
+Solitamente ad ogni task viene assegnato un peso per capire numericamente 
+quanto ci metto. 
+Le estimation vengono in gioco solo all'inizio/fine sprint; gli 
+\textbf{agile report} mi da dei parametri del progresso dello sprint corrente 
+(burndown charts) [basato sul numero di story points terminati].
+
+\section{Grooming product backlog}
+All'inizio di ogni sprint prendo dal backlog gli story points con priorit\'a maggiore,
+il backlog \'e fondamentale proprio per avere una visione del progetto in toto, va mantenuto 
+aggiornato.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+http://leankit.com/
+https://www.pivotaltracker.com/
+Book: "Scrum: The Art of Doing Twice the Work in Half the Time"
+
+https://www.proprofs.com/quiz-school/preview.php?title=ODM2MzUxL9VY
+Sono in ritardo:
+	lavoro extra
+	consegno meno
+	ritardo consegna (allungo lo sprint)
+	allargo il team
+
+Quale non è parte di scrum
+	sprint planning meeting
+	product review meeting
+	sprint retrospective meeting
+
+Principali differenze scrum e kanban 
+Fasi del processo Scrum
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Versioning and Collaboration}
+git commands:
+	init - how to start an empty repo
+	clone
+	status
+	log
+	checkout
+	diff
+	add - and why we have a staging area, how to use it
+	commit - and commit strategies, when it is proper to commit
+	merge - and solving merge conflicts
+	branch - and when to branch/merge
+	pull, push
+	remote - setting up a remote repository
+	rebase - and why/when to use it
+	reset (and reset hard): when and how to revert to a state
+	stash
+	how/why to fork and perform pull requests
+
+[GIT CLI]
+https://www.atlassian.com/git/tutorials/what-is-version-control#benefits-of-version-control
+
+[PR]
+https://help.github.com/articles/about-pull-requests/
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Testing}
+
+	Black box and white box testing 
+	TDD
+	Jest 
+	debugging and the bug lifecycle
+\subsection{Jest}
+
+https://facebook.github.io/jest/
+
+To activate coverage insert this into your package.json:
+\begin{lstlisting}
+	"jest": {
+		"verbose": true,
+		"collectCoverage": true
+	},
+\end{lstlisting}
+
+how to test asynch code, and how to perform setup and teardown
+
+\section{Domande Utili}
+Scopo di Regression Testing?
+	Pu\'o sostituire Acceptance testing
+	Ci consente di riutilizzare i test per massimizzare quindi iil ROI
+	Riduce il lavoro di code review necessario quando modifico il codice
+	Utile per scoprire bug introdotti come risultato di modifiche al codice ()
+
+Quali sono i pro ed i contro di lasciare tutte le asserzioni a "on" nel codice in produzione
+	[easier debugging, and failures are often better than bad data. 
+cons: possibly, performances and possibly that they are not "friendly" (they crash the program) ]
+
+For the following piece of code, how many test cases are needed to get 100% statement coverage:
+Read (Colour) // Input colour from user
+IF (Colour == “Red”) THEN
+    Call Roses(Colour)
+ELSEIF (Colour == “Blue”) THEN
+    Call Violets(Colour)
+ELSE
+    PRINT “User is no Shakespeare”
+SaveToDatabase(Colour)
+
+(3 test)
+
+Cosa si intende per unit testing?
+
+\section{Esercizi}
+For the below,
+
+    Write the function,
+    write test cases for it, based on black box testing and equivalence partitioning and boundary analysis
+    write test cases to achieve 100% coverage
+
+    Function that computes the square root of a positive number
+    Function that receives four positive integers and returns if these integers can be the length of the sides of a rectangle. 
+    Function that receives three positive integers and returns if these integers can be the length of the sides of a triangle, and also returns which kind of a triangle this is. 
+
+Given this function, achieve
+
+    E1: 100% statement coverage
+    E2: 100% branch coverage
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{App design and Specs}
+
+ApiAry/OpenApi
+Cos'\'e una API, perch\'e hanno un ruolo centrale al giorno d'oggi,
+come disegnare ed esporre una api.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Web Labs}
+
+Consuming REST APIs from Node.js
+	https://www.rapiddg.com/blog/calling-rest-api-nodejs-script
+Authentication
+	https://scotch.io/tutorials/authenticate-a-node-js-api-with-json-web-tokens
+	https://stackoverflow.com/questions/319530/restful-authentication
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Esame}
+Domande di teoria
+Pratica
+Progetto
+\section{Esercizio 1}
+Create un servizio che riceve consegne di esami dagli studenti (e, in generale, a "workers" di consegnare "assignments". il servizio consente ad un worker di mandare il proprio assignment (esame), caratterizzato da:
+	taskID - a string 
+	assignmentID - a string
+	workerID - a string
+	assignmentResult - an object
+
+gli utenti possono anche modificare un assignment consegnato, guardare assignments, e cancellare assignments (ovvero ritirarsi).
+non implementiamo metodi di controllo degli accessi: per semplificare assumiamo che tutti possano fare tutto.
+
+vi chiediamo di:
+
+    definire API su apiary, almeno per la parte di gestione di assignments
+    fare deploy su heroku del servizio, a cui l'host su apiary deve puntare
+    mettere su github 
+        il codice realizzato per implementare il servizio, in nodejs
+        i casi di test, in jest, che testano tramite chiamate http(s)
+    "consegnare" (chiamando una API che vi sara' fornita o inserendo gli url di apiary, github e heroku nella form indicata) dando gli URL relativi ad apiary, github repo, e heroku app
+
+RIcordiamo di non modificare nulla dopo la consegna.
+
+NON e' necessario memorizzare le info in un database.
+Per i casi di test, basta mettere casi di test che testano un casi valido di get, di post, e di delete
+
+Concentratevi sul fare poche funzionalita' fatte bene (ad es, un paio di metodi di API descritti bene, una o due funzioni implementate come si deve, una serie di casi di test per un metodo o due pensati bene con equivalence partitioning e boundary value analysis, magari anche con coverage se avete il tempo)
+
+\subsection{Soluzioni}
+https://examware.docs.apiary.io/
+https://github.com/sphoebs/examware.git
+
+\subsection{Varianti}
+\begin{itemize}
+	\item scrivere i casi di test raggiungendo 100$\%$ coverage (statement, branch,...)\\
+	\item creare branch specifiche (ad es, una branch per una get, una branch per una put.... ) e di utilizzare una determinata branching strategy, o usando rebase\\
+	\item creare stories su waffle per un problema complesso (di cui poi magari vi chiediamo implementazione di una piccola parte)\\
+  \item potremmo partire da una codebase esistente e chiedere di capirla e modificarla. \\
+  \item risolvere dei conflitti su merge\\
+  \item creare remotes su git a varie sources, fare pull requests, creare issues su github analizzare le differenze con diff....\\
+
+

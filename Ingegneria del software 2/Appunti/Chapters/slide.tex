@@ -1,0 +1,158 @@
+\section{Intro}
+L'ingegneria del software \'e l'applicazione di un approccio disciplinato e 
+quantificabile per migliorare lo sviluppo sw.
+
+\'E la scienza del creare e mantenere sw utile, affidabile e sostenibile economicamente
+
+Multiversion e multipersonal (principio di Parnas)
+
+Empathize (capire le esigenze dell'utente finale)
+Define (creare un punto di vista basato sui bisogni utente)
+Ideate (brainstorm per le possibili soluzioni)
+Prototype (creare una rappresentazione delle idee)
+Test (share prototype)
+
+DevOps (Developmetn Operations)
+tutte le fasi, non un semplice lavorare al codice.
+
+waterfall
+comunication (inizio progetto, raccolta requisiti)
+planning (stime, scheduling, tracking)
+modeling (analysis, design)
+construction (code, test)
+deployment (delivery, support)
+
+Agile 
+sviluppare sw in incrementi di brevi intervalli temporali fissati
+coinvolgere nello sviluppo il cliente da subito
+
+API 
+ogni team espone dati e funzionalit\'a tramite queste interfacce di servizi
+i team si interfacciano sulle api, non sono legate ad una specifica tecnologia
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Agile dev with scrum and kanban}
+
+Agile prevede di soddisfare il cliente con consegne veloci e continue di 
+software di qualit\'a'
+Il cambio di requisiti anche a processo avviato non \'e un problema.
+Rilasciare codice funzionante in poche settimane/mesi
+Creare progetti attorno a individui motivati.
+
+Codice che funziona \'e la prima misura di progresso
+
+Ho gli sprint backlogs -> current sprint backloag-> backloag tasks expanded by the team 
+vanno fatti un uno sprint di un mese e ogni giorno faccio un daily scrum meeting
+
+I ruoli scrum sono owner, team (massimo sette persone), scrum master 
+(protegge il team, managing processi, call meetings)
+
+\subsection{User Stories}
+Hanno un titolo, una breve desc (As a user I want ...) e una descrizione 
+funzionale (how to demo) + importance e estimate
+
+La storia viene spaccata in tasks 
+
+\subsection{Sprint}
+sono le iterazioni in scrum, da due settimane a due mesi. Alla fine 
+devo avere sw funzionante e rilasciabile.
+
+Le stories vengono prese dal backlog in ordine di priorit\'a.
+
+Si fa uno sprint planning meeting in cui decido i goal dello sprint, il team,
+le deadline e i daily meeting.
+
+\subsection{Misurare la velocit\'a}
+person days * focus factor = estimates velocity
+focus factor = actual velocity / person days
+(attorno al 70%)
+
+\subsection{Testers}
+I testers accedono al sistema come gli utenti finali, non fanno parte del 
+core team, interagiscono con il sistema in modi che gli sviluppatori forse 
+non avevano pensato pertanto trovano bug.
+
+I membri del team hanno responsabilit\'a di amministratori del backlog e dello 
+sprint. 
+
+Nello daily standup meeting ogni membro risponde alle domande:
+    cosa hai fatto? cosa farai? che problemi ci sono?
+
+Mai estendere lo sprint, non va bene passare la deadline, non cambiare i goal
+dello sprint. Nel caso siamo in ritarno evita di fare straordinari, mantieni un 
+ritmo sostenibile. 
+
+Alla fine faccio un meeting di retrospective dove tutti parlano dei pro e dei 
+contro
+
+kanban
+limit WIP
+measure lead time (misura tempo di consegna)
+
+\chapter{testing}
+\section{Equivalence Partitioning}
+tecnica di testing sw che divide input e output di un modulo software in 
+partizioni di dati sulle quali posso fare test.
+
+socpre alcune classi di errori
+socpre classi di input che generano errori
+devo coprire casi speciali come null, out of range, blank, ...
+potrei partizionare per intervalli
+
+tendo a relazionarlo con black box testing (\'e praticamente la stessa cosa)
+gray box technique as well:
+ci sono ulteriori partizioni semantiche in base al flusso del codice
+
+si basa un po' sul principio del boundary value analysis (considero i valori 
+agli estremi/media di equivalence partitions)
+
+nel caso del boundary value specifico dei valori di contorno per test cases.
+
+Il testing consiste nell'esecuzione di un programma per scoprire bugs.
+
+Un test case \'e un set di valori input e output attesi e precondizioni per 
+eseguire un test con lo scopo di trovare errori.
+Il test fallisce se expected result != actual result 
+
+\section{Types of testing}
+Black box testing \'e un metodo per esaminare le funzionalit\'a di un app.
+senza andare nella sua struttura interna.
+
+White box testing invece serve a testare la struttura interna dell'applicazione.
+(opposto al testing delle funzionalit\'a).
+
+Unit testing, serve a testare una funzionalit\'a in isolamento (non so 
+come la funzionalit\'a verr\'a usata).
+
+Integration testing, prendo molte funzioni (gi\'a testate) e le 
+testo in combinazione
+
+test di sistema, testo il sistema nella sua completezza
+
+Acceptance test (servono per determinare se un requisito di contratto \'e 
+stato portato a termine)
+
+Regression test (runno i test vecchi su una nuova implementazione di un componente)
+
+A/B testing per testare l'efficacia di un design
+
+Per creare casi di test mi affido ad equivalence partitioning;
+
+\section{Quanti test servono}
+Test coverage is a semi automatic way of partitioning inputs domain
+dato dalla percentuale di codice eseguita con un set di test 
+
+$100\%$ coverage non significa bug free, non trovo i bug di omissione ad esempio
+
+branch coverage per gli if (se testo sia il caso true che false)
+loop coverage testo con 0 iterazioni, 1 iterazione, 1+ iterazioni 
+
+modified condition decision coveragee MC/DC 
+    branch coverage + tutte le possibili combinazioni se ho pi\'u if
+
+path coverage, testa come finisco in un certo pezzo di codice.
+
+\section{API design}
+Use limit and offset to allow pagination	
+–  /movies?limit=20&offset=0	
+  
