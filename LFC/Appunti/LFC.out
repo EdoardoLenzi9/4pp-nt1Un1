@@ -1,36 +1,52 @@
-\BOOKMARK [0][-]{chapter.1}{Link}{}% 1
-\BOOKMARK [0][-]{chapter.2}{Introduzione}{}% 2
-\BOOKMARK [1][-]{section.2.1}{Grammatiche}{chapter.2}% 3
-\BOOKMARK [0][-]{chapter.3}{Linguaggi liberi}{}% 4
-\BOOKMARK [1][-]{section.3.1}{Grammatica libera dal contesto \(context free\)}{chapter.3}% 5
-\BOOKMARK [1][-]{section.3.2}{Abstract syntax Tree}{chapter.3}% 6
-\BOOKMARK [1][-]{section.3.3}{Grammatiche ambigue}{chapter.3}% 7
-\BOOKMARK [1][-]{section.3.4}{Linguaggi liberi}{chapter.3}% 8
-\BOOKMARK [1][-]{section.3.5}{Pumping Lemma per Linguaggi Liberi}{chapter.3}% 9
-\BOOKMARK [1][-]{section.3.6}{Pumping Lemma per assurdo}{chapter.3}% 10
-\BOOKMARK [0][-]{chapter.4}{Automi a stati finiti}{}% 11
-\BOOKMARK [1][-]{section.4.1}{Thompson construction}{chapter.4}% 12
-\BOOKMARK [1][-]{section.4.2}{Simulare un NFA}{chapter.4}% 13
-\BOOKMARK [1][-]{section.4.3}{DFA}{chapter.4}% 14
-\BOOKMARK [1][-]{section.4.4}{Subset Construction}{chapter.4}% 15
-\BOOKMARK [1][-]{section.4.5}{Partition Refinement}{chapter.4}% 16
-\BOOKMARK [1][-]{section.4.6}{Algoritmo di minimizzazione di DFA}{chapter.4}% 17
-\BOOKMARK [1][-]{section.4.7}{Ricapitolando}{chapter.4}% 18
-\BOOKMARK [0][-]{chapter.5}{Linguaggi Regolari o Lineari}{}% 19
-\BOOKMARK [1][-]{section.5.1}{Da DFA a Grammatica Regolare}{chapter.5}% 20
-\BOOKMARK [1][-]{section.5.2}{Pumping Lemma per Linguaggi Regolari}{chapter.5}% 21
-\BOOKMARK [0][-]{chapter.6}{Analisi Sintattica}{}% 22
-\BOOKMARK [1][-]{section.6.1}{Parsing Top-down}{chapter.6}% 23
-\BOOKMARK [1][-]{section.6.2}{Parsing Top-down predittivo \(o non ricorsivo\)}{chapter.6}% 24
-\BOOKMARK [1][-]{section.6.3}{Grammatica LL\(1\)}{chapter.6}% 25
-\BOOKMARK [1][-]{section.6.4}{Algoritmi di Parsing}{chapter.6}% 26
-\BOOKMARK [1][-]{section.6.5}{First}{chapter.6}% 27
-\BOOKMARK [1][-]{section.6.6}{Follow}{chapter.6}% 28
-\BOOKMARK [1][-]{section.6.7}{Costruzione delle tabelle di parsing predittivo top-down}{chapter.6}% 29
-\BOOKMARK [1][-]{section.6.8}{Grammatica Ricorsiva Sinistra}{chapter.6}% 30
-\BOOKMARK [1][-]{section.6.9}{Eliminazione Left Recursion immediata}{chapter.6}% 31
-\BOOKMARK [1][-]{section.6.10}{Left Factoring}{chapter.6}% 32
-\BOOKMARK [1][-]{section.6.11}{Algoritmo di fatturazione a sinistra}{chapter.6}% 33
-\BOOKMARK [1][-]{section.6.12}{Bottom Up}{chapter.6}% 34
-\BOOKMARK [1][-]{section.6.13}{Algoritmo di shift/reduce}{chapter.6}% 35
-\BOOKMARK [1][-]{section.6.14}{Items}{chapter.6}% 36
+\BOOKMARK [0][-]{chapter.1}{Introduzione}{}% 1
+\BOOKMARK [1][-]{section.1.1}{Front-End of the Compiler}{chapter.1}% 2
+\BOOKMARK [1][-]{section.1.2}{Back-End of the Compiler}{chapter.1}% 3
+\BOOKMARK [1][-]{section.1.3}{Lexical analysis}{chapter.1}% 4
+\BOOKMARK [1][-]{section.1.4}{Session syntax analyzer}{chapter.1}% 5
+\BOOKMARK [1][-]{section.1.5}{Semantic analyzer}{chapter.1}% 6
+\BOOKMARK [1][-]{section.1.6}{Intermediate code generation}{chapter.1}% 7
+\BOOKMARK [1][-]{section.1.7}{Code generation}{chapter.1}% 8
+\BOOKMARK [0][-]{chapter.2}{2}{}% 9
+\BOOKMARK [1][-]{section.2.1}{Syntax Analysis}{chapter.2}% 10
+\BOOKMARK [1][-]{section.2.2}{Derivations}{chapter.2}% 11
+\BOOKMARK [1][-]{section.2.3}{Parsing}{chapter.2}% 12
+\BOOKMARK [1][-]{section.2.4}{Precedenze degli operatori}{chapter.2}% 13
+\BOOKMARK [1][-]{section.2.5}{Java statements}{chapter.2}% 14
+\BOOKMARK [1][-]{section.2.6}{Syntax Directed Translation}{chapter.2}% 15
+\BOOKMARK [1][-]{section.2.7}{Tree traversals}{chapter.2}% 16
+\BOOKMARK [0][-]{chapter.3}{Link}{}% 17
+\BOOKMARK [0][-]{chapter.4}{Introduzione}{}% 18
+\BOOKMARK [1][-]{section.4.1}{Grammatiche}{chapter.4}% 19
+\BOOKMARK [0][-]{chapter.5}{Linguaggi liberi}{}% 20
+\BOOKMARK [1][-]{section.5.1}{Grammatica libera dal contesto \(context free\)}{chapter.5}% 21
+\BOOKMARK [1][-]{section.5.2}{Abstract syntax Tree}{chapter.5}% 22
+\BOOKMARK [1][-]{section.5.3}{Grammatiche ambigue}{chapter.5}% 23
+\BOOKMARK [1][-]{section.5.4}{Linguaggi liberi}{chapter.5}% 24
+\BOOKMARK [1][-]{section.5.5}{Pumping Lemma per Linguaggi Liberi}{chapter.5}% 25
+\BOOKMARK [1][-]{section.5.6}{Pumping Lemma per assurdo}{chapter.5}% 26
+\BOOKMARK [0][-]{chapter.6}{Automi a stati finiti}{}% 27
+\BOOKMARK [1][-]{section.6.1}{Thompson construction}{chapter.6}% 28
+\BOOKMARK [1][-]{section.6.2}{Simulare un NFA}{chapter.6}% 29
+\BOOKMARK [1][-]{section.6.3}{DFA}{chapter.6}% 30
+\BOOKMARK [1][-]{section.6.4}{Subset Construction}{chapter.6}% 31
+\BOOKMARK [1][-]{section.6.5}{Partition Refinement}{chapter.6}% 32
+\BOOKMARK [1][-]{section.6.6}{Algoritmo di minimizzazione di DFA}{chapter.6}% 33
+\BOOKMARK [1][-]{section.6.7}{Ricapitolando}{chapter.6}% 34
+\BOOKMARK [0][-]{chapter.7}{Linguaggi Regolari o Lineari}{}% 35
+\BOOKMARK [1][-]{section.7.1}{Da DFA a Grammatica Regolare}{chapter.7}% 36
+\BOOKMARK [1][-]{section.7.2}{Pumping Lemma per Linguaggi Regolari}{chapter.7}% 37
+\BOOKMARK [0][-]{chapter.8}{Analisi Sintattica}{}% 38
+\BOOKMARK [1][-]{section.8.1}{Parsing Top-down}{chapter.8}% 39
+\BOOKMARK [1][-]{section.8.2}{Parsing Top-down predittivo \(o non ricorsivo\)}{chapter.8}% 40
+\BOOKMARK [1][-]{section.8.3}{Grammatica LL\(1\)}{chapter.8}% 41
+\BOOKMARK [1][-]{section.8.4}{First}{chapter.8}% 42
+\BOOKMARK [1][-]{section.8.5}{Follow}{chapter.8}% 43
+\BOOKMARK [1][-]{section.8.6}{Tabella di parsing}{chapter.8}% 44
+\BOOKMARK [1][-]{section.8.7}{Algoritmi di Parsing}{chapter.8}% 45
+\BOOKMARK [1][-]{section.8.8}{Grammatica Ricorsiva Sinistra}{chapter.8}% 46
+\BOOKMARK [1][-]{section.8.9}{Eliminazione Left Recursion immediata}{chapter.8}% 47
+\BOOKMARK [1][-]{section.8.10}{Left Factoring}{chapter.8}% 48
+\BOOKMARK [1][-]{section.8.11}{Algoritmo di fattorizzazione a sinistra}{chapter.8}% 49
+\BOOKMARK [1][-]{section.8.12}{Bottom Up}{chapter.8}% 50
+\BOOKMARK [1][-]{section.8.13}{Algoritmo di shift/reduce}{chapter.8}% 51
+\BOOKMARK [1][-]{section.8.14}{Items}{chapter.8}% 52

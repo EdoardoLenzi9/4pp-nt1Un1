@@ -25,7 +25,7 @@ Gli NFA usati nei passi della costruzione hanno:
 \textbf{Osservazione}: Ogni passo della costruzione introduce al massimo 2 nodi e 4 archi.
 
 \begin{center}
-	\includegraphics[scale=0.4]{Chapters/Img/c02_01.png}\\
+	\includegraphics[scale=0.45]{Chapters/Img/c02_01.png}\\
 \end{center} 
 Algoritmo a complessit\'a $O(|r|)$ 
 
@@ -84,7 +84,7 @@ Strutture dati:
         [A] [T F F F]
             //B non e' ancora nella pila
             closure(B, [A])
-                [A, B] [T T F T]
+                [A, B] [T T F F]
                 closure(D, [A, B])
                     [A, B, D] [T T F T]
             closure(C, [A, B, D])
@@ -114,10 +114,12 @@ Strutture dati:
     return no;
 \end{lstlisting}
 
-%TODO GRAFO PAGINA 17
-
 Algoritmo a complessit\'a $O(|w|(n+m))$ 
 
+\subsection{Sink}
+non serve semplicemente per avere una funzione di transizione totale inserisco un nodo pozzo sink dove confluiscono
+tutte le transizioni non presenti nel DFA. Dato che non \'e possibile uscire dal pozzo le parole che finiscono in sink non arriveranno 
+mai ad uno stato finale, quindi non sono riconosciute da L. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{DFA}
@@ -158,11 +160,11 @@ $\varepsilon \in L(D) \iff s_0 \in F$.
         //move_d(s, a) = bottom <=> move_d non e' definita su (s,a)
         //se sono in bottom sono in sink
         state = move_d(state, symbol);
-        symbol = newxtchar();
+        symbol = nextchar();
     }
-    if(state \in F)
+    if(state in F)
         return yes;
-    return true;
+    return no;
 \end{lstlisting}
 
 Simulazione NFA costa $O(|w|(n+m))$
@@ -244,6 +246,11 @@ Alla fine guardo i set degli stati se due set coincidono mergio gli stati.
 	\includegraphics[scale=0.5]{Chapters/Img/c02_04.png}\\
 \end{center} 
 
+Quindi sono in uno stato T e guardo un terminale, prima guardo per ogni stato 
+in T se ci sono transizioni per quel terminale (in caso scrivo lo stato in cui arrivo in grassetto).
+A questo punto espando con $\varepsilon$-transition ogni stato grassettato.
+Scrivo uno stato in grassetto anche se gi\'a contentuto in T.
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Partition Refinement}
 \begin{tcolorbox}\begin{center}
@@ -255,7 +262,7 @@ Alla fine guardo i set degli stati se due set coincidono mergio gli stati.
 \subsection{Algoritmo di Partition Refinement}
 \begin{center}
     \begin{tabular}{ll}
-        Input   &   DFA D = $\{ A,A,move_d, s_0, F\}$\\
+        Input   &   DFA D = $\{ S, A,move_d, s_0, F\}$\\
         Output  &   partizione di S in blocchi equidistanti\\ 
     \end{tabular}
 \end{center}
@@ -277,7 +284,7 @@ Alla fine guardo i set degli stati se due set coincidono mergio gli stati.
 \end{center} 
 
 \begin{tabular}{ll}
-    $\{$ A B C D $\}$ $\{$ E $\}$                       & Considero le partizioni dei terminali e non terminali \\  
+    $\{$ A B C D $\}$ $\{$ E $\}$                       & Considero le partizioni dei finali e non finali \\  
     $\{$ A B C D $\}$ $\{$ E $\}$                       & Con a-transizione non esco dal primo set\\  
     $\{$ A B C $\}$ $\{$ D $\}$ $\{$ E $\}$             & Con b-transizione vado da D in E (e A B C non vanno in E con b-transizioni)\\  
     $\{$ A B C $\}$ $\{$ D $\}$ $\{$ E $\}$             & Con a-transizione non esco\\    
@@ -304,37 +311,42 @@ Rinomino  $\{$ A C $\}$ $\{$ B $\}$ $\{$ D $\}$ $\{$ E $\}$ in $t_1,\ t_2,\ t_3,
     P = PartitionRefinement(DFA D);
     // P = (B_1, ..., B_k);
     foreach(B_i in P){
-        var t_i;            //do un nome alla partizione
+        var t_i = B_i;            //do un nome alla partizione, un alias
         if(s_o in B_i){
             t_i e'' iniziale per min(D);    //setto lo stato iniziale di min(D)
         }
     }
 
-    foreach(B_i in P, B_i in F){
-        t_i e'' lo stato finale di min(D);  //setto lo stato finale di min(D)
+    foreach(B_i in P/ B_i subset F){
+        t_i = B_i;
+        t_i e'' lo stato finale di min(D);  //setto lo stato finale di min(D), t_i = B_i 
     }
 
-    foreach( (B_i, a, B_j) tale che esiste s_i in B_i tali che move_d(s_i, a) = s_j){
+    foreach( (B_i, a, B_j) / esiste s_i in B_i, s_j in B_j / che move_d(s_i, a) = s_j){
         //per ogni tupla (stato, arco, stato) faccio la rispettiva transizione in min(D)
         setto una transizione temporanea in min(D) da t_i a t_j secondo il simbolo a;
     }
 
-    foreach(dead state t_i){
+    foreach(dead state t_i){ //uno stato che non potra' mai arrivare in un finale
         rimuovere t_i e tutte le transizioni da/verso t_i;
     }
     tutti i temporanei residui (sia stati che transizioni) sono gli stati e le transizioni di min(D);
 \end{lstlisting}
 Complessit\'a $O(nlgn)$.
 
+Un \textbf{dead state} \'e uno stato che non pu\'o essere raggiunto, nel nostro caso anche sink \'e un dead state.
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5
 \subsection{Esempio}
+
+Arrivato qua: $ t_1 = \{$ A C $\}$, $ t_2 = \{$ B $\}$, $ t_3 = \{$ D $\}$, $ t_4 = \{$ E $\}$,
+applico la minimizzazione del DFA.
 
 \begin{center}
 	\includegraphics[scale=0.5]{Chapters/Img/c02_06.png}\\
 \end{center} 
-Arrivato qua: rinominati $\{$ A C $\}$ $\{$ B $\}$ $\{$ D $\}$ $\{$ E $\}$ in $t_1,\ t_2,\ t_3,\ t_4 $,
-applico la minimizzazione del DFA.
 
+\subsection{Esempio}
 \begin{center}
 	\includegraphics[scale=0.5]{Chapters/Img/c02_07.png}\\
 \end{center} 
@@ -364,14 +376,14 @@ Dim:
 \end{center} 
 
 Per assurdo suppongo esista un DFA minimo con meno di $2^n$ stati.\\
-Osservo che esistono $2^n$ possibili parole di lunghezza n con simboli $\{ a, b\}$.\\
+Osservo che esistono $2^n$ possibili parole di lunghezza n con simboli $\{ a, b\}$ (osservazione indipendente dal grafo, tutte le possibili combinazioni).\\
 $\implies \exists\ w_1 \not = w_2 \ / \ |w_1| = |w_2| = n $ e il loro riconoscimento conduce allo stesso stato del DFA.\\
 $\implies$ esiste almeno una posizione per cui $w_1 \ e\ w_2$ differiscono (considero quella pi\'u a destra).\\
 
 $w_1 = w_1'ax$, $w_2 = w_2'bx$ iniziano diversi ma finiscono con x entrambe.
 Considero $w_1'' = w_1'ab^{n-1}$ $w_2'' = w_2'bb^{n-1}$ raggiungo uno stato finale t; la seconda parola per\'o non appartiene al 
 linguaggio, nonostante possa comunque raggiungere lo stato t. Pertanto contraddiciamo che t sia finale.
-%TODO
+Quindi sono ad un assurdo, il DFA minimo deve avere per forza almeno $2^n$ stati.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5
 \section{Ricapitolando}
@@ -383,9 +395,9 @@ linguaggio, nonostante possa comunque raggiungere lo stato t. Pertanto contraddi
 \hline
 Algoritmo   &   Complessit\'a nello spazio  &   Complessit\'a nel tempo\\
 \hline
-Thompson Construction   &   $O(|r|)$    &   $O(|r|)\ ||\ O(n_n+m_n)$\\
+Thompson Construction   &   $O(|r|)$    &   $O(|r|)\ ||\ O(n_n+m_n)$, [nel caso di $\varepsilon$-closure]\\
 Simulazione NFA         &   -           &   $O(|w|(n_n+m_n))$       \\
-Subset Construction     &   -           &   $O(n_d |A| (n_n + m_n))$\\
+Subset Construction     &   -           &   $O(n_d |A| (n_n + m_n))$, [spesso $|A| = O(|r|)$]\\
 Minimazzazione DFA      &   -           &   $O(n_d lg(n_d))$        \\
 Simulazione DFA         &   -           &   $O(|w|)$                \\
 \hline

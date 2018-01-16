@@ -13,6 +13,10 @@ terminale e basta.\\[5pt]
     \end{tabular}
 \end{center}
 
+\begin{tcolorbox}\begin{center}
+    In pratica \'e la diretta trascrizione di un DFA in regex!
+\end{center}\end{tcolorbox}
+
 Dato un DFA D voglio trovare una grammatica regolare G tale che L(G) = L(D). 
 Se ho una transizione $A \rightarrow B$ con una a-transizione diventer\'a $A \rightarrow aB$. Segno il nome del nodo che sto considerando
 prima della freccia e, dopo la freccia, il non terminale ed il nodo destinazione. Se ho un nodo foglia C avr\'o  $C \rightarrow \varepsilon$.
@@ -24,7 +28,7 @@ se ottengo un NFA basta fare Subset Construction.
 \subsection{Esempio}
 $L=\{ w \ / \ w \in \{ a, b \} ^* \&\& |a|\ pari,\ |b|\ dispari \}$, L \'e regolare?
 \begin{center}
-	\includegraphics[scale=0.5]{Chapters/Img/c02_12.png}\\
+	\includegraphics[scale=0.6]{Chapters/Img/c02_12.png}\\
 \end{center} 
 S\'i \'e regolare.
 
@@ -45,7 +49,7 @@ S\'i \'e regolare.
 \subsection{Esempio}
 $L=\{ w \ / \ w \in \{ a, b \} ^* \&\& |a|=|b|\}$, L \'e regolare?
 \begin{center}
-	\includegraphics[scale=0.5]{Chapters/Img/c02_13.png}\\
+	\includegraphics[scale=0.6]{Chapters/Img/c02_13.png}\\
 \end{center} 
 Non potr\'a mai essere regolare, per il pumping lemma per i linguaggi regolari.
 
@@ -81,6 +85,9 @@ $\forall\ uvw \ / \ z = uvw \land |uw| \leq p \land |v| > 0$ (la stringa v conti
 allora $uv^2w$ ha la forma $a^{p+k}b^p,\ k > 0$
 allora $uv^2w \not\in L$ il che contraddice il Pumping Lemma per linguaggi regolari.
 
+[v pu\'o assumere $a^i$, $a^i b^j$, $b^i$, in ogni caso per qualunque potenza di v non appartiene ad L 
+(con $(a^i b^j)^2$ ho )]
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5
 \subsection{Esercizio}
 $L_1 = \{ w \ / \ w \in \{ a, b \}^* \text{e contiene almeno una occorrenza di \lq\lq aa \rq\rq}\}$\\
@@ -93,12 +100,18 @@ $C \rightarrow aC | bC | \varepsilon $\\
 $L_2 = \{ ww \ / \ \ \in \{ a,b \}^* \}$\\
 non \'e libero per il pumping lemma (gi\'a dimostrato), quindi non \'e regolare.
 
+\begin{tcolorbox}\begin{center}
+    $\neg $ L Libero $\implies \neg $ L Regolare\\
+    $\neg $ L Libero $\centernot\iff \neg $ L Regolare
+\end{center}\end{tcolorbox}
+
 $L_3 = \{ww^r \ / \ w \in \{ a,b \}^* \}$\\
 Non \'e regolare ma libero.
 $z = a^p b^p b^p a^p \in L_3$
 visto che $uv < p$, uv \'e composta solo da a 
 $u v^i w = a^pb^{2p}a^p \not\in L_3$ quindi non pu\'o essere regolare.
 
+[$w^r$ \'e w rovesciato]
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5
 \subsection{Esercizi di esame}
 Sia $N_1$ lo NFA con stato iniziale A e finale E con la seguente funzione di transizione:
@@ -127,6 +140,10 @@ Sia $N_1$ lo NFA con stato iniziale A e finale E con la seguente funzione di tra
     raggiunge da Q tramite il cammino ab. Dire a quale sottoinsieme degli stati di $N_1$ corrisponde $Q_{ab\_}$.\\    
 \end{itemize}
 
+\begin{center}
+	\includegraphics[scale=0.6]{Chapters/Img/c02_19.png}\\
+\end{center} 
+
 1) S\'i facendo $A \rightarrow B \rightarrow C \rightarrow D \rightarrow E \rightarrow E $
 2) Facendo la subset construction:
 
@@ -142,4 +159,8 @@ Sia $N_1$ lo NFA con stato iniziale A e finale E con la seguente funzione di tra
            $Q2 = \{E\}$         &   Q2  &  Q0   \\
         \hline
     \end{tabular}
+\end{center} 
+
+\begin{center}
+	\includegraphics[scale=0.6]{Chapters/Img/c03_01.png}\\
 \end{center} 

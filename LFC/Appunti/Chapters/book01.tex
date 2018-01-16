@@ -2,7 +2,7 @@
 Un compilatore \'e un programma che legge un \textbf{linguaggio source} e lo traduce in un \texttt{equilvalente} \textbf{linguaggio di programmazione
 target}. 
 Solitamente il compilatore compila in \texttt{assembly} e poi un \textbf{assembler} produce codice macchina.
-Se il target language e un programma eseguibile pu\'o processare input e produrre output.
+Se il target language \'e un programma eseguibile pu\'o processare input e produrre output.
 
 Un \textbf{interprete} \'e un altro tipo di language processor, invece di tradurre il linguaggio lo esegue direttamente
 quindi piglia sia il source program che gli input e processa l'output
@@ -62,7 +62,7 @@ Piglia il \texttt{syntax tree} e guarda se \'e semanticamente consistente con la
 
 \section{Intermediate code generation}
 Nel processo di compilazione posso avere varie rappresentazioni intermedie come alberi etc..
-Dopo semantic analysis solitmente creo una codice basso livello, machine-like, \textit{\lq\lq easy to 
+Dopo semantic analysis solitmente creo un codice basso livello, machine-like, \textit{\lq\lq easy to 
 produce and esay to translate int target machine code\rq\rq}. Nella figura ho un tree address code
 ricavato dal syntax tree. 
 
@@ -70,7 +70,7 @@ In un tree address code a destra ho al massimo un operatore (assembly like), e l
 
 Devo avere variabiline intermedie
 \section{Code generation}
-Segue la fase opzionale di \textbf{code optimization}, prende la rappresentazione inermedia e la mappa in un target language.
+Segue la fase opzionale di \textbf{code optimization}, prende la rappresentazione intermedia e la mappa in un target language.
 Le istruzioni intermedie vengono tradote in istruzioni macchina (presumibilmente). Devo capire come mappare variabili su registri
 
 Nella symbol table devo storicizzare tutti gli attributi di un variable name.

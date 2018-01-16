@@ -69,7 +69,7 @@ $T=\{a, b\}$ (terminali), ($V\backslash T) = \{S, A\} $ (non terminali)\\
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Derivazioni}
 Date 
-$\mu = \mu_1 \alpha \mu2,\ \alpha \rightarrow \beta$, produzioni della grammatica G, $\gamma = \mu_1 \beta \mu_2$ \'e una 
+$\mu = \mu_1 \alpha \mu_2,\ \alpha \rightarrow \beta$, produzioni della grammatica G, $\gamma = \mu_1 \beta \mu_2$ \'e una 
 derivazione in uno o pi\'u passi partendo da $\mu$.\\
 
 Scrivendo $\mu \rightarrow ^+ \gamma $ intendo che posso derivare $\gamma$ da $\mu$ in uno o pi\'u passi di derivazione.
@@ -288,9 +288,9 @@ ie) $\qquad G_1 \qquad S \rightarrow aSb|ab|B,\ B\rightarrow aBb|ab \leftarrow$ 
 L \'e un linguaggio libero $\implies \exists\ G $ in Chomsky Normal Form tale che L = L(G).\\
 
 Definisco p come la lunghezza della parola pi\'u lunga che pu\'o essere derivata usando un albero di derivazione i cui cammini dalla radice sono lunghi 
-al pi\'u come il numero di simboli terminali della grammatica ($|V\backslash T|$).
+al pi\'u come il numero di simboli non terminali della grammatica ($|V\backslash T|$).
 
-$S \rightarrow aSb | ab$, ha due terminali, p = 2 
+$S \rightarrow aSb | ab$, ha due non terminali, p = 2 
 \begin{center}
 	\Tree[.S a b ]
 	\Tree[.S a [.S a b ] b ]
@@ -375,6 +375,10 @@ dimostro niente perch\'e se voglio dimostrare con il pumping lemma la negazione 
 Pertanto non posso prendere un arbitrario p=4.
 
 
+
+\begin{center}
+	\includegraphics[scale=0.5]{Chapters/Img/pumpingLemmaValidity.png}\\
+\end{center}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Esempi}
 ie) $\{a^nb^nc^j/n,j\geq 0\}=L_{17}$\\
@@ -429,6 +433,14 @@ Considero la parola $z' = uv^0wx^0y$
 \end{itemize}
 Quindi visto che la parola non appartiene mai ad $L_3$ il linguaggio non \'e libero.
 $\Box$\\[5pt]
+\subsection{Conferma $a^n b^n c^n $ non \'e libero}
+In effetti se provo ad applicare il pumping lemma mi accorgo che non ce la faccio:\\
+considero aaaabbbbcccc, u = $a^3$, v = ab, w = $b^3$, x = c, y = $c^3$ \'e la cosa pi\'u ragionevole ma quando faccio 
+$uv^2 wx^2 y$ mi viene fuori aaa abab bbb cc ccc. Se invece considero v = a e x = c alla fine $|a| = |c| \not = |b|$.
+
+Quindi \'e vero che concatenando $a^n b^n$ libero con $c^n$ libero ho un linguaggio libero ma mi viene $a^n b^n c^{n^1} \not = a^n b^n c^n $!
+
+\subsection{La classe dei linguaggi liberi non \'e chiusa all'intersezione}
 Nota che $L1$ ed $L2$ risultano liberi anche facendo pumping lemma per assurdo perch\'e nel caso in cui vwx cada nel terminale ripetuto 
 j volte con l'unpumping la stringa appartiene comunque al linguaggio (quindi ho almeno un caso in cui appartiene al linguaggio e non posso
 applicare il pumping lemma per assurdo).

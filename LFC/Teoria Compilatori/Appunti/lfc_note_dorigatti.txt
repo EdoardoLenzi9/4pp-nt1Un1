@@ -1,0 +1,42 @@
+===============================================================================
+REGULAR LANGUAGES
+===============================================================================
+Un linguaggio NON è regolare se:
+ - non soddisfa il pumping lemma per i linguaggi regolari
+
+Un linguaggio E' regolare se:
+ - è context-free
+ - è generato da una regex
+ - è generato da una grammatica regolare
+ - è riconosciuto da un FSA
+
+
+===============================================================================
+CONTEXT-FREE LANGUAGES
+===============================================================================
+Un linguaggio NON è libero dal contesto se:
+ - non soddisfa il pumping lemma per i linguaggi liberi dal contesto
+
+Un linguaggio E' libero dal contesto se:
+ - è generato da una grammatica libero dal contesto
+
+
+===============================================================================
+LL(1) grammars
+===============================================================================
+Una context-fre grammar NON è LL(1) se:
+  - è ambigua
+  - è left-recursive
+  - non soddisfa le condizioni sui first and follow
+
+
+===============================================================================
+LALR(1) grammars
+===============================================================================
+Un sottoinsieme delle context-free grammars.
+Rightmost derivation
+
+
+===============================================================================
+LALR(1) parsing
+===============================================================================

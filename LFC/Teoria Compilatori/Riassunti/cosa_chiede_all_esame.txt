@@ -1,0 +1,85 @@
+===============================================================================
+* Domande di teoria (quello che una volta chiedeva all'orale)
+===============================================================================
+
+===============================================================================
+* all'esame potrebbero essere chiesti i contenuti che sono stati presentati
+  durante le lezioni in laboratorio, specialmente quelli che non sono gia'
+  coperti dalla parte teorica. Il materiale e' disponibile sul sito
+  https://sites.google.com/site/caceffoflc2012/
+===============================================================================
+
+===============================================================================
+ESERCIZI, DI QUESTO TIPO
+===============================================================================
+===============================================================================
+(A) PUMPING LEMMA
+===============================================================================
+-------------------------------------------------------------------------------
+*
+Dato un linguaggio
+Dimostrare che non è regolare
+(usare pumping lemma negato)
+
+===============================================================================
+(B) GRAMMATICHE
+===============================================================================
+-------------------------------------------------------------------------------
+*
+Dato un linguaggio
+Ottenere una grammatica libera dal contesto
+
+-------------------------------------------------------------------------------
+*
+Data una grammatica
+Dimostrare che è ambigua
+(usare la definizione: trovare due derivation tree distinti)
+
+-------------------------------------------------------------------------------
+*
+Dire se una grammatica e un espressione regolare generano lo stesso linguaggio
+
+===============================================================================
+(C) AUTOMI
+===============================================================================
+-------------------------------------------------------------------------------
+*
+Dato un linguaggio
+Calcolare il minimo DFA
+(trovare un DFA e minimizzarlo)
+
+-------------------------------------------------------------------------------
+*
+Dato un NFA
+Calcolare il minimo DFA
+(convertirlo in DFA e minimizzarlo)
+
+===============================================================================
+(D) PARSING
+===============================================================================
+-------------------------------------------------------------------------------
+*
+Data una grammatica
+Dire se è LL(1)
+Si può risolvere, dimostrando:
+* Costruendo la parsing table e guardando se ci sono entry duplicate
+
+O, in alternativa
+* Che è ambigua
+* Che è left-recursive
+* Che viola le regole sui first and follow
+* qualcosa con la left-factorization
+
+-------------------------------------------------------------------------------
+*
+Data una grammatica
+Dire se è LALR(1)
+Si può risolvere, dimostrando:
+* Costruendo la parsing table e guardando se ci sono entry duplicate
+
+===============================================================================
+(E) SYNTAX TREE
+===============================================================================
+*
+Non ho idea di cosa possa chiedere.
+

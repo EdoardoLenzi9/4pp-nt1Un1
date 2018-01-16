@@ -28,129 +28,6 @@ Le grammatiche LL(1) sono un subset delle grammatiche libere.\\
     \textbf{(1)}        & decidiamo quale operazione effettuare guardando un solo simbolo in input\\
 \end{tabular}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Algoritmi di Parsing}
-\begin{center}
-    \begin{tabular}{ll}
-        input buffer    &   w$\$$   \\
-        stack           &   bottom [$ \$ \qquad $] top \\
-        parsing table   &   con tante righe quante non terminali, tante colonne quante terminali ($ \$ $ incluso)\\
-                        &   in ogni cella metto un'eventuale trasformazione o \lq\lq error \rq\rq \\
-    \end{tabular}
-\end{center}
-\subsection{Costruzione della tabella di parsing}
-    Nella cella [A,b] metto le produzioni $A \rightarrow \beta \ / \ b \in first(\beta)$.
-    Se epsilon appartiene ai first devi anche controllare che il terminale sia contenuto nei follow del non terminale
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Algoritmo di parsing non-ricorsivo}
-\begin{center}
-    \begin{tabular}{ll}
-        input   &   stringa w, tabella parsing non ricorsivo T, per G\\
-        output  &   derivazione leftmost di w se $w \in L(G)$, error() altrimenti\\
-    \end{tabular}
-\end{center}
-
-\begin{lstlisting}
-    //init
-    buffer = {w$};
-    stack.push($S);
-
-    let b = buffer.pop() //il primo simbolo di w 
-    let x = stack.top()  
-
-    while(x != $){
-        if(x == b){
-            stack.pop(x);
-            b = buffer.nextChar();
-        } else if(x e'' terminale){ 
-            //sono arrivato ad un terminale diverso da quello della stringa
-            error();
-        } else if(T[x,b] contiene x -> Y1...Yn){ //x e' un non terminale (nello stack)
-            //se la tabella di parsing contiene una entry 
-            cout << x -> Y1...Yn;
-            stack.pop(x);
-            stack.push(Yn...Y1); //li pusha al contrario
-                            //se ho una epsilon non la pusho
-        }
-        x = stack.top()
-    }
-\end{lstlisting}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Esempio}
-$E \rightarrow TE'$ \\
-$E' \rightarrow +TE'|\varepsilon$\\
-$T \rightarrow FT'$\\
-$T' \rightarrow *FT'|\varepsilon$\\
-$F \rightarrow id$\\
-\begin{center}
-    \textbf{Tabella di parsing}\\
-    \begin{tabular}{|c|c|c|c|c|}
-        \hline
-                &   id                      &   +                           &   *   &   $\$$    \\
-        \hline
-            E   &   $E \rightarrow TE'$     &                               &     &      \\
-        \hline
-            E'  &                           &   $E' \rightarrow TE'$        &     &   $E' \rightarrow \varepsilon $    \\
-        \hline
-            T   &   $T \rightarrow FT'$     &                               &      &      \\
-        \hline
-            T'  &                           &   $T' \rightarrow \varepsilon$    &   $T' \rightarrow *FT'$   &   $T' \rightarrow \varepsilon$    \\
-        \hline
-            F   &   $F \rightarrow id$      &                               &      &       \\
-        \hline
-    \end{tabular}\\[5pt]
-    \textbf{Passi dell'algoritmo}\\
-    \begin{tabular}{|l|l|l|}
-        \hline
-        pila & input & output \\
-        \hline
-        $\$ $ \underline{E}  &   \underline{$id$}$+id*id\ \$ $  &   $E \rightarrow TE'$ \\
-        \hline
-        $\$ $ E \underline{T'}  &   &   $T \rightarrow FT' $ \\
-        \hline
-        $\$ $ E T' \underline{F}  &   &   $F \rightarrow id $ \\
-        \hline
-        $\$ $ E T' \underline{id}  &    &   \\
-        \hline
-        $\$ $ E' \underline{T'}  &  \underline{$+$}$ id *id\ \$$  &   $T' \rightarrow \varepsilon $ \\
-        \hline
-        $\$ $ \underline{E'}  &    &   $E' \rightarrow TE'$ \\
-        \hline
-        $\$ $ E' T \underline{+}  &   \underline{$id$}$*id\ \$ $  &   \\
-        \hline
-        $\$ $ E' \underline{T}  &     &   \\
-        \hline
-            &     ...Avanti cos\i     &   \\
-        \hline
-    \end{tabular}
-\end{center}
-\Tree[.E [.T [.F id ] [.T' $\varepsilon$ ] ] [.E' + [.T  [.F id ] [.T' * [.F id ] [.T' $\varepsilon$ ] ] ] [.E' $\varepsilon$ ] ] ]
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Esercizio}
-$S \rightarrow aA | bB$\\
-$A \rightarrow c $\\
-$B \rightarrow d $\\
-
-$w = ac\$ $ \\
-
-Parsing: $S \implies aA \implies ac $\\
-
-Nella tabella metto le produzioni della grammatica:
-
-\begin{tabular}{|l|l|l|l|l|l|}
-    \hline
-        &   a   &   b   &   c   &   d   &   $\$$    \\
-    \hline
-    S   &   $S \rightarrow aA$   &    $S \rightarrow bB$   &      &      &      \\
-    \hline
-    A   &      &      &  $A \rightarrow c$     &      &      \\
-    \hline
-    B   &      &      &       &  $B \rightarrow d$    &      \\  
-    \hline
-\end{tabular}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{First}
@@ -266,20 +143,32 @@ $\forall\ A \in V \backslash T, $ follow(A):
         }
     } until (saturazione);
 \end{lstlisting}
+
+\begin{tcolorbox}\begin{center}
+    \textbf{Nei follow non potr\'o mai avere $\varepsilon$}
+\end{center}\end{tcolorbox}
+
 \begin{center}
-	\includegraphics[scale=0.5]{Chapters/Img/c04_01.png}\\
+	\includegraphics[scale=0.6]{Chapters/Img/c04_01.png}\\
 \end{center} 
 Quindi in pratica i follow(A) li trovo guardando le produzioni con A dopo la freccia. 
 $\alpha $ e $\beta $ sono espressioni con lunghezza qualsiasi mentre A \'e un non treminale.\\[5pt]
 Se tipo ho abCdEFGhi come lo spacco in $\alpha B\beta$? Vai in ordine, se vuoi calcolarti i follow di C allora C sarà la tua B.
+
+\noindent\rule{16cm}{0.4pt}
+
 \begin{center}
     \begin{tabular}{l}
+        Calcolo follow(B), guardo produzioni $A \rightarrow \alpha B \beta$\\
         Metti $\$$ per tutti i non terminali\\
         Per le produzioni $A\rightarrow aB$ tutti i follow di A vanno in B\\
         Per $A\rightarrow aBb$ tutti i first(b) meno epsilon vanno in follow(B)\\
         Per $A\rightarrow aBb$ con epsilon appartenente ai first(b) allora aggiungi anche i follow(A) ai follow(B)\\
     \end{tabular}
 \end{center}
+
+\noindent\rule{16cm}{0.4pt}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Esempio}
 
@@ -343,7 +232,15 @@ $F \rightarrow (E)|id $\\
 Parsing di \lq\lq$id+id*id\$$\rq\rq\ $E \rightarrow TE' \rightarrow FT'E' \rightarrow idT'E' \rightarrow ...$ 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Costruzione delle tabelle di parsing predittivo top-down}
+\section{Tabella di parsing}
+    Nella cella [A,b] metto le produzioni $A \rightarrow \beta \ / \ b \in first(\beta)$.
+    Se epsilon appartiene ai first devi anche controllare che il terminale sia contenuto nei follow del non terminale\\[5pt]
+\begin{tcolorbox}\begin{center}
+    Quindi in [A, b] metto $(A \rightarrow \beta) \in P \ / \ b \in first(\beta)$ e se $\varepsilon \in first(\beta) \implies b \in follow(A) $. 
+\end{center}\end{tcolorbox}
+
+\subsection{Algoritmo di costruzione della tabella di parsing predittivo top-down}
+
 \begin{center}
     \begin{tabular}{ll}
         input   &   G=(V,T,S,P) \\
@@ -394,19 +291,177 @@ $F \rightarrow (E)|id $\\
     Guardo se \'e LL(1)\\
 \end{center}
 
-
 Pur non sviluppando tutta la tabella si vede che ci sono entry multiple \textbf{quindi non \'e LL(1)}.
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Algoritmi di Parsing}
+\begin{center}
+    \begin{tabular}{ll}
+        input buffer    &   w$\$$   \\
+        stack           &   bottom [$ \$ \qquad $] top \\
+        parsing table   &   con tante righe quante non terminali, tante colonne quante terminali ($ \$ $ incluso)\\
+                        &   in ogni cella metto un'eventuale trasformazione o \lq\lq error \rq\rq \\
+    \end{tabular}
+\end{center}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Algoritmo di parsing non-ricorsivo}
+\begin{center}
+    \begin{tabular}{ll}
+        input   &   stringa w, tabella parsing non ricorsivo T, per G\\
+        output  &   derivazione leftmost di w se $w \in L(G)$, error() altrimenti\\
+    \end{tabular}
+\end{center}
+
+\begin{lstlisting}
+    //non terminali e gli stati del grafo sono la stessa cosa
+    //init
+    buffer = {w$}; //meglio $w^r
+    stack.push($S); //stack di terminali e non terminali
+
+    let b = buffer.pop() //il primo simbolo di w 
+    let x = stack.top()  
+
+    while(x != $){
+        if(x == b){ //ho il carattere giusto e lo brucio
+            stack.pop(x);
+            b = buffer.nextChar();
+        } else if(x e'' terminale){ 
+            //sono arrivato ad un terminale diverso da quello della stringa
+            error();
+        } else if(T[x,b] contiene x -> Y1...Yn){ //x e' un non terminale (nello stack)
+            //se la tabella di parsing contiene una entry 
+            cout << x -> Y1...Yn;
+            stack.pop(x);
+            stack.push(Yn...Y1); //li pusha al contrario
+                            //se ho una epsilon non la pusho
+        }
+        x = stack.top()
+    }
+\end{lstlisting}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Esempio}
+$E \rightarrow TE'$ \\
+$E' \rightarrow +TE'|\varepsilon$\\
+$T \rightarrow FT'$\\
+$T' \rightarrow *FT'|\varepsilon$\\
+$F \rightarrow id$\\
+\begin{center}
+
+    \textbf{First and Follow}\\
+    \begin{tabular}{|c|c|c|}
+        \hline
+        \textbf{Non terminale} & \textbf{First} & \textbf{Follow} \\
+        \hline
+        E   &   id                  &   $\$$    \\
+        \hline
+        E'  &   +, $\varepsilon$    &   $\$$    \\
+        \hline
+        T   &   id                  &   +, $\$$    \\
+        \hline
+        T'  &   *, $\varepsilon$    &   +, $\$$    \\
+        \hline
+        F   &   id                  &   +, *, $\$$    \\
+        \hline
+    \end{tabular}\\[5pt]
+
+    \textbf{Tabella di parsing}\\
+    \begin{tabular}{|c|c|c|c|c|}
+        \hline
+                &   id                      &   +                           &   *   &   $\$$    \\
+        \hline
+            E   &   $E \rightarrow TE'$     &                               &     &      \\
+        \hline
+            E'  &                           &   $E' \rightarrow +TE'$        &     &   $E' \rightarrow \varepsilon $    \\
+        \hline
+            T   &   $T \rightarrow FT'$     &                               &      &      \\
+        \hline
+            T'  &                           &   $T' \rightarrow \varepsilon$    &   $T' \rightarrow *FT'$   &   $T' \rightarrow \varepsilon$    \\
+        \hline
+            F   &   $F \rightarrow id$      &                               &      &       \\
+        \hline
+    \end{tabular}\\[5pt]
+    \textbf{Passi dell'algoritmo}\\
+    \begin{tabular}{|l|l|l|}
+        \hline
+        pila & input & output \\
+        \hline
+        $\$ $ \underline{E}  &   \underline{$id$}$+id*id\ \$ $  &   $E \rightarrow TE'$ \\
+        \hline
+        $\$ $ E \underline{T'}  &   &   $T \rightarrow FT' $ \\
+        \hline
+        $\$ $ E T' \underline{F}  &   &   $F \rightarrow id $ \\
+        \hline
+        $\$ $ E T' \underline{id}  &    &   \\
+        \hline
+        $\$ $ E' \underline{T'}  &  \underline{$+$}$ id *id\ \$$  &   $T' \rightarrow \varepsilon $ \\
+        \hline
+        $\$ $ \underline{E'}  &    &   $E' \rightarrow TE'$ \\
+        \hline
+        $\$ $ E' T \underline{+}  &   \underline{$id$}$*id\ \$ $  &   \\
+        \hline
+        $\$ $ E' \underline{T}  &     &   \\
+        \hline
+            &     ...Avanti cos\i     &   \\
+        \hline
+    \end{tabular}
+\end{center}
+\Tree[.E [.T [.F id ] [.T' $\varepsilon$ ] ] [.E' + [.T  [.F id ] [.T' * [.F id ] [.T' $\varepsilon$ ] ] ] [.E' $\varepsilon$ ] ] ]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Esercizio}
+$S \rightarrow aA | bB$\\
+$A \rightarrow c $\\
+$B \rightarrow d $\\
+
+$w = ac\$ $ \\
+
+Parsing: $S \implies aA \implies ac $\\
+
+\begin{center}
+    \textbf{First and Follow}\\[5pt]
+    \begin{tabular}{|c|c|c|}
+        \hline
+        \textbf{Non terminali} & \textbf{First} &   \textbf{Follow}\\
+        \hline
+        S   &   a, b    &   $\$$ \\
+        \hline
+        A   &   c    &   $\$$ \\
+        \hline
+        B   &   d    &   $\$$ \\
+        \hline
+    \end{tabular}\\[10pt]
+    \textbf{Tabella di parsing con le produzioni di G}\\[5pt]
+    \begin{tabular}{|l|l|l|l|l|l|}
+        \hline
+            &   a   &   b   &   c   &   d   &   $\$$    \\
+        \hline
+        S   &   $S \rightarrow aA$   &    $S \rightarrow bB$   &      &      &      \\
+        \hline
+        A   &      &      &  $A \rightarrow c$     &      &      \\
+        \hline
+        B   &      &      &       &  $B \rightarrow d$    &      \\  
+        \hline
+    \end{tabular}
+\end{center}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Grammatica Ricorsiva Sinistra}
-Una grammatica G esibisce \textbf{left recursion} se per qualche $A \in V \backslash T$ e per qualche 
-$\alpha \in V^*,\ A \rightarrow ^* A\alpha $.
+Una grammatica G esibisce \textbf{left recursion} se $\exists\ A \in (V\backslash T) \ / \ A \rightarrow^* A \alpha ,\ \alpha \in V^*$
 
 La left recursion \'e immediata se G ha almeno una produzione del tipo $A \rightarrow A \alpha$ (ovvero se succede nel passato).
 Nell'esempio di prima c'era left recursion immediata nei primi due casi ($E \rightarrow E\alpha \land T \rightarrow T\alpha $).
 
 \begin{tcolorbox}\begin{center}
     Proposizione: ogni grammatica che esibisce left recursion \textbf{non \'e LL(1)}.
+\end{center}\end{tcolorbox}
+
+\begin{tcolorbox}\begin{center}
+    Proposizione: ogni grammatica che nella tabella di parsing ha pi\'u di una entry in una cella \textbf{non \'e LL(1). Altrimenti lo \'e}.
+\end{center}\end{tcolorbox}
+
+\begin{tcolorbox}\begin{center}
+    Se una grammatica \'e LL(1) $\implies$ non da conflitti nella tabella di parsing $\implies$ \'e una grammatica libera.
 \end{center}\end{tcolorbox}
 
 $A \rightarrow B$\\
@@ -418,15 +473,14 @@ Esempio di left recursion in pi\'u passi.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Esempio}
-$A \rightarrow A \alpha | \beta $, con $\beta != A \land \alpha != \varepsilon$ diventa:\\
+$A \rightarrow A \alpha | \beta $, con $\beta \not= A \land \alpha \not= \varepsilon$ diventa:\\
 $A \rightarrow \beta A'$\\
 $A' \rightarrow \alpha A' | \varepsilon$\\
 
 Pi\'u in generale
-$A \rightarrow A\alpha _1 | ... | A\alpha _n | \beta _1 | ... | \beta _n $, $\beta _1, ..., \beta _n != A_y$, 
-$\alpha_1,...,\alpha_n != \varepsilon$ diventa\\
+$A \rightarrow A\alpha _1 | ... | A\alpha _n | \beta _1 | ... | \beta _n, \quad \beta _1, ..., \beta _n \not= A_y,\quad \alpha_1,...,\alpha_n \not= \varepsilon$ diventa\\
 $A \rightarrow \beta _1 A'|...|\beta _n A' $\\
-$A' \rightarrow \alpha _1 A'|...|\alpha _m A' | \varepsilon $\\
+$A' \rightarrow \alpha _1 A'|...|\alpha _n A' | \varepsilon $\\
 Ho introdotto A' nuovo non terminale in G.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -436,14 +490,14 @@ Ho introdotto A' nuovo non terminale in G.
     \begin{minipage}[t]{0.48\linewidth}
         Eliminare Left Recursion immediata da:\\
         $E \rightarrow E + T | T $\\
-        $T \rightarrow T*F|T  $\\
+        $T \rightarrow T*F|F  $\\
         $F \rightarrow (E)|id $\\
     \end{minipage}
 }
 \hfill
 \fbox{
     \begin{minipage}[t]{0.48\linewidth}
-        Diventa:
+        Diventa:\\
         $E \rightarrow TE' $\\
         $E' \rightarrow +TE'|\varepsilon $\\
         $T \rightarrow FT'  $\\
@@ -496,7 +550,7 @@ $E' \rightarrow +EE'| *EE' | \varepsilon $\\
               &   First                    &   Follow                                   &                       \\    
     \hline
     $E=$      &    $\{ id, ( \}$           &   $\{ \$, ), +, * \}$ ed i follow di E'    & $\{ \$, ), +, * \}$   \\
-    $E'=$     &    $\{ +, *, E \}$         &   $\{ \}$ ed i follow di E                 & $\{ \$, ), +, * \}$   \\
+    $E'=$     &    $\{ +, *, \varepsilon \}$         &   $\{ \}$ ed i follow di E                 & $\{ \$, ), +, * \}$   \\
     \hline
 \end{tabular}
 
@@ -521,23 +575,28 @@ $S \rightarrow aSb | ab$
         &   $S \rightarrow ab$  &       &           \\
     \hline
 \end{tabular}
-La grammatica non \'e LL(1). Possiamo per\'o fattorizzare le produzioni considerando una parte che \'e a sinistra ed \'e comune a pi\'u 
-produzioni, per ottenere una grammatica LL(1) che genera lo stesso linguaggio.
+La grammatica non \'e LL(1).\\
+
+Possiamo per\'o fattorizzare le produzioni considerando una parte che \'e a sinistra ed \'e comune a pi\'u 
+produzioni, per ottenere una \textbf{grammatica LL(1)} che genera lo stesso linguaggio.
 
 $S \rightarrow aA'$\\
 $A' \rightarrow Sb|b$\\
 
-DEF: Una grammatica G pu\'o essere fattorizzata a sinistra quando esistono almeno due produzioni $A \rightarrow \alpha\beta _1$ e
+\subsubsection{DEF}
+Una grammatica G pu\'o essere fattorizzata a sinistra quando esistono almeno due produzioni $A \rightarrow \alpha\beta _1$ e
 $A \rightarrow \alpha\beta _2$ per qualche $A \in V\backslash T,\ \alpha ,\beta _1, \beta _2 \in V^* \land \alpha $ non comincia per $A$.
 
-DEF: G pu\'o essere fattorizzata a sinistra se:
+\subsubsection{DEF}
+G pu\'o essere fattorizzata a sinistra se:
 $A \rightarrow \alpha \beta _1,\ A \rightarrow \alpha\beta _2 \in P$ con \\
 $\alpha , \beta _1, \beta _2 \in V^*, \alpha $ non ha $A$ come primo simbolo, $A \in V\backslash T$
 
-Lemma: se G pu\'o essere fattorizzata a sinistra allora G non \'e LL(1).
+\subsubsection{Lemma}
+Se G pu\'o essere fattorizzata a sinistra allora \textbf{G non \'e LL(1)}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Algoritmo di fatturazione a sinistra}
+\section{Algoritmo di fattorizzazione a sinistra}
 \begin{lstlisting}
     foreach(A in V\T){
         trovare il prefisso piu lungo comune a due o piu produzioni per A, chiamato alpha 
@@ -565,7 +624,7 @@ w = abbcde visto che \'e rightmost devo espandere B dato che \'e il non terminal
 $S \rightarrow aABe \rightarrow aAde \rightarrow aAbcde \rightarrow abbcde $\\
 
 \begin{center}
-    \includegraphics[scale=0.4]{Chapters/Img/c02_14.png}\\
+    \includegraphics[scale=0.6]{Chapters/Img/c02_14.png}\\
 \end{center} 
 
 La sottolineatura significa che se arrivo in questo stato e sto leggendo come prossimo input una d o una b posso fare la riduzione della b usando A. Lo stesso vale per le altre, ovviamente con i loro simboli.
@@ -596,7 +655,7 @@ torno a 2, vado in 3
 Noi vogliamo avere grammatiche di tipo LALR(1). Grammatiche: $SLR(1) \subset LALR(1) \subset LR(1)$
 
 \begin{center}
-    \includegraphics[scale=0.4]{Chapters/Img/c02_15.png}\\
+    \includegraphics[scale=0.6]{Chapters/Img/c02_15.png}\\
 \end{center} 
 
 $S \rightarrow aSb | ab$\\
@@ -663,14 +722,14 @@ Questa \'e una tabella:
 $S \rightarrow aSb | ab $
 
 \begin{center}
-    \includegraphics[scale=0.4]{Chapters/Img/c02_15.png}\\
+    \includegraphics[scale=0.6]{Chapters/Img/c02_15.png}\\
 \end{center} 
 
 Questo \'e uguale ma scritto diversamente per separare $\{ \$, b\}$ in $\{4\}$ e $\{b\}$. Nel caso di $w=aaabbb\$$. Una caso rappresenta
 il rao pi\'u in alto, mentre l'altro il secondo ramo (pi\'u interno).
 
 \begin{center}
-    \includegraphics[scale=0.4]{Chapters/Img/c02_16.png}\\
+    \includegraphics[scale=0.45]{Chapters/Img/c02_16.png}\\
 \end{center} 
 
 \begin{itemize}

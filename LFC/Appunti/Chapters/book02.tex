@@ -13,12 +13,12 @@ Per specificare la \textbf{sintassi} uso la notazione della \textbf{context-free
 
 %img
  
-\section{Syntac Analysis}
+\section{Syntax Analysis}
 Vedo una sequenza di caratteri come entit\'a chiamate tokens
 
 %img
 
-Creo un \textbf{abstract syntax tree} con entit\'a sulle folie e operatori sugli altri nodi (intermedi).
+Creo un \textbf{abstract syntax tree} con entit\'a sulle foglie e operatori sugli altri nodi (intermedi).
 
 \Tree [.assign a [.+ b c ] ]
 \textbf{three address instruction} per via del fatto che ho tre variabili (istruzione assembly).
@@ -32,7 +32,7 @@ Creo un \textbf{abstract syntax tree} con entit\'a sulle folie e operatori sugli
 
 La regola sopra pu\'o essere chiamata \textbf{produzione}.
 
-In una \textbf{produzione} elementi lessicali ccomme if e parentesi (keywords) cono chiamati \textbf{terminali} mentre le variabili 
+In una \textbf{produzione} elementi lessicali come if e parentesi (keywords) cono chiamati \textbf{terminali} mentre le variabili 
 sono \textbf{non terminali} (ulteriormente espandibili con produzioni).
 
 Una \textbf{context-free grammar} ha:
@@ -47,11 +47,11 @@ Una \textbf{context-free grammar} ha:
 In un compilatore il lexical analyzer legge i caratteri del sorgente, li raggruppa in lexems e produce tokens 
 (della forma \textbf{(TokenName, AttributeValue)}).
 
-Specifico, nella pratica, una grammatica come lista di produzioni (con quelle conteneti lo start symbol per prime). 
-Simboli come $<,\>,\=$ e le keyword del linguaggio sono terminali.
+Specifico, nella pratica, una grammatica come lista di produzioni (con quelle contenenti lo start symbol per prime). 
+Simboli come $<,\ >,\ =$ e le keyword del linguaggio sono terminali.
 
 Per convenzione scrivo in \textit{italic i non terminali} ed in \textbf{boldface per i terminali}.
-Uso l'operatore OR $|$ (pipeline) per separare gli elementi nel body. Definisco $\epsilon$ come empty string.
+Uso l'operatore OR $|$ (pipeline) per separare gli elementi nel body. Definisco $\varepsilon$ come empty string.
 
 \subsection{ie)}
 ho $5+9-3+5-6-7+1$
@@ -74,7 +74,7 @@ Il linguaggio definito da una grammatica \'e il $\{$stringhe ottenute$\}$.
 \end{lstlisting}
 
 \section{Parsing}
-Il \textbf{parsing} \'e il problema secondo cui data una stringa di terminali devo capire come \'e stata costruita partendo da uno start 
+Il \textbf{parsing} \'e il problema secondo cui, data una stringa di terminali, devo capire come \'e stata costruita partendo da uno start 
 symbol (tirare eccezione altrimenti).
 
 Uso \textbf{parse trees} $A \rightarrow XYZ \implies$ \Tree [.A Y X Z ].
@@ -82,7 +82,7 @@ Uso \textbf{parse trees} $A \rightarrow XYZ \implies$ \Tree [.A Y X Z ].
 Regole di costruzione:
 \begin{itemize}
     \item la root \'e lo start symbol\\
-    \item le gole sono terminali o $\epsilon$\\
+    \item le foglie sono terminali o $\varepsilon$\\
     \item i nodi interni sono non-terminali\\
     \item se A non-terminali ha figli $x_1,...,x_n \implies A \rightarrow x_1...x_n$ \\
 \end{itemize}
@@ -93,7 +93,7 @@ Una stringa pu\'o avere pi\'u parse tree ma ci\'o implica che la \textbf{grammat
 l'esistenza di pi\'u significati diversi.
 
 Mergiando le nozioni di list e digit ottengo 
-$string \righarrow sting + string | string - string| 1 | 2 | ...| 9$
+$ string \rightarrow string + string | string - string | 1 | 2 | ... | 9$
 9-5+1 ha 
 \Tree [.string [.string [.string 9 ] - [.string 5 ] ] + [.string 2 ] ]
 \Tree [.string [.string 9 ] - [.string [.string 5 ] + [.string 2 ] ] ]
@@ -206,7 +206,7 @@ x.a \'e l'attributo a di x $\rightarrow$ \textbf{annoted parse tree}
 
 %img 77
 
-Un attributo \'e detto \textbf{sintetizzato} se il suo valore in un nodo \'e determinato dai valori dei suoi digli e dal nodo stesso.
+Un attributo \'e detto \textbf{sintetizzato} se il suo valore in un nodo \'e determinato dai valori dei suoi figli e dal nodo stesso.
 Un attributo \'e detto \textbf{inherited} se il suo valore in un nodo \'e determinato dai valori del padre, dei fratelli e di se stesso.
 
 %img78

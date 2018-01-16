@@ -1,0 +1,49 @@
+===============================================================================
+Exercise 2
+===============================================================================
+Let L = {a^i b^j c^k | i >= 0 and j + k = i}
+
+1. Define a context-free grammar G such that L(G) = L
+2. Say:
+  (a) whether G is LL(1) or not;
+  (b) whether G is LALR(1) or not;
+
+Devo esprimere il fatto che.
+ogni volta
+che aggiungo una b
+o una c
+devo aggiungere una a
+
+-------------------------------------------------------------------------------
+1.
+S-> aSc | D
+D-> aDb | "" 
+
+Questo è un esempio di parsing bottom up:
+aaabbc
+
+aaaDbbc D -> ""
+aaDbc   D -> aDb
+aDc     D -> aDb
+aSc     S -> D
+S       S-> aSc
+
+-------------------------------------------------------------------------------
+2. (a)
+
+La grammatica non è ambigua.
+Non è nemmeno left-recursive.
+Controllo le altre regole:
+
+First(aSc) intersection First(D) = EMPTYSET
+
+First(aSc) = a
+First(D) = a 
+
+La grammatica non è LL(1).
+
+-------------------------------------------------------------------------------
+2. (b)
+
+Per controllare che la grammatica sia LALR(1) si costruisce la parsing table e
+si verifica che non ci siano entry multiple.
