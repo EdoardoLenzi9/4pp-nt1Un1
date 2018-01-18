@@ -107,7 +107,34 @@
 \contentsline {subsubsection}{DEF}{38}{section*.5}
 \contentsline {subsubsection}{Lemma}{38}{section*.6}
 \contentsline {section}{\numberline {8.11}Algoritmo di fattorizzazione a sinistra}{38}{section.8.11}
-\contentsline {section}{\numberline {8.12}Bottom Up}{39}{section.8.12}
-\contentsline {subsection}{\numberline {8.12.1}Esempio}{39}{subsection.8.12.1}
-\contentsline {section}{\numberline {8.13}Algoritmo di shift/reduce}{40}{section.8.13}
-\contentsline {section}{\numberline {8.14}Items}{42}{section.8.14}
+\contentsline {chapter}{\numberline {9}Parsing Bottom Up}{40}{chapter.9}
+\contentsline {section}{\numberline {9.1}Reductions}{40}{section.9.1}
+\contentsline {section}{\numberline {9.2}Handle Pruning}{40}{section.9.2}
+\contentsline {section}{\numberline {9.3}Shift reduce parsing}{41}{section.9.3}
+\contentsline {subsection}{\numberline {9.3.1}Esempio}{41}{subsection.9.3.1}
+\contentsline {section}{\numberline {9.4}LR parsing}{41}{section.9.4}
+\contentsline {subsection}{\numberline {9.4.1}LR(0) Automaton}{42}{subsection.9.4.1}
+\contentsline {subsubsection}{Closure of Item Sets}{42}{section*.7}
+\contentsline {subsubsection}{GOTO funtion}{42}{section*.8}
+\contentsline {subsection}{\numberline {9.4.2}Esempio}{43}{subsection.9.4.2}
+\contentsline {section}{\numberline {9.5}Algoritmo generazione canonical collection C}{43}{section.9.5}
+\contentsline {section}{\numberline {9.6}Simple LR (SLR)}{43}{section.9.6}
+\contentsline {subsection}{\numberline {9.6.1}Esempio}{43}{subsection.9.6.1}
+\contentsline {section}{\numberline {9.7}The LR-Parsing Algorithm}{44}{section.9.7}
+\contentsline {subsection}{\numberline {9.7.1}Structure of LR Parsing Table}{44}{subsection.9.7.1}
+\contentsline {subsection}{\numberline {9.7.2}LR Parsing Algorithm}{44}{subsection.9.7.2}
+\contentsline {subsection}{\numberline {9.7.3}Costruire SLR-Parsing Table}{45}{subsection.9.7.3}
+\contentsline {subsection}{\numberline {9.7.4}Esempio}{45}{subsection.9.7.4}
+\contentsline {section}{\numberline {9.8}Fine Zampedri}{46}{section.9.8}
+\contentsline {subsection}{\numberline {9.8.1}Esempio}{46}{subsection.9.8.1}
+\contentsline {section}{\numberline {9.9}Algoritmo di shift/reduce}{48}{section.9.9}
+\contentsline {section}{\numberline {9.10}Items}{49}{section.9.10}
+\contentsline {chapter}{\numberline {10}Costruzione di un automa caratteristico LR(0) o LR(1)}{51}{chapter.10}
+\contentsline {section}{\numberline {10.1}Algoritmo di $closure_0(P)$}{52}{section.10.1}
+\contentsline {subsection}{\numberline {10.1.1}Esempio}{52}{subsection.10.1.1}
+\contentsline {section}{\numberline {10.2}Creazione della tabella di parsing}{52}{section.10.2}
+\contentsline {subsection}{\numberline {10.2.1}Esercizio}{53}{subsection.10.2.1}
+\contentsline {subsection}{\numberline {10.2.2}Esempio}{53}{subsection.10.2.2}
+\contentsline {subsection}{\numberline {10.2.3}Esempio}{54}{subsection.10.2.3}
+\contentsline {section}{\numberline {10.3}LR(1)}{55}{section.10.3}
+\contentsline {subsection}{\numberline {10.3.1}Esempio}{55}{subsection.10.3.1}

@@ -239,6 +239,7 @@ Parsing di \lq\lq$id+id*id\$$\rq\rq\ $E \rightarrow TE' \rightarrow FT'E' \right
     Quindi in [A, b] metto $(A \rightarrow \beta) \in P \ / \ b \in first(\beta)$ e se $\varepsilon \in first(\beta) \implies b \in follow(A) $. 
 \end{center}\end{tcolorbox}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Algoritmo di costruzione della tabella di parsing predittivo top-down}
 
 \begin{center}
@@ -294,7 +295,6 @@ $F \rightarrow (E)|id $\\
 Pur non sviluppando tutta la tabella si vede che ci sono entry multiple \textbf{quindi non \'e LL(1)}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 \section{Algoritmi di Parsing}
 \begin{center}
     \begin{tabular}{ll}
@@ -304,6 +304,7 @@ Pur non sviluppando tutta la tabella si vede che ci sono entry multiple \textbf{
                         &   in ogni cella metto un'eventuale trasformazione o \lq\lq error \rq\rq \\
     \end{tabular}
 \end{center}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Algoritmo di parsing non-ricorsivo}
 \begin{center}
@@ -445,6 +446,7 @@ Parsing: $S \implies aA \implies ac $\\
         \hline
     \end{tabular}
 \end{center}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Grammatica Ricorsiva Sinistra}
 Una grammatica G esibisce \textbf{left recursion} se $\exists\ A \in (V\backslash T) \ / \ A \rightarrow^* A \alpha ,\ \alpha \in V^*$
@@ -515,6 +517,7 @@ Ho introdotto A' nuovo non terminale in G.
     $F=$      &    $\{ id, ( \}$           &   $\{ *, +, \$, ) \}$      \\
 \end{tabular}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Tabella di parsing}
 
 \begin{tabular}{|c|c|c|c|c|c|c|}
@@ -583,15 +586,18 @@ produzioni, per ottenere una \textbf{grammatica LL(1)} che genera lo stesso ling
 $S \rightarrow aA'$\\
 $A' \rightarrow Sb|b$\\
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{DEF}
 Una grammatica G pu\'o essere fattorizzata a sinistra quando esistono almeno due produzioni $A \rightarrow \alpha\beta _1$ e
 $A \rightarrow \alpha\beta _2$ per qualche $A \in V\backslash T,\ \alpha ,\beta _1, \beta _2 \in V^* \land \alpha $ non comincia per $A$.
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{DEF}
 G pu\'o essere fattorizzata a sinistra se:
 $A \rightarrow \alpha \beta _1,\ A \rightarrow \alpha\beta _2 \in P$ con \\
 $\alpha , \beta _1, \beta _2 \in V^*, \alpha $ non ha $A$ come primo simbolo, $A \in V\backslash T$
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Lemma}
 Se G pu\'o essere fattorizzata a sinistra allora \textbf{G non \'e LL(1)}.
 
@@ -611,7 +617,317 @@ Se G pu\'o essere fattorizzata a sinistra allora \textbf{G non \'e LL(1)}.
 manca roba
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Bottom Up}
+\chapter{Parsing Bottom Up}
+
+\begin{center}
+    \includegraphics[scale=0.4]{Chapters/Img/c04_02.png}\\
+\end{center}
+
+\begin{tabular}{ll}
+    Riduzione:      &   $id * id,\ F * id,\ T * id,\ T * F,\ T,\ E$\\
+    Derivazione:    &   $E \rightarrow T \rightarrow T * F \rightarrow T * id \rightarrow F * id \rightarrow id * id$\\
+\end{tabular}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Reductions}
+La \textbf{riduzione} \'e l'operazione inversa della \textbf{derivazione}.
+Posso pensare al parsing bottom up come al processo di riduzione di una stringa w allo start symbol della grammatica.
+In ogni step di riduzione una sottostringa che matcha con il body di una produzione viene ridotta con la testa della produzione.
+
+Le scelte critiche sono quando ridurre e cosa ridurre.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Handle Pruning}
+Chiamo handle una sottostringa che matcha con il body di una produzione, e la sua riduzione \'e un passo inverso, al contrario, di una 
+rightmost derivation.
+
+\begin{center}
+    \includegraphics[scale=0.6]{Chapters/Img/c04_03.png}\\
+\end{center}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Shift reduce parsing}
+\'E una forma di bottom up parsing in cui mi appoggio ad uno stack contenente i simboli della grammatica e un buffer per la input string
+da parsare. 
+
+\begin{lstlisting}
+    //init
+    stack = $;
+    buffer = w$;
+    //faccio uno scan da sx a dx e shifto simboli dal buffer allo stack 
+    //quando nello stack posso fare una riduzione sostituisco
+    //vado avanti fince' non ho un error o finisce il buffer
+\end{lstlisting}
+
+\begin{center}
+    \includegraphics[scale=0.6]{Chapters/Img/c04_04.png}\\
+\end{center}
+
+Ho \textbf{shift} quando passo un simbolo dal buffer allo stack, \textbf{reduce} quando applico una riduzione sul top dello stack 
+(mai inside), \textbf{accept} se sono in fondo al buffer e ho quindi parsato correttamente la stringa, \textbf{error} nol va!
+
+L'algoritmo shift reduce non funziona per tutte le grammatiche, pu\'o essere che in certi casi mi trovi in situazioni dove non 
+so decidere se fare shift o reduce o non so quale reduce scegliere (reduce conflicts).
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Esempio}
+
+\begin{center}
+    \includegraphics[scale=0.6]{Chapters/Img/c04_05.png}\\
+\end{center}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{LR parsing}
+Il metodo pi\'u usato \'e LR(k) parsing con 
+\begin{tabular}{ll}
+    L   &   left to right input scan\\
+    R   &   rightmost derivation costruita inversamente\\
+    (k) &   numero di input symbol lookahead messi per prendere le decisioni\\
+\end{tabular}
+
+Se ometto k assumo che sia k = 1 (LR = LR(1)). Una grammatica \'e LR(1) se capace di parsare in shift reduce le stringhe (riconosce gli 
+handles sul top dello stack).
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{LR(0) Automaton}
+Per prendere decisioni critiche mi serve tener traccia dello stato in cui mi trovo nel parsing. Per rappresentare gli stati uso gli items;
+un item \'e una produzione con un punto: $A \rightarrow XYZ$ codifica 4 items: 
+$A \rightarrow .XYZ,\ A \rightarrow X.YZ,\ A \rightarrow XY.Z,\ A \rightarrow XYZ.$.
+La produzione $A \rightarrow \varepsilon$, mi produce solo un item $A \rightarrow\ .\ $. \\
+
+
+Intuitivamente $A \rightarrow X.YZ$ mi dice che ho gi\'a visto X ma non YZ.
+
+\textbf{canonical LR(0) collection} \'e un set di item LR(0) che mi permettono di costruire DFA in grado di prendere decisioni
+precise per il parsing; in particolare ogni stato nel automa rappresenta un set di item del canonical LR(0) collection.
+
+Per costruire l'automa definisco una grammatica aumentata e le funzioni CLOSURE e GOTO. 
+Data G con start symbol S, G' \'e una grammatica aumentata di G ed ha la produzione $S' \rightarrow S$ (start symbol S').
+Questo serve essenzialmente per poter annunciare la fine del parsing.
+
+\subsubsection{Closure of Item Sets}
+Dato I set di item per G, CLOSURE(I) \'e il set degli item costruito da I $ / $ \\[5pt]
+\begin{tabular}{ll}
+    i)  &   inizialmente closure(I) = I \\
+    ii) &   se $(A \rightarrow \alpha . B \beta) \in closure(I) \land (B \rightarrow \gamma) \in P$ 
+           aggiungi $B \rightarrow .\gamma$ a closure(I) (se non gi\'a presente).\\
+\end{tabular}\\[5pt]
+
+Vado avanti ricorsivamente finch\'e non ho aggiunto tutto quello che potevo.
+
+\begin{center}
+    \includegraphics[scale=0.6]{Chapters/Img/c04_06.png}\\
+\end{center}
+
+\begin{lstlisting}
+    J = I;
+    repeat{
+        foreach( [A -> alpha . B beta] in J) 
+            foreach( [B -> gamma] in G)
+                if( [B -> .gamma] not in J)
+                    J.add( [B -> .gamma] );
+    } until (saturation) //nothing more can be added!
+\end{lstlisting}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{GOTO funtion}
+GOTO(I, X), I set of items, $X \in G$, \'e definito come la closure del set di tutti gli item 
+$[A \rightarrow \alpha X. \beta] \ / \ [A \rightarrow \alpha.X \beta] \in I $. 
+
+In pratica lo uso per definire le transizioni nell'automa LR(0); gli stati sono set di item e le transizioni sono definite dai GOTO(I, X) 
+(dallo stato I per il simbolo X).
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Esempio}
+
+$ I = \{ [E' \rightarrow E.],\ [E \rightarrow E. +T] \}$
+\begin{tabular}{|ll}
+        &   $E' \rightarrow E$\\
+   G =  &    $E \rightarrow E + T| T$\\
+        &   $T \rightarrow T * F | F$\\
+        &   $E \rightarrow (E)|id$\\
+\end{tabular}\\[10pt]
+
+
+$GOTO(I, +) = $
+\begin{tabular}{|ll|}
+    $[E \rightarrow E + .T]$,   &   Mi arriva +, scarto $[E' \rightarrow E.]$, tengo l'altro'    \\
+    $[T \rightarrow .T * F]$,   &   Includo i primi item per le produzioni con T in testa    \\
+    $[T \rightarrow .F]$,       &       \\
+    $[F \rightarrow .(E)]$,     &   Visto che ho $[T \rightarrow .F]$ includo gli item con F\\
+    $[F \rightarrow .id]$,      &       \\
+\end{tabular}\\[10pt]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Algoritmo generazione canonical collection C}
+
+Per trovare C, canonical collection of sets of LR(0) items for an augmented grammar G'.
+
+\begin{lstlisting}
+    C = [CLOSURE{S' -> S}]
+    repeat{
+        foreach(I in C){ //set of item I 
+            foreach(X in V'){
+                if(GOTO(I,X) != empty && not in C yet){
+                    C.add(GOTO(I,X));
+                }
+            }
+        }
+    } until (saturation)
+\end{lstlisting}
+
+\section{Simple LR (SLR)}
+SLR parsing consiste nella costruzione della grammatica dell'automa LR(0). Gli stati dell'automa sono set di item derivanti 
+da C (canonical LR(0) collection) e le transizioni derivano dalla GOTO functions.
+
+Lo start state dell'automa LR(0) \'e $CLOSURE({[S' \rightarrow .S]})$ (S' start symbol di G' grammatica aumentata).
+
+Per prendere decisioni, immaginando di arrivare con la stringa $\gamma$ dallo stato 0 allo stato j; a questo punto posso shiftare il 
+prossomo carattere a se j ha transizioni per a oppure ridurre. Gli item in j mi dicono cosa fare.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Esempio}
+
+G = 
+\begin{tabular}{|l}
+    $E \rightarrow E + T|T$\\
+    $T \rightarrow T * F | T$\\
+    $F \rightarrow (E) | id $\\
+\end{tabular}\\[10pt]
+
+Aumento la grammatica con $E' \rightarrow E$.\\
+
+Computo $CLOSURE( \{ E' \rightarrow E \} ):$ 
+\begin{tabular}{|ll|}
+    \hline
+                    &   $ E' \rightarrow .E,$\\
+                    &   $ E \rightarrow .E + T, $\\
+                    &   $ E \rightarrow .T, $\\
+    $I_0$ =         &   $ T \rightarrow .T * F, $\\
+                    &   $ T \rightarrow .F, $\\
+                    &   $ F \rightarrow .(E), $\\
+                    &   $ F \rightarrow .id  $\\
+    \hline
+\end{tabular}\\[10pt]
+
+Computo i sets 
+\begin{tabular}{ll}
+    $I_1$ =     &   $GOTO(I_0,E) = \{ E' \rightarrow E. ,\quad E \rightarrow E. + T \} $\\
+    $I_2$ =     &   $GOTO(I_1, +) = \{ E \rightarrow E + .T,\quad T \rightarrow .T * F,\quad T \rightarrow .F,\quad F \rightarrow .(E),\quad F \rightarrow .id \} $\\
+\end{tabular}
+Quindi l'automa inizia con una forma di questo genere:
+\begin{center}
+    \includegraphics[scale=0.6]{Chapters/Img/c04_07.png}\\
+\end{center}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{The LR-Parsing Algorithm}
+\begin{center}
+    \includegraphics[scale=0.6]{Chapters/Img/c04_08.png}\\
+\end{center}
+
+\subsection{Structure of LR Parsing Table}
+La parsing table \'e strutturata in due parti: a parsing-action function \textbf{ACTION} and a goto funtion \textbf{GOTO}.
+$ACTION[i,a], i \in States, a \in T \cup \{\$\}$ pu\'o assumere varie forme:
+
+\begin{itemize}
+    \item \textbf{Shift} $j,\ j \in States$ (shifta un carattere a ma usa j per rappresentarlo);\\
+    \item \textbf{Reduce} $A \rightarrow \beta$ (riduce $\beta$ ad A)\\
+    \item \textbf{Accept} \\
+    \item \textbf{Error}\\
+\end{itemize}
+
+La prossima mossa del parser sar\'a leggere il simbolo corrente $a_i$ e lo stato in cima allo stack $s_m$. 
+Guardo $ACTION[s_m,\ a_i]$ nella parsing action table. 
+
+\subsection{LR Parsing Algorithm}
+
+\begin{center}\begin{tabular}{ll}
+    \textbf{Input}  &   string w, LR-parsing table con ACTION e GOTO per la grammatica G\\ 
+    \textbf{Output} &   gli step di riduzione bottom-up per w o un errore\\
+\end{tabular}\end{center}
+
+\begin{lstlisting}
+    stack.push(0);   //start state 0
+    buffer.push(w$);
+    * ip = leftChar(w); //pointer
+    repeat{
+        n = top;
+        a = simbolo puntato da ip;
+        if(T[n,a] == s_m){
+            push(a)
+            push(m)
+            move ip right
+        } else if(T[n, a] = r_k con (k): A -> beta){
+            pop 2^{|beta|} simboli;
+            n' = top 
+            push(A);
+            push m / T[A, n'] = g_m;
+            cout << "A -> beta";
+        } else if (T[n, a] == accept){
+            accept();
+        } else {
+            error();
+        }
+    } until (accept() || error());
+\end{lstlisting}
+
+\subsection{Costruire SLR-Parsing Table}
+
+Il metodo SLR inizia con items LR(0) ed un automa LR(0). Poi aumento la grammatica G, mi trovo C, GOTO e ACTION.
+
+\begin{center}\begin{tabular}{ll}
+    \textbf{Input}  &   G' grammatica arricchita\\ 
+    \textbf{Output} &   Parsing table o un errore\\
+\end{tabular}\end{center}
+
+\begin{lstlisting}
+    Define [I_0, ..., I_n] set items LR(0) per G'
+    Define lo stato i nella tabella (ie row i) dopo l'elemento I_i come segue:
+
+    * if (A -> alpha . a beta in I_i && GOTO(I_i, a) == I_j){
+        T[i, a] = s_j;  // shift
+    }
+    * if (A -> alpha . in I_i){
+        foreach(x in FOLLOW(A)){
+            T[i,X] = r"A -> alpha"; // reduce
+        }
+    }
+    * if (S' -> S. in I_i){
+        T[i, $] = accept;
+    }
+
+    if(le azioni precedenti generano conflitti){
+        throw Exception("G is not SLR");
+    } else {
+        if(GOTO(I_i, A) == I_j){
+            T[i, a] = g_j; // goto
+        }
+        Put error() nelle entry vuote
+        I_0 = CLOSURE(S' -> .S)
+    }
+\end{lstlisting}
+
+\subsection{Esempio}
+$E \rightarrow R + T$ \\
+$E \rightarrow T$ \\
+$T \rightarrow T * F$ \\
+$T \rightarrow F$ \\
+$F \rightarrow (E)$ \\
+$F \rightarrow id$ \\
+
+Arricchisco la grammatica con $E' \rightarrow E$, trovo l'automa LR(0):
+
+\begin{center}
+    \includegraphics[scale=0.6]{Chapters/Img/c04_09.png}\\
+\end{center}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Fine Zampedri}
 Ricostruire, se $w \in L(G)$, una rightmost derivation al contrario
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -675,12 +991,12 @@ $w = aaabbb\$$
     $3 \rightarrow 5$               &   $aSb || \$$  \\ 
     5 riduco $S \rightarrow aSb$    &   $S || \$$  \\ 
     torno a 0, vado in 1, ho finito & \\
-\end{tabular}
+\end{tabular}\\[5pt]
 
 Questa \'e una tabella:\\
 \begin{tabular}{|l|l|l|}
     \hline
-            &   terminali $\cup \$$                                     &   $V \backslash T$     \\
+            &   terminali $\cup\ \$$                                     &   $V \backslash T$     \\
     \hline
     stati   &   shift-k: leggi un simbolo di input e vai allo stato     &   goto-k: descrive le funzioni di transizione  \\
             &   reduce $A \rightarrow b $                               &   identificate dai non terminali quando consumi roba\\

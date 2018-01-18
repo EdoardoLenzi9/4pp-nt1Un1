@@ -47,6 +47,18 @@
 \BOOKMARK [1][-]{section.8.9}{Eliminazione Left Recursion immediata}{chapter.8}% 47
 \BOOKMARK [1][-]{section.8.10}{Left Factoring}{chapter.8}% 48
 \BOOKMARK [1][-]{section.8.11}{Algoritmo di fattorizzazione a sinistra}{chapter.8}% 49
-\BOOKMARK [1][-]{section.8.12}{Bottom Up}{chapter.8}% 50
-\BOOKMARK [1][-]{section.8.13}{Algoritmo di shift/reduce}{chapter.8}% 51
-\BOOKMARK [1][-]{section.8.14}{Items}{chapter.8}% 52
+\BOOKMARK [0][-]{chapter.9}{Parsing Bottom Up}{}% 50
+\BOOKMARK [1][-]{section.9.1}{Reductions}{chapter.9}% 51
+\BOOKMARK [1][-]{section.9.2}{Handle Pruning}{chapter.9}% 52
+\BOOKMARK [1][-]{section.9.3}{Shift reduce parsing}{chapter.9}% 53
+\BOOKMARK [1][-]{section.9.4}{LR parsing}{chapter.9}% 54
+\BOOKMARK [1][-]{section.9.5}{Algoritmo generazione canonical collection C}{chapter.9}% 55
+\BOOKMARK [1][-]{section.9.6}{Simple LR \(SLR\)}{chapter.9}% 56
+\BOOKMARK [1][-]{section.9.7}{The LR-Parsing Algorithm}{chapter.9}% 57
+\BOOKMARK [1][-]{section.9.8}{Fine Zampedri}{chapter.9}% 58
+\BOOKMARK [1][-]{section.9.9}{Algoritmo di shift/reduce}{chapter.9}% 59
+\BOOKMARK [1][-]{section.9.10}{Items}{chapter.9}% 60
+\BOOKMARK [0][-]{chapter.10}{Costruzione di un automa caratteristico LR\(0\) o LR\(1\)}{}% 61
+\BOOKMARK [1][-]{section.10.1}{Algoritmo di closure0\(P\)}{chapter.10}% 62
+\BOOKMARK [1][-]{section.10.2}{Creazione della tabella di parsing}{chapter.10}% 63
+\BOOKMARK [1][-]{section.10.3}{LR\(1\)}{chapter.10}% 64

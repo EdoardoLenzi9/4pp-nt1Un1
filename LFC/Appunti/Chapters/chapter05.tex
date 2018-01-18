@@ -117,7 +117,7 @@ Ciascuna entry (P,Y) \'e compilata come segue:
 	inserire accept 						&	se $Y = \$ \land S' \rightarrow S. \in P $\\
 	inserire error()						&	se $Y \in T \cup \{\$\} \land$ non \'e ancora stato inserito nulla\\
 	applicando i passi precedenti 			& \\
-	inserire goto R  						&	se $Y \in V\backslach T \land \tau(P,Y) = R $\\
+	inserire goto R  						&	se $Y \in V\backslash T \land \tau (P,Y) = R $\\
 \end{tabular}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -256,7 +256,7 @@ $ 0E1+3E5 $\\
 $ 0E1 $\\
 $ ok $\\
 
-\Tree[.E [.E [.E id] * [.E id ] ] + [.E id ] ]
+\Tree[.E [.E [.E id ] * [.E id ] ] + [.E id ] ]
 
 \subsection{Esempio}
 $S \rightarrow aAd | bBd | aBe | bAe$\\
