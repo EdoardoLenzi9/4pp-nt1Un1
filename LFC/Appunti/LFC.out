@@ -55,10 +55,14 @@
 \BOOKMARK [1][-]{section.9.5}{Algoritmo generazione canonical collection C}{chapter.9}% 55
 \BOOKMARK [1][-]{section.9.6}{Simple LR \(SLR\)}{chapter.9}% 56
 \BOOKMARK [1][-]{section.9.7}{The LR-Parsing Algorithm}{chapter.9}% 57
-\BOOKMARK [1][-]{section.9.8}{Fine Zampedri}{chapter.9}% 58
-\BOOKMARK [1][-]{section.9.9}{Algoritmo di shift/reduce}{chapter.9}% 59
-\BOOKMARK [1][-]{section.9.10}{Items}{chapter.9}% 60
-\BOOKMARK [0][-]{chapter.10}{Costruzione di un automa caratteristico LR\(0\) o LR\(1\)}{}% 61
-\BOOKMARK [1][-]{section.10.1}{Algoritmo di closure0\(P\)}{chapter.10}% 62
-\BOOKMARK [1][-]{section.10.2}{Creazione della tabella di parsing}{chapter.10}% 63
-\BOOKMARK [1][-]{section.10.3}{LR\(1\)}{chapter.10}% 64
+\BOOKMARK [1][-]{section.9.8}{Viable Prefixes}{chapter.9}% 58
+\BOOKMARK [1][-]{section.9.9}{More Powerful LR Parsers}{chapter.9}% 59
+\BOOKMARK [1][-]{section.9.10}{Canonical LR\(1\) items}{chapter.9}% 60
+\BOOKMARK [1][-]{section.9.11}{LALR \(LookAhead LR\) Parsing Table}{chapter.9}% 61
+\BOOKMARK [1][-]{section.9.12}{Fine Zampedri}{chapter.9}% 62
+\BOOKMARK [1][-]{section.9.13}{Algoritmo di shift/reduce}{chapter.9}% 63
+\BOOKMARK [1][-]{section.9.14}{Items}{chapter.9}% 64
+\BOOKMARK [0][-]{chapter.10}{Costruzione di un automa caratteristico LR\(0\) o LR\(1\)}{}% 65
+\BOOKMARK [1][-]{section.10.1}{Algoritmo di closure0\(P\)}{chapter.10}% 66
+\BOOKMARK [1][-]{section.10.2}{Creazione della tabella di parsing}{chapter.10}% 67
+\BOOKMARK [1][-]{section.10.3}{LR\(1\)}{chapter.10}% 68

@@ -658,6 +658,7 @@ da parsare.
     //quando nello stack posso fare una riduzione sostituisco
     //vado avanti fince' non ho un error o finisce il buffer
 \end{lstlisting}
+Sembra che qualsiasi stringa possa essere parsata, basta continuare a shiftare???
 
 \begin{center}
     \includegraphics[scale=0.6]{Chapters/Img/c04_04.png}\\
@@ -719,6 +720,9 @@ Vado avanti ricorsivamente finch\'e non ho aggiunto tutto quello che potevo.
     \includegraphics[scale=0.6]{Chapters/Img/c04_06.png}\\
 \end{center}
 
+Sembra che $E' \rightarrow E$ sia lo stesso di $E' \rightarrow .E$; in pratica per ogni item guardo se ho un non terminale subito a 
+destra del punto e casomai inserisco tutti gli item con tale simbolo in testa.
+
 \begin{lstlisting}
     J = I;
     repeat{
@@ -731,8 +735,7 @@ Vado avanti ricorsivamente finch\'e non ho aggiunto tutto quello che potevo.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{GOTO funtion}
-GOTO(I, X), I set of items, $X \in G$, \'e definito come la closure del set di tutti gli item 
-$[A \rightarrow \alpha X. \beta] \ / \ [A \rightarrow \alpha.X \beta] \in I $. 
+GOTO(I, X), I set of items, $X \in V$, $\triangleq closure( \{[A \rightarrow \alpha X. \beta] \ / \ [A \rightarrow \alpha .X \beta] \in I \} ) $. 
 
 In pratica lo uso per definire le transizioni nell'automa LR(0); gli stati sono set di item e le transizioni sono definite dai GOTO(I, X) 
 (dallo stato I per il simbolo X).
@@ -783,7 +786,7 @@ da C (canonical LR(0) collection) e le transizioni derivano dalla GOTO functions
 Lo start state dell'automa LR(0) \'e $CLOSURE({[S' \rightarrow .S]})$ (S' start symbol di G' grammatica aumentata).
 
 Per prendere decisioni, immaginando di arrivare con la stringa $\gamma$ dallo stato 0 allo stato j; a questo punto posso shiftare il 
-prossomo carattere a se j ha transizioni per a oppure ridurre. Gli item in j mi dicono cosa fare.
+prossimo carattere a se j ha transizioni per a oppure ridurre. Gli item in j mi dicono cosa fare.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Esempio}
@@ -826,6 +829,10 @@ Quindi l'automa inizia con una forma di questo genere:
     \includegraphics[scale=0.6]{Chapters/Img/c04_08.png}\\
 \end{center}
 
+\begin{tcolorbox}\begin{center}
+    La differenza fra ACTION e GOTO \'e che le action sono applicate per input di terminali, GOTO per input di non terminali!
+\end{center}\end{tcolorbox}
+
 \subsection{Structure of LR Parsing Table}
 La parsing table \'e strutturata in due parti: a parsing-action function \textbf{ACTION} and a goto funtion \textbf{GOTO}.
 $ACTION[i,a], i \in States, a \in T \cup \{\$\}$ pu\'o assumere varie forme:
@@ -850,17 +857,17 @@ Guardo $ACTION[s_m,\ a_i]$ nella parsing action table.
 \begin{lstlisting}
     stack.push(0);   //start state 0
     buffer.push(w$);
-    * ip = leftChar(w); //pointer
+    * ip = leftChar(w); //pointer sul buffer
     repeat{
-        n = top;
+        n = stack.top();
         a = simbolo puntato da ip;
-        if(T[n,a] == s_m){
+        if(T[n,a] == s_m){  //shift m
             push(a)
             push(m)
             move ip right
-        } else if(T[n, a] = r_k con (k): A -> beta){
+        } else if(T[n, a] = r_k con (k): A -> beta){    //reduce k
             pop 2^{|beta|} simboli;
-            n' = top 
+            n' = stack.top(); 
             push(A);
             push m / T[A, n'] = g_m;
             cout << "A -> beta";
@@ -874,7 +881,11 @@ Guardo $ACTION[s_m,\ a_i]$ nella parsing action table.
 
 \subsection{Costruire SLR-Parsing Table}
 
-Il metodo SLR inizia con items LR(0) ed un automa LR(0). Poi aumento la grammatica G, mi trovo C, GOTO e ACTION.
+Il metodo SLR inizia con items LR(0) ed un automa LR(0). Poi aumento la grammatica G, mi trovo C, GOTO e ACTION.\\[10pt]
+
+\begin{tcolorbox}\begin{center}
+    \textbf{G' non \'e SLR} se costruendo la parsing table ho dei \textbf{conflitti}. 
+\end{center}\end{tcolorbox}
 
 \begin{center}\begin{tabular}{ll}
     \textbf{Input}  &   G' grammatica arricchita\\ 
@@ -886,50 +897,279 @@ Il metodo SLR inizia con items LR(0) ed un automa LR(0). Poi aumento la grammati
     Define lo stato i nella tabella (ie row i) dopo l'elemento I_i come segue:
 
     * if (A -> alpha . a beta in I_i && GOTO(I_i, a) == I_j){
-        T[i, a] = s_j;  // shift
+        T[i, a] = s_j;  // shift corrisponde ad un cambio di stato
     }
     * if (A -> alpha . in I_i){
         foreach(x in FOLLOW(A)){
             T[i,X] = r"A -> alpha"; // reduce
         }
     }
-    * if (S' -> S. in I_i){
+    * if (S' -> S. in I_i){ //ACCEPT
         T[i, $] = accept;
     }
 
     if(le azioni precedenti generano conflitti){
-        throw Exception("G is not SLR");
+        throw Exception("G is not SLR");    //G non e' SLR
     } else {
         if(GOTO(I_i, A) == I_j){
-            T[i, a] = g_j; // goto
+            T[i, a] = g_j;  // goto
         }
-        Put error() nelle entry vuote
+        Put error() nelle entry vuote   //ERROR
         I_0 = CLOSURE(S' -> .S)
     }
 \end{lstlisting}
 
 \subsection{Esempio}
-$E \rightarrow R + T$ \\
-$E \rightarrow T$ \\
-$T \rightarrow T * F$ \\
-$T \rightarrow F$ \\
-$F \rightarrow (E)$ \\
-$F \rightarrow id$ \\
+$1) E \rightarrow R + T$ \\
+$2) E \rightarrow T$ \\
+$3) T \rightarrow T * F$ \\
+$4) T \rightarrow F$ \\
+$5) F \rightarrow (E)$ \\
+$6) F \rightarrow id$ \\
 
-Arricchisco la grammatica con $E' \rightarrow E$, trovo l'automa LR(0):
+Arricchisco la grammatica con $E' \rightarrow E$, trovo \textbf{l'automa LR(0)}:
 
 \begin{center}
     \includegraphics[scale=0.6]{Chapters/Img/c04_09.png}\\
+
+    \begin{tabular}{l}
+        \textbf{Osservazioni}\\
+        Per ogni stato guardo solo i simboli dopo il punto negli item\\
+        quindi ie l'item $F \rightarrow .(E)$ mi genera ACTION[0,(] = shift 4\\
+        Da notare che da $I_1$ con $\$$ vado in ACCEPT perch\'e ho l'item $E' \rightarrow E.$\\
+        La closure di $T \rightarrow T.*F = \emptyset$, \textbf{non espando i terminali}\\
+        Considero $I_2$, dato l'item $E \rightarrow T.$ e dato che $FOLLOW(E) = \{ \$, +, ) \}$ \\
+        $\implies ACTION[2,\$] = ACTION[2,+] = ACTION[2,)] = REDUCE E \rightarrow T$\\
+    \end{tabular}\\[10pt]
+
+    \textbf{In pratica l'automa mi crea la parsing table}
+
+    \includegraphics[scale=0.6]{Chapters/Img/c04_10.png}\\
+
+    ie. $w= id * id + id$\\
+    
+    \includegraphics[scale=0.6]{Chapters/Img/c04_11.png}\\
+
+    Sono in 0, mi arriva id faccio shift 5, pusho 5 sullo stack e id nei simboli; mi arriva *, faccio reduce $F \rightarrow id$, sostituisco 
+    F a id nei simboli, faccio una pop dallo stack e mi trovo nello stato 0 con simbolo F che \'e una goto 3 (pusho 3). 
+    Occhio che in (7) sono nello stato 10 e mi arriva +, faccio la reduce $T \rightarrow T * F$ e devo fare $|T * F| = 3$ pop dello stack.
 \end{center}
 
+\subsection{Shift/Reduce Conflicts}
+SLR \'e una grammatica non ambigua, notare che ci sono grammatiche non ambigue che non sono SLR(1).
+Considero G: 
 
+$S \rightarrow L = R|R$\\
+$L \rightarrow *R|id$\\
+$R \rightarrow L$\\
 
+La Canonical collection C \'e:\\
+$I_0 = \{ S' \rightarrow .S,\ S \rightarrow .L = R,\ S \rightarrow .R,\ L \rightarrow .*R,\ L \rightarrow .id,\ R \rightarrow .L \}$\\
+$I_1 = \{ S' \rightarrow S. \}$ (da $I_0$ mi arriva S)\\
+$I_2 = \{ S  \rightarrow L.=R,\ R  \rightarrow L. \} $ (da $I_0$ mi arriva L)\\
+$I_3 = \{ S  \rightarrow  R. \} $ (da $I_0$ mi arriva R)\\
+$I_4 = \{ L \rightarrow *.R,\ R \rightarrow .L,\ L \rightarrow .*R,\ L \rightarrow .id \} $ (da $I_0$ mi arriva *, poi espando con le closure a cascata)\\
+$I_5 = \{ L \rightarrow id.\}$ (da $I_0$ mi arriva id)\\
+$I_6 = \{ S \rightarrow L = .R,\ R \rightarrow .L,\ L \rightarrow .*R, L \rightarrow .id \}$ (da $I_2$ mi arriva =)\\
+$I_7 = \{ L \rightarrow *R. \}$ (da $I_4$ mi arriva R) \\
+$I_8 = \{ R \rightarrow L. \}$ (da $I_4$ mi arriva L) \\
+$I_9 = \{ S \rightarrow L = R. \}$ (da $I_6$ mi arriva R) \\
+
+Se guardo $I_2$ con il simbolo = il primo item mi suggerisce di fare shift 6, il secondo una reduce $R \rightarrow L$ quindi ho un 
+conflitto. In ogni caso la grammatica non \'e ambigua, \'e solo che SLR parser non ha abbastanza memoria per decidere l'azione corretta.
+
+\section{Viable Prefixes}
+A \textbf{Viable Prefix} \'e un prefisso di una right-sentential form che non continua
+oltre l'estremità destra dell'handle più a destra di quella sentential form (forma sentenziosa).
+
+Per definizione \'e possibile aggiungere simboli terminali alla fine di un viable prefix per ottenere una right-sentential form.
+
+Dico che un item $A \rightarrow \beta_1 \otimes \beta_2$ \'e valido per un viable prefix $\alpha\beta_1$ se ho una derivazione 
+$S' \rightarrow^*_{rm} \alpha A\omega \rightarrow \alpha \beta_1\beta_2\omega$.
+
+Questo fatto mi dice molto in caso di shift/reduce conflicts infatti:\\ 
+\begin{itemize}
+    \item se $\beta_1 \not = \varepsilon$ mi suggerisce che non abbiamo ancora shiftato l'handle nello stack quindi faccio uno shift\\
+    \item se $\beta_1 = \varepsilon $ allora $A \rightarrow \beta_1$ \'e l'handle e devo ridurre\\
+\end{itemize}
+ 
+Sfortunatamente non possiamo supporre che tutte i conflitti possono essere risolti se il metodo LR \'e applicato su una grammatica 
+arbitraria.
+
+\subsection{Resolve Shift/Reduce Conflicts}
+$(0) E' \rightarrow E $\\
+$(1) E \rightarrow E + E$\\
+$(2) E' \rightarrow E * E $\\
+$(3) E' \rightarrow id $\\
+$\implies FOLLOW(E)=\{ +,*,\$\}$ calcolo C LR(0) su G':
+
+$I_0 = \{ E' \rightarrow .E,\ E \rightarrow .E + E,\ E \rightarrow .E * E,\ E \rightarrow .id \}$ \\
+$I_1 = \{ E' \rightarrow E.,\ E \rightarrow E. + E,\ E \rightarrow E. * E \}$ (E)\\
+$I_2 = \{ E \rightarrow id. \}$ (id) \\
+$I_3 = \{ E \rightarrow E +. E,\ E \rightarrow .E * E,\ E \rightarrow .E + E,\ E \rightarrow .id \}$ (da $I_1$ +) \\
+$I_4 = \{ E \rightarrow E *. E,\ E \rightarrow .E + E,\ E \rightarrow .E * E,\ E \rightarrow .id \}$ (da $I_1$ *) \\
+$I_5 = \{ E \rightarrow E + E.,\ E \rightarrow E. * E,\ E \rightarrow E. + E \}$ (da $I_3$ E) \\
+$I_6 = \{ E \rightarrow E * E.,\ E \rightarrow E. + E,\ E \rightarrow E. * E \}$ (da $I_4$ E) \\
+\begin{center}
+    \includegraphics[scale=0.6]{Chapters/Img/c04_12.png}\\
+\end{center}
+
+Noto che ci sono dei conflitti, in action [5,+] se voglio favorire l'associativit\'a a sinistra del + scelgo r1, se voglio far valere la precedenza del 
+* scelgo s4 per la action[5,*].
+
+\section{More Powerful LR Parsers}
+Estendo il parser di prima aggiungendo un simbolo di lookahead; ci sono due metodi:
+\begin{itemize}
+    \item \textbf{canonical-LR} usa grandi set di items LR(1) per il lookahead \\
+    \item \textbf{lookahead-LR o LALR method} basato su set di items LR(0) ed ha pochi stati rispetto ai parsers basati su items LR(1)\\ 
+\end{itemize}
+
+\section{Canonical LR(1) items}
+Cerco di portarmi dietro pi\'u informazioni, splitto gli stati del SLR. Definisco un \textbf{LR(1) item} come un oggetto della forma 
+$[A \rightarrow \alpha\beta ,\ a]$ con a un terminale o un end-marker $\$$ chiamato \textbf{lookahead} dell'item.
+Un item $[A \rightarrow \alpha ,\ a]$ viene ridotto solo se il simbolo dopo \'e una a. Il lookahead set dev'essere un subset dei follow di A.
+
+\subsection{Costructing LR(1) sets of Items}
+\begin{lstlisting}
+    repeat{
+        foreach([A -> alpha B beta, a] in I){
+            foreach(B -> gamma in P){
+                foreach(b in T / b in first(beta alpha))
+                    I.add[B -> .gamma, b]
+            }
+        }
+    } until (no more items are added to I)
+    return I;
+\end{lstlisting}
+
+\subsection{Costructing LR(1) Goto Function}
+\begin{lstlisting}
+    goto(I,X){
+        J = emptySet;
+        foreach([A -> alpha X beta, a] in I){
+            J.add([A -> alpha X beta, a]);
+        }
+        return closure(J);
+    }
+\end{lstlisting}
+
+\subsection{Items(G')}
+\begin{lstlisting}
+    C = closure({[S' -> .S, $]});
+    repeat{
+        foreach(set of items I in C){
+            foreach(X in V){
+                if(goto(I,X) != empty & not in C){
+                    C.add(goto(I,X));
+                }
+            }
+        }
+    } until(no new sets of items are added to C);
+\end{lstlisting}
+
+\subsection{Esempio}
+$S' \rightarrow S$\\
+$S \rightarrow CC$\\
+$C \rightarrow cC|d$\\
+
+Inizio computando la chiusura di $\{ [S' \rightarrow .S,\$ ] \}$ che mi deve matchare con $[A \rightarrow \alpha B \beta,\ a]$ 
+($A = S',\ B = S,\ a = \$ $). Devo quindi aggiungere $[B \rightarrow \gamma ,\ b]$ con $b \in first(\beta\alpha)$.
+Devo per forza aggiungere $S \rightarrow CC$ e dato che $\beta = varepsilon$, b pu\'o essere solo $\$$.
+Quindi aggiungo $[S \rightarrow .CC,\ \$]$.
+
+Continuo la closure con $[C \rightarrow .\gamma ,\ b]$ con $b \in first(C\$) = first(C) = \{ c,\ d \} \implies$ aggiungo gli items 
+$[C \rightarrow .cC,\ c],\ [C \rightarrow .cC,\ d],\ [C \rightarrow .d,\ c],\ [C \rightarrow .d,\ d]$; nessuno di questi pu\'o essere 
+ulteriormente espanso quindi ho finito per questo set.
+
+$I_0 = \{  [S' \rightarrow .S,\ \$],\ [S \rightarrow .CC,\ \$],\ [C \rightarrow .cC,\ c|d],\ [C \rightarrow .d,\ c|d] \}$\\
+
+Computo $goto(I_0, S)$, devo aggiungere $[S' \rightarrow S.,\ \$]$ che non pu\'o esere ampliato.\\
+
+$I_1 = \{ [S' \rightarrow S.,\ \$] \}$\\
+
+Computo $goto(I_0, C)$ aggiungo $[S \rightarrow C.C,\ \$ ]$ ed espando\\
+
+$I_2 = \{ [S \rightarrow C.C,\ \$],\ [C \rightarrow .cC,\ \$],\ [C \rightarrow .d,\ \$] \}$\\
+$I_3 = \{ [C \rightarrow c.C, c|d],\ [C \rightarrow .CC, c|d],\ [C \rightarrow .d, c|d] \}$\\
+$I_4 = \{ [C \rightarrow d.,\ c|d] \}$\\
+
+\begin{center}
+    \includegraphics[scale=0.6]{Chapters/Img/c04_13.png}\\
+\end{center}
+
+\subsection{Canonical LR(1) Parsing Table}
+\begin{itemize}
+    \item $C' = \{ I_0,\ I_1,\ ...,\ I_n \}$ la collection dei set LR(1)\\
+    \item lo stato i del parser \'e costruito da $I_i$. La parsing action dello stato i \'e determinata:\\
+        \item[a)] se $[A \rightarrow \alpha a \beta,\ b] \in I_i$ e $goto(I_i,\ a) = I_j \implies ACTION[i, a] = shift\ j,\ a \in T$ \\
+        \item[b)] se $[A \rightarrow \alpha .,\ a] \in I_i, A \not = S' \implies action[i, a] = reduce\ A \rightarrow \alpha '' $\\
+        \item[c)] se $[S' \rightarrow S.,\ \$ ] \in I_i \implies action[i, \$] = accept$\\
+    \item Se $goto(I_i, A) = I_j \implies goto(i, A) = j$\\
+    \item Tutte le entry non definite generano error()\\
+    \item Lo stato iniziale \'e costruito a partire da $[S' \rightarrow S, \$]$\\
+\end{itemize}
+
+\begin{tcolorbox}\begin{center}
+    Se emergono conflitti nella costruzione della parsing table la grammatica \textbf{non \'e LR(1)}.
+\end{center}\end{tcolorbox}
+
+\subsection{Esempio}
+$S' \rightarrow S$\\
+$S \rightarrow CC$\\
+$C \rightarrow cC|d$\\
+
+\begin{center}
+    \includegraphics[scale=0.6]{Chapters/Img/c04_14.png}\\
+\end{center}
+
+\section{LALR (LookAhead LR) Parsing Table}
+\'E spesso usata perch\'e le tabelle LALR sono pi\'u piccole delle canonical LR tables. 
+
+$I_3 = \{ [C \rightarrow c.C,\ c|d],\ [C \rightarrow .cC,\ c|d],\ [C \rightarrow .d,\ c|d] \}$\\
+$I_4 = \{ [C \rightarrow .d,\ c|d] \}$\\
+$I_6 = \{ [C \rightarrow c.C,\ \$ ],\ [C \rightarrow .cC,\ \$ ],\ [C \rightarrow .d,\ \$ ] \}$\\
+$I_7 = \{ [C \rightarrow .d,\ \$ ] \}$\\
+
+Inoltre so che $goto(I_3, c) = I_3,\ goto(I_3,d) = I_4,\ goto(I_6,c)=I_6,\ goto(I_6, d) = I_7$;
+in questo caso $I_4$ e $I_7$ hannoun core comune $\{ C \rightarrow .d \}$, $I_3$ ed $I_6$ hanno un core 
+$\{ C \rightarrow c.C,\ C\rightarrow .cC,\ C \rightarrow .d \}$.
+
+In generale un \textbf{core} \'e un set di item LR(0) / la grammatica pu\'o produrre pi\'u di due set di item con lo stesso core.
+
+Finch\'e il core di goto(I, X) dipende solo dal core di I, le goto di set mergiati possono essere mergiate. Quindi non ho problemi 
+a risolvere la goto di set mergiati. Quindi in pratica se ho una grammatica LR(1) senza conflitti e unisco gli stati con lo stesso core 
+potr\'o avere solo conflitti reduce/reduce ed \'e improbabile.
+
+\subsection{LALR Parsing Table}
+
+\begin{itemize}
+    \item genero la collection $C = \{ I_0, ...,I_n\}$\\
+    \item unisco gli stati in C con la loro unione generando $C' = \{ J_0, ..., J_m \}$ (\textbf{LALR(1) items})\\
+    \item genero le action come per cLR su C' (\textbf{LALR(1) collection})\\
+    \item Se $I_n \subset J \implies goto(J, X) = gk,\ k = union(item\ LR(1) \ / \ \text{hanno lo stesso core di } goto(I_n, X))$\\
+\end{itemize}
+
+\begin{tcolorbox}\begin{center}
+    Se emergono conflitti nella costruzione della parsing table la grammatica G \textbf{non \'e LALR(1)}; altrimenti G \'e LALR(1).
+\end{center}\end{tcolorbox}
+
+\subsection{Esempio}
+$S' \rightarrow S$\\
+$S \rightarrow CC$\\
+$C \rightarrow cC|d$\\
+Ottengo coppie con lo stesso core ($I_3$ e $I_6$, $I_4$ e $I_7$, $I_8$ e $I_9$). Ottengo questa parsing table:
+
+\begin{center}
+    \includegraphics[scale=0.6]{Chapters/Img/c04_15.png}\\
+\end{center}
+
+Notare che goto($I_{36}$, C) originariamente era (in LR(1)) $goto(I_3, C) = I_8$ e $I_8$ adesso \'e parte di $I_{89}$, allora 
+metto $goto(I_{36}, C) = I_{89}$
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Fine Zampedri}
 Ricostruire, se $w \in L(G)$, una rightmost derivation al contrario
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Esempio}
 $S \rightarrow aABe$\\

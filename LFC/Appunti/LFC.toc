@@ -122,19 +122,33 @@
 \contentsline {subsection}{\numberline {9.6.1}Esempio}{43}{subsection.9.6.1}
 \contentsline {section}{\numberline {9.7}The LR-Parsing Algorithm}{44}{section.9.7}
 \contentsline {subsection}{\numberline {9.7.1}Structure of LR Parsing Table}{44}{subsection.9.7.1}
-\contentsline {subsection}{\numberline {9.7.2}LR Parsing Algorithm}{44}{subsection.9.7.2}
+\contentsline {subsection}{\numberline {9.7.2}LR Parsing Algorithm}{45}{subsection.9.7.2}
 \contentsline {subsection}{\numberline {9.7.3}Costruire SLR-Parsing Table}{45}{subsection.9.7.3}
-\contentsline {subsection}{\numberline {9.7.4}Esempio}{45}{subsection.9.7.4}
-\contentsline {section}{\numberline {9.8}Fine Zampedri}{46}{section.9.8}
-\contentsline {subsection}{\numberline {9.8.1}Esempio}{46}{subsection.9.8.1}
-\contentsline {section}{\numberline {9.9}Algoritmo di shift/reduce}{48}{section.9.9}
-\contentsline {section}{\numberline {9.10}Items}{49}{section.9.10}
-\contentsline {chapter}{\numberline {10}Costruzione di un automa caratteristico LR(0) o LR(1)}{51}{chapter.10}
-\contentsline {section}{\numberline {10.1}Algoritmo di $closure_0(P)$}{52}{section.10.1}
-\contentsline {subsection}{\numberline {10.1.1}Esempio}{52}{subsection.10.1.1}
-\contentsline {section}{\numberline {10.2}Creazione della tabella di parsing}{52}{section.10.2}
-\contentsline {subsection}{\numberline {10.2.1}Esercizio}{53}{subsection.10.2.1}
-\contentsline {subsection}{\numberline {10.2.2}Esempio}{53}{subsection.10.2.2}
-\contentsline {subsection}{\numberline {10.2.3}Esempio}{54}{subsection.10.2.3}
-\contentsline {section}{\numberline {10.3}LR(1)}{55}{section.10.3}
-\contentsline {subsection}{\numberline {10.3.1}Esempio}{55}{subsection.10.3.1}
+\contentsline {subsection}{\numberline {9.7.4}Esempio}{46}{subsection.9.7.4}
+\contentsline {subsection}{\numberline {9.7.5}Shift/Reduce Conflicts}{47}{subsection.9.7.5}
+\contentsline {section}{\numberline {9.8}Viable Prefixes}{48}{section.9.8}
+\contentsline {subsection}{\numberline {9.8.1}Resolve Shift/Reduce Conflicts}{48}{subsection.9.8.1}
+\contentsline {section}{\numberline {9.9}More Powerful LR Parsers}{49}{section.9.9}
+\contentsline {section}{\numberline {9.10}Canonical LR(1) items}{49}{section.9.10}
+\contentsline {subsection}{\numberline {9.10.1}Costructing LR(1) sets of Items}{49}{subsection.9.10.1}
+\contentsline {subsection}{\numberline {9.10.2}Costructing LR(1) Goto Function}{49}{subsection.9.10.2}
+\contentsline {subsection}{\numberline {9.10.3}Items(G')}{50}{subsection.9.10.3}
+\contentsline {subsection}{\numberline {9.10.4}Esempio}{50}{subsection.9.10.4}
+\contentsline {subsection}{\numberline {9.10.5}Canonical LR(1) Parsing Table}{51}{subsection.9.10.5}
+\contentsline {subsection}{\numberline {9.10.6}Esempio}{52}{subsection.9.10.6}
+\contentsline {section}{\numberline {9.11}LALR (LookAhead LR) Parsing Table}{52}{section.9.11}
+\contentsline {subsection}{\numberline {9.11.1}LALR Parsing Table}{52}{subsection.9.11.1}
+\contentsline {subsection}{\numberline {9.11.2}Esempio}{53}{subsection.9.11.2}
+\contentsline {section}{\numberline {9.12}Fine Zampedri}{53}{section.9.12}
+\contentsline {subsection}{\numberline {9.12.1}Esempio}{53}{subsection.9.12.1}
+\contentsline {section}{\numberline {9.13}Algoritmo di shift/reduce}{54}{section.9.13}
+\contentsline {section}{\numberline {9.14}Items}{56}{section.9.14}
+\contentsline {chapter}{\numberline {10}Costruzione di un automa caratteristico LR(0) o LR(1)}{57}{chapter.10}
+\contentsline {section}{\numberline {10.1}Algoritmo di $closure_0(P)$}{58}{section.10.1}
+\contentsline {subsection}{\numberline {10.1.1}Esempio}{58}{subsection.10.1.1}
+\contentsline {section}{\numberline {10.2}Creazione della tabella di parsing}{58}{section.10.2}
+\contentsline {subsection}{\numberline {10.2.1}Esercizio}{59}{subsection.10.2.1}
+\contentsline {subsection}{\numberline {10.2.2}Esempio}{59}{subsection.10.2.2}
+\contentsline {subsection}{\numberline {10.2.3}Esempio}{60}{subsection.10.2.3}
+\contentsline {section}{\numberline {10.3}LR(1)}{61}{section.10.3}
+\contentsline {subsection}{\numberline {10.3.1}Esempio}{61}{subsection.10.3.1}
