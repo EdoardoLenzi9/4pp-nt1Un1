@@ -4,6 +4,7 @@
 %}
 
 %token ITEM;
+
 %%
 S: S ITEM { printf("a list of item found");}
  | ITEM  {printf("item found");} ;

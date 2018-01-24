@@ -1,6 +1,7 @@
 %{
 	/*Copied verbatim.*/
     #include <stdlib.h>
+    #include <math.h>
     #include <strings.h>
 	#include "y.tab.h"
 	typedef int bool;

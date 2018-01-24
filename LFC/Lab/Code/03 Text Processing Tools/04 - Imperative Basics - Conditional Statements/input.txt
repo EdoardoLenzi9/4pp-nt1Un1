@@ -1,0 +1,12 @@
+b = true
+a = false
+c = a || b
+
+while (c) {
+	print(c)
+	c = a && b
+}
+
+print(c)
+
+print(d)

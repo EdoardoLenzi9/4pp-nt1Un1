@@ -3,6 +3,7 @@
 %}
 
 %option noyywrap
+
 %%
 "item"	{return ITEM;}
 [ \t\n\r]	{/*Nope*/}

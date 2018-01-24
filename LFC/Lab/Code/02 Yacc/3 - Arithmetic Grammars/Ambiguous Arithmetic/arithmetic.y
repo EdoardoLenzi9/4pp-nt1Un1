@@ -10,6 +10,13 @@ int yyparse();
 FILE *yyin;
 void yyerror(char *s);
 
+int pow1(int a, int b){
+	int c = 1;
+	for(int i = 0; i < b; i++)
+		c *= a;
+	return c;
+}
+
 %}
 
 %union{
@@ -32,7 +39,7 @@ Expression:	Expression	'+'		Expression	{$$= $1+$3;}
 	|		Expression	'-'		Expression	{$$= $1-$3;}
 	|		Expression	'/'		Expression	{$$= $1/$3;}
 	|		Expression	'*'		Expression	{$$= $1*$3;}
-	|		Expression	'^' 	Expression	{$$= pow($1, $3);}
+	|		Expression	'^' 	Expression	{$$= pow1($1, $3);}  
 	|		'-'	Expression					{$$= -$2;}			%prec SpecialSymbol
 	|		'('	Expression ')'				{$$= $2;}
 	|		INTEGER							{$$= $1;}

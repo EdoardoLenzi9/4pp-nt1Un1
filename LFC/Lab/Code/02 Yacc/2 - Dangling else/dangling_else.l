@@ -14,7 +14,7 @@
 "else"				{ return ELSE_TOKEN; }
 "true"				{ return TRUE_TOKEN; }
 "false"				{ return FALSE_TOKEN; }
-/* I want commands to be prefix of a number to discriminate them.*/
+{/* I want commands to be prefix of a number to discriminate them.*/}
 "command"[0-9]+		{ yylval.lpszCommand = StringDuplicate(yytext, yyleng); return COMMAND;}
 .					{ printf("%c", yytext[0]);}
 %%
