@@ -618,7 +618,7 @@ manca roba
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Parsing Bottom Up}
-
+%Zampedri
 \begin{center}
     \includegraphics[scale=0.4]{Chapters/Img/c04_02.png}\\
 \end{center}
@@ -1164,7 +1164,16 @@ Ottengo coppie con lo stesso core ($I_3$ e $I_6$, $I_4$ e $I_7$, $I_8$ e $I_9$).
 \end{center}
 
 Notare che goto($I_{36}$, C) originariamente era (in LR(1)) $goto(I_3, C) = I_8$ e $I_8$ adesso \'e parte di $I_{89}$, allora 
-metto $goto(I_{36}, C) = I_{89}$
+metto $goto(I_{36}, C) = I_{89}$. 
+
+Naturalmente arrivavo alla stessa conclusione anche per $I_6$, parte di $I_{36}$, con $goto(I_6, C) =  I_9$ che adesso appartiene a $I_{89}$.
+
+Quando parso una stringa i parser LR e LALR fanno le stesse sequenze di riduzioni solo che in LALR hanno nomi diversi. 
+
+\section{Efficient Construction of LALR Parsing Table}
+Posso evitare di costruire l'intera collection di LR(1) items; posso rappresentare LR(0) e LR(1) items con il loro \textbf{kernel}
+(il body della produzione dopo il punto).
+Posso costruire i kernel degli item LALR(1) partendo dai kernel degli item LR(0) per propagazione e spontanea generazione dei lookahead. 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

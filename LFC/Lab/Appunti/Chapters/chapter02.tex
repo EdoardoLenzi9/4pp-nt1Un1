@@ -1,0 +1,189 @@
+\chapter{Acronimi}
+\begin{tabular}{ll}
+    w       &   Word (2 byte short integer)\\
+    dw      &   DWord (4 byte integer)\\
+    p       &   untyped pointer\\
+    lp      &   generic long pointer\\
+    lpsz    &   long pointer to a null-terminated string\\
+\end{tabular}
+
+\chapter{Yacc (Yet Another Compiler Compiler)}
+\'E un PDA (Personal Digital Assistant) basato sull'\textbf{automa LALR(1)}; 
+runna l'algoritmo shift/reduce per decidere se una stringa di simboli appartiene o meno
+a L(G). Yacc \'e stato sostituito da Bison; \'e un \textbf{parser generator} per grammatiche 
+libere. Posso associare una semantic action ad ogni statement.
+
+Quando ho un match con il body di una produzione applico la riduzione ed 
+eseguo la semantica action associata.
+
+Flex e Yacc sono stati pensati per lavorare assime anche se nulla vieta di 
+usarli separatamente. 
+
+\section{Lexer/Parser communication}
+L'algoritmo shift reduce coinvolge il lexer per capire quale terminale sto 
+leggendo. Si crea un rapporto master slave fra lexer e parser.
+
+\begin{lstlisting}
+    int iToken = Lexer.GetNextToken();  
+\end{lstlisting}
+
+\section{Cosa pu\'o fare Yacc}
+Data una grammatica G mi dice se \'e o meno LALR(1). Date delle grammatiche non LALR(1) mi da dei tool per parsarle.
+Copre anche grammatiche IELR(1) e GLR.
+
+\section{Yacc Grammar Rules}
+
+Il template yacc \'e uguale a quello di flex con dei comandi aggiuntivi:
+\begin{lstlisting}
+    //Lexer .l
+    %{
+        #include "y.tab.h"
+        int yylex();
+        void yyerror(char*s);
+    %}
+
+    %option noyywrap
+
+    %%
+
+    "a"     {printf("\n Lex %c \n", yytext[0]); return yytext[0];}
+    .	    {printf("Error\n");}
+
+    %%
+
+    void yyerror(char*s) {
+        printf(s);
+    }
+
+    //Parser .y
+    %{
+        #include <stdio.h>
+        FILE*yyin;
+    %}
+
+    %start S
+
+    %%
+
+    S: A		{ printf("Parsed S.\n");}
+    | D		{ printf("Parsed S.\n");} ;
+
+    %%
+
+    int main() {
+        do {
+            yyparse();
+        } while(!feof(yyin));
+        return 0;
+    }
+\end{lstlisting} 
+
+Una produzione $A \rightarrow B$ viene specificata come $A:\ B$. I non terminali vanno fra apici 
+($E \rightarrow (E) + T$ diventa E: \lq (\rq E\lq ) \rq\ \lq +\rq\ T)
+
+\section{Compilare}
+\begin{lstlisting}
+    flex input.l
+    bison -d input.y -o y.tab.c 
+    gcc lex.yy.c y.tab.c -o Lexer.out -std=c99
+    ./Parser.out < input.txt
+\end{lstlisting}
+
+\section{Yacc directives}
+
+\subsection{$\%$start}
+Posso dichiarare lo start symbol con la direttiva $\%$start, se non lo setto viene automaticamente settato il primo simbolo.
+
+\subsection{$\%$token}
+
+\begin{lstlisting}
+    //Lexer
+    "(a)"	{return A_TOKEN;}
+    //Parser
+    %token TerminalName_1 TerminaleName_2 ... TerminalName_n
+    %%
+    A: A_TOKEN B_TOKEN C	{ printf("Parsed A.\n");} ;
+\end{lstlisting}
+
+In pratica nel .l ritorno un enum che \'e dichiarato nell'interstazione del .y con l'istruzione $\%$token.
+
+\subsection{$\%$union}
+
+Declare a union of types and identifiers.
+
+\begin{lstlisting}
+    //Parser
+    %{
+        #include <stdio.h>
+        FILE*yyin;
+    %}
+
+    %token LOWER_WORD_TOKEN UPPER_WORD_TOKEN NUMBERS_TOKEN
+
+    %union {
+        char*lpszLowerWord;
+        char*lpszUpperWord;
+        char*lpszNumbers;
+    }
+
+    %type <lpszLowerWord> LOWER_WORD_TOKEN
+    %type <lpszUpperWord> UPPER_WORD_TOKEN
+    %type <lpszNumbers> NUMBERS_TOKEN
+
+    %%
+
+    //$2 e' il secondo simbolo nel body della produzione
+    S: S LOWER_WORD_TOKEN	{ printf("Lower case word: %s.\n", $2); } 
+    | S UPPER_WORD_TOKEN	{ printf("Upper case word: %s.\n", $2); }
+    | S NUMBERS_TOKEN 		{ printf("Numbers: %s.\n", $2); };
+    |
+    %%
+
+    int main() {
+        do {
+            yyparse();
+        } while(!feof(yyin));
+        return 0;
+    }
+
+    //Lexer
+    [a-z]+	{yylval.lpszLowerWord = StringDuplicate(yytext, yyleng); return LOWER_WORD_TOKEN;}
+    [A-Z]+	{yylval.lpszUpperWord = StringDuplicate(yytext, yyleng);return UPPER_WORD_TOKEN;}
+    [0-9]+	{yylval.lpszNumbers = StringDuplicate(yytext, yyleng); return NUMBERS_TOKEN;}
+\end{lstlisting}
+
+In pratica con la union definisco variabili accessibili dal lexer tramite l'oggetto yylval.
+Con $\%$type $<Identifier>\ Symbol_1\ ...\ Symbol_n$ attribuisco un tipo ai nodi (stati) nelle semantic actions.
+
+Quando Yacc incontra la direttiva $\%$token definisce in y.tab.h un set di interi per ogni terminale associato.
+
+\section{C/C++ Union}
+\begin{lstlisting}
+    union { /*list of valid C identifiers */ }
+\end{lstlisting}
+Associa alla stessa area di memoria molte variabili; pertanto la grandezza della union \'e la grandezza della variabile con max sizeOf().
+Qualsiasi variabile pu\'o essere referenziata ed editata. Il risultato corretto dipende dall'interpretazione dei bytes.
+
+\begin{lstlisting}
+    struct Test {
+        union {
+            int iFirst ;
+            char cSecond ;
+            char cThird [2];
+            void * pPointer ;
+        };
+    };
+
+    struct Test * a = ... /* Allocate empty Test . */ ;
+    a - > pPointer = 0 x000000DD ;     
+    a - > iFirst += 0 xFF00CC00 ;    
+    a - > cSecond = 0 xAA ;    
+    a - > cThird [1] = 0 xBB ;
+    // a = 0xAABBCCDD!
+\end{lstlisting}
+
+Con la direttiva union creo un ponte fra lexer e parser 
+
+\section{Indexing tree's data structure}
+Vedo le produzioni come un albero, $\$\$$ rappresenta il padre, $\$ 1$ rappresenta il primo simbolo del body, $\$ 2$ il secondo e cos\'i via.
+

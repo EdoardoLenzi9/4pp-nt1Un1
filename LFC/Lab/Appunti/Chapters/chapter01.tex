@@ -26,41 +26,40 @@ Data la descrizione del linguaggio che vuoi matchare lui ti genera il codice C p
 \end{tabular}
 
 \chapter{FLEX (Fast Lex)}
+
+Posso annotare una regular expression con istruzioni C.
+
 \section{Lex matching character}
 
 \subsection{Operatori}
 \begin{tabular}{ll}
-	$\alpha \cdot \beta$ & concatenazione\\
-	$\alpha | \beta$ & alternazione\\
-	$\alpha ^+$ & una o pi\'u ripetizioni\\
-	$\alpha ^*$ & zero o pi\'u ripetizioni\\
-	$\alpha ?$ & 0 o 1 ripetizione\\
-	$\alpha \{n,m\} | n \leq m $ & matches $\alpha$ from n to m times\\
+	$\alpha \cdot \beta$ 			& 	concatenazione\\
+	$\alpha | \beta$ 				& 	alternazione\\
+	$\alpha +$ 						& 	1+ ripetizioni\\
+	$\alpha *$ 						& 	0+ ripetizioni\\
+	$\alpha ?$ 						&	0 o 1 ripetizione\\
+	.       						&	un carattere qualsiasi (tranne $\backslash$n) \\
+	$\alpha \{n,m\}$ 				& 	$(n \leq m)$ matches $\alpha$ from n to m times\\
+	$[a-z]$   						&	intervallo di caratteri da \lq a \rq\ a \lq z \rq \\
+	$[0-9a-z\_]*$  					&	(intervalli multipli) considerati 0+ volte [tutti gli id] \\
+	\hline
+	$a\$ $ 							& 	\lq a\rq\ a fine di una linea \\
+	$\text{\textasciicircum}a$  							& 	\lq a\rq\ all'inizio di una linea \\
+	$<<EOF>>$ 						&	\\
+	\hline
+	$a/b$ 							& 	\lq a\rq\ iif \lq b\rq\ segue \\ 
+	$[\text{\textasciicircum}C]$ 	&	complementare \\
+	$[\text{\textasciicircum}CB]$	&	$= [\text{\textasciicircum}C\text{\textasciicircum}B]$ matcha bat ma non Bat o Cat \\
+	\hline
+	$"stringa"$						& 	\\
+	$."at"$							&	matches words: \lq\lq cat\rq\rq , \lq\lq rat\rq\rq , etc.\\
 \end{tabular}
 
-\begin{lstlisting}
-	[a-z]   	tutti i caratteri da 'a' a 'z'
-	[0-9a-z_]*  tutti i caratteri n volte
-	.       	ogni carattere tranne \n
-	a?      	a 0 o 1 volta
-	a{n,m} 		matcha a da n m volte
-	a$  		a se e' alla fine di una linea
-	^a  		a se e' all'inizio di una linea 
-	a/b 		a iif b segue 
-
-	[^C] 		complementare 
-	[^CB]		= [^C^B] matcha bat ma non Bat o Cat 
-	<<EOF>> 
-	"stringa"	
-	"float" | "int"
-	."at" 		matches words: "cat", "rat, etc.
-	[0-9a-z_] *	identificatori
-\end{lstlisting}
-
 \section{Template Lex}
-
 \begin{lstlisting}
-	%{ /* This code is copied verbatim (tale e quale) into the lexer s source code . */	%}
+	%{ 
+		/* Dichiarazioni iniziali in codice C (librerie e variabili globali) */	
+	%}
 
 	/* " Named " regular expressions here . */
 
@@ -70,6 +69,12 @@ Data la descrizione del linguaggio che vuoi matchare lui ti genera il codice C p
 	
 	/* This section is copied verbatim into the lexer 's source . */
 \end{lstlisting}
+
+Nel primo blocco posso ficcare istruzioni C che verranno copiate verbatim (pari pari) nel sorgente C; ad esempio posso dichiarare 
+variabili che poi uso nelle \textbf{semantic actions} delle regex.
+
+Nel secondo blocco posso dare un nome ad una regex (al uso nella sezione 
+dopo con l'operatore $\{ \}$):
 
 \begin{lstlisting}
 	%{ /* Copied verbatim in lexer 's source . */ %}
@@ -93,7 +98,7 @@ Data la descrizione del linguaggio che vuoi matchare lui ti genera il codice C p
 
 \begin{lstlisting}
 	> flex Input.l
-	> CC lex.yy.c -o Lexer.out -std=c99
+	> gcc lex.yy.c -o Lexer.out -std=c99
 	> Lexer.out < In.txt
 \end{lstlisting}
 
@@ -105,14 +110,103 @@ Data la descrizione del linguaggio che vuoi matchare lui ti genera il codice C p
 	char * yytext ;		/* The buffer on which characters are copied during pattern matching*/
 \end{lstlisting}
 
+\subsection{Esempi Regex}
+
+\begin{lstlisting}
+	%{
+		#include <stdlib.h>
+		int iWords = 0;
+	%}
+
+	word	[^ \t\r\n]
+	Declaration				"public"[ \t]+("static"[ \t]+)?"void"[ \t]+"main"
+
+	%%
+
+	{word}			{iWords+=1;}
+	{Declaration} 	{printf("siamo nel main feghio")}
+	.|\n			{printf(" %d ", n++); /*mi stampa il numero di caratteri*/} 
+	.|\n			{ECHO; /* mi stampa l'ultima parola per intero */} 
+
+	"if"		|
+	"else"		|
+	"for"			{fprintf(stdout, "This is a keyword: %s\n", yytext);}
+
+	[\t \n\r]+		{/*Do nothing.*/;}
+	.|\n			{ECHO; fprintf(stdout, " is not a keyword.\n");}
+
+	<<EOF>>			{printf("words: %d \n", iWords); return yytext[10];}
+
+	%%
+
+	int yywrap() { 
+		return 1; //true per input multipli 
+	}
+
+	int main() {
+		printf("%d", yylex()); //10
+	}
+
+\end{lstlisting}
+
+\subsection{Yywrap Function}
+
+When the scanner receives an end-of-file indication from YY$\_$INPUT, it then checks the yywrap() function. 
+If yywrap() returns false (zero), then it is assumed that the function has gone ahead and set up yyin to point to another input file, 
+and scanning continues. If it returns true (non-zero), then the scanner terminates, returning 0 to its caller. 
+Note that in either case, the start condition remains unchanged; it does not revert to INITIAL. 
+
+\subsection{Input Multipli}
+\begin{lstlisting}
+	%{
+		#include <stdlib.h>
+		int iCurrentFile = 0;
+		int iFiles = 0;
+		char**lpszFileName = NULL;
+	%}
+	%%
+	.|\n 	{printf("ciao"):}
+	%%
+	int yywrap() {
+		FILE*fInput = NULL;
+		if (iCurrentFile<iFiles) {
+			printf("Frase finale");
+			//reset variables
+
+			fclose(yyin);
+
+			iCurrentFile+=1;
+
+			fInput = fopen(lpszFileName[iCurrentFile], "r");
+			if (fInput!=NULL) {
+				yyin = fInput; //yyin il file da parsare
+			}		
+		}
+		return fInput!=NULL ? 0 : 1;
+	}
+
+	int main(int iArgC, char**lpszArgV) {
+		if (iArgC>1){
+			iFiles=iArgC;
+			lpszFileName = &lpszArgV[1];
+
+			FILE*fInput = fopen(lpszFileName[iCurrentFile], "r");
+			if (fInput!=NULL) {
+				yyin = fInput; 
+				yylex(); //start parsing yyin
+			}
+		}
+	}
+\end{lstlisting}
+
 \section{Context Sensitivity (CS)}
 In base al token letto devo comportarmi in modo diverso.
 Ho delle \textbf{start conditions} (o start state), solo una \'e attiva. Il primo start state \'e l'\textbf{initial}.
 Uno start state pu\'o essere \textbf{inclusivo} o \textbf{esclusivo}.
 
-Da uno start state esclusivo solo re correlate ad esso sono raggiungibili.
+Da uno start state esclusivo solo regex correlate ad esso sono raggiungibili.
 
-Da uno start state inclusivo tutte le re correlate ad esso ed anche quelle non correlate agli altri start state sono raggiungibili.
+Da uno start state inclusivo tutte le regex correlate ad esso ed anche quelle non correlate agli altri start state sono raggiungibili.
 
 \begin{lstlisting}
 	%{ /* */ %}
@@ -172,6 +266,87 @@ Gli start state sono realizzati tramite uno stack, ho tre funzioni per manipolar
 	\item int yy top state() //fa la top, non esistono metacomandi per farla;\\
 \end{itemize}
 
+\subsection{Esempio}
+
+\begin{lstlisting}
+%{
+    #include <stdlib.h>
+
+    int iLine = 0;
+    int iColumn = 0;
+%}
+
+%s FirstDate 
+%x SecondDate Motivation Amount Info
+
+%%
+
+"#".+		{iColumn+=yyleng;}
+
+"$"		{iColumn+=1; 
+			fprintf(yyout, "INSERT INTO Movement(SDate, EDate, Desc, Amount, Info) VALUES (");
+			BEGIN FirstDate;}
+
+([0-9]{2}"/"?){3}					{iColumn+=yyleng; 
+										fprintf(yyout, "to_date('%s', 'DD/MM/YY'), ", yytext); 
+										BEGIN SecondDate;}
+
+<SecondDate>([0-9]{2}"/"?){3}	{iColumn+=yyleng;
+										fprintf(yyout, "to_date('%s', 'DD/MM/YY'), ", yytext); 
+										BEGIN Motivation;}
+
+<Motivation>[^-0-9]+                {iColumn+=yyleng;
+                                    fprintf(yyout, "'%s', ", yytext); BEGIN Amount;}
+
+<Amount>"-"?[0-9\.]+","[0-9]{2}[ \t]+"EUR"        {int i=0, j=0;
+                                                    for (;i<yyleng; i+=1, j+=1) {
+                                                        if (yytext[i]=='.') {
+                                                            i+=1;
+                                                        }
+                                                        if (i!=j) {
+                                                            yytext[j]=yytext[i];
+                                                        }
+                                                    }
+                                                    yytext[j]='\0';
+                                                    for (int i=0; i<yyleng; i+=1) {
+                                                        if (yytext[i]==','){yytext[i]='.';}
+                                                        if (yytext[i]==' '){
+                                                            yytext[i]='\0'; break;
+                                                        }
+                                                    }
+                                                    fprintf(yyout, "%s, ", yytext);
+                                                    BEGIN Info;}
+
+<Info>[^$]*                         {for (int i=0; i<yyleng; i+=1) {
+                                            if (yytext[i]=='\n'||yytext[i]=='\r') {
+                                                yytext[i]=' ';
+                                            }
+                                        }
+                                        fprintf(yyout, "'%s');\n", yytext);
+                                        BEGIN INITIAL;}
+
+[ \t]+                              {iColumn+=yyleng;}
+[\r\n|\r|\n]                        {iColumn=0; iLine+=1;}
+.                                   {printf("ERROR in line: %d, column: %d.", iLine, iColumn); 
+										yyterminate();}
+%%
+
+int yywrap(){return 1;}
+
+int main(int iArgC, char**lpszArgV) {
+    FILE*fInput = fopen(lpszArgV[1], "r");
+    FILE*fOutput = fopen(lpszArgV[2], "w");
+    if (fInput!=NULL && fOutput!=NULL) {
+        yyin = fInput;
+        yyout = fOutput;
+
+        fprintf(yyout, "DROP TABLE IF EXISTS Movement;");
+		fprintf(yyout, "CREATE TABLE Movement(\n\tStartDate DATE,\n\tEndingDate DATE, ...;\n");
+        yylex();
+    }
+}
+\end{lstlisting}
+
 \section{Ambiguous Specifications}
 Dati $\alpha$ e $\beta$ regular expressions talich\'e $L(\alpha ) \subset L(\beta )$, devo stare attento all'ordine in cui le scrivo, quelle pi\'u in alto hanno precedenza su quelle pi\'u in basso. 
 
@@ -204,7 +379,15 @@ Posso anche usare \textbf{REJECT} per darla in pasto alla seconda re in ordine d
 
 \chapter{Exercises}
 \section{Lex}
-	Your time:
-	Devise a lexer accepting a Windows file path.
-	Devise a lexer accepting a Linux file path.
-	Devise a lexer accepting a non regular language.
+
+Devise a lexer accepting a Windows file path.\\
+Devise a lexer accepting a Linux file path.\\
+Devise a lexer accepting a non regular language.\\
+
+\section{Yacc}
+
+Design an unambiguous grammar for arithmetic expressions whose
+operations are: difference, sum, product, division, exponentiation.\\
+Remember to encode precedence and associativity:
+Difference and sum are left associative.\\
+Product, division and exponentiation are right associative.\\

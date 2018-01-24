@@ -1,0 +1,13 @@
+SET search_path TO EstrattoConto;
+DROP TABLE IF EXISTS Movement;
+CREATE TABLE Movement(
+	StartDate DATE,
+	EndingDate DATE,
+	Amount REAL,
+	Description TEXT,
+	Information TEXT
+);
+INSERT INTO Movement(StartDate, EndingDate, Description, Amount, Information) VALUES (to_date('21/05/07', 'DD/MM/YY'),  to_date('21/05/07', 'DD/MM/YY'), ' Disposizione Di Bonifico ', -156.00, '  BEN:BARACK OBAMA & DONALD TRUMP  POLIZZA N. 701666  RAMO 0A2 DIMORA ALTUARIA  COORD.BAN. C11/11/255551 BARACK OB  SPESE ORD.:    ');
+INSERT INTO Movement(StartDate, EndingDate, Description, Amount, Information) VALUES (to_date('31/05/07', 'DD/MM/YY'),  to_date('01/06/07', 'DD/MM/YY'), ' Accredito Emolumenti/stipendi/ ', 1436.00, '  Ord.:I.N.P.S.  ACCREDITO PENSIONE RATA N.000    ');
+INSERT INTO Movement(StartDate, EndingDate, Description, Amount, Information) VALUES (to_date('31/05/07', 'DD/MM/YY'),  to_date('01/06/07', 'DD/MM/YY'), ' Accredito Emolumenti/stipendi/ ', 123.00, '  Ord.:I.N.P.S.  ACCREDITO PENSIONE RATA N.001    #More comments...Saldo Contabile Al 15/05/2007 6.837,54 EUR  ');
+SELECT * FROM   Movement;
