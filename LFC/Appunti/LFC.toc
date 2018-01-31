@@ -1,171 +1,171 @@
-\contentsline {chapter}{\numberline {1}Introduzione}{2}{chapter.1}
-\contentsline {section}{\numberline {1.1}Front-End of the Compiler}{2}{section.1.1}
-\contentsline {section}{\numberline {1.2}Back-End of the Compiler}{2}{section.1.2}
-\contentsline {section}{\numberline {1.3}Lexical analysis}{2}{section.1.3}
-\contentsline {section}{\numberline {1.4}Session syntax analyzer}{3}{section.1.4}
-\contentsline {section}{\numberline {1.5}Semantic analyzer}{3}{section.1.5}
-\contentsline {section}{\numberline {1.6}Intermediate code generation}{3}{section.1.6}
-\contentsline {section}{\numberline {1.7}Code generation}{3}{section.1.7}
-\contentsline {chapter}{\numberline {2}2}{4}{chapter.2}
-\contentsline {section}{\numberline {2.1}Syntax Analysis}{4}{section.2.1}
-\contentsline {subsection}{\numberline {2.1.1}ie)}{5}{subsection.2.1.1}
-\contentsline {section}{\numberline {2.2}Derivations}{5}{section.2.2}
-\contentsline {subsection}{\numberline {2.2.1}ie)}{5}{subsection.2.2.1}
-\contentsline {section}{\numberline {2.3}Parsing}{5}{section.2.3}
-\contentsline {subsection}{\numberline {2.3.1}Associativit\'a a sinistra}{6}{subsection.2.3.1}
-\contentsline {section}{\numberline {2.4}Precedenze degli operatori}{6}{section.2.4}
-\contentsline {section}{\numberline {2.5}Java statements}{6}{section.2.5}
-\contentsline {subsection}{\numberline {2.5.1}ie) notazione postfissa}{6}{subsection.2.5.1}
-\contentsline {subsection}{\numberline {2.5.2}ie) }{7}{subsection.2.5.2}
-\contentsline {section}{\numberline {2.6}Syntax Directed Translation}{7}{section.2.6}
-\contentsline {subsection}{\numberline {2.6.1}Postfix notation}{7}{subsection.2.6.1}
-\contentsline {section}{\numberline {2.7}Tree traversals}{7}{section.2.7}
-\contentsline {chapter}{\numberline {3}Link}{8}{chapter.3}
-\contentsline {chapter}{\numberline {4}Introduzione}{9}{chapter.4}
-\contentsline {section}{\numberline {4.1}Grammatiche}{9}{section.4.1}
-\contentsline {subsection}{\numberline {4.1.1}Derivazioni}{10}{subsection.4.1.1}
-\contentsline {subsection}{\numberline {4.1.2}Linguaggio generato da una grammatica}{10}{subsection.4.1.2}
-\contentsline {chapter}{\numberline {5}Linguaggi liberi}{11}{chapter.5}
-\contentsline {section}{\numberline {5.1}Grammatica libera dal contesto (context free)}{11}{section.5.1}
-\contentsline {subsection}{\numberline {5.1.1}Esempi}{11}{subsection.5.1.1}
-\contentsline {section}{\numberline {5.2}Abstract syntax Tree}{11}{section.5.2}
-\contentsline {section}{\numberline {5.3}Grammatiche ambigue}{12}{section.5.3}
-\contentsline {section}{\numberline {5.4}Linguaggi liberi}{12}{section.5.4}
-\contentsline {subsection}{\numberline {5.4.1}Esempio}{13}{subsection.5.4.1}
-\contentsline {section}{\numberline {5.5}Pumping Lemma per Linguaggi Liberi}{13}{section.5.5}
-\contentsline {subsection}{\numberline {5.5.1}Commento definizione}{13}{subsection.5.5.1}
-\contentsline {subsection}{\numberline {5.5.2}Dimostrazione Pumping Lemma}{13}{subsection.5.5.2}
-\contentsline {subsubsection}{CNF}{14}{section*.2}
-\contentsline {section}{\numberline {5.6}Pumping Lemma per assurdo}{15}{section.5.6}
-\contentsline {subsection}{\numberline {5.6.1}How not to use Pumping Lemma}{16}{subsection.5.6.1}
-\contentsline {subsection}{\numberline {5.6.2}Esempi}{16}{subsection.5.6.2}
-\contentsline {subsection}{\numberline {5.6.3}Esempi Linguaggi Liberi}{17}{subsection.5.6.3}
-\contentsline {subsection}{\numberline {5.6.4}Conferma $a^n b^n c^n $ non \'e libero}{17}{subsection.5.6.4}
-\contentsline {subsection}{\numberline {5.6.5}La classe dei linguaggi liberi non \'e chiusa all'intersezione}{18}{subsection.5.6.5}
-\contentsline {chapter}{\numberline {6}Automi a stati finiti}{19}{chapter.6}
-\contentsline {section}{\numberline {6.1}Thompson construction}{19}{section.6.1}
-\contentsline {section}{\numberline {6.2}Simulare un NFA}{20}{section.6.2}
-\contentsline {subsection}{\numberline {6.2.1}$\varepsilon -closure$}{20}{subsection.6.2.1}
-\contentsline {subsection}{\numberline {6.2.2}Algoritmo per la computazione $\varepsilon -closure$}{20}{subsection.6.2.2}
-\contentsline {subsection}{\numberline {6.2.3}Algoritmo per la simulazione di un NFA}{21}{subsection.6.2.3}
-\contentsline {subsection}{\numberline {6.2.4}Sink}{21}{subsection.6.2.4}
-\contentsline {section}{\numberline {6.3}DFA}{21}{section.6.3}
-\contentsline {subsection}{\numberline {6.3.1}Linguaggio riconosciuto dal DFA}{21}{subsection.6.3.1}
-\contentsline {subsection}{\numberline {6.3.2}Simulazione di un DFA con $move_d$ totale}{21}{subsection.6.3.2}
-\contentsline {section}{\numberline {6.4}Subset Construction}{22}{section.6.4}
-\contentsline {subsection}{\numberline {6.4.1}Esercizio}{22}{subsection.6.4.1}
-\contentsline {subsection}{\numberline {6.4.2}Esercizio}{23}{subsection.6.4.2}
-\contentsline {section}{\numberline {6.5}Partition Refinement}{23}{section.6.5}
-\contentsline {subsection}{\numberline {6.5.1}Algoritmo di Partition Refinement}{23}{subsection.6.5.1}
-\contentsline {subsection}{\numberline {6.5.2}Esempio}{24}{subsection.6.5.2}
-\contentsline {section}{\numberline {6.6}Algoritmo di minimizzazione di DFA}{24}{section.6.6}
-\contentsline {subsection}{\numberline {6.6.1}Esempio}{24}{subsection.6.6.1}
-\contentsline {subsection}{\numberline {6.6.2}Esempio}{25}{subsection.6.6.2}
-\contentsline {subsection}{\numberline {6.6.3}Esempio}{25}{subsection.6.6.3}
-\contentsline {subsection}{\numberline {6.6.4}Lemma}{26}{subsection.6.6.4}
-\contentsline {section}{\numberline {6.7}Ricapitolando}{27}{section.6.7}
-\contentsline {chapter}{\numberline {7}Linguaggi Regolari o Lineari}{28}{chapter.7}
-\contentsline {section}{\numberline {7.1}Da DFA a Grammatica Regolare}{28}{section.7.1}
-\contentsline {subsection}{\numberline {7.1.1}Esempio}{28}{subsection.7.1.1}
-\contentsline {subsection}{\numberline {7.1.2}Considerazioni}{28}{subsection.7.1.2}
-\contentsline {subsection}{\numberline {7.1.3}Esempio}{29}{subsection.7.1.3}
-\contentsline {section}{\numberline {7.2}Pumping Lemma per Linguaggi Regolari}{29}{section.7.2}
-\contentsline {subsection}{\numberline {7.2.1}Dimostrazione}{29}{subsection.7.2.1}
-\contentsline {subsection}{\numberline {7.2.2}Negazione testi Pumping Lemma per linguaggi regolari}{29}{subsection.7.2.2}
-\contentsline {subsection}{\numberline {7.2.3}Esercizio}{29}{subsection.7.2.3}
-\contentsline {subsection}{\numberline {7.2.4}Esercizi di esame}{30}{subsection.7.2.4}
-\contentsline {chapter}{\numberline {8}Analisi Sintattica}{31}{chapter.8}
-\contentsline {section}{\numberline {8.1}Parsing Top-down}{31}{section.8.1}
-\contentsline {section}{\numberline {8.2}Parsing Top-down predittivo (o non ricorsivo)}{31}{section.8.2}
-\contentsline {section}{\numberline {8.3}Grammatica LL(1)}{31}{section.8.3}
-\contentsline {section}{\numberline {8.4}First}{31}{section.8.4}
-\contentsline {subsection}{\numberline {8.4.1}Esercizio}{31}{subsection.8.4.1}
-\contentsline {subsection}{\numberline {8.4.2}Esercizio}{31}{subsection.8.4.2}
-\contentsline {subsection}{\numberline {8.4.3}Esercizio}{32}{subsection.8.4.3}
-\contentsline {subsection}{\numberline {8.4.4}Esercizio}{32}{subsection.8.4.4}
-\contentsline {subsection}{\numberline {8.4.5}Algoritmo calcolo dei first}{32}{subsection.8.4.5}
-\contentsline {subsection}{\numberline {8.4.6}Esercizio}{32}{subsection.8.4.6}
-\contentsline {section}{\numberline {8.5}Follow}{33}{section.8.5}
-\contentsline {subsection}{\numberline {8.5.1}Esempio}{34}{subsection.8.5.1}
-\contentsline {subsection}{\numberline {8.5.2}Esempio}{34}{subsection.8.5.2}
-\contentsline {subsection}{\numberline {8.5.3}Esempio}{34}{subsection.8.5.3}
-\contentsline {section}{\numberline {8.6}Tabella di parsing}{34}{section.8.6}
-\contentsline {subsection}{\numberline {8.6.1}Algoritmo di costruzione della tabella di parsing predittivo top-down}{35}{subsection.8.6.1}
-\contentsline {subsection}{\numberline {8.6.2}Esempio}{35}{subsection.8.6.2}
-\contentsline {section}{\numberline {8.7}Algoritmi di Parsing}{35}{section.8.7}
-\contentsline {subsection}{\numberline {8.7.1}Algoritmo di parsing non-ricorsivo}{35}{subsection.8.7.1}
-\contentsline {subsection}{\numberline {8.7.2}Esempio}{36}{subsection.8.7.2}
-\contentsline {subsection}{\numberline {8.7.3}Esercizio}{36}{subsection.8.7.3}
-\contentsline {section}{\numberline {8.8}Grammatica Ricorsiva Sinistra}{37}{section.8.8}
-\contentsline {section}{\numberline {8.9}Eliminazione Left Recursion immediata}{37}{section.8.9}
-\contentsline {subsection}{\numberline {8.9.1}Esempio}{37}{subsection.8.9.1}
-\contentsline {subsection}{\numberline {8.9.2}Esempio}{37}{subsection.8.9.2}
-\contentsline {subsubsection}{Tabella di parsing}{38}{section*.3}
-\contentsline {subsection}{\numberline {8.9.3}Esempio}{38}{subsection.8.9.3}
-\contentsline {section}{\numberline {8.10}Left Factoring}{38}{section.8.10}
-\contentsline {subsubsection}{DEF}{38}{section*.4}
-\contentsline {subsubsection}{DEF}{38}{section*.5}
-\contentsline {subsubsection}{Lemma}{38}{section*.6}
-\contentsline {section}{\numberline {8.11}Algoritmo di fattorizzazione a sinistra}{38}{section.8.11}
-\contentsline {chapter}{\numberline {9}Parsing Bottom Up (Zampedri)}{40}{chapter.9}
-\contentsline {section}{\numberline {9.1}Reductions}{40}{section.9.1}
-\contentsline {section}{\numberline {9.2}Handle Pruning}{40}{section.9.2}
-\contentsline {section}{\numberline {9.3}Shift reduce parsing}{41}{section.9.3}
-\contentsline {subsection}{\numberline {9.3.1}Esempio}{41}{subsection.9.3.1}
-\contentsline {section}{\numberline {9.4}LR parsing}{41}{section.9.4}
-\contentsline {subsection}{\numberline {9.4.1}LR(0) Automaton}{42}{subsection.9.4.1}
-\contentsline {subsubsection}{Closure of Item Sets}{42}{section*.7}
-\contentsline {subsubsection}{GOTO funtion}{42}{section*.8}
-\contentsline {subsection}{\numberline {9.4.2}Esempio}{43}{subsection.9.4.2}
-\contentsline {section}{\numberline {9.5}Algoritmo generazione canonical collection C}{43}{section.9.5}
-\contentsline {section}{\numberline {9.6}Simple LR (SLR)}{43}{section.9.6}
-\contentsline {subsection}{\numberline {9.6.1}Esempio}{43}{subsection.9.6.1}
-\contentsline {section}{\numberline {9.7}The LR-Parsing Algorithm}{44}{section.9.7}
-\contentsline {subsection}{\numberline {9.7.1}Structure of LR Parsing Table}{44}{subsection.9.7.1}
-\contentsline {subsection}{\numberline {9.7.2}LR Parsing Algorithm}{45}{subsection.9.7.2}
-\contentsline {subsection}{\numberline {9.7.3}Costruire SLR-Parsing Table}{45}{subsection.9.7.3}
-\contentsline {subsection}{\numberline {9.7.4}Esempio}{46}{subsection.9.7.4}
-\contentsline {subsection}{\numberline {9.7.5}Shift/Reduce Conflicts}{47}{subsection.9.7.5}
-\contentsline {section}{\numberline {9.8}Viable Prefixes}{48}{section.9.8}
-\contentsline {subsection}{\numberline {9.8.1}Resolve Shift/Reduce Conflicts}{48}{subsection.9.8.1}
-\contentsline {section}{\numberline {9.9}More Powerful LR Parsers}{49}{section.9.9}
-\contentsline {section}{\numberline {9.10}Canonical LR(1) items}{49}{section.9.10}
-\contentsline {subsection}{\numberline {9.10.1}Closure Function for LR(1) Sets of Items}{49}{subsection.9.10.1}
-\contentsline {subsection}{\numberline {9.10.2}Costructing LR(1) Goto Function}{49}{subsection.9.10.2}
-\contentsline {subsection}{\numberline {9.10.3}Items(G')}{50}{subsection.9.10.3}
-\contentsline {subsection}{\numberline {9.10.4}Esempio}{50}{subsection.9.10.4}
-\contentsline {subsection}{\numberline {9.10.5}Canonical LR(1) Parsing Table}{51}{subsection.9.10.5}
-\contentsline {subsection}{\numberline {9.10.6}Esempio}{52}{subsection.9.10.6}
-\contentsline {section}{\numberline {9.11}LALR (LookAhead LR) Parsing Table}{52}{section.9.11}
-\contentsline {subsection}{\numberline {9.11.1}LALR Parsing Table}{52}{subsection.9.11.1}
-\contentsline {subsection}{\numberline {9.11.2}Esempio}{53}{subsection.9.11.2}
-\contentsline {section}{\numberline {9.12}Efficient Construction of LALR Parsing Table}{53}{section.9.12}
-\contentsline {chapter}{\numberline {10}Bottom Up (Farina)}{54}{chapter.10}
-\contentsline {subsection}{\numberline {10.0.1}Esempio}{54}{subsection.10.0.1}
-\contentsline {section}{\numberline {10.1}Algoritmo di shift/reduce}{55}{section.10.1}
-\contentsline {subsection}{\numberline {10.1.1}Closure}{56}{subsection.10.1.1}
-\contentsline {section}{\numberline {10.2}Items}{57}{section.10.2}
-\contentsline {chapter}{\numberline {11}Costruzione di un automa caratteristico LR(0) o LR(1)}{58}{chapter.11}
-\contentsline {subsection}{\numberline {11.0.1}Esempi di closure, grammatica SLR}{58}{subsection.11.0.1}
-\contentsline {section}{\numberline {11.1}Algoritmo di $closure_0(P)$}{59}{section.11.1}
-\contentsline {section}{\numberline {11.2}LR(0) automaton}{59}{section.11.2}
-\contentsline {subsection}{\numberline {11.2.1}Esempio}{59}{subsection.11.2.1}
-\contentsline {section}{\numberline {11.3}Creazione della tabella di parsing}{59}{section.11.3}
-\contentsline {subsection}{\numberline {11.3.1}Esercizio}{60}{subsection.11.3.1}
-\contentsline {subsection}{\numberline {11.3.2}Esempio Conflitti Shift/Reduce}{60}{subsection.11.3.2}
-\contentsline {subsection}{\numberline {11.3.3}Esempio Conflitti Reduce/Reduce}{62}{subsection.11.3.3}
-\contentsline {section}{\numberline {11.4}LR(1)}{63}{section.11.4}
-\contentsline {subsection}{\numberline {11.4.1}Esempio grammatica LR(1)}{63}{subsection.11.4.1}
-\contentsline {section}{\numberline {11.5}Algoritmo $Closure_1(P)$}{63}{section.11.5}
-\contentsline {section}{\numberline {11.6}Esempio grammatica LALR}{64}{section.11.6}
-\contentsline {subsection}{\numberline {11.6.1}Ricorda}{66}{subsection.11.6.1}
-\contentsline {section}{\numberline {11.7}Algoritmo LALR(1) (inefficiente)}{66}{section.11.7}
-\contentsline {subsection}{\numberline {11.7.1}Esempio (Vedi esempio conflitti reduce/reduce)}{66}{subsection.11.7.1}
-\contentsline {subsection}{\numberline {11.7.2}Esempio}{68}{subsection.11.7.2}
-\contentsline {section}{\numberline {11.8}Algoritmo LALR (efficiente)}{68}{section.11.8}
-\contentsline {subsection}{\numberline {11.8.1}Esempio}{68}{subsection.11.8.1}
-\contentsline {section}{\numberline {11.9}Costruzione automa simbolico}{70}{section.11.9}
-\contentsline {section}{\numberline {11.10}Grammatiche Attribuite}{71}{section.11.10}
-\contentsline {section}{\numberline {11.11}Attributi Sintetizzati ed Ereditati}{71}{section.11.11}
-\contentsline {subsection}{\numberline {11.11.1}Esempio}{72}{subsection.11.11.1}
-\contentsline {subsection}{\numberline {11.11.2}Esempio}{72}{subsection.11.11.2}
+\contentsline {chapter}{\numberline {1}Introduzione}{3}{chapter.1}
+\contentsline {section}{\numberline {1.1}Front-End of the Compiler}{3}{section.1.1}
+\contentsline {section}{\numberline {1.2}Back-End of the Compiler}{3}{section.1.2}
+\contentsline {section}{\numberline {1.3}Lexical analysis}{3}{section.1.3}
+\contentsline {section}{\numberline {1.4}Session syntax analyzer}{4}{section.1.4}
+\contentsline {section}{\numberline {1.5}Semantic analyzer}{4}{section.1.5}
+\contentsline {section}{\numberline {1.6}Intermediate code generation}{4}{section.1.6}
+\contentsline {section}{\numberline {1.7}Code generation}{4}{section.1.7}
+\contentsline {chapter}{\numberline {2}2}{5}{chapter.2}
+\contentsline {section}{\numberline {2.1}Syntax Analysis}{5}{section.2.1}
+\contentsline {subsection}{\numberline {2.1.1}ie)}{6}{subsection.2.1.1}
+\contentsline {section}{\numberline {2.2}Derivations}{6}{section.2.2}
+\contentsline {subsection}{\numberline {2.2.1}ie)}{6}{subsection.2.2.1}
+\contentsline {section}{\numberline {2.3}Parsing}{6}{section.2.3}
+\contentsline {subsection}{\numberline {2.3.1}Associativit\'a a sinistra}{7}{subsection.2.3.1}
+\contentsline {section}{\numberline {2.4}Precedenze degli operatori}{7}{section.2.4}
+\contentsline {section}{\numberline {2.5}Java statements}{7}{section.2.5}
+\contentsline {subsection}{\numberline {2.5.1}ie) notazione postfissa}{7}{subsection.2.5.1}
+\contentsline {subsection}{\numberline {2.5.2}ie) }{8}{subsection.2.5.2}
+\contentsline {section}{\numberline {2.6}Syntax Directed Translation}{8}{section.2.6}
+\contentsline {subsection}{\numberline {2.6.1}Postfix notation}{8}{subsection.2.6.1}
+\contentsline {section}{\numberline {2.7}Tree traversals}{8}{section.2.7}
+\contentsline {chapter}{\numberline {3}Link}{9}{chapter.3}
+\contentsline {chapter}{\numberline {4}Introduzione}{10}{chapter.4}
+\contentsline {section}{\numberline {4.1}Grammatiche}{10}{section.4.1}
+\contentsline {subsection}{\numberline {4.1.1}Derivazioni}{11}{subsection.4.1.1}
+\contentsline {subsection}{\numberline {4.1.2}Linguaggio generato da una grammatica}{11}{subsection.4.1.2}
+\contentsline {chapter}{\numberline {5}Linguaggi liberi}{12}{chapter.5}
+\contentsline {section}{\numberline {5.1}Grammatica libera dal contesto (context free)}{12}{section.5.1}
+\contentsline {subsection}{\numberline {5.1.1}Esempi}{12}{subsection.5.1.1}
+\contentsline {section}{\numberline {5.2}Abstract syntax Tree}{12}{section.5.2}
+\contentsline {section}{\numberline {5.3}Grammatiche ambigue}{13}{section.5.3}
+\contentsline {section}{\numberline {5.4}Linguaggi liberi}{13}{section.5.4}
+\contentsline {subsection}{\numberline {5.4.1}Esempio}{14}{subsection.5.4.1}
+\contentsline {section}{\numberline {5.5}Pumping Lemma per Linguaggi Liberi}{14}{section.5.5}
+\contentsline {subsection}{\numberline {5.5.1}Commento definizione}{14}{subsection.5.5.1}
+\contentsline {subsection}{\numberline {5.5.2}Dimostrazione Pumping Lemma}{14}{subsection.5.5.2}
+\contentsline {subsubsection}{CNF}{15}{section*.2}
+\contentsline {section}{\numberline {5.6}Pumping Lemma per assurdo}{16}{section.5.6}
+\contentsline {subsection}{\numberline {5.6.1}How not to use Pumping Lemma}{17}{subsection.5.6.1}
+\contentsline {subsection}{\numberline {5.6.2}Esempi}{17}{subsection.5.6.2}
+\contentsline {subsection}{\numberline {5.6.3}Esempi Linguaggi Liberi}{18}{subsection.5.6.3}
+\contentsline {subsection}{\numberline {5.6.4}Conferma $a^n b^n c^n $ non \'e libero}{18}{subsection.5.6.4}
+\contentsline {subsection}{\numberline {5.6.5}La classe dei linguaggi liberi non \'e chiusa all'intersezione}{19}{subsection.5.6.5}
+\contentsline {chapter}{\numberline {6}Automi a stati finiti}{20}{chapter.6}
+\contentsline {section}{\numberline {6.1}Thompson construction}{20}{section.6.1}
+\contentsline {section}{\numberline {6.2}Simulare un NFA}{21}{section.6.2}
+\contentsline {subsection}{\numberline {6.2.1}$\varepsilon -closure$}{21}{subsection.6.2.1}
+\contentsline {subsection}{\numberline {6.2.2}Algoritmo per la computazione $\varepsilon -closure$}{21}{subsection.6.2.2}
+\contentsline {subsection}{\numberline {6.2.3}Algoritmo per la simulazione di un NFA}{22}{subsection.6.2.3}
+\contentsline {subsection}{\numberline {6.2.4}Sink}{22}{subsection.6.2.4}
+\contentsline {section}{\numberline {6.3}DFA}{22}{section.6.3}
+\contentsline {subsection}{\numberline {6.3.1}Linguaggio riconosciuto dal DFA}{22}{subsection.6.3.1}
+\contentsline {subsection}{\numberline {6.3.2}Simulazione di un DFA con $move_d$ totale}{22}{subsection.6.3.2}
+\contentsline {section}{\numberline {6.4}Subset Construction}{23}{section.6.4}
+\contentsline {subsection}{\numberline {6.4.1}Esercizio}{23}{subsection.6.4.1}
+\contentsline {subsection}{\numberline {6.4.2}Esercizio}{24}{subsection.6.4.2}
+\contentsline {section}{\numberline {6.5}Partition Refinement}{24}{section.6.5}
+\contentsline {subsection}{\numberline {6.5.1}Algoritmo di Partition Refinement}{24}{subsection.6.5.1}
+\contentsline {subsection}{\numberline {6.5.2}Esempio}{25}{subsection.6.5.2}
+\contentsline {section}{\numberline {6.6}Algoritmo di minimizzazione di DFA}{25}{section.6.6}
+\contentsline {subsection}{\numberline {6.6.1}Esempio}{25}{subsection.6.6.1}
+\contentsline {subsection}{\numberline {6.6.2}Esempio}{26}{subsection.6.6.2}
+\contentsline {subsection}{\numberline {6.6.3}Esempio}{26}{subsection.6.6.3}
+\contentsline {subsection}{\numberline {6.6.4}Lemma}{27}{subsection.6.6.4}
+\contentsline {section}{\numberline {6.7}Ricapitolando}{28}{section.6.7}
+\contentsline {chapter}{\numberline {7}Linguaggi Regolari o Lineari}{29}{chapter.7}
+\contentsline {section}{\numberline {7.1}Da DFA a Grammatica Regolare}{29}{section.7.1}
+\contentsline {subsection}{\numberline {7.1.1}Esempio}{29}{subsection.7.1.1}
+\contentsline {subsection}{\numberline {7.1.2}Considerazioni}{29}{subsection.7.1.2}
+\contentsline {subsection}{\numberline {7.1.3}Esempio}{30}{subsection.7.1.3}
+\contentsline {section}{\numberline {7.2}Pumping Lemma per Linguaggi Regolari}{30}{section.7.2}
+\contentsline {subsection}{\numberline {7.2.1}Dimostrazione}{30}{subsection.7.2.1}
+\contentsline {subsection}{\numberline {7.2.2}Negazione testi Pumping Lemma per linguaggi regolari}{30}{subsection.7.2.2}
+\contentsline {subsection}{\numberline {7.2.3}Esercizio}{30}{subsection.7.2.3}
+\contentsline {subsection}{\numberline {7.2.4}Esercizi di esame}{31}{subsection.7.2.4}
+\contentsline {chapter}{\numberline {8}Analisi Sintattica}{32}{chapter.8}
+\contentsline {section}{\numberline {8.1}Parsing Top-down}{32}{section.8.1}
+\contentsline {section}{\numberline {8.2}Parsing Top-down predittivo (o non ricorsivo)}{32}{section.8.2}
+\contentsline {section}{\numberline {8.3}Grammatica LL(1)}{32}{section.8.3}
+\contentsline {section}{\numberline {8.4}First}{32}{section.8.4}
+\contentsline {subsection}{\numberline {8.4.1}Esercizio}{32}{subsection.8.4.1}
+\contentsline {subsection}{\numberline {8.4.2}Esercizio}{32}{subsection.8.4.2}
+\contentsline {subsection}{\numberline {8.4.3}Esercizio}{33}{subsection.8.4.3}
+\contentsline {subsection}{\numberline {8.4.4}Esercizio}{33}{subsection.8.4.4}
+\contentsline {subsection}{\numberline {8.4.5}Algoritmo calcolo dei first}{33}{subsection.8.4.5}
+\contentsline {subsection}{\numberline {8.4.6}Esercizio}{33}{subsection.8.4.6}
+\contentsline {section}{\numberline {8.5}Follow}{34}{section.8.5}
+\contentsline {subsection}{\numberline {8.5.1}Esempio}{35}{subsection.8.5.1}
+\contentsline {subsection}{\numberline {8.5.2}Esempio}{35}{subsection.8.5.2}
+\contentsline {subsection}{\numberline {8.5.3}Esempio}{35}{subsection.8.5.3}
+\contentsline {section}{\numberline {8.6}Tabella di parsing}{35}{section.8.6}
+\contentsline {subsection}{\numberline {8.6.1}Algoritmo di costruzione della tabella di parsing predittivo top-down}{36}{subsection.8.6.1}
+\contentsline {subsection}{\numberline {8.6.2}Esempio}{36}{subsection.8.6.2}
+\contentsline {section}{\numberline {8.7}Algoritmi di Parsing}{36}{section.8.7}
+\contentsline {subsection}{\numberline {8.7.1}Algoritmo di parsing non-ricorsivo}{36}{subsection.8.7.1}
+\contentsline {subsection}{\numberline {8.7.2}Esempio}{37}{subsection.8.7.2}
+\contentsline {subsection}{\numberline {8.7.3}Esercizio}{37}{subsection.8.7.3}
+\contentsline {section}{\numberline {8.8}Grammatica Ricorsiva Sinistra}{38}{section.8.8}
+\contentsline {section}{\numberline {8.9}Eliminazione Left Recursion immediata}{38}{section.8.9}
+\contentsline {subsection}{\numberline {8.9.1}Esempio}{38}{subsection.8.9.1}
+\contentsline {subsection}{\numberline {8.9.2}Esempio}{38}{subsection.8.9.2}
+\contentsline {subsubsection}{Tabella di parsing}{39}{section*.3}
+\contentsline {subsection}{\numberline {8.9.3}Esempio}{39}{subsection.8.9.3}
+\contentsline {section}{\numberline {8.10}Left Factoring}{39}{section.8.10}
+\contentsline {subsubsection}{DEF}{39}{section*.4}
+\contentsline {subsubsection}{DEF}{39}{section*.5}
+\contentsline {subsubsection}{Lemma}{39}{section*.6}
+\contentsline {section}{\numberline {8.11}Algoritmo di fattorizzazione a sinistra}{39}{section.8.11}
+\contentsline {chapter}{\numberline {9}Parsing Bottom Up (Zampedri)}{41}{chapter.9}
+\contentsline {section}{\numberline {9.1}Reductions}{41}{section.9.1}
+\contentsline {section}{\numberline {9.2}Handle Pruning}{41}{section.9.2}
+\contentsline {section}{\numberline {9.3}Shift reduce parsing}{42}{section.9.3}
+\contentsline {subsection}{\numberline {9.3.1}Esempio}{42}{subsection.9.3.1}
+\contentsline {section}{\numberline {9.4}LR parsing}{42}{section.9.4}
+\contentsline {subsection}{\numberline {9.4.1}LR(0) Automaton}{43}{subsection.9.4.1}
+\contentsline {subsubsection}{Closure of Item Sets}{43}{section*.7}
+\contentsline {subsubsection}{GOTO funtion}{43}{section*.8}
+\contentsline {subsection}{\numberline {9.4.2}Esempio}{44}{subsection.9.4.2}
+\contentsline {section}{\numberline {9.5}Algoritmo generazione canonical collection C}{44}{section.9.5}
+\contentsline {section}{\numberline {9.6}Simple LR (SLR)}{44}{section.9.6}
+\contentsline {subsection}{\numberline {9.6.1}Esempio}{44}{subsection.9.6.1}
+\contentsline {section}{\numberline {9.7}The LR-Parsing Algorithm}{45}{section.9.7}
+\contentsline {subsection}{\numberline {9.7.1}Structure of LR Parsing Table}{45}{subsection.9.7.1}
+\contentsline {subsection}{\numberline {9.7.2}LR Parsing Algorithm}{46}{subsection.9.7.2}
+\contentsline {subsection}{\numberline {9.7.3}Costruire SLR-Parsing Table}{46}{subsection.9.7.3}
+\contentsline {subsection}{\numberline {9.7.4}Esempio}{47}{subsection.9.7.4}
+\contentsline {subsection}{\numberline {9.7.5}Shift/Reduce Conflicts}{48}{subsection.9.7.5}
+\contentsline {section}{\numberline {9.8}Viable Prefixes}{49}{section.9.8}
+\contentsline {subsection}{\numberline {9.8.1}Resolve Shift/Reduce Conflicts}{49}{subsection.9.8.1}
+\contentsline {section}{\numberline {9.9}More Powerful LR Parsers}{50}{section.9.9}
+\contentsline {section}{\numberline {9.10}Canonical LR(1) items}{50}{section.9.10}
+\contentsline {subsection}{\numberline {9.10.1}Closure Function for LR(1) Sets of Items}{50}{subsection.9.10.1}
+\contentsline {subsection}{\numberline {9.10.2}Costructing LR(1) Goto Function}{50}{subsection.9.10.2}
+\contentsline {subsection}{\numberline {9.10.3}Items(G')}{51}{subsection.9.10.3}
+\contentsline {subsection}{\numberline {9.10.4}Esempio}{51}{subsection.9.10.4}
+\contentsline {subsection}{\numberline {9.10.5}Canonical LR(1) Parsing Table}{52}{subsection.9.10.5}
+\contentsline {subsection}{\numberline {9.10.6}Esempio}{53}{subsection.9.10.6}
+\contentsline {section}{\numberline {9.11}LALR (LookAhead LR) Parsing Table}{53}{section.9.11}
+\contentsline {subsection}{\numberline {9.11.1}LALR Parsing Table}{53}{subsection.9.11.1}
+\contentsline {subsection}{\numberline {9.11.2}Esempio}{54}{subsection.9.11.2}
+\contentsline {section}{\numberline {9.12}Efficient Construction of LALR Parsing Table}{54}{section.9.12}
+\contentsline {chapter}{\numberline {10}Bottom Up (Farina)}{55}{chapter.10}
+\contentsline {subsection}{\numberline {10.0.1}Esempio}{55}{subsection.10.0.1}
+\contentsline {section}{\numberline {10.1}Algoritmo di shift/reduce}{56}{section.10.1}
+\contentsline {subsection}{\numberline {10.1.1}Closure}{57}{subsection.10.1.1}
+\contentsline {section}{\numberline {10.2}Items}{58}{section.10.2}
+\contentsline {chapter}{\numberline {11}Costruzione di un automa caratteristico LR(0) o LR(1)}{59}{chapter.11}
+\contentsline {subsection}{\numberline {11.0.1}Esempi di closure, grammatica SLR}{59}{subsection.11.0.1}
+\contentsline {section}{\numberline {11.1}Algoritmo di $closure_0(P)$}{60}{section.11.1}
+\contentsline {section}{\numberline {11.2}LR(0) automaton}{60}{section.11.2}
+\contentsline {subsection}{\numberline {11.2.1}Esempio}{60}{subsection.11.2.1}
+\contentsline {section}{\numberline {11.3}Creazione della tabella di parsing}{60}{section.11.3}
+\contentsline {subsection}{\numberline {11.3.1}Esercizio}{61}{subsection.11.3.1}
+\contentsline {subsection}{\numberline {11.3.2}Esempio Conflitti Shift/Reduce}{61}{subsection.11.3.2}
+\contentsline {subsection}{\numberline {11.3.3}Esempio Conflitti Reduce/Reduce}{63}{subsection.11.3.3}
+\contentsline {section}{\numberline {11.4}LR(1)}{64}{section.11.4}
+\contentsline {subsection}{\numberline {11.4.1}Esempio grammatica LR(1)}{64}{subsection.11.4.1}
+\contentsline {section}{\numberline {11.5}Algoritmo $Closure_1(P)$}{64}{section.11.5}
+\contentsline {section}{\numberline {11.6}Esempio grammatica LALR}{65}{section.11.6}
+\contentsline {subsection}{\numberline {11.6.1}Ricorda}{67}{subsection.11.6.1}
+\contentsline {section}{\numberline {11.7}Algoritmo LALR(1) (inefficiente)}{67}{section.11.7}
+\contentsline {subsection}{\numberline {11.7.1}Esempio (Vedi esempio conflitti reduce/reduce)}{67}{subsection.11.7.1}
+\contentsline {subsection}{\numberline {11.7.2}Esempio}{69}{subsection.11.7.2}
+\contentsline {section}{\numberline {11.8}Algoritmo LALR (efficiente)}{69}{section.11.8}
+\contentsline {subsection}{\numberline {11.8.1}Esempio}{69}{subsection.11.8.1}
+\contentsline {section}{\numberline {11.9}Costruzione automa simbolico}{71}{section.11.9}
+\contentsline {section}{\numberline {11.10}Grammatiche Attribuite}{72}{section.11.10}
+\contentsline {section}{\numberline {11.11}Attributi Sintetizzati ed Ereditati}{72}{section.11.11}
+\contentsline {subsection}{\numberline {11.11.1}Esempio}{73}{subsection.11.11.1}
+\contentsline {subsection}{\numberline {11.11.2}Esempio}{73}{subsection.11.11.2}
