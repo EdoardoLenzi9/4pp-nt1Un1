@@ -617,7 +617,7 @@ Se G pu\'o essere fattorizzata a sinistra allora \textbf{G non \'e LL(1)}.
 manca roba
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\chapter{Parsing Bottom Up}
+\chapter{Parsing Bottom Up (Zampedri)}
 %Zampedri
 \begin{center}
     \includegraphics[scale=0.4]{Chapters/Img/c04_02.png}\\
@@ -1029,7 +1029,7 @@ Cerco di portarmi dietro pi\'u informazioni, splitto gli stati del SLR. Definisc
 $[A \rightarrow \alpha\beta ,\ a]$ con a un terminale o un end-marker $\$$ chiamato \textbf{lookahead} dell'item.
 Un item $[A \rightarrow \alpha ,\ a]$ viene ridotto solo se il simbolo dopo \'e una a. Il lookahead set dev'essere un subset dei follow di A.
 
-\subsection{Costructing LR(1) sets of Items}
+\subsection{Closure Function for LR(1) Sets of Items}
 \begin{lstlisting}
     repeat{
         foreach([A -> alpha B beta, a] in I){
@@ -1177,180 +1177,3 @@ Posso costruire i kernel degli item LALR(1) partendo dai kernel degli item LR(0)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Fine Zampedri}
-Ricostruire, se $w \in L(G)$, una rightmost derivation al contrario
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Esempio}
-$S \rightarrow aABe$\\
-$A \rightarrow Abc|b$\\
-$B \rightarrow d$\\
-
-w = abbcde visto che \'e rightmost devo espandere B dato che \'e il non terminale pi\'u a destra.
-$S \rightarrow aABe \rightarrow aAde \rightarrow aAbcde \rightarrow abbcde $\\
-
-\begin{center}
-    \includegraphics[scale=0.6]{Chapters/Img/c02_14.png}\\
-\end{center} 
-
-La sottolineatura significa che se arrivo in questo stato e sto leggendo come prossimo input una d o una b posso fare la riduzione della b usando A. Lo stesso vale per le altre, ovviamente con i loro simboli.
-La roba fra parentesi graffe si chiama look-ahead set.
-
-Nel grafo faccio quindi i seguenti passi (i numeri sono i nodi):
-\begin{tabular}{ll}
-    $0$   &   $abbcde\$$\\
-    $0 \rightarrow 2$ consumando \lq $a$ \rq     &  $a || bbcde \$ $\\
-    $2 \rightarrow 4$ consumando \lq $b$ \rq     &  $ab || bcde \$ $\\
-    4 riduco $A \rightarrow b$  & $aA || bcde$\\
-\end{tabular}
-A questo punto torno al nodo 2 ovvero il precedente. Vado quindi in 3, perch\'e ho la A al posto della b che avevo prima.\\
-torno a 2, vado in 3
-\begin{tabular}{ll}
-    $3 \rightarrow 7$ consumando \lq $b$ \rq     &  $aAb || cde \$ $\\
-    $7 \rightarrow 8$ consumando \lq $c$ \rq     &  $aAbc || de \$ $\\
-    8 riduco $A \rightarrow Abc$  & $aA || de$\\
-    torno a 7, torno in 3, vado in 9 & \\
-    $3 \rightarrow 9$ consumando \lq $d$ \rq     &  $aAd || e \$ $\\
-    riduco $B \rightarrow d$ & $aAB || e \$ $\\
-    torno a 3, vado in 5, vado in 6 & \\
-    $5 \rightarrow 6$ consumando \lq $e$ \rq     &  $aABe || \$ $\\
-    6 riduco $S \rightarrow aABe$ & $S || \$ $ \\
-    torno a 0, vado in 1, ho finito & \\
-\end{tabular}
-
-Noi vogliamo avere grammatiche di tipo LALR(1). Grammatiche: $SLR(1) \subset LALR(1) \subset LR(1)$
-
-\begin{center}
-    \includegraphics[scale=0.6]{Chapters/Img/c02_15.png}\\
-\end{center} 
-
-$S \rightarrow aSb | ab$\\
-$w = aaabbb\$$
-
-\begin{tabular}{ll}
-    $0$                             &   $aaabbb\$$  \\ 
-    $0 \rightarrow 2$               &   $a || aabbb\$$  \\ 
-    $2 \rightarrow 2$               &   $aa || abbb\$$  \\ 
-    $2 \rightarrow 2$               &   $aaa || bbb\$$  \\ 
-    $2 \rightarrow 4$               &   $aaab || bb\$$  \\ 
-    4 riduco $S \rightarrow ab$     &    $aaS || bb\$$  \\ 
-    torno a 2, vado in 3, vado in 5 & \\
-    $3 \rightarrow 5$               &   $aaSb || b\$$  \\ 
-    5 riduco $S \rightarrow aSb$    &   $aS || b\$$  \\ 
-    torno a 3, vado in 5            & \\
-    $3 \rightarrow 5$               &   $aSb || \$$  \\ 
-    5 riduco $S \rightarrow aSb$    &   $S || \$$  \\ 
-    torno a 0, vado in 1, ho finito & \\
-\end{tabular}\\[5pt]
-
-Questa \'e una tabella:\\
-\begin{tabular}{|l|l|l|}
-    \hline
-            &   terminali $\cup\ \$$                                     &   $V \backslash T$     \\
-    \hline
-    stati   &   shift-k: leggi un simbolo di input e vai allo stato     &   goto-k: descrive le funzioni di transizione  \\
-            &   reduce $A \rightarrow b $                               &   identificate dai non terminali quando consumi roba\\
-    \hline
-\end{tabular}
-
-\section{Algoritmo di shift/reduce}
-(comune a SLR(1), LR(1), LALR(1))
-
-\begin{tabular}{ll}
-    input   &   w, tabella di parsing bottom-up di tipo $\diamond$, con $\diamond$ scelto fra $\{SLR(1), LALR(1), LR(1)\}$ G.\\
-    output  &   derivazione rightmost di w se $w \in L(G)$, altrimenti error()\\  
-\end{tabular}
-
-\begin{lstlisting}
-    stack.push(s_0);
-    buffer = w$;
-    while(true){
-        let s = stack.top();
-        if(M[s,b] == shift-k){
-            stack.push(b);
-            stack.push(k);
-            let b = buffer.readNext(); 
-        } else if(M[s,b] == "reduce A -> beta"){
-            stack.pop() 2|beta| simboli;
-            let j tale che M[m, A] = gj;
-            push(A);
-            push(j);
-            output "A -> beta";
-        } else if(M[s,b] = accetta){
-            break;
-        } else {
-            error();
-        }
-    }
-\end{lstlisting}
-
-*sketo*
-$S \rightarrow aSb | ab $
-
-\begin{center}
-    \includegraphics[scale=0.6]{Chapters/Img/c02_15.png}\\
-\end{center} 
-
-Questo \'e uguale ma scritto diversamente per separare $\{ \$, b\}$ in $\{4\}$ e $\{b\}$. Nel caso di $w=aaabbb\$$. Una caso rappresenta
-il rao pi\'u in alto, mentre l'altro il secondo ramo (pi\'u interno).
-
-\begin{center}
-    \includegraphics[scale=0.45]{Chapters/Img/c02_16.png}\\
-\end{center} 
-
-\begin{itemize}
-    \item Automa caratteristico \\
-    \item Lookahead Function \\
-\end{itemize}
-
-Coppie diverse di questi due insiemi ci danno tipi di grammatiche diverse.
-
-Gli automi che stiamo utilizzando devono essere in grado di ricordare abbastanza da essere in grado di tornare indietro fino al punto 
-in cui abbiamo sostituito una certa sequenza di terminali/non terminali con un'altra.
-
-$G = (V,T,S,P)$, aggiungo una produzione $S' \rightarrow S$, $G' = (V \cup \{S'\},T,S',P \cup \{S' \rightarrow S\})$
-$A \rightarrow \alpha . \beta $ 
-
-All'inizio ho .S, ovvero non ho ancora letto nulla e devo leggere S.
-
-All'inizio (il nodo iniziale), non ho ancora visto nulla. Visto che S pu\'o iniziare con aSb o ab non sappiamo davanti a quale sviluppo ci troviamo. Il primo stato \'e quindi 
-
-$S' \rightarrow .S$\\
-$S \rightarrow .aSb$\\
-$S \rightarrow .ab$\\
-
-Questo pu\'o essere visto come un nodo. Da questo stato mi muovo verso un altro stato (con una a-transizione, perch\'e vedo che iniziano 
-quasi tutte con a). In questo stato avr\'o:
-$S \rightarrow a.Sb$\\
-$S \rightarrow a.b$\\
-
-Adesso mi aspetto di vedere l'espansione di una S. Devo quindi aggiungere a questo nodo anche quelle produzioni, e diventa quindi:
-$S \rightarrow a.Sb$\\
-$S \rightarrow a.b$\\
-$S \rightarrow .aSb$\\
-$S \rightarrow .ab$\\
-
-Notare che le ultime due sono le stesse delle ultime due del nodo prima. Quella \'e la chiusura, mentre le due prima sono i generatori dello stato (kernel dello stato, \textbf{kernel items}).
-
-Gli stati che sono terminali (ovvero che nol disegno prima avevano le transizioni scritte vicino), sono del tipo $S \rightarrow ab.$ ,
-ovvero che hanno incontrato di tutto e di cui si pu\'o eseguire la riduzione. Questi si chiamano \textbf{reducing items}.
-
-Dallo stato con 4 items che avevo prima, si pu\'o fare una b-transizione che va in uno di quelli stati terminali, ovvero:
-$S \rightarrow ab.$\\
-Questo perch\'e la seconda produzione si aspetta b, che poi completa quello che viene generato da quella produzione.
-Sempre da quello stato con 4 produzioni partir\'a anche una a-transizione ed una S-transizione. Per vedere che transizioni devo avere, 
-devo vedere la prima lettera dopo il punto per ogni item di quel nodo.
-
-\section{Items}
-$G=(V,T,S,P)$\\
-$G'=(V \cup \{ S' \},T,S',P \cup \{S' \rightarrow S\})$, con $S' \not\in V$.
-
-Un LR(0)-item di G' \'e una produzione di G con un punto in qualche posizione del body, ovvero $A \rightarrow \alpha . \beta$ .
-Alla produzione della forma $A \rightarrow \varepsilon$ corrisponde un solo LR(0)-item, ovvero $A \rightarrow . $\\
-L'item $A \rightarrow \alpha . \beta $ \'e detto:
-\begin{tabular}{ll}
-    iniziale    &   se $A = S' \land \alpha = \varepsilon \land \beta = S$, cio\'e se l'item \'e $S' \rightarrow .S$\\
-    accepting   &   se $A = S' \land \alpha = S \land \beta = \varepsilon $, cio\'e se l'item \'e $S' \rightarrow S.$\\
-    kernel      &   se \'e un iniziale o tale che $\alpha != \varepsilon$ \\
-    closure     &   se $\alpha = \varepsilon$ e non \'e iniziale \\
-    reducing    &   se non \'e accepting e $\beta = \varepsilon$, cio\'e se il punto \'e in fondo $\land !accepting$ \\
-\end{tabular}

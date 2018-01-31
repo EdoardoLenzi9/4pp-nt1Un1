@@ -141,7 +141,7 @@
 \@writefile{toc}{\contentsline {subsubsection}{DEF}{38}{section*.5}}
 \@writefile{toc}{\contentsline {subsubsection}{Lemma}{38}{section*.6}}
 \@writefile{toc}{\contentsline {section}{\numberline {8.11}Algoritmo di fattorizzazione a sinistra}{38}{section.8.11}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {9}Parsing Bottom Up}{40}{chapter.9}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {9}Parsing Bottom Up (Zampedri)}{40}{chapter.9}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{toc}{\contentsline {section}{\numberline {9.1}Reductions}{40}{section.9.1}}
@@ -166,7 +166,7 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {9.8.1}Resolve Shift/Reduce Conflicts}{48}{subsection.9.8.1}}
 \@writefile{toc}{\contentsline {section}{\numberline {9.9}More Powerful LR Parsers}{49}{section.9.9}}
 \@writefile{toc}{\contentsline {section}{\numberline {9.10}Canonical LR(1) items}{49}{section.9.10}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {9.10.1}Costructing LR(1) sets of Items}{49}{subsection.9.10.1}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {9.10.1}Closure Function for LR(1) Sets of Items}{49}{subsection.9.10.1}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {9.10.2}Costructing LR(1) Goto Function}{49}{subsection.9.10.2}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {9.10.3}Items(G')}{50}{subsection.9.10.3}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {9.10.4}Esempio}{50}{subsection.9.10.4}}
@@ -175,18 +175,37 @@
 \@writefile{toc}{\contentsline {section}{\numberline {9.11}LALR (LookAhead LR) Parsing Table}{52}{section.9.11}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {9.11.1}LALR Parsing Table}{52}{subsection.9.11.1}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {9.11.2}Esempio}{53}{subsection.9.11.2}}
-\@writefile{toc}{\contentsline {section}{\numberline {9.12}Fine Zampedri}{53}{section.9.12}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {9.12.1}Esempio}{53}{subsection.9.12.1}}
-\@writefile{toc}{\contentsline {section}{\numberline {9.13}Algoritmo di shift/reduce}{54}{section.9.13}}
-\@writefile{toc}{\contentsline {section}{\numberline {9.14}Items}{56}{section.9.14}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {10}Costruzione di un automa caratteristico LR(0) o LR(1)}{57}{chapter.10}}
+\@writefile{toc}{\contentsline {section}{\numberline {9.12}Efficient Construction of LALR Parsing Table}{53}{section.9.12}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {10}Bottom Up (Farina)}{54}{chapter.10}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {section}{\numberline {10.1}Algoritmo di $closure_0(P)$}{58}{section.10.1}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {10.1.1}Esempio}{58}{subsection.10.1.1}}
-\@writefile{toc}{\contentsline {section}{\numberline {10.2}Creazione della tabella di parsing}{58}{section.10.2}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {10.2.1}Esercizio}{59}{subsection.10.2.1}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {10.2.2}Esempio}{59}{subsection.10.2.2}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {10.2.3}Esempio}{60}{subsection.10.2.3}}
-\@writefile{toc}{\contentsline {section}{\numberline {10.3}LR(1)}{61}{section.10.3}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {10.3.1}Esempio}{61}{subsection.10.3.1}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {10.0.1}Esempio}{54}{subsection.10.0.1}}
+\@writefile{toc}{\contentsline {section}{\numberline {10.1}Algoritmo di shift/reduce}{55}{section.10.1}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {10.1.1}Closure}{56}{subsection.10.1.1}}
+\@writefile{toc}{\contentsline {section}{\numberline {10.2}Items}{57}{section.10.2}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {11}Costruzione di un automa caratteristico LR(0) o LR(1)}{58}{chapter.11}}
+\@writefile{lof}{\addvspace {10\p@ }}
+\@writefile{lot}{\addvspace {10\p@ }}
+\@writefile{toc}{\contentsline {subsection}{\numberline {11.0.1}Esempi di closure, grammatica SLR}{58}{subsection.11.0.1}}
+\@writefile{toc}{\contentsline {section}{\numberline {11.1}Algoritmo di $closure_0(P)$}{59}{section.11.1}}
+\@writefile{toc}{\contentsline {section}{\numberline {11.2}LR(0) automaton}{59}{section.11.2}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {11.2.1}Esempio}{59}{subsection.11.2.1}}
+\@writefile{toc}{\contentsline {section}{\numberline {11.3}Creazione della tabella di parsing}{59}{section.11.3}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {11.3.1}Esercizio}{60}{subsection.11.3.1}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {11.3.2}Esempio Conflitti Shift/Reduce}{60}{subsection.11.3.2}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {11.3.3}Esempio Conflitti Reduce/Reduce}{62}{subsection.11.3.3}}
+\@writefile{toc}{\contentsline {section}{\numberline {11.4}LR(1)}{63}{section.11.4}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {11.4.1}Esempio grammatica LR(1)}{63}{subsection.11.4.1}}
+\@writefile{toc}{\contentsline {section}{\numberline {11.5}Algoritmo $Closure_1(P)$}{63}{section.11.5}}
+\@writefile{toc}{\contentsline {section}{\numberline {11.6}Esempio grammatica LALR}{64}{section.11.6}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {11.6.1}Ricorda}{66}{subsection.11.6.1}}
+\@writefile{toc}{\contentsline {section}{\numberline {11.7}Algoritmo LALR(1) (inefficiente)}{66}{section.11.7}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {11.7.1}Esempio (Vedi esempio conflitti reduce/reduce)}{66}{subsection.11.7.1}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {11.7.2}Esempio}{68}{subsection.11.7.2}}
+\@writefile{toc}{\contentsline {section}{\numberline {11.8}Algoritmo LALR (efficiente)}{68}{section.11.8}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {11.8.1}Esempio}{68}{subsection.11.8.1}}
+\@writefile{toc}{\contentsline {section}{\numberline {11.9}Costruzione automa simbolico}{70}{section.11.9}}
+\@writefile{toc}{\contentsline {section}{\numberline {11.10}Grammatiche Attribuite}{71}{section.11.10}}
+\@writefile{toc}{\contentsline {section}{\numberline {11.11}Attributi Sintetizzati ed Ereditati}{71}{section.11.11}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {11.11.1}Esempio}{72}{subsection.11.11.1}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {11.11.2}Esempio}{72}{subsection.11.11.2}}
