@@ -634,8 +634,8 @@ Computare la $closure_1( \{ [ S' \rightarrow S,\ \{\$\} ] \} )$ (nodo 0 e disegn
 	$S' \rightarrow .S,\ 	\{ \$ \} $		\\
 	$S \rightarrow .L = R,\ 	\{ \$ \} $		\\
 	$S \rightarrow .R,\ 	\{ \$ \} $		\\
-	$L \rightarrow .*R,\ 	\{ \$ \} $		\\
-	$L \rightarrow .id,\ 	\{ \$ \} $		\\
+	$L \rightarrow .*R,\ 	\{ =, \$ \} $		\\
+	$L \rightarrow .id,\ 	\{ =, \$ \} $		\\
 	$R \rightarrow .L,\ 	\{ \$ \} $		\\
 \end{tabular}\\[5pt]
 
@@ -714,7 +714,7 @@ Computare la $closure_1( \{ [ S' \rightarrow S,\ \{\$\} ] \} )$ (nodo 0 e disegn
 	$L \rightarrow *R.,\ 	\{ \$ \} $		\\
 \end{tabular}\\[5pt]
 
-Notare che i nodi 8 e 10 sembrano uguali ma non lo sono perch\'e hanno lookahead diversi; anche nel gravo saranno nodi distinti 
+Notare che i nodi 8 e 10 sembrano uguali ma non lo sono perch\'e hanno lookahead diversi; anche nel grafo saranno nodi distinti 
 mentre se avessimo fatto un automa LR(0) sarebbero stati uniti. Lo stesso automa LR(0):
 
 \begin{center}
@@ -727,7 +727,7 @@ Guardiamo se \'e SLR(1)
 
 \begin{tabular}{|c|c|c|c|c|c|c|c|}
 	\hline
-		&	\textbf{id} 	& $\bm{*}$	& $\bm{*}$	& $\bm{*}$	& 	\textbf{S}  & \textbf{L} & \textbf{R} \\  
+		&	\textbf{id} 	& $\bm{*}$	& $\bm{=}$	& $\bm{\$}$	& 	\textbf{S}  & \textbf{L} & \textbf{R} \\  
 	\hline
 	\textbf{0}	&	S5 	& S4 	& 		& 		& 1 	& 2 	& 3 	\\
 	\hline
@@ -769,13 +769,13 @@ Lo posso fare per 4 e 11, 5 e 12, 8 e 10, 7 e 13
 	\hline
 		&	\textbf{id} 	& $\bm{*}$	& $\bm{*}$	& $\bm{*}$	& 	\textbf{S}  & \textbf{L} & \textbf{R} \\  
 	\hline
-	\textbf{411}	&	S512 & S411 	& 		& 		& 810 	& 2 	& 713 	\\
+	\textbf{411}	&	S512 & S411 	& 		& 		&  	& 810 	& 713 	\\
 	\hline
 	\textbf{512}	&		& 		& r: $L \rightarrow id$		& r: $L \rightarrow id$ 	& 		& 		& 		\\
 	\hline
 	\textbf{713}	&		& 		& r: $L \rightarrow *R$ 	& r: $L \rightarrow *R$		& 		& 	 	& 		\\
 	\hline
-	\textbf{810}	&		& 		& r: $r \rightarrow L$ 	& r: $R \rightarrow L$		& 		& 	 	& 		\\
+	\textbf{810}	&		& 		& r: $R \rightarrow L$ 	& r: $R \rightarrow L$		& 		& 	 	& 		\\
 	\hline
 \end{tabular}
 
@@ -1024,7 +1024,7 @@ $R \rightarrow L$ \\
 
 9 = 
 \begin{tabular}{l}
-	$S \rightarrow L = R., \{ x_10 \}$\\
+	$S \rightarrow L = R., \{ x_{10} \}$\\
 \end{tabular}\\[5pt]
 
 $x_0 = \{ \$ \}$ \\
@@ -1037,7 +1037,7 @@ $x_6 = \{ x_5 \}$ \\
 $x_7 = \{ x_2 \}$ \\
 $x_8 = \{ x_5 \}$ \\
 $x_9 = \{ \{x_5\} \cup \{ x_7\} \}$ \\
-$x_10 = \{ x_7 \}$ \\
+$x_{10} = \{ x_7 \}$ \\
 
 Ora devo risolvere il sistema 
 \begin{tabular}{ll}
@@ -1052,7 +1052,7 @@ Ora devo risolvere il sistema
 	$x_7 $				&	$x_0$ \\
 	$x_8 $				&	$x_5$ \\
 	$x_9 = \{ x_5, x_7 \}$	&	$x_9$ \\
-	$x_10$				&	$x_10$ \\
+	$x_{10}$				&	$x_{10}$ \\
 \end{tabular}
 
 Mi rimangono quindi solo 4 variabili $x_0, x_5, x_6, x_9$

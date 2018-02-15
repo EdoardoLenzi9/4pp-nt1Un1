@@ -11,11 +11,8 @@
 %token a b num
 
 %%
-S: S E '\n' { printf("%d\n", $2); }
- | ;
-E: num { $$ = $1; }
- | E a E { $$ = $1 * $3; }
- | E b E { $$ = $1 + $3; } ;
+S: EE '\n' { printf("%d\n", $1); /*\n per far andare avanti all'infinito la calcolatrice*/ } 
+E: a | b { printf("--%d\n", $1);
 %%
 
 int main() {

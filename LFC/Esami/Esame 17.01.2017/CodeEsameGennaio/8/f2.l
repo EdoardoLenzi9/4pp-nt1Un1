@@ -7,11 +7,7 @@
 
 %%
 
-"a"   { return a; }
-"b"   { return b; }
-[0-9]+  { yylval = atoi(yytext); return num; }
-[-+\n]  return *yytext;
-[ \t]  ;
-.   yyerror("Invalid character");
+"a"   {  yylval = 1; return a; }
+"b"   {  yylval = 2; return b; }
 
 %%

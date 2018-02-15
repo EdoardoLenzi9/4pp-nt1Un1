@@ -1,7 +1,8 @@
-rm y.tab.h y.tab.c
+clear 
+rm *.out
 flex *.l 
-bison -d *.y -o y.tab.c 
-gcc lex.yy.c y.tab.c -o Parser.out -std=c99
+gcc lex.yy.c -o Lexer.out -std=c99
+cp *.txt Input.txt
 echo "\n EXECUTION \n"
-./Parser.out < input.txt
-echo "\n END \n"
+./Lexer.out
+echo "\n\n END \n"
